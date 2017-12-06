@@ -385,6 +385,21 @@ $colors: (
   }
 }
 
+@each $color_name, $color in $colors {
+  @each $color_type, $color_value in $color {
+    @if $color_type == "base" {
+      .#{$color_name}-fill {
+        fill: $color_value !important;
+      }
+    }
+    @else {
+      .#{$color_name}-fill.fill-#{$color_type} {
+        fill: $color_value !important;
+      }
+    }
+  }
+}
+
 // Shade classes
 @each $color, $color_value in $shades {
   .#{$color} {
@@ -394,6 +409,13 @@ $colors: (
     color: $color_value !important;
   }
 }
+
+@each $color, $color_value in $shades {
+  .#{$color}-fill {
+    fill: $color_value !important;
+  }
+}
+
 
 
 // usage: color("name_of_color", "type_of_color")

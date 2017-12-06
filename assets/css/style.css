@@ -1633,6 +1633,807 @@ CSS3 GRADIENTS.
 .shades-text.text-transparent {
   color: transparent !important; }
 
+.materialize-red-fill.fill-lighten-5 {
+  fill: #fdeaeb !important; }
+
+.materialize-red-fill.fill-lighten-4 {
+  fill: #f8c1c3 !important; }
+
+.materialize-red-fill.fill-lighten-3 {
+  fill: #f3989b !important; }
+
+.materialize-red-fill.fill-lighten-2 {
+  fill: #ee6e73 !important; }
+
+.materialize-red-fill.fill-lighten-1 {
+  fill: #ea454b !important; }
+
+.materialize-red-fill {
+  fill: #e51c23 !important; }
+
+.materialize-red-fill.fill-darken-1 {
+  fill: #d0181e !important; }
+
+.materialize-red-fill.fill-darken-2 {
+  fill: #b9151b !important; }
+
+.materialize-red-fill.fill-darken-3 {
+  fill: #a21318 !important; }
+
+.materialize-red-fill.fill-darken-4 {
+  fill: #8b1014 !important; }
+
+.red-fill.fill-lighten-5 {
+  fill: #FFEBEE !important; }
+
+.red-fill.fill-lighten-4 {
+  fill: #FFCDD2 !important; }
+
+.red-fill.fill-lighten-3 {
+  fill: #EF9A9A !important; }
+
+.red-fill.fill-lighten-2 {
+  fill: #E57373 !important; }
+
+.red-fill.fill-lighten-1 {
+  fill: #EF5350 !important; }
+
+.red-fill {
+  fill: #F44336 !important; }
+
+.red-fill.fill-darken-1 {
+  fill: #E53935 !important; }
+
+.red-fill.fill-darken-2 {
+  fill: #D32F2F !important; }
+
+.red-fill.fill-darken-3 {
+  fill: #C62828 !important; }
+
+.red-fill.fill-darken-4 {
+  fill: #B71C1C !important; }
+
+.red-fill.fill-accent-1 {
+  fill: #FF8A80 !important; }
+
+.red-fill.fill-accent-2 {
+  fill: #FF5252 !important; }
+
+.red-fill.fill-accent-3 {
+  fill: #FF1744 !important; }
+
+.red-fill.fill-accent-4 {
+  fill: #D50000 !important; }
+
+.pink-fill.fill-lighten-5 {
+  fill: #fce4ec !important; }
+
+.pink-fill.fill-lighten-4 {
+  fill: #f8bbd0 !important; }
+
+.pink-fill.fill-lighten-3 {
+  fill: #f48fb1 !important; }
+
+.pink-fill.fill-lighten-2 {
+  fill: #f06292 !important; }
+
+.pink-fill.fill-lighten-1 {
+  fill: #ec407a !important; }
+
+.pink-fill {
+  fill: #e91e63 !important; }
+
+.pink-fill.fill-darken-1 {
+  fill: #d81b60 !important; }
+
+.pink-fill.fill-darken-2 {
+  fill: #c2185b !important; }
+
+.pink-fill.fill-darken-3 {
+  fill: #ad1457 !important; }
+
+.pink-fill.fill-darken-4 {
+  fill: #880e4f !important; }
+
+.pink-fill.fill-accent-1 {
+  fill: #ff80ab !important; }
+
+.pink-fill.fill-accent-2 {
+  fill: #ff4081 !important; }
+
+.pink-fill.fill-accent-3 {
+  fill: #f50057 !important; }
+
+.pink-fill.fill-accent-4 {
+  fill: #c51162 !important; }
+
+.purple-fill.fill-lighten-5 {
+  fill: #f3e5f5 !important; }
+
+.purple-fill.fill-lighten-4 {
+  fill: #e1bee7 !important; }
+
+.purple-fill.fill-lighten-3 {
+  fill: #ce93d8 !important; }
+
+.purple-fill.fill-lighten-2 {
+  fill: #ba68c8 !important; }
+
+.purple-fill.fill-lighten-1 {
+  fill: #ab47bc !important; }
+
+.purple-fill {
+  fill: #9c27b0 !important; }
+
+.purple-fill.fill-darken-1 {
+  fill: #8e24aa !important; }
+
+.purple-fill.fill-darken-2 {
+  fill: #7b1fa2 !important; }
+
+.purple-fill.fill-darken-3 {
+  fill: #6a1b9a !important; }
+
+.purple-fill.fill-darken-4 {
+  fill: #4a148c !important; }
+
+.purple-fill.fill-accent-1 {
+  fill: #ea80fc !important; }
+
+.purple-fill.fill-accent-2 {
+  fill: #e040fb !important; }
+
+.purple-fill.fill-accent-3 {
+  fill: #d500f9 !important; }
+
+.purple-fill.fill-accent-4 {
+  fill: #aa00ff !important; }
+
+.deep-purple-fill.fill-lighten-5 {
+  fill: #ede7f6 !important; }
+
+.deep-purple-fill.fill-lighten-4 {
+  fill: #d1c4e9 !important; }
+
+.deep-purple-fill.fill-lighten-3 {
+  fill: #b39ddb !important; }
+
+.deep-purple-fill.fill-lighten-2 {
+  fill: #9575cd !important; }
+
+.deep-purple-fill.fill-lighten-1 {
+  fill: #7e57c2 !important; }
+
+.deep-purple-fill {
+  fill: #673ab7 !important; }
+
+.deep-purple-fill.fill-darken-1 {
+  fill: #5e35b1 !important; }
+
+.deep-purple-fill.fill-darken-2 {
+  fill: #512da8 !important; }
+
+.deep-purple-fill.fill-darken-3 {
+  fill: #4527a0 !important; }
+
+.deep-purple-fill.fill-darken-4 {
+  fill: #311b92 !important; }
+
+.deep-purple-fill.fill-accent-1 {
+  fill: #b388ff !important; }
+
+.deep-purple-fill.fill-accent-2 {
+  fill: #7c4dff !important; }
+
+.deep-purple-fill.fill-accent-3 {
+  fill: #651fff !important; }
+
+.deep-purple-fill.fill-accent-4 {
+  fill: #6200ea !important; }
+
+.indigo-fill.fill-lighten-5 {
+  fill: #e8eaf6 !important; }
+
+.indigo-fill.fill-lighten-4 {
+  fill: #c5cae9 !important; }
+
+.indigo-fill.fill-lighten-3 {
+  fill: #9fa8da !important; }
+
+.indigo-fill.fill-lighten-2 {
+  fill: #7986cb !important; }
+
+.indigo-fill.fill-lighten-1 {
+  fill: #5c6bc0 !important; }
+
+.indigo-fill {
+  fill: #3f51b5 !important; }
+
+.indigo-fill.fill-darken-1 {
+  fill: #3949ab !important; }
+
+.indigo-fill.fill-darken-2 {
+  fill: #303f9f !important; }
+
+.indigo-fill.fill-darken-3 {
+  fill: #283593 !important; }
+
+.indigo-fill.fill-darken-4 {
+  fill: #1a237e !important; }
+
+.indigo-fill.fill-accent-1 {
+  fill: #8c9eff !important; }
+
+.indigo-fill.fill-accent-2 {
+  fill: #536dfe !important; }
+
+.indigo-fill.fill-accent-3 {
+  fill: #3d5afe !important; }
+
+.indigo-fill.fill-accent-4 {
+  fill: #304ffe !important; }
+
+.blue-fill.fill-lighten-5 {
+  fill: #E3F2FD !important; }
+
+.blue-fill.fill-lighten-4 {
+  fill: #BBDEFB !important; }
+
+.blue-fill.fill-lighten-3 {
+  fill: #90CAF9 !important; }
+
+.blue-fill.fill-lighten-2 {
+  fill: #64B5F6 !important; }
+
+.blue-fill.fill-lighten-1 {
+  fill: #42A5F5 !important; }
+
+.blue-fill {
+  fill: #2196F3 !important; }
+
+.blue-fill.fill-darken-1 {
+  fill: #1E88E5 !important; }
+
+.blue-fill.fill-darken-2 {
+  fill: #1976D2 !important; }
+
+.blue-fill.fill-darken-3 {
+  fill: #1565C0 !important; }
+
+.blue-fill.fill-darken-4 {
+  fill: #0D47A1 !important; }
+
+.blue-fill.fill-accent-1 {
+  fill: #82B1FF !important; }
+
+.blue-fill.fill-accent-2 {
+  fill: #448AFF !important; }
+
+.blue-fill.fill-accent-3 {
+  fill: #2979FF !important; }
+
+.blue-fill.fill-accent-4 {
+  fill: #2962FF !important; }
+
+.light-blue-fill.fill-lighten-5 {
+  fill: #e1f5fe !important; }
+
+.light-blue-fill.fill-lighten-4 {
+  fill: #b3e5fc !important; }
+
+.light-blue-fill.fill-lighten-3 {
+  fill: #81d4fa !important; }
+
+.light-blue-fill.fill-lighten-2 {
+  fill: #4fc3f7 !important; }
+
+.light-blue-fill.fill-lighten-1 {
+  fill: #29b6f6 !important; }
+
+.light-blue-fill {
+  fill: #03a9f4 !important; }
+
+.light-blue-fill.fill-darken-1 {
+  fill: #039be5 !important; }
+
+.light-blue-fill.fill-darken-2 {
+  fill: #0288d1 !important; }
+
+.light-blue-fill.fill-darken-3 {
+  fill: #0277bd !important; }
+
+.light-blue-fill.fill-darken-4 {
+  fill: #01579b !important; }
+
+.light-blue-fill.fill-accent-1 {
+  fill: #80d8ff !important; }
+
+.light-blue-fill.fill-accent-2 {
+  fill: #40c4ff !important; }
+
+.light-blue-fill.fill-accent-3 {
+  fill: #00b0ff !important; }
+
+.light-blue-fill.fill-accent-4 {
+  fill: #0091ea !important; }
+
+.cyan-fill.fill-lighten-5 {
+  fill: #e0f7fa !important; }
+
+.cyan-fill.fill-lighten-4 {
+  fill: #b2ebf2 !important; }
+
+.cyan-fill.fill-lighten-3 {
+  fill: #80deea !important; }
+
+.cyan-fill.fill-lighten-2 {
+  fill: #4dd0e1 !important; }
+
+.cyan-fill.fill-lighten-1 {
+  fill: #26c6da !important; }
+
+.cyan-fill {
+  fill: #00bcd4 !important; }
+
+.cyan-fill.fill-darken-1 {
+  fill: #00acc1 !important; }
+
+.cyan-fill.fill-darken-2 {
+  fill: #0097a7 !important; }
+
+.cyan-fill.fill-darken-3 {
+  fill: #00838f !important; }
+
+.cyan-fill.fill-darken-4 {
+  fill: #006064 !important; }
+
+.cyan-fill.fill-accent-1 {
+  fill: #84ffff !important; }
+
+.cyan-fill.fill-accent-2 {
+  fill: #18ffff !important; }
+
+.cyan-fill.fill-accent-3 {
+  fill: #00e5ff !important; }
+
+.cyan-fill.fill-accent-4 {
+  fill: #00b8d4 !important; }
+
+.teal-fill.fill-lighten-5 {
+  fill: #e0f2f1 !important; }
+
+.teal-fill.fill-lighten-4 {
+  fill: #b2dfdb !important; }
+
+.teal-fill.fill-lighten-3 {
+  fill: #80cbc4 !important; }
+
+.teal-fill.fill-lighten-2 {
+  fill: #4db6ac !important; }
+
+.teal-fill.fill-lighten-1 {
+  fill: #26a69a !important; }
+
+.teal-fill {
+  fill: #009688 !important; }
+
+.teal-fill.fill-darken-1 {
+  fill: #00897b !important; }
+
+.teal-fill.fill-darken-2 {
+  fill: #00796b !important; }
+
+.teal-fill.fill-darken-3 {
+  fill: #00695c !important; }
+
+.teal-fill.fill-darken-4 {
+  fill: #004d40 !important; }
+
+.teal-fill.fill-accent-1 {
+  fill: #a7ffeb !important; }
+
+.teal-fill.fill-accent-2 {
+  fill: #64ffda !important; }
+
+.teal-fill.fill-accent-3 {
+  fill: #1de9b6 !important; }
+
+.teal-fill.fill-accent-4 {
+  fill: #00bfa5 !important; }
+
+.green-fill.fill-lighten-5 {
+  fill: #E8F5E9 !important; }
+
+.green-fill.fill-lighten-4 {
+  fill: #C8E6C9 !important; }
+
+.green-fill.fill-lighten-3 {
+  fill: #A5D6A7 !important; }
+
+.green-fill.fill-lighten-2 {
+  fill: #81C784 !important; }
+
+.green-fill.fill-lighten-1 {
+  fill: #66BB6A !important; }
+
+.green-fill {
+  fill: #4CAF50 !important; }
+
+.green-fill.fill-darken-1 {
+  fill: #43A047 !important; }
+
+.green-fill.fill-darken-2 {
+  fill: #388E3C !important; }
+
+.green-fill.fill-darken-3 {
+  fill: #2E7D32 !important; }
+
+.green-fill.fill-darken-4 {
+  fill: #1B5E20 !important; }
+
+.green-fill.fill-accent-1 {
+  fill: #B9F6CA !important; }
+
+.green-fill.fill-accent-2 {
+  fill: #69F0AE !important; }
+
+.green-fill.fill-accent-3 {
+  fill: #00E676 !important; }
+
+.green-fill.fill-accent-4 {
+  fill: #00C853 !important; }
+
+.light-green-fill.fill-lighten-5 {
+  fill: #f1f8e9 !important; }
+
+.light-green-fill.fill-lighten-4 {
+  fill: #dcedc8 !important; }
+
+.light-green-fill.fill-lighten-3 {
+  fill: #c5e1a5 !important; }
+
+.light-green-fill.fill-lighten-2 {
+  fill: #aed581 !important; }
+
+.light-green-fill.fill-lighten-1 {
+  fill: #9ccc65 !important; }
+
+.light-green-fill {
+  fill: #8bc34a !important; }
+
+.light-green-fill.fill-darken-1 {
+  fill: #7cb342 !important; }
+
+.light-green-fill.fill-darken-2 {
+  fill: #689f38 !important; }
+
+.light-green-fill.fill-darken-3 {
+  fill: #558b2f !important; }
+
+.light-green-fill.fill-darken-4 {
+  fill: #33691e !important; }
+
+.light-green-fill.fill-accent-1 {
+  fill: #ccff90 !important; }
+
+.light-green-fill.fill-accent-2 {
+  fill: #b2ff59 !important; }
+
+.light-green-fill.fill-accent-3 {
+  fill: #76ff03 !important; }
+
+.light-green-fill.fill-accent-4 {
+  fill: #64dd17 !important; }
+
+.lime-fill.fill-lighten-5 {
+  fill: #f9fbe7 !important; }
+
+.lime-fill.fill-lighten-4 {
+  fill: #f0f4c3 !important; }
+
+.lime-fill.fill-lighten-3 {
+  fill: #e6ee9c !important; }
+
+.lime-fill.fill-lighten-2 {
+  fill: #dce775 !important; }
+
+.lime-fill.fill-lighten-1 {
+  fill: #d4e157 !important; }
+
+.lime-fill {
+  fill: #cddc39 !important; }
+
+.lime-fill.fill-darken-1 {
+  fill: #c0ca33 !important; }
+
+.lime-fill.fill-darken-2 {
+  fill: #afb42b !important; }
+
+.lime-fill.fill-darken-3 {
+  fill: #9e9d24 !important; }
+
+.lime-fill.fill-darken-4 {
+  fill: #827717 !important; }
+
+.lime-fill.fill-accent-1 {
+  fill: #f4ff81 !important; }
+
+.lime-fill.fill-accent-2 {
+  fill: #eeff41 !important; }
+
+.lime-fill.fill-accent-3 {
+  fill: #c6ff00 !important; }
+
+.lime-fill.fill-accent-4 {
+  fill: #aeea00 !important; }
+
+.yellow-fill.fill-lighten-5 {
+  fill: #fffde7 !important; }
+
+.yellow-fill.fill-lighten-4 {
+  fill: #fff9c4 !important; }
+
+.yellow-fill.fill-lighten-3 {
+  fill: #fff59d !important; }
+
+.yellow-fill.fill-lighten-2 {
+  fill: #fff176 !important; }
+
+.yellow-fill.fill-lighten-1 {
+  fill: #ffee58 !important; }
+
+.yellow-fill {
+  fill: #ffeb3b !important; }
+
+.yellow-fill.fill-darken-1 {
+  fill: #fdd835 !important; }
+
+.yellow-fill.fill-darken-2 {
+  fill: #fbc02d !important; }
+
+.yellow-fill.fill-darken-3 {
+  fill: #f9a825 !important; }
+
+.yellow-fill.fill-darken-4 {
+  fill: #f57f17 !important; }
+
+.yellow-fill.fill-accent-1 {
+  fill: #ffff8d !important; }
+
+.yellow-fill.fill-accent-2 {
+  fill: #ffff00 !important; }
+
+.yellow-fill.fill-accent-3 {
+  fill: #ffea00 !important; }
+
+.yellow-fill.fill-accent-4 {
+  fill: #ffd600 !important; }
+
+.amber-fill.fill-lighten-5 {
+  fill: #fff8e1 !important; }
+
+.amber-fill.fill-lighten-4 {
+  fill: #ffecb3 !important; }
+
+.amber-fill.fill-lighten-3 {
+  fill: #ffe082 !important; }
+
+.amber-fill.fill-lighten-2 {
+  fill: #ffd54f !important; }
+
+.amber-fill.fill-lighten-1 {
+  fill: #ffca28 !important; }
+
+.amber-fill {
+  fill: #ffc107 !important; }
+
+.amber-fill.fill-darken-1 {
+  fill: #ffb300 !important; }
+
+.amber-fill.fill-darken-2 {
+  fill: #ffa000 !important; }
+
+.amber-fill.fill-darken-3 {
+  fill: #ff8f00 !important; }
+
+.amber-fill.fill-darken-4 {
+  fill: #ff6f00 !important; }
+
+.amber-fill.fill-accent-1 {
+  fill: #ffe57f !important; }
+
+.amber-fill.fill-accent-2 {
+  fill: #ffd740 !important; }
+
+.amber-fill.fill-accent-3 {
+  fill: #ffc400 !important; }
+
+.amber-fill.fill-accent-4 {
+  fill: #ffab00 !important; }
+
+.orange-fill.fill-lighten-5 {
+  fill: #fff3e0 !important; }
+
+.orange-fill.fill-lighten-4 {
+  fill: #ffe0b2 !important; }
+
+.orange-fill.fill-lighten-3 {
+  fill: #ffcc80 !important; }
+
+.orange-fill.fill-lighten-2 {
+  fill: #ffb74d !important; }
+
+.orange-fill.fill-lighten-1 {
+  fill: #ffa726 !important; }
+
+.orange-fill {
+  fill: #ff9800 !important; }
+
+.orange-fill.fill-darken-1 {
+  fill: #fb8c00 !important; }
+
+.orange-fill.fill-darken-2 {
+  fill: #f57c00 !important; }
+
+.orange-fill.fill-darken-3 {
+  fill: #ef6c00 !important; }
+
+.orange-fill.fill-darken-4 {
+  fill: #e65100 !important; }
+
+.orange-fill.fill-accent-1 {
+  fill: #ffd180 !important; }
+
+.orange-fill.fill-accent-2 {
+  fill: #ffab40 !important; }
+
+.orange-fill.fill-accent-3 {
+  fill: #ff9100 !important; }
+
+.orange-fill.fill-accent-4 {
+  fill: #ff6d00 !important; }
+
+.deep-orange-fill.fill-lighten-5 {
+  fill: #fbe9e7 !important; }
+
+.deep-orange-fill.fill-lighten-4 {
+  fill: #ffccbc !important; }
+
+.deep-orange-fill.fill-lighten-3 {
+  fill: #ffab91 !important; }
+
+.deep-orange-fill.fill-lighten-2 {
+  fill: #ff8a65 !important; }
+
+.deep-orange-fill.fill-lighten-1 {
+  fill: #ff7043 !important; }
+
+.deep-orange-fill {
+  fill: #ff5722 !important; }
+
+.deep-orange-fill.fill-darken-1 {
+  fill: #f4511e !important; }
+
+.deep-orange-fill.fill-darken-2 {
+  fill: #e64a19 !important; }
+
+.deep-orange-fill.fill-darken-3 {
+  fill: #d84315 !important; }
+
+.deep-orange-fill.fill-darken-4 {
+  fill: #bf360c !important; }
+
+.deep-orange-fill.fill-accent-1 {
+  fill: #ff9e80 !important; }
+
+.deep-orange-fill.fill-accent-2 {
+  fill: #ff6e40 !important; }
+
+.deep-orange-fill.fill-accent-3 {
+  fill: #ff3d00 !important; }
+
+.deep-orange-fill.fill-accent-4 {
+  fill: #dd2c00 !important; }
+
+.brown-fill.fill-lighten-5 {
+  fill: #efebe9 !important; }
+
+.brown-fill.fill-lighten-4 {
+  fill: #d7ccc8 !important; }
+
+.brown-fill.fill-lighten-3 {
+  fill: #bcaaa4 !important; }
+
+.brown-fill.fill-lighten-2 {
+  fill: #a1887f !important; }
+
+.brown-fill.fill-lighten-1 {
+  fill: #8d6e63 !important; }
+
+.brown-fill {
+  fill: #795548 !important; }
+
+.brown-fill.fill-darken-1 {
+  fill: #6d4c41 !important; }
+
+.brown-fill.fill-darken-2 {
+  fill: #5d4037 !important; }
+
+.brown-fill.fill-darken-3 {
+  fill: #4e342e !important; }
+
+.brown-fill.fill-darken-4 {
+  fill: #3e2723 !important; }
+
+.blue-grey-fill.fill-lighten-5 {
+  fill: #eceff1 !important; }
+
+.blue-grey-fill.fill-lighten-4 {
+  fill: #cfd8dc !important; }
+
+.blue-grey-fill.fill-lighten-3 {
+  fill: #b0bec5 !important; }
+
+.blue-grey-fill.fill-lighten-2 {
+  fill: #90a4ae !important; }
+
+.blue-grey-fill.fill-lighten-1 {
+  fill: #78909c !important; }
+
+.blue-grey-fill {
+  fill: #607d8b !important; }
+
+.blue-grey-fill.fill-darken-1 {
+  fill: #546e7a !important; }
+
+.blue-grey-fill.fill-darken-2 {
+  fill: #455a64 !important; }
+
+.blue-grey-fill.fill-darken-3 {
+  fill: #37474f !important; }
+
+.blue-grey-fill.fill-darken-4 {
+  fill: #263238 !important; }
+
+.grey-fill.fill-lighten-5 {
+  fill: #fafafa !important; }
+
+.grey-fill.fill-lighten-4 {
+  fill: #f5f5f5 !important; }
+
+.grey-fill.fill-lighten-3 {
+  fill: #eeeeee !important; }
+
+.grey-fill.fill-lighten-2 {
+  fill: #e0e0e0 !important; }
+
+.grey-fill.fill-lighten-1 {
+  fill: #bdbdbd !important; }
+
+.grey-fill {
+  fill: #9e9e9e !important; }
+
+.grey-fill.fill-darken-1 {
+  fill: #757575 !important; }
+
+.grey-fill.fill-darken-2 {
+  fill: #616161 !important; }
+
+.grey-fill.fill-darken-3 {
+  fill: #424242 !important; }
+
+.grey-fill.fill-darken-4 {
+  fill: #212121 !important; }
+
+.shades-fill.fill-black {
+  fill: #000000 !important; }
+
+.shades-fill.fill-white {
+  fill: #FFFFFF !important; }
+
+.shades-fill.fill-transparent {
+  fill: transparent !important; }
+
 .black {
   background-color: #000000 !important; }
 
@@ -1650,6 +2451,15 @@ CSS3 GRADIENTS.
 
 .transparent-text {
   color: transparent !important; }
+
+.black-fill {
+  fill: #000000 !important; }
+
+.white-fill {
+  fill: #FFFFFF !important; }
+
+.transparent-fill {
+  fill: transparent !important; }
 
 /*** Colors ***/
 /*** Typography ***/
@@ -2070,7 +2880,7 @@ ul {
 .z-depth-0, .commentlist li.depth-2, .commentlist li.depth-3, .commentlist li.depth-4, .commentlist li.depth-5 {
   box-shadow: none !important; }
 
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav, .inside {
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .side-nav, .inside {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .z-depth-1-half, .btn:hover, .btn-large:hover, .btn-floating:hover {
@@ -3124,29 +3934,44 @@ nav {
   .navbar-fixed {
     height: 64px; } }
 @font-face {
-  font-family: "Roboto";
-  src: local(Roboto Thin), url("../font/roboto/Roboto-Thin.eot");
-  src: url("../font/roboto/Roboto-Thin.eot?#iefix") format("embedded-opentype"), url("../font/roboto/Roboto-Thin.woff2") format("woff2"), url("../font/roboto/Roboto-Thin.woff") format("woff"), url("../font/roboto/Roboto-Thin.ttf") format("truetype");
-  font-weight: 200; }
-@font-face {
-  font-family: "Roboto";
-  src: local(Roboto Light), url("../font/roboto/Roboto-Light.eot");
-  src: url("../font/roboto/Roboto-Light.eot?#iefix") format("embedded-opentype"), url("../font/roboto/Roboto-Light.woff2") format("woff2"), url("../font/roboto/Roboto-Light.woff") format("woff"), url("../font/roboto/Roboto-Light.ttf") format("truetype");
+  font-family: "Hind";
+  src: url("../font/hind/Hind-Light.ttf") format("truetype");
   font-weight: 300; }
 @font-face {
-  font-family: "Roboto";
-  src: local(Roboto Regular), url("../font/roboto/Roboto-Regular.eot");
-  src: url("../font/roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../font/roboto/Roboto-Regular.woff2") format("woff2"), url("../font/roboto/Roboto-Regular.woff") format("woff"), url("../font/roboto/Roboto-Regular.ttf") format("truetype");
+  font-family: "Hind";
+  src: url("../font/hind/Hind-Regular.ttf") format("truetype");
   font-weight: 400; }
 @font-face {
-  font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Medium.eot");
-  src: url("../font/roboto/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../font/roboto/Roboto-Medium.woff2") format("woff2"), url("../font/roboto/Roboto-Medium.woff") format("woff"), url("../font/roboto/Roboto-Medium.ttf") format("truetype");
+  font-family: "Hind";
+  src: url("../font/hind/Hind-Medium.ttf") format("truetype");
   font-weight: 500; }
 @font-face {
-  font-family: "Roboto";
-  src: url("../font/roboto/Roboto-Bold.eot");
-  src: url("../font/roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../font/roboto/Roboto-Bold.woff2") format("woff2"), url("../font/roboto/Roboto-Bold.woff") format("woff"), url("../font/roboto/Roboto-Bold.ttf") format("truetype");
+  font-family: "Hind";
+  src: url("../font/hind/Hind-SemiBold.ttf") format("truetype");
+  font-weight: 600; }
+@font-face {
+  font-family: "Hind";
+  src: url("../font/hind/Hind-Bold.ttf") format("truetype");
+  font-weight: 700; }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/montserrat/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300; }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400; }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500; }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600; }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../font/montserrat/Montserrat-Bold.ttf") format("truetype");
   font-weight: 700; }
 a {
   text-decoration: none; }
@@ -3440,54 +4265,6 @@ small {
   @media only screen and (min-width: 993px) {
     .toast {
       float: right; } }
-
-.tabs {
-  display: flex;
-  position: relative;
-  overflow-x: auto;
-  overflow-y: hidden;
-  height: 48px;
-  background-color: #fff;
-  margin: 0 auto;
-  width: 100%;
-  white-space: nowrap; }
-  .tabs .tab {
-    -webkit-box-flex: 1;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    display: block;
-    float: left;
-    text-align: center;
-    line-height: 48px;
-    height: 48px;
-    padding: 0;
-    margin: 0;
-    text-transform: uppercase;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    letter-spacing: .8px;
-    width: 15%;
-    min-width: 80px; }
-    .tabs .tab a {
-      color: #FFFFFF;
-      display: block;
-      width: 100%;
-      height: 100%;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      transition: color .28s ease; }
-      .tabs .tab a:hover {
-        color: white; }
-    .tabs .tab.disabled a {
-      color: white;
-      cursor: default; }
-  .tabs .indicator {
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    background-color: white;
-    will-change: left, right; }
 
 .material-tooltip {
   padding: 10px 8px;
@@ -3842,67 +4619,6 @@ a.waves-effect .waves-ripple {
   max-height: 45%;
   border-radius: 0;
   will-change: bottom, opacity; }
-
-.collapsible {
-  border-top: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-left: 1px solid #ddd;
-  margin: 0.83333rem 0 1.66667rem 0; }
-
-.collapsible-header {
-  display: block;
-  cursor: pointer;
-  min-height: 3rem;
-  line-height: 3rem;
-  padding: 0 1rem;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd; }
-  .collapsible-header i {
-    width: 2rem;
-    font-size: 1.6rem;
-    line-height: 3rem;
-    display: block;
-    float: left;
-    text-align: center;
-    margin-right: 1rem; }
-
-.collapsible-body {
-  display: none;
-  border-bottom: 1px solid #ddd;
-  box-sizing: border-box; }
-  .collapsible-body p {
-    margin: 0;
-    padding: 2rem; }
-
-.side-nav .collapsible {
-  border: none;
-  box-shadow: none; }
-  .side-nav .collapsible li {
-    padding: 0; }
-.side-nav .collapsible-header {
-  background-color: transparent;
-  border: none;
-  line-height: inherit;
-  height: inherit;
-  margin: 0 1rem; }
-  .side-nav .collapsible-header i {
-    line-height: inherit; }
-.side-nav .collapsible-body {
-  border: 0;
-  background-color: #fff; }
-  .side-nav .collapsible-body li a {
-    margin: 0 1rem 0 2rem; }
-
-.collapsible.popout {
-  border: none;
-  box-shadow: none; }
-  .collapsible.popout > li {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    margin: 0 24px;
-    transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-  .collapsible.popout > li.active {
-    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-    margin: 16px 0; }
 
 .chip {
   display: inline-block;
@@ -5330,31 +6046,115 @@ select {
   left: 1rem;
   max-width: calc(100% - 2rem ); }
 
-.carousel {
+.flickity-enabled {
+  position: relative; }
+
+.flickity-enabled:focus {
+  outline: 0; }
+
+.flickity-viewport {
   overflow: hidden;
   position: relative;
+  height: 100%; }
+
+.flickity-slider {
+  position: absolute;
   width: 100%;
-  height: 400px;
-  perspective: 500px;
-  transform-style: preserve-3d;
-  transform-origin: 0% 50%; }
-  .carousel .carousel-item {
-    width: 200px;
-    position: absolute;
-    top: 0;
-    left: 0; }
-    .carousel .carousel-item img {
-      width: 100%; }
-  .carousel.carousel-slider {
-    top: 0;
-    left: 0;
-    height: 0; }
-    .carousel.carousel-slider .carousel-item {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0; }
+  height: 100%; }
+
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab; }
+
+.flickity-enabled.is-draggable.flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing; }
+
+.flickity-prev-next-button {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.flickity-prev-next-button:hover {
+  background: #fff; }
+
+.flickity-prev-next-button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 5px #09f; }
+
+.flickity-prev-next-button:active {
+  opacity: .6; }
+
+.flickity-prev-next-button.previous {
+  left: 10px; }
+
+.flickity-prev-next-button.next {
+  right: 10px; }
+
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px; }
+
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px; }
+
+.flickity-prev-next-button:disabled {
+  opacity: .3;
+  cursor: auto; }
+
+.flickity-prev-next-button svg {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%; }
+
+.flickity-prev-next-button .arrow {
+  fill: #333; }
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1; }
+
+.flickity-rtl .flickity-page-dots {
+  direction: rtl; }
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: #333;
+  border-radius: 50%;
+  opacity: .25;
+  cursor: pointer; }
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1; }
 
 /* ==========================================================================
    $BASE-PICKER
@@ -10632,6 +11432,17 @@ HEADER STYLES
 
 .lean-overlay {
   height: 0; }
+
+svg {
+  height: 100%; }
+  svg.medium {
+    width: 4rem;
+    border-radius: 50%;
+    padding: .5rem;
+    margin: 0 1rem 0 0; }
+  svg.small {
+    width: 1.25rem;
+    margin: 0 .25rem 0 0; }
 
 /*********************
 NAVIGATION STYLES
