@@ -48,6 +48,7 @@
 
   <body <?php body_class('white'); ?>>
 
+  
   <header class="header navbar-fixed valign-wrapper" role="banner">
 
 		<?php get_template_part( 'parts/nav', 'topbar' ); ?>

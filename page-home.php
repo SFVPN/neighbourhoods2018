@@ -10,6 +10,7 @@ get_header();
 
 		<div id="strapline" class="col s12">
 
+
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 		<?php get_template_part( 'parts/loop', 'page-home' ); ?>
@@ -24,7 +25,7 @@ get_header();
 		<?php while ( have_rows('front_page_bylines') ) : the_row();?>
 	<p>
 
-		<svg class="<?php the_sub_field('icon_color');?> medium left yellow-fill" svg-icon-name="chevron-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg> <?php the_sub_field('byline_text');?>
+		<svg viewBox="0 0 24 24" class="<?php the_sub_field('icon_color');?> medium left yellow-fill" svg-icon-name="chevron-right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24"><use href="<?php echo get_template_directory_uri();?>/svg/download.svg#ic_accessibility_24px"></use></svg> <?php the_sub_field('byline_text');?>
 	</p>
 
 	<?php
@@ -47,7 +48,7 @@ get_header();
 
 
 			<div class="col s12 section-details" >
-				
+
 				<h4><?php the_sub_field('section_title'); ?></h4>
 
 				<?php the_sub_field('section_description'); ?>
