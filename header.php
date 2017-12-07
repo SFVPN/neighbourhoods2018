@@ -1,6 +1,6 @@
 <!doctype html>
 
-  <html class="no-js"  <?php language_attributes(); ?>>
+  <html style="font-size: 1rem;" class="no-js"  <?php language_attributes(); ?>>
 
 	<head>
 		<meta charset="utf-8">
@@ -48,20 +48,12 @@
 
   <body <?php body_class('white'); ?>>
 
-  
+
   <header class="header navbar-fixed valign-wrapper" role="banner">
 
 		<?php get_template_part( 'parts/nav', 'topbar' ); ?>
 
-    <div id="switcher" class="fixed-action-btn">
-      <div class="btn-flat black">
-        <label class="button">
-        <input type="checkbox" id="themer">
-        Dark theme: <span aria-hidden="true"></span>
-      </label>
-      </div>
-
-    </div>
+    
 
 	</header> <!-- end .header -->
 

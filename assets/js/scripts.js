@@ -60,25 +60,6 @@ window.cookieconsent_options = {
    };
 
 
-  //  var markers = document.querySelectorAll('input[type="radio"]'),
-  //      l = markers.length,
-  //      i, txt;
-  //  for (i = l - 1; i >= 0; i--) {
-  //      txt = markers[i].nextSibling;
-  //      $(txt).prev().attr('id', 'r' + markers[i].value);
-  //      $(txt).wrap('<label for="r' + markers[i].value + '"/>');
-  //  };
-
-  //  var markers = document.querySelectorAll('input[type="checkbox"]'),
-  //      l = markers.length,
-  //      i, txt;
-  //  for (i = l - 1; i >= 0; i--) {
-  //      txt = markers[i].nextSibling;
-  //      $(txt).prev().attr('id', 'r' + markers[i].value);
-  //      $(txt).wrap('<label for="r' + markers[i].value + '"/>');
-  //  };
-
-
    $('body').on('click','a[href^="#"]',function(event){
        event.preventDefault();
        var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
@@ -88,8 +69,6 @@ window.cookieconsent_options = {
    });
 
    $("#acf-_post_title").attr("placeholder","Please add a title for your submission. Just click on this text and start writing - it will disappear!");
-
-
 
  });
 
@@ -153,3 +132,12 @@ function switchStyles() {
      }
      document.getElementsByTagName("body")[0].setAttribute("id", "body-"+storedIdName);
    }
+
+
+$('#plustext').on('click', function () {
+    $('p').animate({'font-size': '+=5'});
+});
+
+$('#minustext').on('click', function () {
+    $('p').animate({'font-size': '-=5'});
+});

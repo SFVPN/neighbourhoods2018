@@ -6,11 +6,13 @@
 		<header class="article-header">
 			<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>
 		</header> <!-- end article header -->
-		 <div class="parallax"><img src="<?php the_post_thumbnail_url('large'); ?>"></div>
+		 <div class="parallax"><?php accessible_thumbnail('medium'); ?></div>
 	</div>
 
     <section class="entry-content white container" itemprop="articleBody">
 	    <?php the_content(); ?>
+			<?php accessible_thumbnail('thumbnail'); ?>
+
 	    <?php wp_link_pages(); ?>
 	</section> <!-- end article section -->
 

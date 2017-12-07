@@ -41,6 +41,19 @@ function remove_plugin_image_sizes() {
 			return $mimes;
 
 	}
+
+// simple function to churn out the featured image with role="presentation" if the alt attribute has not been set. This means the absence of alt text be ignored by screen readers - $size is a required argument and accepts one of the following 'thumbnail', 'medium', 'large', 'full'
+	function accessible_thumbnail($size) {
+		$thumb_id = get_post_thumbnail_id();
+
+ $thumb_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
+ if($thumb_alt){?>
+	 <img src="<?php the_post_thumbnail_url($size); ?>" alt="<?php echo $thumb_alt;?>">
+<?php
+ } else {?>
+	 <img src="<?php the_post_thumbnail_url($size); ?>" role="presentation">
+<?php }
+}
 	// Adding post format support
 	/* add_theme_support( 'post-formats',
 		array(

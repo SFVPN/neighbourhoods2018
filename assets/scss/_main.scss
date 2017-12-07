@@ -92,6 +92,22 @@ main {
   }
 }
 
+#access-bar {
+  font-size: 0.8rem;
+  label {
+    color: white;
+  }
+  #switcher .btn-flat {
+
+  }
+  .btn-flat {
+    border:1px solid transparent !important;
+  }
+  .btn-flat:focus {
+    background: transparent !important;
+    border: 1px solid black !important;
+  }
+}
 
 #cookie-bar {
   background:rgba(0,0,0, .85);
