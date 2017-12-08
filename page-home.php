@@ -5,7 +5,7 @@ Template Name: Home Page
 get_header();
 ?>
 
-<main id="gettingStarted">
+<main id="maincontent">
 	<div class="row ">
 
 		<div id="strapline" class="col s12">

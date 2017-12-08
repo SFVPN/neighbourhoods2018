@@ -4,7 +4,7 @@ $title = single_cat_title("", false);
 
 
 
-<main class="container">
+<main  id="maincontent" class="container">
 
 		<div class="row" role="main">
 

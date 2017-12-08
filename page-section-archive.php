@@ -8,7 +8,7 @@ $cat = get_field('category_to_show');
 $post_type = get_field('post_type_to_show');
 ?>
 
-<main>
+<main  id="maincontent">
 	<div class="row" role="main">
 		<header class="article-header">
 			<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>

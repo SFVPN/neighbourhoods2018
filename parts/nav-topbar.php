@@ -56,14 +56,14 @@
 
 	   <a href="" data-activates="slide-out" class="button-collapse"><i class="mdi mdi-menu"></i></a>
 	  </div>
-		<div id="access-bar" class="center-align materialize-red lighten-2 col s12">
+
+
+		<div id="access-bar" class="center-align materialize-red lighten-2 col s12" aria-label="Accessibility Settings">
 			<button id="themeContrast" class="btn-flat" type="button" aria-pressed="false">
-  High Contrast
-</button>
+	 High Contrast
+	 </button>
 
 			<button class="btn-flat waves-effect waves-light" id="plustext">Increase Text Size</button>
-<button class="btn-flat waves-effect waves-light" id="minustext">Decrease Text Size</button></div>
-
-
+	 <button class="btn-flat waves-effect waves-light" id="minustext">Decrease Text Size</button></div>
 
 	 </nav>

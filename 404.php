@@ -1,10 +1,8 @@
 <?php get_header(); ?>
 
-	<div class="container">
 
-		<div id="inner-content" class="row">
 
-			<main id="main" class="col s12" role="main">
+			<main  id="maincontent" class="col s12" role="main">
 
 				<article id="content-not-found">
 
@@ -20,8 +18,5 @@
 
 			</main> <!-- end #main -->
 
-		</div> <!-- end #inner-content -->
-
-	</div> <!-- end #content -->
 
 <?php get_footer(); ?>

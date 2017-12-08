@@ -61,7 +61,7 @@ window.cookieconsent_options = {
 
 
    $('body').on('click','a[href^="#"]',function(event){
-       event.preventDefault();
+      // event.preventDefault();
        var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
        //change this number to create the additional off set
        var customoffset = $("header").height();

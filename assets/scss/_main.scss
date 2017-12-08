@@ -67,19 +67,28 @@ main {
 }
 
 .skip-link {
-	font-size:1em;
+  transform: translateX(-100%);
+	font-size:1rem;
+  clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+  top: 4px;
+  padding: 0 4rem;
+	width: 1px;
     font-weight: normal;
-    font-family: "Questrial", sans-serif;
-    padding: 1em;
+    font-family: "Montserrat", sans-serif;
+
+    transition: 350ms;
 }
 
 .skip-link:focus {
+  transform: translateX(0%);
 	clip: auto;
-	height: auto;
-	left: 6px;
-	top: 7px;
-	width: auto;
+  height: auto;
+  width: auto;
 	z-index: 100000;
+  transition: 350ms;
 }
 
 #switcher {

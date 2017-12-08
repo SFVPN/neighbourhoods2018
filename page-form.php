@@ -15,7 +15,7 @@ $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 ?>
 
-<main class="row container">
+<main  id="maincontent" class="row container">
 
 
 	<section class="row" itemscope itemtype="http://schema.org/WebPage">

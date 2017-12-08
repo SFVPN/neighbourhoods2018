@@ -5,7 +5,7 @@ Template Name: Classes
 */
 get_header(); ?>
 
-<main>
+<main  id="maincontent">
 	<div class="row" role="main">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post();

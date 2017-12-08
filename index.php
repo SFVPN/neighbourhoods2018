@@ -9,7 +9,7 @@ $categories = get_categories();
 
 
 
-<main class="cotainer">
+<main id="maincontent">
 
 		<div class="row" role="main">
 
@@ -29,7 +29,7 @@ $categories = get_categories();
 
 			echo '<a href="' . get_category_link($category->term_id) . '" class="control waves-effect waves-light chip" data-filter=".' . $category->slug . '"><i class="material-icons right">check</i>' . $category->name . '</a>';
 		}?>
- 
+
 </div>
 <ul class="collection">
 
