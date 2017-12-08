@@ -18,7 +18,7 @@
 					 ));
 			} else {
 				 echo '<div class="center" style="margin-bottom: 3rem;">
-				 <div class="btn-flat disabled green lighten-2 white-text"><i class="material-icons left">done</i>
+				 <div class="btn-flat disabled green lighten-2 white-text" role="alert"><i class="material-icons left" aria-hidden="true">done</i>
  			  Well done! You Have Completed This Task
  			 	</div>
 				</div>';
@@ -41,13 +41,13 @@
 			if($parentID):?>
 			<div class="col s6">
 			<?php if($prev_post->ID === $parentID):?>
-				<a class="btn-flat large teal-text" href="<?php echo $prev_post->guid ?>"><i class="material-icons left">keyboard_arrow_left</i><?php echo 'View Lesson Page: ' . $prev_post->post_title; ?>
+				<a class="btn-flat large teal-text" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'View Lesson Page: ' . $prev_post->post_title; ?>
 		 		</a>
 			<?php endif;
 		 	if ($prev_post->ID != $parentID):
 		 		?>
 
-		 	  <a class="btn-flat large teal-text" href="<?php echo $prev_post->guid ?>"><i class="material-icons left">keyboard_arrow_left</i><?php echo 'Previous Class: ' . $prev_post->post_title; ?>
+		 	  <a class="btn-flat large teal-text" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'Previous Class: ' . $prev_post->post_title; ?>
 		 		</a>
 		 	<?php endif;
 		?>
@@ -63,13 +63,13 @@
 			 <div class="col s6">
 			<?php if($next_post->ID === $parentID): ?>
 
-				<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+				<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 		 		</a>
 			<?php endif;
 			if ($next_post->ID != $parentID):
 		 		?>
 
-		 	  <a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+		 	  <a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 		 		</a>
 		 	<?php endif; ?>
 			 </div>
@@ -79,13 +79,13 @@
 		 <div class="col s6 offset-s6">
 		<?php if($next_post->ID === $parentID): ?>
 
-			<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+			<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 			</a>
 		<?php endif;
 		if ($next_post->ID != $parentID):
 			?>
 
-			<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+			<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 			</a>
 		<?php endif; ?>
 		 </div>
@@ -110,8 +110,8 @@
 	$children;
 	echo '<ul class="collection with-header">';
 	if($parentID) {
-		echo '<li class="center collection-header"><h2>' . get_the_title() . ' is part of the <a href="' . get_the_permalink($parentID) . '">' . get_the_title($parentID) . '</a> course.
-		The tasks in this course are listed below.</h2></li>';
+		echo '<li class="center collection-header">' . get_the_title() . ' is part of the <a href="' . get_the_permalink($parentID) . '">' . get_the_title($parentID) . '</a> course.
+		The tasks in this course are listed below.</li>';
 		$args = array(
 		 'post_parent' => $parentID,
 		 'orderby' => 'date',
@@ -119,7 +119,7 @@
 	 );
 		$children = get_children( $args );
 	} else {
-		echo '<li class="center collection-header"><h2>Tasks in the ' . get_the_title($ID) . ' course</h2></li>';
+		echo '<li class="center collection-header">Tasks in the ' . get_the_title($ID) . ' course</li>';
 		$args = array(
 		 'post_parent' => $ID,
 		 'orderby' => 'date',
@@ -142,18 +142,18 @@
 		 foreach($children as $child) {
 			if (!in_array($child->ID , $completed) ) {
 				$uncompleted[] = $child->ID;
-				echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '"><i class="material-icons right">check_box_outline_blank</i>' . get_the_title($child->ID) . '</a></li>';
+				echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '" aria-label="Not Completed"><i class="material-icons right" aria-hidden="true">check_box_outline_blank</i>' . get_the_title($child->ID) . '</a></li>';
 	 	} else {
- 		 echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '"><i class="material-icons right">check_box</i>' . get_the_title($child->ID) . '</a></li>';
+ 		 echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '" aria-label="Completed"><i class="material-icons right" aria-hidden="true">check_box</i>' . get_the_title($child->ID) . '</a></li>';
  	 }
  	}
  } elseif(!$completed) {
 	   foreach($children as $child) {
 	       $uncompleted[] = $child->ID;
-				 echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '"><i class="material-icons right">check_box_outline_blank</i>' . get_the_title($child->ID) . '</a></li>';
+				 echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '" aria-label="Not Completed"><i class="material-icons right" aria-hidden="true">check_box_outline_blank</i>' . get_the_title($child->ID) . '</a></li>';
 	   }
 	 } else {
-		 echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '"><i class="material-icons right">check_box</i>' . get_the_title($child->ID) . '</a></li>';
+		 echo '<li class="collection-item"><a href="' . get_the_permalink($child->ID) . '" aria-label="Completed"><i class="material-icons right" aria-hidden="true">check_box</i>' . get_the_title($child->ID) . '</a></li>';
 	 }
 
 		 //$completed = array_values($completed);

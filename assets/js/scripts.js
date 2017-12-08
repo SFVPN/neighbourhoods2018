@@ -73,71 +73,44 @@ window.cookieconsent_options = {
  });
 
 
-
-
- var checkbox = document.getElementById('themer');
+ //var checkbox = document.getElementById('themer');
+ var contrast = document.getElementById('themeContrast');
 var invertor = document.getElementById('inverter');
+
+
+const toggle = document.querySelector('[aria-pressed]');
+
+toggle.addEventListener('click', (e) => {
+  let pressed = e.target.getAttribute('aria-pressed') === 'true';
+  e.target.setAttribute('aria-pressed', String(!pressed));
+  if(!pressed) {
+    invertor.setAttribute('media', 'screen');
+    localStorage.setItem("theme", 'screen');
+  } else {
+    invertor.setAttribute('media', 'none');
+    localStorage.setItem("theme", 'none');
+  }
+invertor.textContent = invertor.textContent.trim();
+});
 
 var savedTheme = localStorage.getItem("theme");
   if (savedTheme) {
     invertor.setAttribute("media", savedTheme);
     if (savedTheme == "screen") {
-      checkbox.checked = true;
+    //  checkbox.checked = true;
+      contrast.setAttribute('aria-pressed', 'true');
     } else {
-      checkbox.checked = false;
+      //checkbox.checked = false;
+      contrast.setAttribute('aria-pressed', 'false');
     }
 }
 
-checkbox.addEventListener('change', function () {
-
-
-  // Triggers repaint in most browsers:
-  invertor.setAttribute('media', this.checked ? 'screen' : 'none');
-  localStorage.setItem("theme", this.checked ? 'screen' : 'none');
-  // Forces repaint in Chrome:
-  invertor.textContent = invertor.textContent.trim();
-});
-
-
-function switchStyles() {
-
-   }
-
-   var styleSwitcher = document.getElementById("styleSwitcher");
-   if (styleSwitcher) {
-     addEvent(styleSwitcher, "change", switchStyles);
-   }
-
-
-
-   function switchText() {
-     var selectedOption = document.querySelector('input[name="text"]:checked').value; //this.options[this.selectedIndex],
-       if (selectedOption) {
-
-     document.getElementsByTagName("body")[0].setAttribute("id", "body-"+selectedOption);
-
-     localStorage.setItem("bodyIdName", selectedOption);
-   }
-   }
-
-   var textSwitcher = document.getElementById("textSwitcher");
-     if (textSwitcher) {
-   addEvent(textSwitcher, "change", switchText);
-}
-   var storedIdName = localStorage.getItem("bodyIdName");
-   if (storedIdName) {
-     var bodyIdRadio = document.getElementById("r"+storedIdName);
-     if (bodyIdRadio) {
-       bodyIdRadio.checked = true;
-     }
-     document.getElementsByTagName("body")[0].setAttribute("id", "body-"+storedIdName);
-   }
 
 
 $('#plustext').on('click', function () {
-    $('p').animate({'font-size': '+=5'});
+    $('body, p').animate({'font-size': '+=5'});
 });
 
 $('#minustext').on('click', function () {
-    $('p').animate({'font-size': '-=5'});
+    $('body, p').animate({'font-size': '-=5'});
 });

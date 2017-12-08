@@ -4408,7 +4408,7 @@ button.btn-floating {
 .btn-flat {
   box-shadow: none;
   background-color: transparent;
-  color: #343434;
+  color: #000;
   cursor: pointer; }
   .btn-flat.disabled {
     color: #b3b3b3;
@@ -11286,9 +11286,18 @@ main {
     color: white; }
   #access-bar .btn-flat {
     border: 1px solid transparent !important; }
-  #access-bar .btn-flat:focus {
+  #access-bar .btn-flat:focus, #access-bar .btn-flat:hover {
     background: transparent !important;
     border: 1px solid black !important; }
+  #access-bar [aria-pressed]:after {
+    background: #000;
+    color: white;
+    padding: 0 3px;
+    border-radius: 2px; }
+  #access-bar [aria-pressed="true"]:after {
+    content: 'on'; }
+  #access-bar [aria-pressed="false"]:after {
+    content: 'off'; }
 
 #cookie-bar {
   background: rgba(0, 0, 0, 0.85);
@@ -11358,6 +11367,9 @@ ul.share-links.columns li {
 
 ul.share-links.columns {
   padding-bottom: 1em; }
+
+.section-details .btn-large:focus {
+  background: #222; }
 
 /*********************
 H1, H2, H3, H4, H5 P STYLES

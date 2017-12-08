@@ -97,16 +97,26 @@ main {
   label {
     color: white;
   }
-  #switcher .btn-flat {
 
-  }
   .btn-flat {
     border:1px solid transparent !important;
   }
-  .btn-flat:focus {
+  .btn-flat:focus, .btn-flat:hover {
     background: transparent !important;
     border: 1px solid black !important;
   }
+  [aria-pressed]:after {
+    background: #000;
+    color: white;
+    padding: 0 3px;
+    border-radius: 2px;
+  }
+  [aria-pressed="true"]:after {
+  content: 'on';
+}
+[aria-pressed="false"]:after {
+  content: 'off';
+}
 }
 
 #cookie-bar {
@@ -177,6 +187,10 @@ ul.share-links.columns li {
 
 ul.share-links.columns {
   padding-bottom: 1em;
+}
+
+.section-details .btn-large:focus {
+  background: #222;
 }
 
 /*********************

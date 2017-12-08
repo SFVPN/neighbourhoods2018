@@ -27,7 +27,7 @@
 				<?php joints_top_nav(); ?>
 			</span>
 
-			<ul id="slide-out" class="side-nav">
+			<ul id="slide-out" class="side-nav hide-on-large-only">
 	 			<li class="center">
 	 				<img id="logo"
 	 				<?php
@@ -56,18 +56,13 @@
 
 	   <a href="" data-activates="slide-out" class="button-collapse"><i class="mdi mdi-menu"></i></a>
 	  </div>
-		<div id="access-bar" class="center-align yellow col s12">
-			<span id="switcher">
-	      <div class="btn-flat black">
-	        <label class="button">
-	        <input type="checkbox" id="themer">
-	        High Contrast: <span aria-hidden="true"></span>
-	      </label>
-	      </div>
+		<div id="access-bar" class="center-align materialize-red lighten-2 col s12">
+			<button id="themeContrast" class="btn-flat" type="button" aria-pressed="false">
+  High Contrast
+</button>
 
-	    </span>
-			<button class="btn-flat waves-effect waves-yellow" id="plustext">Increase Text Size</button>
-<button class="btn-flat waves-effect waves-yellow" id="minustext">Decrease Text Size</button></div>
+			<button class="btn-flat waves-effect waves-light" id="plustext">Increase Text Size</button>
+<button class="btn-flat waves-effect waves-light" id="minustext">Decrease Text Size</button></div>
 
 
 
