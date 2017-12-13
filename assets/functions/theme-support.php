@@ -42,34 +42,58 @@ function remove_plugin_image_sizes() {
 
 	}
 
-// simple function to churn out the featured image with role="presentation" if the alt attribute has not been set. This means the absence of alt text be ignored by screen readers - $size is a required argument and accepts one of the following 'thumbnail', 'medium', 'large', 'full'
-	function accessible_thumbnail($size) {
+// simple function to churn out the featured image with role="presentation" if the alt attribute has not been set. This means the absence of alt text be ignored by screen readers - $size is a required argument and accepts one of the following 'thumbnail', 'medium', 'large', 'full' or 'array(widthxheight)'.  $class is the class of the img being inserted and can take any string value eg: 'A class name here'
+	function accessible_thumbnail($size, $class) {
 		$thumb_id = get_post_thumbnail_id();
 
  $thumb_alt = get_post_meta( $thumb_id, '_wp_attachment_image_alt', true );
  if($thumb_alt){?>
-	 <img src="<?php the_post_thumbnail_url($size); ?>" alt="<?php echo $thumb_alt;?>">
+	 <img class="<?php echo $class;?>" src="<?php the_post_thumbnail_url($size); ?>" alt="<?php echo $thumb_alt;?>">
 <?php
  } else {?>
-	 <img src="<?php the_post_thumbnail_url($size); ?>" role="presentation">
+	 <img class="<?php echo $class;?>" src="<?php the_post_thumbnail_url($size); ?>" role="presentation">
 <?php }
 }
-	// Adding post format support
-	/* add_theme_support( 'post-formats',
-		array(
-			'aside',             // title less blurb
-			'gallery',           // gallery of images
-			'link',              // quick link to other site
-			'image',             // an image
-			'quote',             // a quick quote
-			'status',            // a Facebook like status update
-			'video',             // video
-			'audio',             // audio
-			'chat'               // chat transcript
-		)
-	); */
 
-} /* end theme support */
+	function archive_terms($taxonomy, $post_type) {
+		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
+		$terms = get_terms( $taxonomy );
+		$archive = get_post_type_archive_link( $post_type );
+		$obj = get_post_type_object( $post_type );
+		$queried_object = get_queried_object();?>
+		<nav class="control btns">
+				<span id="filter" class="current waves-effect grey darken-3 white-text waves-light chip">Filter Content</span>
+			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
+				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><i class="material-icons right">check</i><?php echo 'All ' . $obj->labels->name;?></a>
+			<?php } elseif ($archive) {?>
+				<a href="<?php echo $archive;?>" class="waves-effect waves-light chip"><?php echo 'All ' . $obj->labels->name;?></a>
+			<?php }?>
+			<?php foreach($terms as $term) {
+				if ($queried_object->name === $term->name) {
+					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip"><i class="material-icons right">check</i>' . $term->name . ' ' . $obj->labels->name . '</a>';
+				} else {
+				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . ' ' . $obj->labels->name . '</a>';
+			}
+		}?>
+
+	</nav>
+	<?php }
+
+function archive_title($affix) {
+	//NOTE: the archive_title comprises the queried object name - for example, the name of the category if on a category archive page - appended with the $affix argument. So, on the archive page for the category 'Arts', you may wish to add 'Resources' or 'Content' as the $affix argument to give you 'Arts Resources' as the archive page title. You can set $affix to null
+	$queried_object = get_queried_object();
+	$affix = $affix;
+	if ($queried_object->name && $affix) {
+		echo $queried_object->name . ' ' . $affix ;
+	} elseif ($queried_object->name && !$affix) {
+		echo $queried_object->name;
+	} else {
+			echo 'All ' . $affix;
+		}
+	}
+
+
+
 
 // adds excerpt support to pages
 
@@ -91,3 +115,5 @@ return $query;
 }
 
 add_filter('pre_get_posts','searchfilter');
+
+}

@@ -23,10 +23,12 @@ ul {
 
 a {
 	color: $link-color;
-	text-decoration: none;
 
   // Gets rid of tap active state
   -webkit-tap-highlight-color: transparent;
+  &:hover, &:focus {
+    color: $hover-color;
+  }
 }
 
 
@@ -591,7 +593,9 @@ td, th{
 // Made less specific to allow easier overriding
 .secondary-content {
   float: right;
-  color: $secondary-color;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 5px;
+  border-radius: 3px;
 }
 .collapsible .collection {
   margin: 0;

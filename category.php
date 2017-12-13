@@ -1,45 +1,45 @@
 <?php get_header();
-$title = single_cat_title("", false);
+$queried_object = get_queried_object();
 ?>
 
+<main id="maincontent">
 
+	<div class="row">
 
-<main  id="maincontent" class="container">
+		<header class="article-header">
+			<h1 class="entry-title single-title center" style="" itemprop="headline"><?php archive_title('Posts');?></h1>
+		</header> <!-- end article header -->
 
-		<div class="row" role="main">
+		<section class="section">
 
-		    <div class="col s9">
+			<div class="container">
 
-					<header>
+				<?php archive_terms('category', 'post');?>
 
+				<ul class="collection">
 
-						<h1 class="page-title center"><?php echo $title . ' Resources';?></h1>
-					</header>
+				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-			    <?php if (have_posts()) : while (have_posts()) : the_post();
-
-
-			get_template_part( 'parts/loop', 'blog' );
-
-					?>
+				<?php get_template_part( 'parts/loop', 'blog' ); ?>
 
 				<?php endwhile; ?>
 
-					<?php joints_page_navi(); ?>
+				<?php joints_page_navi(); ?>
 
 				<?php else : ?>
 
-					<?php get_template_part( 'parts/content', 'missing' ); ?>
+				<?php get_template_part( 'parts/content', 'missing' ); ?>
 
 				<?php endif; ?>
+
+				</ul>
+
 			</div>
 
-				<?php get_sidebar('sidebar1'); ?>
-			</div> <!-- end #main -->
+		</section>
 
+	</div> <!-- end row -->
 
-		</main> <!-- end main -->
-
-
+</main> <!-- end main -->
 
 <?php get_footer(); ?>

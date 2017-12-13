@@ -47,8 +47,9 @@
   transition: .2s ease-out;
   cursor: pointer;
 
-  &:hover {
-    background-color: lighten($button-color, 5%);
+  &:hover, &:focus {
+    background-color: lighten($button-color, 15%);
+    color: $contrast-hover;
     @extend .z-depth-1-half;
   }
 }

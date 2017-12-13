@@ -5,7 +5,7 @@
 		<h1 class="center"><?php the_title(); ?></h1>
 
 		<div class="col s12 center">
-			<img class="circle" src="<?php the_post_thumbnail_url(); ?>">
+			<img class="circle" src="<?php the_post_thumbnail_url(); ?>" alt="">
 		</div>
 
 

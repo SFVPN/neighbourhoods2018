@@ -3,10 +3,12 @@ $primary-color: color("shades", "white") !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$secondary-color: color("teal", "lighten-1") !default;
+$secondary-color: color("teal", "darken-4") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
-$link-color: color("teal", "darken-1") !default;
+$link-color: color("indigo", "darken-3") !default;
+$hover-color: color("grey", "darken-4") !default;
+$contrast-hover: #ffffff;
 
 
 /*** Typography ***/

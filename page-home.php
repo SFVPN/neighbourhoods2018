@@ -55,7 +55,7 @@ get_header();
 
 
 									<div class="col s12">
-										<a class="btn-large z-depth-0 waves-effect " href="<?php the_sub_field('page_link'); ?>">
+										<a class="btn-large z-depth-0 waves-effect" href="<?php the_sub_field('page_link'); ?>" aria-label="View more information about <?php the_sub_field('section_title'); ?>">
 											<svg class="small left white-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" aria-hidden="true">
 												<use href="<?php echo get_template_directory_uri();?>/svg/download.svg#ic_accessible_24px"></use>
 											</svg>

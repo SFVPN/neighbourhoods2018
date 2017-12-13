@@ -1,44 +1,50 @@
 <?php get_header();
-$title = single_cat_title("", false);
 ?>
 
+<main  id="maincontent">
 
+	<div class="row">
 
-<main  id="maincontent" class="container">
+		<header class="article-header">
+			<h1 class="entry-title single-title center" itemprop="headline">
+			<?php if(is_post_type_archive()) {
+			 	archive_title(null);
+			} else {
+			  single_cat_title("Contributions by ", true);
+			} ?>
+			</h1>
+		</header>
 
-		<div class="row" role="main">
+		 <section class="section">
 
-		    <div class="col s12">
+			 <div class="container">
 
-					<header>
-						<?php if(is_post_type_archive()) {?>
-							<h1 class="page-title center"><?php post_type_archive_title();?></h1>
-						<?php} else {?>
-						<h1 class="page-title center"><?php single_cat_title("Contributions by ", true);?></h1>
-					<?php } ?>
-					</header>
-					<ul class="collection">
-			    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<?php archive_terms('category', 'audits');?>
 
-					<!-- To see additional archive styles, visit the /parts directory -->
-					<?php get_template_part( 'parts/loop', 'blog' ); ?>
+				<ul class="collection">
+
+			  <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+				<?php get_template_part( 'parts/loop', 'blog' ); ?>
 
 				<?php endwhile; ?>
 
-					<?php joints_page_navi(); ?>
+				<?php joints_page_navi(); ?>
 
 				<?php else : ?>
 
-					<?php get_template_part( 'parts/content', 'missing' ); ?>
+				<?php get_template_part( 'parts/content', 'missing' ); ?>
 
 				<?php endif; ?>
-			</ul>
+
+				</ul>
+
 			</div>
 
+		</section>
 
-			</div> <!-- end #main -->
+	</div> <!-- end #main -->
 
-		</main> <!-- end main -->
-
+</main> <!-- end main -->
 
 <?php get_footer(); ?>

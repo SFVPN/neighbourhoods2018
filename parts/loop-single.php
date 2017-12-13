@@ -1,4 +1,4 @@
-<div class="bg parallax-container grey lighten-3" style="height: auto;" >
+
 
 	<header class="article-header">
 		<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>
@@ -6,7 +6,7 @@
 
 		$parentID = wp_get_post_parent_id( $post_ID );
 		$uncompleted = [];
-		if(is_user_logged_in()) {
+		if(is_user_logged_in() && is_singular('lesson')) {
 		if($parentID) {
 			if (in_array($ID , $uncompleted)  ) {
 				acf_form(array(
@@ -18,7 +18,7 @@
 					 ));
 			} else {
 				 echo '<div class="center" style="margin-bottom: 3rem;">
-				 <div class="btn-flat disabled green lighten-2 white-text" role="alert"><i class="material-icons left" aria-hidden="true">done</i>
+				 <div class="btn-flat disabled teal darken-3 white-text" role="alert"><i class="material-icons left" aria-hidden="true">done</i>
  			  Well done! You Have Completed This Task
  			 	</div>
 				</div>';
@@ -32,22 +32,23 @@
 		get_template_part( 'parts/content', 'share' );
 
 		 ?>
-		 <div id="lesson-nav" class="col s12 white">
+		 <nav role="navigation" aria-label="Navigate between lessons" id="lesson-nav" class="col s12 grey lighten-3">
 
 		 	<?php
 
-
+			$next_post = get_next_post();
 		 	$prev_post = get_previous_post();
+			if(is_singular('lesson')):
 			if($parentID):?>
 			<div class="col s6">
 			<?php if($prev_post->ID === $parentID):?>
-				<a class="btn-flat large teal-text" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'View Lesson Page: ' . $prev_post->post_title; ?>
+				<a class="btn-flat large teal-text text-darken-3" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'View Lesson Page: ' . $prev_post->post_title; ?>
 		 		</a>
 			<?php endif;
 		 	if ($prev_post->ID != $parentID):
 		 		?>
 
-		 	  <a class="btn-flat large teal-text" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'Previous Class: ' . $prev_post->post_title; ?>
+		 	  <a class="btn-flat large teal-text text-darken-3" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'Previous Class: ' . $prev_post->post_title; ?>
 		 		</a>
 		 	<?php endif;
 		?>
@@ -58,18 +59,17 @@
 
 		 	<?php
 
-		 	$next_post = get_next_post();
 			if($parentID && !empty( $next_post )):?>
 			 <div class="col s6">
 			<?php if($next_post->ID === $parentID): ?>
 
-				<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+				<a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 		 		</a>
 			<?php endif;
 			if ($next_post->ID != $parentID):
 		 		?>
 
-		 	  <a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+		 	  <a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 		 		</a>
 		 	<?php endif; ?>
 			 </div>
@@ -79,25 +79,58 @@
 		 <div class="col s6 offset-s6">
 		<?php if($next_post->ID === $parentID): ?>
 
-			<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+			<a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 			</a>
 		<?php endif;
 		if ($next_post->ID != $parentID):
 			?>
 
-			<a class="btn-flat large teal-text right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
+			<a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
 			</a>
 		<?php endif; ?>
 		 </div>
 	<?php endif;
-
+endif;
 		?>
-		 </div>
+		<?php if(is_singular('post')):
+			if(empty( $prev_post ) && !empty( $next_post )):?>
+
+			<div class="col s6 offset-s6">
+
+
+			 <a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Audit: ' . $next_post->post_title; ?>
+			 </a>
+			</div>
+
+		<?php endif;
+		if(!empty( $prev_post )):?>
+
+		<div class="col s6">
+
+
+		 <a class="btn-flat large teal-text text-darken-3" href="<?php echo $prev_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Previous Audit: ' . $prev_post->post_title; ?>
+		 </a>
+		</div>
+
+	<?php endif;
+
+		if(!empty( $prev_post ) && !empty( $next_post )):?>
+
+		<div class="col s6">
+
+
+		 <a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Audit: ' . $next_post->post_title; ?>
+		 </a>
+		</div>
+
+	<?php endif;
+
+		endif;
+				?>
+	</nav>
 
 	</header> <!-- end article header -->
 
-
-</div>
 
 
 
@@ -188,10 +221,10 @@
 			<div class="content">
 				<?php echo get_sub_field('location_description'); ?>
 				<ul class="collection with-header">
-		 <li class="collection-header center"><h4>Location Ratings <i class="material-icons">grade</i></h4></li>
-		 <li class="collection-item">  <span class="badge" data-badge-caption="custom caption"><?php echo $rating1;?> / 10 </span>Flooring </li>
-		  <li class="collection-item">  <span class="badge" data-badge-caption="custom caption"><?php echo $rating2;?> / 10</span>Colour</li>
-		 <li class="collection-item teal lighten-1 center white-text">  <h5>Average rating: <?php echo $average;?> / 10</h5></li>
+		 <li class="collection-header center"><h2>Audit Results <i class="material-icons" aria-hidden="true">grade</i></h2></li>
+		 <li class="collection-item">  <span class="badge"><?php echo $rating1;?> out of 10 </span>Flooring Rating</li>
+		  <li class="collection-item">  <span class="badge"><?php echo $rating2;?> out of 10</span>Colour Rating</li>
+		 <li id="average" class="collection-item teal darken-3 center white-text">  Average rating: <?php echo $average;?> out of 10</li>
 	 </ul>
 
 

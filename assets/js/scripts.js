@@ -60,13 +60,36 @@ window.cookieconsent_options = {
    };
 
 
-   $('body').on('click','a[href^="#"]',function(event){
-      // event.preventDefault();
-       var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
-       //change this number to create the additional off set
-       var customoffset = $("header").height();
-       $('html, body').animate({scrollTop:target_offset - customoffset}, 900);
+   // $('body').on('click','a[href^="#"]',function(event){
+   //     event.preventDefault();
+   //     var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
+   //     //change this number to create the additional off set
+   //     var customoffset = $("header").height();
+   //     $('html, body').animate({scrollTop:target_offset - customoffset}, 900);
+   // });
+
+// smooth scroll function which does not break skip to content accessibility
+   $(function() {
+   $('a[href*="#"]:not([href="#"])').click(function() {
+     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+       var target = $(this.hash);
+       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+       if (target.length) {
+         $('html, body').animate({
+           scrollTop: target.offset().top
+         }, 1000);
+         target.focus(); // Setting focus
+         if (target.is(":focus")){ // Checking if the target was focused
+           return false;
+         } else {
+           target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+           target.focus(); // Setting focus
+         };
+         return false;
+       }
+     }
    });
+ });
 
    $("#acf-_post_title").attr("placeholder","Please add a title for your submission. Just click on this text and start writing - it will disappear!");
 

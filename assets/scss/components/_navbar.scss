@@ -1,10 +1,10 @@
-nav {
+nav#main-nav {
   color: $navbar-font-color;
   @extend .z-depth-1;
   background-color: $primary-color;
   width: 100%;
-  height: $navbar-height-mobile;
-  line-height: $navbar-height-mobile;
+  height: $navbar-height;
+  line-height: $navbar-height;
 
   a { color: $navbar-font-color; }
 
@@ -13,8 +13,8 @@ nav {
   i.material-icons {
     display: block;
     font-size: 2rem;
-    height: $navbar-height-mobile;
-    line-height: $navbar-height-mobile;
+    height: $navbar-height;
+    line-height: $navbar-height;
   }
 
   .nav-wrapper {
@@ -32,51 +32,17 @@ nav {
     float: left;
     position: relative;
     z-index: 1;
-    height: $navbar-height-mobile;
+    height: $navbar-height;
 
     i {
       font-size: 2.7rem;
-      height: $navbar-height-mobile;
-      line-height: $navbar-height-mobile;
+      height: $navbar-height;
+      line-height: $navbar-height;
     }
   }
 
 
   // Logo
-  .brand-logo {
-    position: absolute;
-    color: $navbar-font-color;
-    display: inline-block;
-    font-size: $navbar-brand-font-size;
-    padding: 0;
-    white-space: nowrap;
-
-    &.center {
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    @media #{$medium-and-down} {
-      left: 50%;
-      transform: translateX(-50%);
-
-      &.left, &.right {
-        padding: 0;
-        transform: none;
-      }
-
-      &.left { left: 0.5rem; }
-      &.right {
-        right: 0.5rem;
-        left: auto;
-      }
-    }
-
-    &.right {
-      right: 0.5rem;
-      padding: 0;
-    }
-  }
 
 
   // Navbar Links
@@ -150,10 +116,45 @@ nav {
 
 }
 
+.brand-logo {
+  position: absolute;
+  color: $navbar-font-color;
+  display: inline-block;
+  font-size: $navbar-brand-font-size;
+  padding: 0;
+  white-space: nowrap;
+
+  &.center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media #{$medium-and-down} {
+    left: 50%;
+    transform: translateX(-50%);
+
+    &.left, &.right {
+      padding: 0;
+      transform: none;
+    }
+
+    &.left { left: 0.5rem; }
+    &.right {
+      right: 0.5rem;
+      left: auto;
+    }
+  }
+
+  &.right {
+    right: 0.5rem;
+    padding: 0;
+  }
+}
+
 // Fixed Navbar
 .navbar-fixed {
   position: relative;
-  height: $navbar-height-mobile;
+  height: $navbar-height;
   z-index: 998;
 
   nav {
@@ -161,7 +162,7 @@ nav {
   }
 }
 @media #{$medium-and-up} {
-  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+  nav#main-nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
     height: $navbar-height;
     line-height: $navbar-height;
   }

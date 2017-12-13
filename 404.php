@@ -2,7 +2,7 @@
 
 
 
-			<main  id="maincontent" class="col s12" role="main">
+			<main  id="maincontent" class="container" role="main">
 
 				<article id="content-not-found">
 

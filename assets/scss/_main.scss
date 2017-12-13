@@ -101,8 +101,16 @@ main {
   }
 }
 
-#access-bar {
+#access-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#access-top, #access-bottom, #access-toolbar {
   font-size: 0.8rem;
+  line-height: 1.5;
   label {
     color: white;
   }
@@ -112,12 +120,14 @@ main {
   }
   .btn-flat:focus, .btn-flat:hover {
     background: transparent !important;
-    border: 1px solid black !important;
+    color: yellow !important;
+    //border: 1px solid black !important;
   }
   [aria-pressed]:after {
     background: #000;
     color: white;
     padding: 0 3px;
+    margin: 0 5px;
     border-radius: 2px;
   }
   [aria-pressed="true"]:after {
@@ -159,16 +169,6 @@ main {
 /*********************
 LINK STYLES
 *********************/
-#main {
-  a:hover, a:focus {
-  }
-}
-
-#sidebar1 {
-  a:hover, a:focus {
-    color: $off-black;
-  }
-}
 
 a, a:visited {
 
@@ -179,27 +179,13 @@ a, a:visited {
 	}
 }
 
-.share-links a i.mdi {
-  color: color("teal", "base");
+#share-links a.chip {
+  color: $link-color;
+  margin: 0 1rem;
   &:hover, &:focus {
-    color: $off-black;
+    background: $link-color;
+    color: $contrast-hover;
   }
-}
-
-ul.share-links.columns li {
-  display: inline;
-  padding: 0em 1em;
-  a:hover, a:focus {
-  color: color("grey", "lighten-2");
-  }
-}
-
-ul.share-links.columns {
-  padding-bottom: 1em;
-}
-
-.section-details .btn-large:focus {
-  background: #222;
 }
 
 /*********************
@@ -284,16 +270,12 @@ HEADER STYLES
   a.brand-logo.thin.left {
     color: $secondary-color;
     font-weight: 300;
-    padding-left: 1rem;
-    &:hover, &:focus {
-      color: color("grey", "darken-4");
-    }
   }
   #logo {
     vertical-align: middle;
-    margin-right: .5rem;
+    margin: .75rem;
     height: 40px;
-    margin-top: 12px;
+
     width: auto;
     animation: show 1000ms 1;
     @media #{$small-and-down} {
@@ -306,6 +288,10 @@ HEADER STYLES
     @media #{$small-and-down} {
     	font-size: 1.25rem;
   	}
+  }
+
+  a.brand-logo {
+    padding-left: 4rem;
   }
 
 }
@@ -338,7 +324,9 @@ i.mdi.mdi-menu {
   height: 37px;
 }
 
-
+#lesson-nav {
+  margin: 2rem 0;
+}
 
   button.btn-floating.btn.green.modal-trigger.waves-effect.waves-light {
     @media #{$medium-and-up} {
@@ -347,23 +335,19 @@ i.mdi.mdi-menu {
       }
   }
 
-button.chip {
-  border: none !important;
-}
+
 .control.btns {
   padding: 1rem 0 2rem 0;
-}
-button.control.waves-effect.waves-light.chip .material-icons {
-  opacity: 0;
-}
+  a:not(:first-of-type) {
+    margin-right: .25rem;
+  }
+  a {
 
-button.control.waves-effect.waves-light.chip.mixitup-control-active {
-  background: teal;
-  color: white;
-}
-
-button.control.waves-effect.waves-light.chip.mixitup-control-active .material-icons {
-  opacity: 1;
+    &:hover, &:focus {
+      background: $link-color;
+      color: $contrast-hover;
+    }
+  }
 }
 
 i {transition: 350ms;}
@@ -418,16 +402,16 @@ a.dropdown-button.active {
 	transform: rotate(180deg);
 }
 
-#lesson-nav {
-  border-bottom: 3px solid color("grey", "lighten-2");
-}
-
 /*********************
 BADGEOS OVERRIDES
 *********************/
 
 .achievement-wrap {
   border: none;
+}
+
+.badgeos-achievement-earned p {
+  background: $secondary-color !important;
 }
 
 .badgeos-item-image, .badgeos-item-points {
@@ -505,6 +489,11 @@ POSTS & CONTENT STYLES
 
 .contact .container {
     padding: 4rem;
+}
+
+p.label {
+  font-size: $label-font-size;
+  color: color('grey', 'darken-3');
 }
 
 .mdi-information-outline {
@@ -695,12 +684,9 @@ article section {
 
 .single-title,
 .page-title {
-
+  text-transform: capitalize;
 }
 
-.single-title {
-
-}
 
 .page-title {
 
@@ -915,6 +901,14 @@ article#content-not-found {
   padding: 3rem 0;
 }
 
+.article-header {
+
+}
+
+.entry-title {
+  padding: 4rem 0 3rem 0;
+}
+
 img.hide-on-med-and-up {
     width: 100%;
 }
@@ -946,6 +940,8 @@ img.hide-on-med-and-up {
   }
 }
 
+
+
 .page-template-page-about {
   h1 {
     position: absolute;
@@ -953,10 +949,6 @@ img.hide-on-med-and-up {
   }
 }
 
-.chip {
-  margin-right: .5rem;
-  margin-bottom: .5rem;
-}
 /*********************
 IMAGE GALLERY STYLES
 *********************/
@@ -1096,21 +1088,6 @@ COMMENT STYLES
 
 		}
 
-		time {
-			float: right;
-
-			a {
-				color: #999;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
-
-			}
-
-		}
-
 		img.photo {}
 
 		img.avatar {
@@ -1166,11 +1143,6 @@ COMMENT STYLES
     @media #{$medium-and-down} {
     	float: right;
     }
-
-		&:hover,
-		&:focus {
-
-		}
 
 
 	} // end .commentlist .comment-reply-link
@@ -1331,7 +1303,7 @@ input[type="submit"] {
     text-transform: uppercase;
     transition: 350ms;
     &:hover, :focus {
-      background: color("teal", "lighten-1");
+      background: $hover-color;
 }
 }
 
@@ -1367,6 +1339,10 @@ FOOTER STYLES
   margin-top: 0px;
 }
 
+footer .padding-bottom {
+  padding-bottom: 2rem;
+}
+
 .page-footer {
   font-weight: 300;
   ul {
@@ -1380,20 +1356,6 @@ FOOTER STYLES
     @media #{$small-and-down} {
     	width: 100%;
       padding: 5px 0;
-    }
-    a {
-      @extend .black-text;
-      .mdi {
-        border-radius: 50%;
-        width: 1.75em;
-        height: 1.75em;
-        line-height: 1.75em;
-      }
-      &:hover, &:focus {
-        .mdi {
-          @extend .white;
-        }
-      }
     }
   }
   li:not(:first-of-type) {
@@ -1415,12 +1377,6 @@ FOOTER STYLES
     font-size: 1rem;
       img#footer_logo {
         height: 12px;
-    }
-    a {
-      color: color('teal', 'base');
-      &:hover, &:focus {
-        color: color('teal', 'darken-4');
-      }
     }
   }
 }

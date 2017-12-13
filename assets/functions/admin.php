@@ -7,22 +7,21 @@ function disable_default_dashboard_widgets() {
 	// Remove_meta_box('dashboard_right_now', 'dashboard', 'core');    // Right Now Widget
 	remove_meta_box('dashboard_recent_comments', 'dashboard', 'core'); // Comments Widget
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'core');  // Incoming Links Widget
-	remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
+	//remove_meta_box('dashboard_plugins', 'dashboard', 'core');         // Plugins Widget
 
 	// Remove_meta_box('dashboard_quick_press', 'dashboard', 'core');  // Quick Press Widget
-	remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
+	//remove_meta_box('dashboard_recent_drafts', 'dashboard', 'core');   // Recent Drafts Widget
 	remove_meta_box('dashboard_primary', 'dashboard', 'core');         //
 	remove_meta_box('dashboard_secondary', 'dashboard', 'core');       //
 	remove_meta_box('dashboard_right_now', 'dashboard', 'core');
-	remove_meta_box('dashboard_quick_press', 'dashboard', 'core');
-	remove_meta_box('dashboard_activity', 'dashboard', 'core');
+
 
 	// Removing plugin dashboard boxes
 	remove_meta_box('yoast_db_widget', 'dashboard', 'normal');         // Yoast's SEO Plugin Widget
 
 }
 
-remove_action( 'welcome_panel', 'wp_welcome_panel' );
+//remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
 /*
 For more information on creating Dashboard Widgets, view:
@@ -34,37 +33,7 @@ http://digwp.com/2010/10/customize-wordpress-dashboard/
  *
  * This function is hooked into the 'wp_dashboard_setup' action below.
  */
-function welcome_dashboard_widgets() {
 
-	wp_add_dashboard_widget(
-                 'welcome_dashboard_widget',         // Widget slug.
-                 'Getting Started',         // Title.
-                 'welcome_dashboard_widget_function' // Display function.
-        );
-}
-add_action( 'wp_dashboard_setup', 'welcome_dashboard_widgets' );
-
-/**
- * Create the function to output the contents of our Dashboard Widget.
- */
-function welcome_dashboard_widget_function() {
-			$blog_name = get_bloginfo('name');
-			echo
-			'<div class="welcome-panel">
-				<h1>Welcome to the ' . $blog_name . ' website</h1>
-				<p class="about-description">Here are some links to get you started.</p>
-					<a class="button button-primary button-hero" href="' . admin_url() . '?page=academy-details" target="_blank">Start by filling in your business details</a>
-				</p>
-				<div class="welcome-panel-column">
-					<h3>Next Steps</h3>
-					<ul>
-						<li>
-							<a class="welcome-icon welcome-add-page" href="' . admin_url() . 'post-new.php">Add some news</a>
-						</li>
-					</ul>
-				</div>
-			</div>';
-}
 
 // Calling all custom dashboard widgets
 function charly_custom_dashboard_widgets() {
@@ -137,16 +106,107 @@ $urls = array_diff( $urls, array( $emoji_svg_url ) );
 return $urls;
 }
 
+add_filter( 'manage_audits_posts_columns', 'sfvpn_filter_posts_columns' );
+function sfvpn_filter_posts_columns( $columns ) {
+  //$columns['categories'] = __( 'Categories', 'sfvpn' );
+	$columns['user'] = __( 'Submitted by', 'sfvpn' );
+  $columns['address'] = __( 'Address', 'sfvpn' );
+  $columns['rating'] = __( 'Rating', 'sfvpn' );
+  return $columns;
+}
+
+
+
+add_filter( 'manage_audits_posts_columns', 'sfvpn_audits_columns' );
+function sfvpn_audits_columns( $columns ) {
+
+
+	 $columns = array(
+		 'cb' => $columns['cb'],
+		 'title' => __( 'Title' ),
+		 'user' => __( 'Submitted by', 'sfvpn' ),
+	   'address' => __( 'Address', 'sfvpn' ),
+	   'rating' => __( 'Rating', 'sfvpn' ),
+	 );
+
+
+ return $columns;
+}
+
+
+add_action( 'manage_audits_posts_custom_column', 'sfvpn_audits_column', 10, 2);
+function sfvpn_audits_column( $column, $post_id ) {
+	if ( 'user' === $column ) {
+		$user = get_post_meta($post_id, 'submission_details_submission_user', true);
+		$name = get_userdata($user[0]);
+
+		if ( ! $user ) {
+			_e( 'n/a' );
+		} else {
+			echo $name->user_login;
+		}
+	}
+
+	if ( 'address' === $column ) {
+		$address = get_post_meta($post_id, 'location_details_location_map', true);
+
+		if ( ! $address ) {
+			_e( 'n/a' );
+		} else {
+			echo $address['address'];
+		}
+	}
+
+	if ( 'rating' === $column ) {
+    $rating = get_post_meta( $post_id, 'location_rating_average', true );
+
+    if ( ! $rating ) {
+      _e( 'n/a' );
+    } else {
+      echo $rating . ' / 10';
+    }
+  }
+}
+
+add_filter( 'manage_edit-audits_sortable_columns', 'sfvpn_audits_sortable_columns');
+function sfvpn_audits_sortable_columns( $columns ) {
+  $columns['rating'] = 'location_rating_average';
+  return $columns;
+}
+
+
+add_action( 'pre_get_posts', 'sfvpn_posts_orderby' );
+function sfvpn_posts_orderby( $query ) {
+  if( ! is_admin() || ! $query->is_main_query() ) {
+    return;
+  }
+
+  if ( 'location_rating_average' === $query->get( 'orderby') ) {
+    $query->set( 'orderby', 'meta_value' );
+    $query->set( 'meta_key', 'location_rating_average' );
+    $query->set( 'meta_type', 'numeric' );
+  }
+}
+
 add_filter('acf/settings/google_api_key', function () {
     return 'AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA';
 });
 
 if (function_exists('acf_add_options_page')) {
   acf_add_options_page(array(
-    'page_title' => 'Academy Details',
-    'menu_title' => 'Academy Details',
-    'menu_slug'  => 'academy-details',
+    'page_title' => 'SEO Details',
+    'menu_title' => 'SEO Details',
+    'menu_slug'  => 'seo-details',
     'capability' => 'edit_posts',
+		'icon_url'   => 'dashicons-megaphone',
+    'redirect'   => false
+  ));
+	acf_add_options_page(array(
+    'page_title' => 'Theme Options',
+    'menu_title' => 'Theme Options',
+    'menu_slug'  => 'theme-options',
+    'capability' => 'edit_posts',
+		'icon_url'   => 'dashicons-admin-settings',
     'redirect'   => false
   ));
 }
@@ -257,9 +317,9 @@ add_action('admin_head', 'my_admin_style');
 
 function my_admin_style() {
   echo '<style>
-    .academy-details {
-      background: teal;
-      color: white;
+    .business-details {
+      background: whitesmoke;
+      color: black;
     }
   </style>';
 }

@@ -1,29 +1,10 @@
+<?php $toolbar_pos = get_field('access_bar_position', 'option');?>
 <footer id="contact" class="page-footer white black-text center" role="contentinfo">
-	<div id="inner-footer" class="container">
-
-		<ul class="col s12 l12">
-			<?php
-			$email_contact = get_theme_mod('tcx_email_contact');
-			if ($email_contact) {
-			echo ' <li><a href="mailto:' . $email_contact . '" target="_blank"><i class="mdi mdi-email"></i> Email</a></li>';
-			}
-			$twitter_handle = get_theme_mod('tcx_twitter_handle');
-			if ($twitter_handle) {
-			echo '<li><a href="https://instagram.com/' . $twitter_handle . '" target="_blank"><i class="mdi mdi-instagram"></i> Follow us on Instagram</a></li>';
-			}
-			$landline_contact = get_theme_mod('tcx_landline_contact');
-			if ($landline_contact) {
-			echo '<li><a href="tel://+' . $landline_contact . '" target="_blank"><i class="mdi mdi-phone"></i> ' . $landline_contact . '</a></li>';
-			}
-			$mobile_contact = get_theme_mod('tcx_mobile_contact');
-			if ($mobile_contact)  {
-			echo '<li><a href="tel://+' . $mobile_contact . '" target="_blank"><i class="mdi mdi-cellphone"></i> ' . $mobile_contact . '</a></li>';
-			}?>
-		</ul>
+	<div id="inner-footer" class="container padding-<?php echo $toolbar_pos;?>">
 
 		<div class="col s12">
 			<p class="source-org copyright">
-				<a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a> &copy; <?php echo date("Y");?>
+				<a href="<?php bloginfo('url'); ?>" aria-label="Navigate to the home page"><?php bloginfo('name'); ?></a> &copy; <?php echo date("Y");?>
 			</p>
 		</div>
 

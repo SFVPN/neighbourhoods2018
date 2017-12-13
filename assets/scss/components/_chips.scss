@@ -1,13 +1,13 @@
 .chip {
+  font-family: 'Montserrat', sans-serif;
   display: inline-block;
   height: 32px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  color: rgba(0,0,0,.6);
   line-height: 32px;
   padding: 0 12px;
   border-radius: 16px;
-  background-color: $chip-bg-color;
+  border: 2px solid #283593;
 
   img {
     float: left;
@@ -26,6 +26,7 @@
   }
 }
 
-#feis .chip, #shows .chip {
-    font-size: 1.2rem;
+#filter.chip {
+  border: 2px solid color("grey", "darken-3");
+  cursor: default;
 }
