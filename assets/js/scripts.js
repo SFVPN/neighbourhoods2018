@@ -1,10 +1,4 @@
 
-/*
-These functions make sure WordPress
-and Materialize play nice together.
-*/
-
-// Remove empty P tags created by WP inside of Accordion and Orbit
 jQuery(document).ready(function() {
   //  jQuery('.accordion p:empty, .orbit p:empty').remove();
 
@@ -93,47 +87,59 @@ window.cookieconsent_options = {
 
    $("#acf-_post_title").attr("placeholder","Please add a title for your submission. Just click on this text and start writing - it will disappear!");
 
- });
 
 
- //var checkbox = document.getElementById('themer');
- var contrast = document.getElementById('themeContrast');
-var invertor = document.getElementById('inverter');
 
 
-const toggle = document.querySelector('[aria-pressed]');
 
-toggle.addEventListener('click', (e) => {
-  let pressed = e.target.getAttribute('aria-pressed') === 'true';
-  e.target.setAttribute('aria-pressed', String(!pressed));
-  if(!pressed) {
-    invertor.setAttribute('media', 'screen');
-    localStorage.setItem("theme", 'screen');
-  } else {
-    invertor.setAttribute('media', 'none');
-    localStorage.setItem("theme", 'none');
-  }
-invertor.textContent = invertor.textContent.trim();
+$('.modal').modal({
+  dismissible: true, // Modal can be dismissed by clicking outside of the modal,
+
 });
-
-var savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    invertor.setAttribute("media", savedTheme);
-    if (savedTheme == "screen") {
-    //  checkbox.checked = true;
-      contrast.setAttribute('aria-pressed', 'true');
-    } else {
-      //checkbox.checked = false;
-      contrast.setAttribute('aria-pressed', 'false');
-    }
-}
-
-
-
 $('#plustext').on('click', function () {
-    $('body, p').animate({'font-size': '+=5'});
+    $('body, p, .chip, span').animate({'font-size': '+=5'});
 });
 
 $('#minustext').on('click', function () {
-    $('body, p').animate({'font-size': '-=5'});
+    $('body, p, .chip, span').animate({'font-size': '-=5'});
 });
+
+$('#close-modal').on('click', function () {
+  $('#modal1').modal('close');
+});
+
+$('.acf-actions .acf-button').addClass('btn blue-grey darken-4');
+$('.acf-hl .acf-button').addClass('btn blue-grey darken-4');
+
+});
+  //var checkbox = document.getElementById('themer');
+  var contrast = document.getElementById('themeContrast');
+  var invertor = document.getElementById('inverter');
+
+
+  const toggle = document.querySelector('[aria-pressed]');
+
+  toggle.addEventListener('click', (e) => {
+   let pressed = e.target.getAttribute('aria-pressed') === 'true';
+   e.target.setAttribute('aria-pressed', String(!pressed));
+   if(!pressed) {
+     invertor.setAttribute('media', 'screen');
+     localStorage.setItem("theme", 'screen');
+   } else {
+     invertor.setAttribute('media', 'none');
+     localStorage.setItem("theme", 'none');
+   }
+  invertor.textContent = invertor.textContent.trim();
+  });
+
+  var savedTheme = localStorage.getItem("theme");
+   if (savedTheme) {
+     invertor.setAttribute("media", savedTheme);
+     if (savedTheme == "screen") {
+     //  checkbox.checked = true;
+       contrast.setAttribute('aria-pressed', 'true');
+     } else {
+       //checkbox.checked = false;
+       contrast.setAttribute('aria-pressed', 'false');
+     }
+  }

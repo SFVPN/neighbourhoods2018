@@ -3,6 +3,11 @@
 	<header class="article-header">
 		<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>
 		<?php
+		if(is_user_logged_in()) {
+			get_template_part( 'parts/content', 'edit' );
+		}
+		?>
+		<?php
 
 		$parentID = wp_get_post_parent_id( $post_ID );
 		$uncompleted = [];
@@ -28,7 +33,7 @@
 	}
 
 
-		//get_template_part( 'parts/content', 'byline' );
+		get_template_part( 'parts/content', 'byline' );
 		get_template_part( 'parts/content', 'share' );
 
 		 ?>
@@ -92,7 +97,7 @@
 	<?php endif;
 endif;
 		?>
-		<?php if(is_singular('post')):
+		<?php if(is_singular('audits')):
 			if(empty( $prev_post ) && !empty( $next_post )):?>
 
 			<div class="col s6 offset-s6">
@@ -136,6 +141,53 @@ endif;
 
 <div class="section white">
  <div class="row container">
+
+	 <!-- flexible content -->
+
+	 <?php
+
+// check if the flexible content field has rows of data
+if( have_rows('content') ):
+
+     // loop through the rows of data
+    while ( have_rows('content') ) : the_row();
+
+        if( get_row_layout() == 'main_content' ):
+
+        	echo '<div class="col s12">'
+					. get_sub_field("description") .
+					'</div>';
+				endif;
+
+        if( get_row_layout() == 'single_image' ):
+
+        	$file = get_sub_field('image');
+					echo '<div class="col s12">
+					<img class="responsive-img" src="' . $file['url']. '" />
+					</div>';
+
+        endif;
+
+				if( get_row_layout() == 'video_embed' ):
+					echo '<div class="col s12"><div class="video-container">';
+
+        	$video = get_sub_field('video_url');
+					echo $video;
+
+							echo '</div></div>';
+
+        endif;
+
+    endwhile;
+
+else :
+
+    // no layouts found
+
+endif;
+
+?>
+
 	 <?php the_content($post_ID);
 	if(is_user_logged_in && is_singular('lesson')) {
 	$ID = get_the_id();
@@ -206,25 +258,64 @@ endif;
 
 	  if( have_rows('location_details') ):
 
+			$group_ID = 499;
+
+			$superheroes = acf_get_fields('499');
+
+			$sub_fields = $superheroes[0]['sub_fields'];
+		//	$keys = array_keys($sub_fields);
+//
+// for($i = 0; $i < count($sub_fields); $i++) {
+//     echo $keys[$i] . "{<br>";
+//     foreach($sub_fields[$keys[$i]] as $key => $value) {
+//         echo $key . " : " . $value . "<br>";
+//     }
+//     echo "}<br>";
+// }
+
+
+
+
 	while( have_rows('location_details') ): the_row();
 
 		// vars
-		$rating1 = get_sub_field('location_rating_flooring');
-		$rating2 = get_sub_field('location_rating_color');
+
 		$average = get_field('location_rating_average');
 		//$average = ($rating1 + $rating2) / 2;
 		$progress = $average * 10;
+
+
 
 		?>
 
 
 			<div class="content">
-				<?php echo get_sub_field('location_description'); ?>
+				<?php echo get_field('location_description'); ?>
 				<ul class="collection with-header">
-		 <li class="collection-header center"><h2>Audit Results <i class="material-icons" aria-hidden="true">grade</i></h2></li>
-		 <li class="collection-item">  <span class="badge"><?php echo $rating1;?> out of 10 </span>Flooring Rating</li>
-		  <li class="collection-item">  <span class="badge"><?php echo $rating2;?> out of 10</span>Colour Rating</li>
-		 <li id="average" class="collection-item teal darken-3 center white-text">  Average rating: <?php echo $average;?> out of 10</li>
+					<li class="collection-header center"><h2>Audit Results <i class="material-icons" aria-hidden="true">grade</i></h2></li>
+		<?php
+		foreach ($sub_fields as $sub_field) {
+
+			echo '<li class="collection-item">  <span class="badge">' . get_sub_field($sub_field["name"]) . ' out of 7</span>' . $sub_field["label"] . '</li>';
+		}?>
+		<li id="average" class="collection-item teal darken-3 center white-text">  Average rating: <?php echo $average;?> out of 7</li>
+
+
+		 <!-- <li class="collection-item">  <span class="badge"><?php the_sub_field('moving_around');?> out of 7 </span>Moving Around</li>
+		  <li class="collection-item">  <span class="badge"><?php the_sub_field('public_transport');?> out of 7</span>Public Transport</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('traffic_and_parking');?> out of 7</span>Traffic and Parking</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('streets_and_spaces');?> out of 7</span>Streets and Spaces</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('natural_space');?> out of 7</span>Natural Space</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('play_and_recreation');?> out of 7</span>Play and Recreation</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('facilities_and_amenities');?> out of 7</span>Facilities and Amenities</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('work_and_local_economy');?> out of 7</span>Work and Local Economy</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('housing_and_community');?> out of 7</span>Housing and Community</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('social_contact');?> out of 7</span>Social Contact</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('identity_and_belonging');?> out of 7</span>Identity and Belonging</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('feeling_safe');?> out of 7</span>Feeling Safe</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('care_and_maintenance');?> out of 7</span>Care and Maintenance</li>
+			<li class="collection-item">  <span class="badge"><?php the_sub_field('influence_and_sense_of_control');?> out of 7</span>Influence and Sense of Control</li>
+		 <li id="average" class="collection-item teal darken-3 center white-text">  Average rating: <?php echo $average;?> out of 7</li> -->
 	 </ul>
 
 
@@ -261,7 +352,3 @@ endwhile; ?>
 
 
  ?>
-
-
- </div>
-</div>

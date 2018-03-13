@@ -51,13 +51,26 @@ function my_acf_update_average_rating($post_id)
 {
    if( have_rows('location_details') ):
 
+     $group_ID = 499;
+
+     $superheroes = acf_get_fields('499');
+
+     $sub_fields = $superheroes[0]['sub_fields'];
+
+     $total = 0;
+     $i = 0;
+
  while( have_rows('location_details') ): the_row();
 
-   // vars
-   $rating1 = get_sub_field('location_rating_flooring');
-   $rating2 = get_sub_field('location_rating_color');
-   $average = ($rating1 + $rating2) / 2;
-   $progress = $average * 10;
+
+   foreach ($sub_fields as $sub_field) {
+     $i++;
+     $value = get_sub_field($sub_field["name"]);
+     $total += $value;
+   }
+
+   $average = $total / $i;
+
 
 
 
@@ -65,7 +78,7 @@ function my_acf_update_average_rating($post_id)
 
  endif;
     $field_name = "location_rating_average";
-    update_field($field_name, $average, $post_id);
+    update_field($field_name, round($average, 2), $post_id);
 }
 add_action('acf/save_post', 'my_acf_update_average_rating');
 
@@ -160,3 +173,31 @@ function wpse247328_register_post_type_args( $args, $post_type ) {
 
     return $args;
 }
+
+function svpn_audits_vars() {
+  global $post;
+  $ID = $post->ID;
+  $dets = get_field('location_details', $ID);
+	$array = array(
+	    "Moving Around" => $dets['moving_around'],
+	    "Public Transport" => $dets['public_transport'],
+      "Traffic and Parking" => $dets['traffic_and_parking'],
+      "Streets and Spaces" => $dets['streets_and_spaces'],
+      "Natural Space" => $dets['natural_space'],
+      "Play and Recreation" => $dets['play_and_recreation'],
+      "Facilities and Amenities" => $dets['facilities_and_amenities'],
+      "Housing and Community" => $dets['housing_and_community'],
+      "Social Contact" => $dets['social_contact'],
+      "Identity and Belonging" => $dets['identity_and_belonging'],
+      "Feeling Safe" => $dets['feeling_safe'],
+      "Care and Maintenance" => $dets['care_and_maintenance'],
+      "Influence and Sense of Control" => $dets['influence_and_sense_of_control']
+	  );
+
+    wp_register_script( "scripts", get_template_directory_uri() . "/assets/js/audits.js", array( 'jquery' ), '', true );
+    if(is_singular('audits')){
+    wp_enqueue_script( "scripts" );
+  }
+    wp_localize_script( "scripts", "audit_vars", $array );
+}
+add_action( "wp_enqueue_scripts", "svpn_audits_vars" );

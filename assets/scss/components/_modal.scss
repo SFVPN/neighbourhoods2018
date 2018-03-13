@@ -7,7 +7,6 @@
   right: 0;
   background-color: #fafafa;
   padding: 0;
-  max-height: 80%;
   width: 55%;
   margin: auto;
   overflow-y: auto;
@@ -21,6 +20,10 @@
 
   h1,h2,h3,h4 {
     margin-top: 0;
+  }
+
+  h4 {
+    padding: 1rem 0;
   }
 
   .modal-content {
@@ -80,11 +83,11 @@
 
 // Modal Bottom Sheet Style
 .modal.bottom-sheet {
-  top: auto;
+  top: 0;
   bottom: -100%;
   margin: 0;
   width: 100%;
-  max-height: 45%;
+  height: 100%;
   border-radius: 0;
   will-change: bottom, opacity;
 }

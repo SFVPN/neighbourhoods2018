@@ -179,12 +179,15 @@ a, a:visited {
 	}
 }
 
-#share-links a.chip {
-  color: $link-color;
-  margin: 0 1rem;
-  &:hover, &:focus {
-    background: $link-color;
-    color: $contrast-hover;
+#share-links {
+  padding: 2rem 0;
+  a.chip {
+    color: $link-color;
+    margin: 0 1rem;
+    &:hover, &:focus {
+      background: $link-color;
+      color: $contrast-hover;
+    }
   }
 }
 
@@ -402,6 +405,7 @@ a.dropdown-button.active {
 	transform: rotate(180deg);
 }
 
+
 /*********************
 BADGEOS OVERRIDES
 *********************/
@@ -433,6 +437,14 @@ ACF FORM OVERRIDES
 
 form ul {
   padding: 2rem 0;
+}
+
+ul.map-filters__wrap, ul.map-filters_kml {
+  padding: 0;
+  li {
+    display: inline-block;
+    padding: 0 1rem
+  }
 }
 
 .acf-label label {
@@ -468,6 +480,17 @@ form ul {
   border-bottom-color: $secondary-color !important;
 }
 
+
+/*********************
+CANVAS STYLES
+*********************/
+
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw;
+}
 
 /*********************
 POSTS & CONTENT STYLES
@@ -711,6 +734,17 @@ h6.card-sub-title {
   cursor: help;
 }
 
+.retail {
+  i.material-icons.circle.black-text, .secondary-content {
+    background: #008CFF !important;
+  }
+}
+
+.leisure {
+  i.material-icons.circle.black-text, .secondary-content {
+    background: #FFBF00 !important;
+  }
+}
 
 
 // Post meta

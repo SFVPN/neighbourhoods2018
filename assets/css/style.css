@@ -2467,7 +2467,6 @@ CSS3 GRADIENTS.
 /*** Buttons ***/
 /*** Cards ***/
 /*** Collapsible ***/
-/*** Chips ***/
 /*** Date Picker ***/
 /*** Dropdown ***/
 /*** Fonts ***/
@@ -4270,6 +4269,68 @@ small {
     .toast {
       float: right; } }
 
+.tabs {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 48px;
+  width: 100%;
+  background-color: #fff;
+  margin: 0 auto;
+  white-space: nowrap; }
+  .tabs.tabs-transparent {
+    background-color: transparent; }
+    .tabs.tabs-transparent .tab a,
+    .tabs.tabs-transparent .tab.disabled a,
+    .tabs.tabs-transparent .tab.disabled a:hover {
+      color: rgba(255, 255, 255, 0.7); }
+    .tabs.tabs-transparent .tab a:hover,
+    .tabs.tabs-transparent .tab a.active {
+      color: #fff; }
+    .tabs.tabs-transparent .indicator {
+      background-color: #fff; }
+  .tabs.tabs-fixed-width {
+    display: flex; }
+    .tabs.tabs-fixed-width .tab {
+      flex-grow: 1; }
+  .tabs .tab {
+    display: inline-block;
+    text-align: center;
+    line-height: 48px;
+    height: 48px;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase; }
+    .tabs .tab a {
+      color: rgba(255, 255, 255, 0.7);
+      display: block;
+      width: 100%;
+      height: 100%;
+      padding: 0px 24px;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      transition: color .28s ease; }
+      .tabs .tab a:hover, .tabs .tab a.active {
+        background-color: transparent;
+        color: #FFFFFF; }
+    .tabs .tab.disabled a, .tabs .tab.disabled a:hover {
+      color: rgba(255, 255, 255, 0.4);
+      cursor: default; }
+  .tabs .indicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: white;
+    will-change: left, right; }
+
+@media only screen and (max-width: 992px) {
+  .tabs {
+    display: flex; }
+    .tabs .tab {
+      flex-grow: 1; }
+      .tabs .tab a {
+        padding: 0 12px; } }
 .material-tooltip {
   padding: 10px 8px;
   font-size: 1rem;
@@ -4563,7 +4624,6 @@ a.waves-effect .waves-ripple {
   right: 0;
   background-color: #fafafa;
   padding: 0;
-  max-height: 80%;
   width: 55%;
   margin: auto;
   overflow-y: auto;
@@ -4574,6 +4634,8 @@ a.waves-effect .waves-ripple {
       width: 80%; } }
   .modal h1, .modal h2, .modal h3, .modal h4 {
     margin-top: 0; }
+  .modal h4 {
+    padding: 1rem 0; }
   .modal .modal-content {
     padding: 24px; }
   .modal .modal-close {
@@ -4616,36 +4678,123 @@ a.waves-effect .waves-ripple {
     bottom: 0; }
 
 .modal.bottom-sheet {
-  top: auto;
+  top: 0;
   bottom: -100%;
   margin: 0;
   width: 100%;
-  max-height: 45%;
+  height: 100%;
   border-radius: 0;
   will-change: bottom, opacity; }
 
 .chip {
-  font-family: 'Montserrat', sans-serif;
   display: inline-block;
-  height: 32px;
-  font-size: 14px;
+  height: 24px;
+  font-size: 12px;
   font-weight: 500;
-  line-height: 32px;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 24px;
   padding: 0 12px;
   border-radius: 16px;
-  border: 2px solid #283593; }
-  .chip img {
+  background-color: #e4e4e4;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  margin-top: 15px; }
+  .chip:focus {
+    outline: none;
+    background-color: #26a69a;
+    color: #fff; }
+  .chip > img {
     float: left;
     margin: 0 8px 0 -12px;
     height: 32px;
     width: 32px;
     border-radius: 50%; }
-  .chip i.material-icons {
+  .chip .close {
     cursor: pointer;
     float: right;
     font-size: 16px;
     line-height: 32px;
     padding-left: 8px; }
+
+.chips {
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  box-shadow: none;
+  margin: 0 0 8px 0;
+  min-height: 45px;
+  outline: none;
+  transition: all .3s; }
+  .chips.focus {
+    border-bottom: 1px solid #26a69a;
+    box-shadow: 0 1px 0 0 #26a69a; }
+  .chips:hover {
+    cursor: text; }
+  .chips .input {
+    background: none;
+    border: 0;
+    color: rgba(0, 0, 0, 0.6);
+    display: inline-block;
+    font-size: 16px;
+    height: 3rem;
+    line-height: 32px;
+    outline: 0;
+    margin: 0;
+    padding: 0 !important;
+    width: 120px !important; }
+  .chips .input:focus {
+    border: 0 !important;
+    box-shadow: none !important; }
+  .chips .autocomplete-content {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+.prefix ~ .chips {
+  margin-left: 3rem;
+  width: 92%;
+  width: calc(100% - 3rem); }
+
+.chips:empty ~ label {
+  font-size: 0.8rem;
+  transform: translateY(-140%); }
+
+.bold-chip {
+  font-family: 'Montserrat', sans-serif;
+  display: inline-block;
+  height: 34px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 34px;
+  padding: 0 12px;
+  border-radius: 16px;
+  border: 2px solid #283593; }
+  .bold-chip img {
+    float: left;
+    margin: 0 8px 0 -12px;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%; }
+  .bold-chip i.material-icons {
+    cursor: pointer;
+    float: right;
+    font-size: 16px;
+    line-height: 32px;
+    padding-left: 8px; }
+
+span.chip:hover:after {
+  content: attr(aria-label);
+  background: #2b2a2a;
+  color: white;
+  position: absolute;
+  left: 106%;
+  padding: 0 1rem;
+  z-index: 2;
+  min-width: 200px;
+  text-align: center; }
+
+span.chip {
+  position: relative;
+  transition: 350ms;
+  cursor: pointer; }
 
 #filter.chip {
   border: 2px solid #424242;
@@ -4705,7 +4854,7 @@ label {
 label[for=acf-field_59f8aa752b9b9],
 label[for=acf-field_59f8a8282855c],
 label[for=acf-field_59f6f941d4156] {
-  background: #2f353e;
+  background: #263238;
   text-align: center;
   color: white !important;
   padding: .5rem !important;
@@ -4727,6 +4876,14 @@ label[for=acf-field_59f6f941d4156] {
 
 :-ms-input-placeholder {
   color: #d1d1d1; }
+
+select.acf-gallery-sort.initialized {
+  display: none; }
+
+.acf-label p.description {
+  background: #f9f9f9;
+  padding: 1rem;
+  font-size: 1rem; }
 
 input:not([type]),
 input[type=text],
@@ -11373,12 +11530,14 @@ LINK STYLES
 a:link, a:visited:link {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
-#share-links a.chip {
-  color: #283593;
-  margin: 0 1rem; }
-  #share-links a.chip:hover, #share-links a.chip:focus {
-    background: #283593;
-    color: #ffffff; }
+#share-links {
+  padding: 2rem 0; }
+  #share-links a.chip {
+    color: #283593;
+    margin: 0 1rem; }
+    #share-links a.chip:hover, #share-links a.chip:focus {
+      background: #283593;
+      color: #ffffff; }
 
 /*********************
 H1, H2, H3, H4, H5 P STYLES
@@ -11553,6 +11712,12 @@ ACF FORM OVERRIDES
 form ul {
   padding: 2rem 0; }
 
+ul.map-filters__wrap, ul.map-filters_kml {
+  padding: 0; }
+  ul.map-filters__wrap li, ul.map-filters_kml li {
+    display: inline-block;
+    padding: 0 1rem; }
+
 .acf-label label {
   text-transform: uppercase;
   color: #424242;
@@ -11575,6 +11740,15 @@ form ul {
 
 .select-wrapper input.select-dropdown {
   border-bottom-color: #144a45 !important; }
+
+/*********************
+CANVAS STYLES
+*********************/
+.chart-container {
+  position: relative;
+  margin: auto;
+  height: 80vh;
+  width: 80vw; }
 
 /*********************
 POSTS & CONTENT STYLES
@@ -11756,6 +11930,12 @@ h6.card-sub-title {
 
 .mdi-help-circle {
   cursor: help; }
+
+.retail i.material-icons.circle.black-text, .retail .secondary-content {
+  background: #008CFF !important; }
+
+.leisure i.material-icons.circle.black-text, .leisure .secondary-content {
+  background: #FFBF00 !important; }
 
 #map, #photo {
   padding: 1em 0; }

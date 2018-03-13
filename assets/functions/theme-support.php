@@ -62,7 +62,7 @@ function remove_plugin_image_sizes() {
 		$obj = get_post_type_object( $post_type );
 		$queried_object = get_queried_object();?>
 		<nav class="control btns">
-				<span id="filter" class="current waves-effect grey darken-3 white-text waves-light chip">Filter Content</span>
+				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Content</span>
 			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
 				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><i class="material-icons right">check</i><?php echo 'All ' . $obj->labels->name;?></a>
 			<?php } elseif ($archive) {?>
@@ -104,16 +104,16 @@ function my_add_excerpts_to_pages() {
 
 
 // limits search to locations custom post type
-
-function searchfilter($query) {
-
-    if ($query->is_search && !is_admin() ) {
-        $query->set('post_type',array('locations'));
-    }
-
-return $query;
-}
-
-add_filter('pre_get_posts','searchfilter');
-
+//
+// function searchfilter($query) {
+//
+//     if ($query->is_search && !is_admin() ) {
+//         $query->set('post_type',array('locations'));
+//     }
+//
+// return $query;
+// }
+//
+// add_filter('pre_get_posts','searchfilter');
+//
 }

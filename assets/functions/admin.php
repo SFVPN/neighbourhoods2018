@@ -106,25 +106,18 @@ $urls = array_diff( $urls, array( $emoji_svg_url ) );
 return $urls;
 }
 
-add_filter( 'manage_audits_posts_columns', 'sfvpn_filter_posts_columns' );
-function sfvpn_filter_posts_columns( $columns ) {
-  //$columns['categories'] = __( 'Categories', 'sfvpn' );
-	$columns['user'] = __( 'Submitted by', 'sfvpn' );
-  $columns['address'] = __( 'Address', 'sfvpn' );
-  $columns['rating'] = __( 'Rating', 'sfvpn' );
-  return $columns;
-}
+
 
 
 
 add_filter( 'manage_audits_posts_columns', 'sfvpn_audits_columns' );
+
 function sfvpn_audits_columns( $columns ) {
-
-
 	 $columns = array(
 		 'cb' => $columns['cb'],
 		 'title' => __( 'Title' ),
 		 'user' => __( 'Submitted by', 'sfvpn' ),
+		 'taxonomy-audit_category' =>  __( 'Audit Type' ),
 	   'address' => __( 'Address', 'sfvpn' ),
 	   'rating' => __( 'Rating', 'sfvpn' ),
 	 );
@@ -148,7 +141,7 @@ function sfvpn_audits_column( $column, $post_id ) {
 	}
 
 	if ( 'address' === $column ) {
-		$address = get_post_meta($post_id, 'location_details_location_map', true);
+		$address = get_post_meta($post_id, 'location_map', true);
 
 		if ( ! $address ) {
 			_e( 'n/a' );
@@ -163,7 +156,7 @@ function sfvpn_audits_column( $column, $post_id ) {
     if ( ! $rating ) {
       _e( 'n/a' );
     } else {
-      echo $rating . ' / 10';
+      echo $rating . ' out of 7';
     }
   }
 }
