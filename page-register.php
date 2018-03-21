@@ -1,4 +1,9 @@
 <?php
+
+/*
+Template Name: Register
+*/
+
 get_header(); ?>
 
 <main  id="maincontent">
@@ -6,9 +11,9 @@ get_header(); ?>
 
 		<?php if (have_posts()) : while (have_posts()) : the_post();
 
-			get_template_part( 'parts/loop', 'page' );
+			get_template_part( 'parts/loop', 'register' );
 
-			
+
 
 			endwhile; endif;
 

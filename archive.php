@@ -19,24 +19,19 @@
 
 			 <div class="container">
 
-				 <form>
+				 <form class="col s12">
 	 			 <ul id="kml_layers" class="map-filters_kml">
 	 				 <li class="chip">
 	 					 Filter Layers
 	 				 </li>
 	 				 <li>
-	 					 <input type="checkbox" value="stirling_north" id="stirling_north" checked="checked" />
+	 					 <input type="checkbox" value="stirling_north" id="stirling_north"/>
 	 					 <label for="stirling_north">Stirling North</label>
 	 				 </li>
-	 				 <li>
-	 					 <input type="checkbox"  value="leisure" id="layer_02" checked="checked"  />
-	 					 <label for="layer_02">Optional Additional Layer</label>
-	 				 </li>
+
 	 			 </ul>
 
-	 			</form>
 
-				 <form>
 				 	<ul class="map-filters__wrap">
 				 		<li class="chip">
 				 			Filter Audits
@@ -49,15 +44,22 @@
 				 			<input type="checkbox" name="filter" value="leisure" id="test6" checked="checked"  />
 				 			<label for="test6">Leisure</label>
 				 		</li>
+						<li>
+				 			<input type="checkbox" name="filter" value="dementiaFriendly" id="test7"   />
+				 			<label for="test7">Dem Friendly</label>
+				 		</li>
+
 				 	</ul>
 
 
 
 				 </form>
 
-
+<hr />
 				<?php //archive_terms('audit_category', 'audits');?>
-				<ul class="collection">
+				<div >
+<div class="col s4">
+				<ul class="collection col s12" style="height: 500px; overflow: auto; border: none; padding-left: 0px;">
 <?php
 
 if(is_post_type_archive('audits')) {
@@ -68,26 +70,28 @@ global $post;
 $args = array( 'post_type' => 'audits' );
 
 $myposts = get_posts( $args );
-$loc = get_field('location_map');
 foreach ( $myposts as $post ) : setup_postdata( $post ); $i++;
 $post_terms = get_the_terms($post->ID, 'audit_category');
+$loc = get_field('location_map');
+$dfAttr = get_field('submission_details');
 ?>
-<li class="collection-item mix white <?php echo esc_html( $post_terms[0]->slug );?> avatar" data-cat="<?php echo esc_html( $post_terms[0]->slug );?>">
+<li class="collection-item mix white <?php echo esc_html( $post_terms[0]->slug );?> avatar" data-cat="<?php echo esc_html( $post_terms[0]->slug );?>" data-key="<?php the_field('location_placeid');?>" data-df="<?php echo $dfAttr['dementia_friendly']; ?>">
     <?php
 
-    if ( has_post_thumbnail() ) {
-      accessible_thumbnail('thumbnail', 'circle');
-    } else {
-      echo '<i class="material-icons circle black-text" aria-hidden="true">filter_7</i>';
-    }?>
+		if ( $dfAttr['dementia_friendly'] === "Yes"  ) {
+			echo '<i class="material-icons circle purple darken-1" aria-hidden="true">star</i>';?>
+	<?php } else {
+		  echo '<i class="material-icons circle grey lighten-2" aria-hidden="true">star</i>';
+	}?>
 
     <span class="title" aria-label="This content is categorized as <?php echo esc_html( $post_terms[0]->name );?>"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
-    <p class="label"><i class="mdi mdi-clock"></i> Posted on <?php the_time('F j, Y');?><br>
-      <a href="#map-wrapper" class="btn-flat grey lighten-2" id="m<?=$i?>" data-lat="<?php echo $loc['lat']; ?>" data-lng="<?php echo $loc['lng']; ?>"><i class="material-icons left">map</i>View on map</a>
+    <p class="label">
+			<i class="mdi mdi-clock"></i> Added <?php the_time('F j, Y');?><br />
+			<span class="chip white-text"><?php echo esc_html( $post_terms[0]->name );?></span>
+      <a class="chip grey lighten-2" id="m<?=$i?>" data-lat="<?php echo $loc['lat']; ?>" data-lng="<?php echo $loc['lng']; ?>"><i class="material-icons right">arrow_forward</i>View on map</a>
     </p>
-    <?php if ( ! empty( $post_terms ) ) {?>
-    <span class="secondary-content black-text" aria-hidden="true"><?php echo esc_html( $post_terms[0]->name );?></span>
-    <?php }?>
+
+
 
 </li>
 
@@ -95,24 +99,28 @@ $post_terms = get_the_terms($post->ID, 'audit_category');
 wp_reset_postdata();?>
 
 </ul>
-<div id="map-wrapper" class="col s12" style="border: 1px solid #dddddd";>
+
+</div>
+
+
+
 
 
 				<!-- <ul class="collection"> -->
-					<div class="acf-map" style="height: 400px; margin: 1rem 0;">
+				<div class="col s8">
+					<div id="map" class="acf-map col s12" style="height: 500px; margin: .85rem 0; padding: 1rem;">
 			  <?php if (have_posts()) : while (have_posts()) : the_post();
 				$post_terms = get_the_terms($post->ID, 'audit_category');
 				$location = get_field('location_map');
-
+				$placeid = get_field('location_placeid');
+				$df = get_field('submission_details');
 				?>
 
-						<div class="marker" data-type="<?php echo esc_html( $post_terms[0]->slug );?>" data-title="<?php echo the_title();?>" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-
-								<h6><?php the_title();?> </h6>
-
+						<div class="marker" data-df="<?php echo $df['dementia_friendly']; ?>" data-type="<?php echo esc_html( $post_terms[0]->slug );?>" data-title="<?php echo the_title();?>" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>" data-placeid="<?php echo $placeid; ?>">
+								<h6 id="place-name"  class="title"><?php the_title();?> </h6>
 								<p><?php echo "<strong>Rating: </strong> " . get_field('location_rating_average') . " out of 7";?>
 								</p>
-								<span class="btn-flat grey lighten-2"><a href="<?php the_permalink();?>">Read the full audit</a></span>
+								<a class="center btn-flat grey darken-4 white-text" href="<?php the_permalink();?>">Read the full audit</a>
 							</div>
 				<?php //get_template_part( 'parts/loop', 'blog' ); ?>
 
@@ -126,8 +134,15 @@ wp_reset_postdata();?>
 
 				<?php endif; ?>
 			</div>
-	</div>			<!-- </ul> -->
+</div>
+			<div id="infowindow-content">
 
+		<h6 id="place-name"  class="title"></h6>
+		<p id="place-address"></p>
+
+	</div>
+
+	</div>
 
 			</div>
 

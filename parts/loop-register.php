@@ -11,29 +11,44 @@
 
     <section class="entry-content white container" itemprop="articleBody">
 	    <?php the_content(); ?>
-			<?php accessible_thumbnail('thumbnail', 'thumbnail');
+			<?php if( !is_user_logged_in() ) :
+				echo
+				'<div class="fixed-action-btn">
+					<div class="card grey lighten-4">
 
-			//wp_login_form( $args );
-			?>
 
-			<?php if( !is_user_logged_in() ) : ?>
+				<div class="card-content center">
+
+										<span class="title">Already registered?</span>
+										<div><a href="' . home_url( "/member-login/" ) . '">Click this link to login</a></div>
+									</div>
+									</div>
+				</div>';
+
+				?>
+
 
 				<form action="<?php echo site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
 					<label for="user_login">Username</label>
 					<input type="text" name="user_login" placeholder="Username" id="user_login" class="input" />
 					<label for="user_email">Email</label>
-					<input type="text" name="user_email" id="user_email" class="input"  />
+					<input type="text" name="user_email" placeholder="Email" id="user_email" class="input"  />
 
 					<?php do_action('register_form'); ?>
 					<input type="submit" value="Register" id="register" />
 				</form>
-			<?php else : echo 'You are already logged in.'; endif; ?>
+			<?php else :
+				echo '<div class="center"><p class="col s12">
+				You have already registered and are logged in.
+				</p>';
+				echo '<p class="col s12">
+				<a class="btn materialize-red lighten-1" href="http://neighbourhoods.dev/wp-login.php?action=logout">Logout</a>
+				</p></div>';
 
+			endif; ?>
 
-	    <?php wp_link_pages(); ?>
 	</section> <!-- end article section -->
 
-	<footer class="article-footer">
-	</footer> <!-- end article footer -->
+
 
 </article> <!-- end article -->

@@ -116,7 +116,7 @@ function sfvpn_audits_columns( $columns ) {
 	 $columns = array(
 		 'cb' => $columns['cb'],
 		 'title' => __( 'Title' ),
-		 'user' => __( 'Submitted by', 'sfvpn' ),
+		 'df' => __( 'Dementia Friendly', 'sfvpn' ),
 		 'taxonomy-audit_category' =>  __( 'Audit Type' ),
 	   'address' => __( 'Address', 'sfvpn' ),
 	   'rating' => __( 'Rating', 'sfvpn' ),
@@ -129,14 +129,14 @@ function sfvpn_audits_columns( $columns ) {
 
 add_action( 'manage_audits_posts_custom_column', 'sfvpn_audits_column', 10, 2);
 function sfvpn_audits_column( $column, $post_id ) {
-	if ( 'user' === $column ) {
-		$user = get_post_meta($post_id, 'submission_details_submission_user', true);
+	if ( 'df' === $column ) {
+		$df = get_post_meta($post_id, 'submission_details_dementia_friendly', true);
 		$name = get_userdata($user[0]);
 
-		if ( ! $user ) {
+		if ( ! $df ) {
 			_e( 'n/a' );
 		} else {
-			echo $name->user_login;
+			echo $df;
 		}
 	}
 

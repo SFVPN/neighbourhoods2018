@@ -383,6 +383,8 @@ form p:last-child {
   visibility: hidden;
 }
 
+
+
 // Checkbox Styles
 [type="checkbox"] {
 
@@ -422,6 +424,8 @@ form p:last-child {
     background-color: $input-disabled-color;
   }
 }
+
+
 
 [type="checkbox"]:checked {
   + label:before {

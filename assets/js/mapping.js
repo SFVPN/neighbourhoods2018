@@ -38,15 +38,8 @@
 // });
 // });
 var map = null;
-var layers = [];
-function toggleLayer(i) {
-	if (layers[i].getMap() === null) {
-		layers[i].setMap(map);
-	}
-	else {
-		layers[i].setMap(null);
-	}
-}
+var lat = null;
+
 (function($) {
 
 
@@ -73,7 +66,87 @@ function new_map( $el ) {
 	var args = {
 		zoom		: 10,
 		center		: new google.maps.LatLng(0, 0),
-		mapTypeId	: google.maps.MapTypeId.ROADMAP
+		mapTypeId	: google.maps.MapTypeId.ROADMAP,
+		styles: [
+            {elementType: 'geometry', stylers: [{color: '#444444'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
 	};
 
 
@@ -165,12 +238,64 @@ function new_map( $el ) {
 	map.leisureMarkers = [];
 	map.retailMarkers = [];
 	map.currentMarkers = [];
+	map.addedMarkers = [];
 	// add markers
 // add identifying number to each marker
 	var sidebar = 1;
 	$markers.each(function(){
 	add_marker( $(this), map, sidebar);
 		sidebar++;
+});
+
+
+
+function placeMarker(position, map) {
+	 var marker = new google.maps.Marker({
+			 position: position,
+			 map: map
+	 });
+	 map.addedMarkers.push( marker );
+	 //map.panTo(position);
+	 markerPos = marker.getPosition();
+	 lat = markerPos.lat();
+	 lng = markerPos.lng();
+
+
+
+	 google.maps.event.addListener(marker, 'click', function(e) {
+	 	e.stop();
+		//console.log( e.latLng.lat());
+	 	for (var i = 0; i < map.addedMarkers.length; i++) {
+			//console.log(map.addedMarkers[i]);
+			if (map.addedMarkers[i].getPosition().equals(marker.getPosition())) {
+				var index = map.addedMarkers.indexOf(marker);
+	  	 	map.addedMarkers[i].setMap(null);
+				map.addedMarkers.splice(index, 1);
+		 }
+	   }
+		 //map.addedMarkers = [];
+
+	 });
+
+	 var newinfowindow = new google.maps.InfoWindow({
+	  content		: 'This location has yet to be audited<br><br><span class="btn-flat grey lighten-3"><a href="https://neighbourhoods.dev/audits/?lat=' + lat + '&lng=' + lng + '">Create a new audit</a></span>'
+	 });
+	 newinfowindow.open( map, marker );
+}
+
+
+
+
+
+
+
+
+
+
+map.addListener('click', function(e) {
+	 placeMarker(e.latLng, map);
+	 //console.log('Latitude: ' + e.latLng.lat() + ' and Longitude: ' + e.latLng.lng());
+	 //console.log(map.addedMarkers);
 });
 
 
@@ -242,8 +367,10 @@ function add_marker( $marker, map, sidebar ) {
 		map			: map,
 		icon: icon,
 		category: auditType,
+		dementiaFriendly: true,
 		title: title
 	});
+
 
 
 	google.maps.event.addListener(marker, 'mouseover', function() {
@@ -396,7 +523,10 @@ var retailCluster = new MarkerClusterer(map, map.retailMarkers, {imagePath: 'htt
 var leisureCluster = new MarkerClusterer(map, map.leisureMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m2'});
 
 //console.log(leisureCluster.markers_.length)
-
+function deleteMarkers() {
+	clearMarkers();
+	addedMarkers = [];
+}
 
 // function addCluster(markerName, clusterName) {
 // 	clusterName = new MarkerClusterer(map, map.markerName, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m'});
@@ -505,8 +635,32 @@ var leisureCluster = new MarkerClusterer(map, map.leisureMarkers, {imagePath: 'h
 
 
 
+
+
+
+
+
+
 });
 
 
 
 })(jQuery);
+
+var getUrlParameter = function getUrlParameter(sParam) {
+	var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			sURLVariables = sPageURL.split('&'),
+			sParameterName,
+			i;
+
+	for (i = 0; i < sURLVariables.length; i++) {
+			sParameterName = sURLVariables[i].split('=');
+
+			if (sParameterName[0] === sParam) {
+					return sParameterName[1] === undefined ? true : sParameterName[1];
+			}
+	}
+};
+
+var tech = getUrlParameter('lat');
+var blog = getUrlParameter('lng');

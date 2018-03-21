@@ -1,5 +1,7 @@
+
+
 <div data-target="modal1" class="fixed-action-btn modal-trigger">
-	 <a class="btn-floating btn-large teal">
+	 <a class="btn-floating btn-large teal" onclick="myFunction()">
 		 <i class="large material-icons">mode_edit</i>
 	 </a>
  </div>

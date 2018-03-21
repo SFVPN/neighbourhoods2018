@@ -4,9 +4,9 @@
 		<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>
 
 		<?php
-		// if(is_user_logged_in()) {
-		// 	get_template_part( 'parts/content', 'edit' );
-		// }
+
+			get_template_part( 'parts/content', 'edit' );
+		
 		?>
 	<?php
 
@@ -148,7 +148,7 @@ if( !empty($location) ):
 
 		<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
 
-				
+
 			</div>
 	</div>
 </div>

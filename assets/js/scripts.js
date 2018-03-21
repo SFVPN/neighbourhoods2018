@@ -96,6 +96,8 @@ $('.modal').modal({
   dismissible: true, // Modal can be dismissed by clicking outside of the modal,
 
 });
+
+
 $('#plustext').on('click', function () {
     $('body, p, .chip, span').animate({'font-size': '+=5'});
 });
@@ -143,3 +145,5 @@ $('.acf-hl .acf-button').addClass('btn blue-grey darken-4');
        contrast.setAttribute('aria-pressed', 'false');
      }
   }
+
+$(".login-remember").html('<p><input name="rememberme" class="filled-in" type="checkbox" id="rememberme" value="foreover" /><label for="rememberme">Remember Me</label></p>');

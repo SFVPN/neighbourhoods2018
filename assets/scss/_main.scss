@@ -735,17 +735,52 @@ h6.card-sub-title {
 }
 
 .retail {
-  i.material-icons.circle.black-text, .secondary-content {
+  span.chip {
     background: #008CFF !important;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    cursor: default;
   }
 }
 
 .leisure {
-  i.material-icons.circle.black-text, .secondary-content {
+  span.chip {
     background: #FFBF00 !important;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    cursor: default;
   }
 }
 
+a.chip {
+  cursor: pointer;
+}
+
+.gm-style-iw a.btn-flat {
+  width: 100%;
+}
+
+// scrollbar
+
+.collection::-webkit-scrollbar {
+  width: 0.35em;
+
+}
+
+.collection::-webkit-scrollbar-thumb {
+  background: #9e9e9e;
+  border-radius: 10px;
+}
+
+.collection::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border-radius: 10px;
+}
+
+.collection {
+  scrollbar-face-color: #9e9e9e !important;
+  scrollbar-track-color: #e0e0e0;
+}
 
 // Post meta
 

@@ -42,7 +42,7 @@ require_once(get_template_directory().'/assets/translation/translation.php');
 require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
 // Customize the WordPress login menu
-// require_once(get_template_directory().'/assets/functions/login.php');
+require_once(get_template_directory().'/assets/functions/login.php');
 
 // Customize the WordPress admin
 require_once(get_template_directory().'/assets/functions/admin.php');
@@ -69,7 +69,10 @@ function my_acf_update_average_rating($post_id)
      $total += $value;
    }
 
-   $average = $total / $i;
+   if($i != 0) {
+     $average = $total / $i;
+   }
+
 
 
 
