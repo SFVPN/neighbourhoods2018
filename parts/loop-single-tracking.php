@@ -148,9 +148,7 @@ if(is_user_logged_in()) {
 
 
 </div>
-<div id="test-swipe-2" class="active col s12">
-	Updates
-</div>
+
 </section>
 
 </article> <!-- end article -->

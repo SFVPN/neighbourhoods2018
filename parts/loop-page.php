@@ -13,21 +13,9 @@
 	    <?php the_content(); ?>
 			<?php accessible_thumbnail('thumbnail', 'thumbnail');
 
-			//wp_login_form( $args );
+		
 			?>
 
-			<?php if( !is_user_logged_in() ) : ?>
-
-				<form action="<?php echo site_url('wp-login.php?action=register', 'login_post') ?>" method="post">
-					<label for="user_login">Username</label>
-					<input type="text" name="user_login" placeholder="Username" id="user_login" class="input" />
-					<label for="user_email">Email</label>
-					<input type="text" name="user_email" id="user_email" class="input"  />
-
-					<?php do_action('register_form'); ?>
-					<input type="submit" value="Register" id="register" />
-				</form>
-			<?php else : echo 'You are already logged in.'; endif; ?>
 
 
 	    <?php wp_link_pages(); ?>
