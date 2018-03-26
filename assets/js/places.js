@@ -8,6 +8,10 @@ var elDF = elDF.checked;
 var stirling_north = null;
 var catChecked = [];
 var checkArray = ['retail', 'leisure'];
+var retailCluster = null;
+var leisureCluster = null;
+var dfCluster = null;
+var activeInfoWindow;
 
 function contains (word) {
 	if($.inArray(word, checkArray) == -1) {
@@ -51,55 +55,63 @@ function initMap() {
       streetViewControl: false,
   });
 
-
-
   var clickHandler = new ClickEventHandler(map, origin);
 
   markers = [];
   leisureMarkers = [];
   retailMarkers = [];
   dfMarkers = [];
-  map.currentMarkers = [];
-  map.addedMarkers = [];
 	// add markers
 // add identifying number to each marker
+
 
   var sidebar = 0;
   $markers.each(function(){
     $marker = $(this);
     sidebar++;
     var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+		var infowindow = new google.maps.InfoWindow({
+
+	});
     var title = $marker.attr('data-title');
     var df = $marker.attr('data-df');
     var place = $marker.attr('data-placeid');
     var auditType = $marker.attr('data-type');
+		var strokeColor = 'black';
     var fillColor = null;
     if(auditType === 'leisure') {
       fillColor = '#FFBF00';
-
+			strokeColor = '#FFBF00';
     } if(auditType === 'retail') {
       fillColor = '#008CFF';
-    }
+			strokeColor = '#008CFF';
+    } if (df === "Yes") {
+			fillColor = '#8E24AA';
+		}
+
+
 
     var icon = {
             path: google.maps.SymbolPath.CIRCLE,
             scale: 8,
             fillColor: fillColor,
             fillOpacity: 1,
-            strokeColor: fillColor,
+            strokeColor: strokeColor,
             strokeOpacity: 1,
+						strokeWeight: 8,
             anchor: new google.maps.Point(0, 2)
           };
 
-          var iconHover = {
-                  path: google.maps.SymbolPath.CIRCLE,
-                  scale: 8,
-                  fillColor: '#ffffff',
-                  fillOpacity: 1,
-                  strokeColor: fillColor,
-                  strokeOpacity: 1,
-                  anchor: new google.maps.Point(0, 2)
-                };
+    var iconHover = {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 8,
+            fillColor: fillColor,
+            fillOpacity: 1,
+            strokeColor: strokeColor,
+            strokeOpacity: .85,
+						strokeWeight: 8,
+            anchor: new google.maps.Point(0, 2)
+          };
 
     // create marker
     var marker = new google.maps.Marker({
@@ -109,9 +121,17 @@ function initMap() {
       key: place,
       category: auditType,
       dementiaFriendly: df,
-      title: title
+      title: title,
+			sidebarID: 'm' + sidebar
     });
 
+
+
+		google.maps.event.addListener(marker, 'click', function() {
+  activeInfoWindow&&activeInfoWindow.close();
+  infowindow.open(map, marker);
+  activeInfoWindow = infowindow;
+});
 
 
     	google.maps.event.addListener(marker, 'mouseover', function() {
@@ -138,35 +158,33 @@ function initMap() {
 
     	}
 
+
+
+			$('#m'+sidebar).click(function(){
+
+
+
+			//infowindow.open(map, marker);
+
+
+
+				//map.setCenter(marker.getPosition());
+				//map.panTo(marker.getPosition());
+				map.setZoom(13);
+				// Click on the marker
+				google.maps.event.trigger(marker, "click");
+			});
+
+
+
     	// if marker contains HTML, add it to an infoWindow
     	if( $marker.html() )
     	{
     		// create info window
-    		var infowindow = new google.maps.InfoWindow({
-    			content		: $marker.html()
-    		});
 
-    		// Create a click on the sidebar list and open the info window
-    				$('#m'+sidebar).click(function(){
-    		      // Close info windows
-    			    $.each(markers, function(index,value){
-    			        if(infowindow)
-    		          	infowindow.close();
+				infowindow.setContent($marker.html());
 
-    		      });
 
-    					//map.setCenter(marker.getPosition());
-    					map.panTo(marker.getPosition());
-    					map.setZoom(14);
-    			    // Click on the marker
-    			    	google.maps.event.trigger(marker, "click");
-    				});
-    		// show info window when marker is clicked
-    		google.maps.event.addListener(marker, 'click', function() {
-    			marker.setIcon(iconHover);
-    			infowindow.open( map, marker );
-
-    		});
 
     		google.maps.event.addListener(infowindow,'closeclick', function() {
     			marker.setIcon(icon);
@@ -176,7 +194,22 @@ function initMap() {
 
     	}
 
+			// google.maps.event.addListener(marker, 'click', function() {
+			// 	marker.setIcon(iconHover);
+			//
+			// 	infowindow.open( map, marker );
+			//
+			// });
+
 });
+
+
+
+retailCluster = new MarkerClusterer(map, retailMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m'});
+
+leisureCluster = new MarkerClusterer(map, leisureMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m2'});
+
+
 center_map( map );
 google.maps.event.addDomListener(el, 'click', function() {
         checkBox = $(this);
@@ -221,6 +254,17 @@ google.maps.event.addDomListener(el, 'click', function() {
 
 
 			    if(filter.is(':checked')) {
+
+						if(filterValue === 'retail') {
+							 retailCluster = new MarkerClusterer(map, retailMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m'});
+							 //console.log(retailCluster.markers_.length);
+						}
+
+						if(filterValue === 'leisure') {
+							 leisureCluster = new MarkerClusterer(map, leisureMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m2'});
+							 //console.log(leisureCluster.markers_.length);
+						}
+
 
 			      checkArray.push(filterValue);
 
@@ -282,6 +326,18 @@ google.maps.event.addDomListener(el, 'click', function() {
 			 					checkArray.splice(i, 1);
 			 				}
 			 			});
+
+						if(filterValue === 'retail') {
+							 retailCluster.removeMarkers( retailCluster.getMarkers() );
+							 //console.log(retailCluster.markers_.length);
+						}
+
+						if(filterValue === 'leisure') {
+							 leisureCluster.removeMarkers( leisureCluster.getMarkers() );
+							 //console.log(retailCluster.markers_.length);
+						}
+
+
 
 
 			      var containsVal = contains('dementiaFriendly');

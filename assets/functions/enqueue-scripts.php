@@ -21,14 +21,14 @@ function site_scripts() {
 }
 
 if(is_post_type_archive('audits')){
-wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true );
+wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'cluster-js', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array( 'maps-js' ), '', true );
-wp_enqueue_script( 'mapping-js', get_template_directory_uri() . '/assets/js/places.js', array( 'jquery' ), '', true );
+wp_enqueue_script( 'mapping-js', get_template_directory_uri() . '/assets/js/places.js', array( 'jquery', 'maps-js' ), '', true );
 }
 
 if(is_singular('audits')){
 wp_enqueue_script( 'chart-js', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', array(), '', true );
-wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true );
+wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'map-js', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery' ), '', true );
 }
 

@@ -10,6 +10,14 @@ jQuery(document).ready(function() {
   }
 );
 
+$('.collapsible').collapsible();
+
+$(".collapsible-header button").click(function () {
+      $(this).text(function(i, text){
+          return text === "Hide Audit List" ? "Show Audit List" : "Hide Audit List";
+      })
+   });
+
 
     $('.materialboxed').materialbox();
     $('.modal').modal({
@@ -70,7 +78,7 @@ window.cookieconsent_options = {
        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
        if (target.length) {
          $('html, body').animate({
-           scrollTop: target.offset().top
+           scrollTop: target.offset().top - 100
          }, 1000);
          target.focus(); // Setting focus
          if (target.is(":focus")){ // Checking if the target was focused

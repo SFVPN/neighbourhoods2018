@@ -735,7 +735,7 @@ h6.card-sub-title {
 }
 
 .retail {
-  span.chip {
+  span.chip:first-of-type {
     background: #008CFF !important;
     margin-top: 5px;
     margin-bottom: 20px;
@@ -744,7 +744,7 @@ h6.card-sub-title {
 }
 
 .leisure {
-  span.chip {
+  span.chip:first-of-type {
     background: #FFBF00 !important;
     margin-top: 5px;
     margin-bottom: 20px;

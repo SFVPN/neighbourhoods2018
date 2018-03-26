@@ -57,9 +57,11 @@
 
 <hr />
 				<?php //archive_terms('audit_category', 'audits');?>
-				<div >
-<div class="col s4">
-				<ul class="collection col s12" style="height: 500px; overflow: auto; border: none; padding-left: 0px;">
+				<ul class="collapsible" data-collapsible="accordion">
+<li class="col s12">
+	<div class="collapsible-header active center"><button class="btn-flat grey lighten-3">Hide Audit List</button></div>
+	<div class="collapsible-body">
+				<ul class="collection col s12" style="border: none;">
 <?php
 
 if(is_post_type_archive('audits')) {
@@ -79,7 +81,7 @@ $dfAttr = get_field('submission_details');
     <?php
 
 		if ( $dfAttr['dementia_friendly'] === "Yes"  ) {
-			echo '<i class="material-icons circle purple darken-1" aria-hidden="true">star</i>';?>
+			echo '<i class="material-icons circle grey lighten-2 purple-text" aria-hidden="true">star</i>';?>
 	<?php } else {
 		  echo '<i class="material-icons circle grey lighten-2" aria-hidden="true">star</i>';
 	}?>
@@ -88,7 +90,10 @@ $dfAttr = get_field('submission_details');
     <p class="label">
 			<i class="mdi mdi-clock"></i> Added <?php the_time('F j, Y');?><br />
 			<span class="chip white-text"><?php echo esc_html( $post_terms[0]->name );?></span>
-      <a class="chip grey lighten-2" id="m<?=$i?>" data-lat="<?php echo $loc['lat']; ?>" data-lng="<?php echo $loc['lng']; ?>"><i class="material-icons right">arrow_forward</i>View on map</a>
+			<?php if ( $dfAttr['dementia_friendly'] === "Yes"  ) {
+				echo '<span class="chip purple darken-1 white-text">Dementia Friendly</span>';?>
+		<?php } ?>
+      <a href="#map" class="chip grey lighten-2" id="m<?=$i?>" data-lat="<?php echo $loc['lat']; ?>" data-lng="<?php echo $loc['lng']; ?>"><i class="material-icons right">landscape</i>View on map</a>
     </p>
 
 
@@ -99,16 +104,14 @@ $dfAttr = get_field('submission_details');
 wp_reset_postdata();?>
 
 </ul>
-
 </div>
 
-
-
-
+</li>
+</ul>
 
 				<!-- <ul class="collection"> -->
-				<div class="col s8">
-					<div id="map" class="acf-map col s12" style="height: 500px; margin: .85rem 0; padding: 1rem;">
+<div id="map-wrapper">
+					<div id="map" class="acf-map col s12" style="height: 500px; margin: 1rem 0; ">
 			  <?php if (have_posts()) : while (have_posts()) : the_post();
 				$post_terms = get_the_terms($post->ID, 'audit_category');
 				$location = get_field('location_map');
@@ -142,7 +145,7 @@ wp_reset_postdata();?>
 
 	</div>
 
-	</div>
+</ul>
 
 			</div>
 

@@ -11931,13 +11931,13 @@ h6.card-sub-title {
 .mdi-help-circle {
   cursor: help; }
 
-.retail span.chip {
+.retail span.chip:first-of-type {
   background: #008CFF !important;
   margin-top: 5px;
   margin-bottom: 20px;
   cursor: default; }
 
-.leisure span.chip {
+.leisure span.chip:first-of-type {
   background: #FFBF00 !important;
   margin-top: 5px;
   margin-bottom: 20px;

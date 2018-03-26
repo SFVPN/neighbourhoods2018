@@ -37,7 +37,10 @@
 					<?php do_action('register_form'); ?>
 					<input type="submit" value="Register" id="register" />
 				</form>
-			<?php else :
+			<?php
+			echo '<div class="row center"><div class="col s4">' . do_shortcode('[nextend_social_login provider="google"]') . '</div><div class="col s4">' . do_shortcode('[nextend_social_login provider="twitter"]') . '</div><div class="col s4">' . do_shortcode('[nextend_social_login provider="facebook"]') . '</div></div>';
+
+			else :
 				echo '<div class="center"><p class="col s12">
 				You have already registered and are logged in.
 				</p>';

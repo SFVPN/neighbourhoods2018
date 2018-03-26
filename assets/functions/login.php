@@ -86,3 +86,27 @@ add_filter( 'register_url', array( SiteRules, 'register_url' ) );
 // Redirect the registration form
 //
 add_action( 'login_form_register', array( SiteRules, 'redirect_register' ) );
+
+
+if ( is_user_logged_in() && ! empty( $_GET['DeleteMyAccount'] ) ) {
+	add_action( 'init', 'remove_logged_in_user' );
+}
+
+add_action('init','prefix_delete_user');
+function prefix_delete_user() {
+if(isset($_REQUEST['action']) && $_REQUEST['action']=='prefix_delete_user') {
+   include("./wp-admin/includes/user.php" );
+   //check admin permissions.
+   //if (current_user_can('edit_users')) {
+       $user_id = intval($_REQUEST['user_id']);
+       wp_delete_user($user_id, 1);
+       exit();
+
+  // }
+}
+}
+
+add_action("deleted_user", function(){
+ wp_redirect( home_url('/member-account/?deleted=true') );
+ exit;
+});

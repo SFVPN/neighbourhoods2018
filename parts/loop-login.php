@@ -22,6 +22,7 @@ $args = array(
 
 <?php
 if( !is_user_logged_in() ) {
+
 	echo
 	'<div class="fixed-action-btn">
 		<div class="card grey lighten-4">
@@ -36,7 +37,7 @@ if( !is_user_logged_in() ) {
 						</div>
 	</div>';
 	wp_login_form( $args );
-
+	echo '<div class="row center"><div class="col s4">' . do_shortcode('[nextend_social_login provider="google"]') . '</div><div class="col s4">' . do_shortcode('[nextend_social_login provider="twitter"]') . '</div><div class="col s4">' . do_shortcode('[nextend_social_login provider="facebook"]') . '</div></div>';
 } else {
 	echo '<div class="center"><p class="col s12">
 	You are already logged in.
