@@ -49,16 +49,16 @@ $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 echo '<p>Your username is <b>'.$current_user->user_login.'</b>. This cannot be changed.</p>';
 
-acf_form(array(
-	'post_id' => 'user_'.$current_user->ID, // $user_profile,
-  'post_content' => false,
-  'post_title' => true,
-  'return'		=> home_url(),
-  'fields' => array('field_59f8aa752b9b9', 'field_59f8afc020642', 'field_59f8aff63c8e4', 'field_5aaa97f9057dd', 'field_59f8a8282855c'),
-  'submit_value'		=> __("Update Profile", 'acf'),
-));
+// acf_form(array(
+// 	'post_id' => 'user_'.$current_user->ID, // $user_profile,
+//   'post_content' => false,
+//   'post_title' => false,
+//   'return'		=> home_url(),
+//   'fields' => array(),
+//   'submit_value'		=> __("Update Profile", 'acf'),
+// ));
 
-echo '<a class="btn-flat blue" href="http://neighbourhoods.dev/?action=prefix_delete_user&user_id=' . $current_user->ID . '">Delete Account</a>';
+echo '<a class="btn-flat materialize-red white-text" href="' . home_url() . '?action=prefix_delete_user&user_id=' . $current_user->ID . '">Delete Account</a>';
 		//get_template_part( 'parts/form', 'general' );
 
 	} else {
