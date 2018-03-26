@@ -27,7 +27,6 @@ $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 				<h1 class="page-title"><?php the_title(); ?></h1>
 
 
-				<? //var_dump($post);?>
 			</header> <!-- end article header -->
 
 
@@ -39,8 +38,12 @@ $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 
 		<?php
+		if(is_user_logged_in()) {
+			get_template_part( 'parts/form', 'location' );
+		} else {
+			get_template_part( 'parts/form', 'login' );
+		}
 
-		get_template_part( 'parts/form', 'location' );
 
 
 		endwhile; endif;

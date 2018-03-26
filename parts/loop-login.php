@@ -43,7 +43,7 @@ if( !is_user_logged_in() ) {
 	You are already logged in.
 	</p>';
 	echo '<p class="col s12">
-	<a class="btn materialize-red lighten-1" href="http://neighbourhoods.dev/wp-login.php?action=logout">Logout</a>
+	<a class="btn materialize-red lighten-1" href="' . home_url() . '/wp-login.php?action=logout">Logout</a>
 	</p></div>';
 }?>
 
