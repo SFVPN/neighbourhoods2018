@@ -182,7 +182,7 @@ function sfvpn_posts_orderby( $query ) {
 }
 
 add_filter('acf/settings/google_api_key', function () {
-    return 'AIzaSyAU9HQVUeg8iucjSOnd5GrRTX8pArW6170';
+    return 'AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA';
 });
 
 if (function_exists('acf_add_options_page')) {
