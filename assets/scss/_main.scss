@@ -739,7 +739,6 @@ h6.card-sub-title {
     background: #008CFF !important;
     margin-top: 5px;
     margin-bottom: 20px;
-    cursor: default;
   }
 }
 
@@ -748,8 +747,11 @@ h6.card-sub-title {
     background: #FFBF00 !important;
     margin-top: 5px;
     margin-bottom: 20px;
-    cursor: default;
   }
+}
+
+span.chip {
+  cursor:default;
 }
 
 a.chip {
@@ -758,6 +760,12 @@ a.chip {
 
 .gm-style-iw a.btn-flat {
   width: 100%;
+}
+
+// account-controls
+
+#delete-account {
+  margin-right: 0;
 }
 
 // scrollbar

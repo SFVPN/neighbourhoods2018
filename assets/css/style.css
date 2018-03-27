@@ -11934,13 +11934,14 @@ h6.card-sub-title {
 .retail span.chip:first-of-type {
   background: #008CFF !important;
   margin-top: 5px;
-  margin-bottom: 20px;
-  cursor: default; }
+  margin-bottom: 20px; }
 
 .leisure span.chip:first-of-type {
   background: #FFBF00 !important;
   margin-top: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; }
+
+span.chip {
   cursor: default; }
 
 a.chip {
@@ -11948,6 +11949,9 @@ a.chip {
 
 .gm-style-iw a.btn-flat {
   width: 100%; }
+
+#delete-account {
+  margin-right: 0; }
 
 .collection::-webkit-scrollbar {
   width: 0.35em; }

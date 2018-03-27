@@ -47,13 +47,6 @@ $("textarea").addClass("materialize-textarea");
 $(".field input[value='Report location']").addClass("btn");
 
 
-var options = [
-    {selector: '#About', offset: 0, callback: 'Materialize.fadeInImage("#About")' },
-    {selector: '#Teaching', offset: 0, callback: 'Materialize.fadeInImage("#Teaching")' },
-    {selector: '#Classes', offset: 0, callback: 'Materialize.fadeInImage("#Classes")' }
-];
-Materialize.scrollFire(options);
-
 
 window.cookieconsent_options = {
        learnMore: 'More info',
@@ -94,10 +87,6 @@ window.cookieconsent_options = {
  });
 
    $("#acf-_post_title").attr("placeholder","Please add a title for your submission. Just click on this text and start writing - it will disappear!");
-
-
-
-
 
 
 $('.modal').modal({
