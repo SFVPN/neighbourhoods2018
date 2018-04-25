@@ -458,6 +458,20 @@ ul.map-filters__wrap, ul.map-filters_kml {
   border-top: none;
 }
 
+.member-register form h2 {
+  display: none;
+}
+
+
+
+.page-template-page-user-profile {
+  .form-table, form h2 {
+      display: none;
+  }
+  .form-table:nth-of-type(2) {
+      display: table-cell;
+  }
+}
 
 .inside {
   @extend .z-depth-1;

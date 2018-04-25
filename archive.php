@@ -51,7 +51,7 @@
 
 				 	</ul>
 
-
+					<input style="background: white;" id="pac-input" class="controls" type="text" placeholder="Search Box">
 
 				 </form>
 

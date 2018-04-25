@@ -45,7 +45,7 @@
 				You have already registered and are logged in.
 				</p>';
 				echo '<p class="col s12">
-				<a class="btn materialize-red lighten-1" href="' . home_url() . '?action=logout">Logout</a>
+				<a class="btn materialize-red lighten-1" href="' . home_url() . '/wp-login.php?action=logout">Logout</a>
 				</p></div>';
 
 			endif; ?>

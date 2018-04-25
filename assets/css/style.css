@@ -11727,6 +11727,14 @@ ul.map-filters__wrap, ul.map-filters_kml {
 .acf-fields > .acf-field {
   border-top: none; }
 
+.member-register form h2 {
+  display: none; }
+
+.page-template-page-user-profile .form-table, .page-template-page-user-profile form h2 {
+  display: none; }
+.page-template-page-user-profile .form-table:nth-of-type(2) {
+  display: table-cell; }
+
 .inside {
   margin-bottom: 2em; }
   .inside textarea {

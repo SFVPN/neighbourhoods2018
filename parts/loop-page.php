@@ -13,7 +13,7 @@
 	    <?php the_content(); ?>
 			<?php accessible_thumbnail('thumbnail', 'thumbnail');
 
-		
+
 			?>
 
 
@@ -21,7 +21,88 @@
 	    <?php wp_link_pages(); ?>
 	</section> <!-- end article section -->
 
-	<footer class="article-footer">
-	</footer> <!-- end article footer -->
 
+
+
+
+<?php
+if( have_rows('list') ):
+
+	?>
+
+<div id="test-swipe-1" class="container">
+	<?php while ( have_rows('list') ) : the_row();?>
+
+
+
+	<ul id="<?php the_sub_field('list_title'); ?>" class="collection with-header">
+
+
+		<li class="collection-header center" >
+
+			<h4><?php the_sub_field('list_title'); ?></h4>
+
+
+
+
+
+		</li> <!-- end col s12 l4 -->
+		<?php
+		if( have_rows('list_items') ):?>
+
+			<?php
+
+			while ( have_rows('list_items') ) : the_row();
+
+?>
+
+				<li class="collection-item avatar" >
+
+					<?php
+
+						echo '<i class="material-icons yellow darken-3 circle">star</i>';
+					?>
+
+<p>
+	 <?php
+
+	 the_sub_field('list_item_description'); ?>
+</p>
+
+
+
+
+
+
+
+</li> <!-- end col s12 l4 -->
+
+
+		<?php
+		endwhile;
+?>
+	</ul>
+		<?php
+
+		else :
+		 // no rows found
+		endif;
+		?>
+
+
+
+
+
+<?php
+endwhile;?>
+
+<?php
+else :
+ // no rows found
+endif;
+?>
+
+
+
+</div>
 </article> <!-- end article -->

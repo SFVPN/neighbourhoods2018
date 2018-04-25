@@ -37,22 +37,22 @@ function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
     center		: new google.maps.LatLng(0, 0),
-    disableDefaultUI: true,
-      zoomControl: true,
-      styles: [{
-        featureType: 'poi',
-        stylers: [{ visibility: 'on' }]  // Turn off POI.
-      },
-      {
-        featureType: 'park',
-        stylers: [{ visibility: 'on' }]  // Turn off POI.
-      },
-      {
-        featureType: 'transit.station',
-        stylers: [{ visibility: 'on' }]  // Turn off bus, train stations etc.
-      }],
-      disableDoubleClickZoom: true,
-      streetViewControl: false,
+    // disableDefaultUI: true,
+    //   zoomControl: true,
+    //   styles: [{
+    //     featureType: 'poi',
+    //     stylers: [{ visibility: 'on' }]  // Turn off POI.
+    //   },
+    //   {
+    //     featureType: 'park',
+    //     stylers: [{ visibility: 'on' }]  // Turn off POI.
+    //   },
+    //   {
+    //     featureType: 'transit.station',
+    //     stylers: [{ visibility: 'on' }]  // Turn off bus, train stations etc.
+    //   }],
+    //   disableDoubleClickZoom: true,
+    //   streetViewControl: false,
   });
 
   var clickHandler = new ClickEventHandler(map, origin);
@@ -99,7 +99,7 @@ function initMap() {
             strokeColor: strokeColor,
             strokeOpacity: 1,
 						strokeWeight: 8,
-            anchor: new google.maps.Point(0, 2)
+            anchor: new google.maps.Point(0, 0)
           };
 
     var iconHover = {
@@ -110,7 +110,7 @@ function initMap() {
             strokeColor: strokeColor,
             strokeOpacity: .85,
 						strokeWeight: 8,
-            anchor: new google.maps.Point(0, 2)
+            anchor: new google.maps.Point(0, 0)
           };
 
     // create marker
@@ -551,17 +551,18 @@ var ClickEventHandler = function(map, origin) {
 var killInfo = null;
 
 ClickEventHandler.prototype.handleClick = function(event) {
-  //console.log('You clicked on: ' + event.latLng);
+  console.log('You clicked on: ' + event.latLng);
   // If the event has a placeId, use it.
   if(event.placeId) {
-    //console.log('You clicked on place: ' + event.placeId);
+    console.log('You clicked on place: ' + event.placeId);
   }
   if (event.placeId) {
     //console.log('You clicked on place:' + event.placeId);
     //console.log(markers);
     for (i = 0; i < markers.length; i++) {
       if( markers[i].key === event.placeId ) {
-        killInfo = event.placeId;//event.stop();
+        killInfo = event.placeId;//
+				event.stop();
         //console.log(killInfo);
          Materialize.toast('This location has already been audited. Click on the circular icon to view the audit data', 4000);
 

@@ -22,13 +22,17 @@
 		<?php if ( ! function_exists( 'has_site_icon' ) || ! has_site_icon() ) { ?>
 			<!-- Icons & Favicons -->
 			<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
-			<link href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-icon-touch.png" rel="apple-touch-icon" />
+			<link rel="icon" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/favicon-32x32.png">
+			<link rel="icon" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/favicon-16x16.png">
+			<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
+			<link href="<?php echo get_template_directory_uri(); ?>/apple-icon-touch.png" rel="apple-touch-icon" />
+			<link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/safari-pinned-tab.svg" color="#60b58c" />
 			<!--[if IE]>
 				<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/favicon.ico">
 			<![endif]-->
 			<meta name="msapplication-TileColor" content="#f01d4f">
 			<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/assets/images/win8-tile-icon.png">
-	    	<meta name="theme-color" content="#121212">
+	    	<meta name="theme-color" content="#ffffff">
 	    <?php } ?>
 
 		  <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">

@@ -53,12 +53,12 @@ add_action('wp_logout', 'logout_page');
 
 $page_showing = basename($_SERVER['REQUEST_URI']);
 
-if (strpos($page_showing, 'failed') !== false) {
-echo '<p class="error-msg"><strong>ERROR:</strong> Invalid username and/or password.</p>';
-}
-elseif (strpos($page_showing, 'blank') !== false ) {
-echo '<p class="error-msg"><strong>ERROR:</strong> Username and/or Password is empty.</p>';
-}
+// if (strpos($page_showing, 'failed') !== false) {
+// echo '<p class="error-msg"><strong>ERROR:</strong> Invalid username and/or password.</p>';
+// }
+// elseif (strpos($page_showing, 'blank') !== false ) {
+// echo '<p class="error-msg"><strong>ERROR:</strong> Username and/or Password is empty.</p>';
+// }
 
 class SiteRules {
 

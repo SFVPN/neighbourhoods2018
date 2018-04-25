@@ -78,7 +78,7 @@ $error = array();
 	  /*I am not Author of this Code- i dont know why but it worked for me after changing below line to if ( count($error) == 0 ){ */
 	    // if ( count($error) < 1 ) {
 	    //     //action hook for plugins and extra fields saving
-	    //     do_action('edit_user_profile_update', $current_user->ID);
+	       do_action('edit_user_profile_update', $current_user->ID);
 	    //     echo 'Profile Updated';
 	    // }
 
@@ -142,11 +142,11 @@ $error = array();
 
 									 <?php
 											 //action hook for plugin and extra fields
-											 //do_action('edit_user_profile',$current_user);
+											 do_action('show_user_profile',$current_user);
 									 ?>
 									 <p class="form-submit">
 											 <?php echo $referer; ?>
-											 <input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e('Update', 'profile'); ?>" />
+											 <input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e('Update Your Profile', 'profile'); ?>" />
 											 <?php wp_nonce_field( 'update-user' ) ?>
 											 <input name="action" type="hidden" id="action" value="update-user" />
 									 </p><!-- .form-submit -->
