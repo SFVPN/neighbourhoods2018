@@ -21,30 +21,19 @@
 	    <?php wp_link_pages(); ?>
 	</section> <!-- end article section -->
 
-
-
-
-
 <?php
 if( have_rows('list') ):
-
-	?>
+?>
 
 <div id="test-swipe-1" class="container">
+	<ul id="<?php the_sub_field('list_title'); ?>" class="collection with-header">
 	<?php while ( have_rows('list') ) : the_row();?>
 
-
-
-	<ul id="<?php the_sub_field('list_title'); ?>" class="collection with-header">
 
 
 		<li class="collection-header center" >
 
 			<h4><?php the_sub_field('list_title'); ?></h4>
-
-
-
-
 
 		</li> <!-- end col s12 l4 -->
 		<?php
@@ -69,19 +58,13 @@ if( have_rows('list') ):
 	 the_sub_field('list_item_description'); ?>
 </p>
 
-
-
-
-
-
-
 </li> <!-- end col s12 l4 -->
 
 
 		<?php
 		endwhile;
 ?>
-	</ul>
+
 		<?php
 
 		else :
@@ -89,20 +72,45 @@ if( have_rows('list') ):
 		endif;
 		?>
 
-
-
-
-
 <?php
 endwhile;?>
-
+</ul>
+</div>
 <?php
 else :
  // no rows found
 endif;
 ?>
+<?php
+$contact = get_field('main_contact');
+if($contact) {?>
+
+	<div class="container">
+		<ul class="collection">
+		<li class="collection-item header center">
+			<h5>Contact</h5>
+		</li>
+    <li class="collection-item avatar">
+      <img src="<?php the_field('profile_picture', 'user_' . $contact->ID);?>" alt="" class="circle">
+      <h5 class="title"><?php echo $contact->display_name . ' - ' . get_field('position', 'user_' . $contact->ID) ;?></h5>
+      <p>
+				<i class="material-icons left">email</i>
+				<?php echo 'Email: <a href="mailto:' . $contact->user_email . '">' . $contact->user_email . '</a>';?><p>
+				<p>
+					<i class="material-icons left">phone</i>
+					<?php echo 'Landline: ' . get_field('landline_number', 'user_' . $contact->ID);?>
+				</p>
+				<p>
+					<i class="material-icons left">phone_android</i>
+					<?php echo 'Mobile: ' . get_field('mobile_number', 'user_' . $contact->ID);?>
+				</p>
 
 
+    </li>
+	</ul>
 
-</div>
+	</div>
+
+<?php } ?>
+
 </article> <!-- end article -->
