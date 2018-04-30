@@ -36,9 +36,37 @@ get_header();
 	 // no rows found
 	endif;
 	?>
- <?php endwhile; endif;
+<?php endwhile; endif;?>
 
-	if( have_rows('front_page_sections') ):?>
+<?php if (get_field('alert_title')) {?>
+	<div id="advert" class="row grey lighten-2">
+		<div id="advert-text" class="col s12" >
+			<h4 class="center"><?php the_field('alert_title');?></h4>
+			<?php the_field('alert_description');?>
+		</div>
+		<div class="col s12 center" >
+			<a class="btn-large z-depth-0 waves-effect black-text"
+			<?php if(get_field('choose_page_link')) {
+					echo 'href="' . get_field('choose_page_link') . '"';
+			}
+
+			if(get_field('external_url')) {
+				 echo 'href="' . get_field('external_url') . '"';
+		  }
+
+			if(get_field('file_to_upload')) {
+				 echo 'href="' . get_field('file_to_upload') . '"';
+		  }?>
+
+			aria-label="View more information about <?php the_field('alert_title'); ?>">
+				View Details</a>
+		</div>
+
+	</div>
+<?php } ?>
+
+
+<?php if( have_rows('front_page_sections') ):?>
 <div id="sections" class="row center">
 		<?php while ( have_rows('front_page_sections') ) : the_row();?>
 
