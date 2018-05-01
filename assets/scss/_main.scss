@@ -893,16 +893,14 @@ a.chip {
 
 #advert {
   padding: 3rem;
-  font-size: 1.2rem;
   a {
     border: 1px solid;
     background: transparent;
   }
 }
 
-#advert-text {
-  padding: 0 0 2rem 0;
-  h4 {
+.home {
+  .h4 {
     padding-bottom: 1rem;
   }
 }

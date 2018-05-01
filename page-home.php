@@ -41,8 +41,10 @@ get_header();
 <?php if (get_field('alert_title')) {?>
 	<div id="advert" class="row grey lighten-2">
 		<div id="advert-text" class="col s12" >
-			<h4 class="center"><?php the_field('alert_title');?></h4>
-			<?php the_field('alert_description');?>
+			<h2 class="center h4"><?php the_field('alert_title');?></h2>
+			<p>
+				<?php the_field('alert_description');?>
+			</p>
 		</div>
 		<div class="col s12 center" >
 			<a class="btn-large z-depth-0 waves-effect black-text"
@@ -68,6 +70,9 @@ get_header();
 
 <?php if( have_rows('front_page_sections') ):?>
 <div id="sections" class="row center">
+ <div id="advert-text" class="col s12" >
+		<h2 class="center h4"><?php bloginfo('description');?></h2>
+	</div>
 		<?php while ( have_rows('front_page_sections') ) : the_row();?>
 
 
@@ -77,7 +82,7 @@ get_header();
 
 			<div class="col s12 section-details" >
 
-				<h4><?php the_sub_field('section_title'); ?></h4>
+				<h3 class="h5"><?php the_sub_field('section_title'); ?></h3 class="h5">
 
 				<?php the_sub_field('section_description'); ?>
 
