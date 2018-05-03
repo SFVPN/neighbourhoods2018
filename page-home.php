@@ -39,7 +39,7 @@ get_header();
 <?php endwhile; endif;?>
 
 <?php if (get_field('alert_title')) {?>
-	<div id="advert" class="row grey lighten-2">
+	<div id="advert" class="row grey lighten-4">
 		<div id="advert-text" class="col s12" >
 			<h2 class="center h4"><?php the_field('alert_title');?></h2>
 			<p>
@@ -70,8 +70,8 @@ get_header();
 
 <?php if( have_rows('front_page_sections') ):?>
 <div id="sections" class="row center">
- <div id="advert-text" class="col s12" >
-		<h2 class="center h4"><?php bloginfo('description');?></h2>
+ <div class="col s12" >
+		<h2 class="center h4"><?php the_field('front_page_section_heading'); ?></h2>
 	</div>
 		<?php while ( have_rows('front_page_sections') ) : the_row();?>
 

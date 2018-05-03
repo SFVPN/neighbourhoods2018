@@ -2,7 +2,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?> role="article">
 	<section class="card-content">
-		<h2><a href="<?php echo $post->guid; ?>" class="center" rel="bookmark" title="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></a></h2>
+		<h1 class="h2"><a href="<?php echo $post->guid; ?>" class="center" rel="bookmark" title="<?php echo $post->post_title; ?>"><?php echo $post->post_title; ?></a></h1>
 
 			<?php get_template_part( 'parts/content', 'byline' ); ?>
 

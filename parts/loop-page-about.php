@@ -3,7 +3,7 @@
 
 <div class="parallax-container">
   <header class="article-header">
-     <h1 class="entry-title single-title white-text center" itemprop="headline"><?php the_title();?></h1>
+     <h1 class="entry-title h2 single-title white-text center" itemprop="headline"><?php the_title();?></h1>
   </header> <!-- end article header -->
   <div class="parallax"><img src="<?php the_post_thumbnail_url('full'); ?>"></div>
 </div> <!-- end parallax-container -->

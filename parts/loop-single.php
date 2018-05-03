@@ -1,7 +1,7 @@
 
 
 	<header class="article-header">
-		<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>
+		<h1 class="entry-title h2 single-title center" itemprop="headline"><?php the_title();?></h1>
 		<?php
 		if(is_user_logged_in()) {
 			get_template_part( 'parts/content', 'edit' );

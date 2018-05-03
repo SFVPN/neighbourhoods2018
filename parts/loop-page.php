@@ -4,7 +4,7 @@
 
 
 		<header class="article-header">
-			<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>
+			<h1 class="entry-title single-title h2 center" itemprop="headline"><?php the_title();?></h1>
 <?php // get_template_part( 'parts/content', 'share' );?>
 
 		</header> <!-- end article header -->
@@ -33,7 +33,7 @@ if( have_rows('list') ):
 
 		<li class="collection-header center" >
 
-			<h4><?php the_sub_field('list_title'); ?></h4>
+			<h2 class="h4"><?php the_sub_field('list_title'); ?></h2>
 
 		</li> <!-- end col s12 l4 -->
 		<?php
@@ -88,7 +88,7 @@ if($contact) {?>
 	<div class="container">
 		<ul class="collection">
 		<li class="collection-item header center">
-			<h5>Contact</h5>
+			<h3 class="h5">Contact</h3>
 		</li>
     <li class="collection-item avatar">
       <img src="<?php the_field('profile_picture', 'user_' . $contact->ID);?>" alt="" class="circle">

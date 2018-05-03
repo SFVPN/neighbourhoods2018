@@ -882,13 +882,24 @@ a.chip {
   }
 }
 
-#home-intro img {
-  border: 6px solid color("materialize-red", "lighten-2");
+#home-intro {
+  h1 {
+    margin-bottom: 0;
+  }
 }
 .section-details {
   border: 2px solid #aaa;
   border-radius: 3px;
   margin-bottom: 3rem;
+}
+
+#subheader {
+  display: inline-block;
+  margin: auto;
+  color: #424242;
+  font-weight: 300;
+  padding: 0 1rem .75rem 1rem;
+  border-bottom: 2px solid color("yellow", "base");
 }
 
 #advert {
@@ -899,9 +910,15 @@ a.chip {
   }
 }
 
-.home {
+#advert-text {
   .h4 {
     padding-bottom: 1rem;
+  }
+}
+
+#sections {
+  .h4 {
+    padding-bottom: 2rem;
   }
 }
 // Entry content
@@ -975,7 +992,7 @@ article#content-not-found {
 
 .home .article-header {
   font-weight: 100;
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 .article-header {

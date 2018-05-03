@@ -2,7 +2,7 @@
 
 
 		<header class="article-header center">
-			<h1 class="entry-title single-title center" itemprop="headline"><?php the_title();?></h1>
+			<h1 class="entry-title h2 single-title center" itemprop="headline"><?php the_title();?></h1>
 <?php // get_template_part( 'parts/content', 'share' ); ?>
 
 <?php
