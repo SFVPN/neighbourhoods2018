@@ -1,5 +1,5 @@
 
-
+<article id="post-<?php the_ID(); ?>" class="container <?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
 	<header class="article-header">
 		<h1 class="entry-title h2 single-title center" itemprop="headline"><?php the_title();?></h1>
 		<?php
@@ -139,8 +139,8 @@ endif;
 
 
 
-<div class="section white">
- <div class="row container">
+<section class="entry-content white col s12" itemprop="articleBody">
+ <div class="ainer">
 
 	 <!-- flexible content -->
 
@@ -154,22 +154,66 @@ if( have_rows('content') ):
 
         if( get_row_layout() == 'main_content' ):
 
-        	echo '<div class="col s12">'
+        	echo '<div class="cols12">'
 					. get_sub_field("description") .
 					'</div>';
+				endif;
+
+				if( get_row_layout() == 'links' ):
+					$links_title = get_sub_field("links_title");
+        	echo '<div class="grey lighten-3 key_link">';
+
+					 	if($links_title) {
+							echo '<span class="links_title">' . $links_title . '</span>';
+						}
+
+						if( have_rows('external_link') ):
+
+					 	// loop through the rows of data
+					    while ( have_rows('external_link') ) : the_row();
+
+					        // display a sub field value
+					        echo '<a class="block" href="' . get_sub_field('external_link_url') . '">' . get_sub_field('external_link_text') . '</a>';
+
+					    endwhile;
+
+						else :
+
+						    // no rows found
+
+						endif;
+
+						if( have_rows('internal_link') ):
+
+					 	// loop through the rows of data
+					    while ( have_rows('internal_link') ) : the_row();
+
+					        // display a sub field value
+					         echo '<a class="block" href="' . get_sub_field('internal_link_url') . '">' . get_sub_field('internal_link_text') . '</a>';
+
+					    endwhile;
+
+						else :
+
+						    // no rows found
+
+						endif;
+
+					echo '</div>';
 				endif;
 
         if( get_row_layout() == 'single_image' ):
 
         	$file = get_sub_field('image');
-					echo '<div class="col s12">
-					<img class="responsive-img" src="' . $file['url']. '" />
+					echo '<div class="cols12">
+					<img class="responsive-img" src="' . $file['url']. '" alt="' . $file['alt']. '" />
+					<label>' . $file['caption'] . '</label>
 					</div>';
 
         endif;
 
 				if( get_row_layout() == 'video_embed' ):
-					echo '<div class="col s12"><div class="video-container">';
+					echo '<div class="cols12"><div class="video-container">';
 
         	$video = get_sub_field('video_url');
 					echo $video;
@@ -349,6 +393,8 @@ endwhile; ?>
 
 <?php endif;
 
-
+get_template_part( 'parts/content', 'contact' );
 
  ?>
+</section>
+</article>

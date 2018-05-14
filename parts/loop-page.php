@@ -13,7 +13,7 @@
 	    <?php the_content(); ?>
 			<?php accessible_thumbnail('thumbnail', 'thumbnail');
 
-
+			get_template_part( 'parts/content', 'contact' );
 			?>
 
 
@@ -80,37 +80,7 @@ endwhile;?>
 else :
  // no rows found
 endif;
+
 ?>
-<?php
-$contact = get_field('main_contact');
-if($contact) {?>
-
-	<div class="container">
-		<ul class="collection">
-		<li class="collection-item header center">
-			<h3 class="h5">Contact</h3>
-		</li>
-    <li class="collection-item avatar">
-      <img src="<?php the_field('profile_picture', 'user_' . $contact->ID);?>" alt="" class="circle">
-      <h5 class="title"><?php echo $contact->display_name . ' - ' . get_field('position', 'user_' . $contact->ID) ;?></h5>
-      <p>
-				<i class="material-icons left">email</i>
-				<?php echo 'Email: <a href="mailto:' . $contact->user_email . '">' . $contact->user_email . '</a>';?><p>
-				<p>
-					<i class="material-icons left">phone</i>
-					<?php echo 'Landline: ' . get_field('landline_number', 'user_' . $contact->ID);?>
-				</p>
-				<p>
-					<i class="material-icons left">phone_android</i>
-					<?php echo 'Mobile: ' . get_field('mobile_number', 'user_' . $contact->ID);?>
-				</p>
-
-
-    </li>
-	</ul>
-
-	</div>
-
-<?php } ?>
 
 </article> <!-- end article -->

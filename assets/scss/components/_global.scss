@@ -515,6 +515,12 @@ td, th{
       min-height: 84px;
       padding-left: 72px;
       position: relative;
+      @media #{$medium-and-down} {
+
+      }
+      @media #{$small-and-down} {
+        padding: 1rem;
+      }
 
       .circle {
         position: absolute;
@@ -524,6 +530,23 @@ td, th{
         left: 15px;
         display: inline-block;
         vertical-align: middle;
+        @media #{$medium-and-down} {
+
+        }
+        @media #{$small-and-down} {
+          position: relative;
+          width: 30%;
+          height: 30%;
+          left: 35%;
+        }
+      }
+      h5 {
+        @media #{$medium-and-down} {
+
+        }
+        @media #{$small-and-down} {
+          text-align: center;
+        }
       }
       i.circle {
         font-size: 18px;
@@ -589,6 +612,17 @@ td, th{
     }
   }
 
+}
+
+.blog .collection, .category .collection {
+  border-color: transparent;
+  .collection-item {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .title {
+      font-size: $h5-fontsize;
+    }
+  }
 }
 // Made less specific to allow easier overriding
 .secondary-content {

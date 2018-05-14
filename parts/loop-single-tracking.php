@@ -32,7 +32,7 @@ if(is_user_logged_in()) {
 				<ul id="<?php the_sub_field('milestone_name'); ?>" class="collection with-header">
 
 
-					<li class="collection-header" >
+					<li class="collection-header grey lighten-3" >
 						<!-- <span class="badge yellow"><?php echo 'Due date: ' . get_sub_field('milestone_end'); ?></span> -->
 						<h4><?php the_sub_field('milestone_name'); ?></h4>
 

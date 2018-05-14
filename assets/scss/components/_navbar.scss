@@ -35,9 +35,10 @@ nav#main-nav {
     height: $navbar-height;
 
     i {
-      font-size: 2.7rem;
+      font-size: 2rem;
       height: $navbar-height;
       line-height: $navbar-height;
+      padding: 0 .5rem
     }
   }
 
@@ -114,6 +115,15 @@ nav#main-nav {
 
   }
 
+}
+
+#slide-out li {
+  width: 100%;
+}
+
+img#mobilelogo {
+    width: 50%;
+    padding: 1rem;
 }
 
 .brand-logo {

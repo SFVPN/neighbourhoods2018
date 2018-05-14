@@ -173,6 +173,15 @@ button.btn-floating {
   i {
     font-size: $button-large-icon-font-size;
   }
+  @media #{$medium-and-down} {
+  }
+  @media #{$small-and-down} {
+    margin: 1rem;
+    height: auto;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    padding: 0rem;
+  }
 }
 
 // Block button

@@ -19,12 +19,12 @@ if(is_tax()) {
       echo '<i class="material-icons yellow circle black-text" aria-hidden="true">filter_7</i>';
     }?>
 
-    <span class="title" aria-label="This content is categorized as <?php echo esc_html( $post_terms[0]->name );?>"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></span>
+    <span class="title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></span>
     <p class="label"><i class="mdi mdi-clock"></i> Posted on <?php the_time('F j, Y');?><br>
       <?php the_excerpt(); ?>
     </p>
     <?php if ( ! empty( $post_terms ) ) {?>
-    <span class="secondary-content grey darken-3 white-text" aria-hidden="true"><?php echo esc_html( $post_terms[0]->name );?></span>
+    <span class="chip grey darken-3 white-text" aria-label="This content is categorized as <?php echo esc_html( $post_terms[0]->name );?>"><?php echo esc_html( $post_terms[0]->name );?></span>
     <?php }?>
 
 </li>
