@@ -515,11 +515,13 @@ td, th{
       min-height: 84px;
       padding-left: 72px;
       position: relative;
-      @media #{$medium-and-down} {
+      @media #{$medium-and-up} {
 
       }
       @media #{$small-and-down} {
-        padding: 1rem;
+        padding-left: 1rem !important;
+        padding-right: 1rem;
+
       }
 
       .circle {
@@ -539,6 +541,7 @@ td, th{
           position: relative;
           left: 0;
           margin-left: calc(50% - 21px);
+          margin-bottom: 1rem;
         }
       }
       img.circle {
@@ -553,6 +556,7 @@ td, th{
         }
       }
       .title {
+        font-size: 16px;
         @media #{$medium-and-down} {
 
         }
@@ -581,7 +585,7 @@ td, th{
 
 
       .title {
-        font-size: 16px;
+
       }
 
       p {

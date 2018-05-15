@@ -3194,7 +3194,8 @@ td, th {
       position: relative; }
       @media only screen and (max-width: 600px) {
         .collection .collection-item.avatar {
-          padding: 1rem; } }
+          padding-left: 1rem !important;
+          padding-right: 1rem; } }
       .collection .collection-item.avatar .circle {
         position: absolute;
         width: 42px;
@@ -3207,19 +3208,22 @@ td, th {
         .collection .collection-item.avatar i.circle {
           position: relative;
           left: 0;
-          margin-left: calc(50% - 21px); } }
+          margin-left: calc(50% - 21px);
+          margin-bottom: 1rem; } }
       @media only screen and (max-width: 600px) {
         .collection .collection-item.avatar img.circle {
           position: relative;
           width: 30%;
           height: 30%;
           left: 35%; } }
-      @media only screen and (max-width: 600px) {
-        .collection .collection-item.avatar .title {
-          display: block;
-          text-align: center;
-          padding: 1rem 0;
-          line-height: 2rem; } }
+      .collection .collection-item.avatar .title {
+        font-size: 16px; }
+        @media only screen and (max-width: 600px) {
+          .collection .collection-item.avatar .title {
+            display: block;
+            text-align: center;
+            padding: 1rem 0;
+            line-height: 2rem; } }
       @media only screen and (max-width: 600px) {
         .collection .collection-item.avatar h5 {
           text-align: center; } }
@@ -3229,8 +3233,6 @@ td, th {
         color: #fff;
         background-color: #999;
         text-align: center; }
-      .collection .collection-item.avatar .title {
-        font-size: 16px; }
       .collection .collection-item.avatar p {
         margin: 0; }
       .collection .collection-item.avatar .secondary-content {
@@ -12093,7 +12095,9 @@ a.chip {
       padding: 2rem; } }
   @media only screen and (max-width: 600px) {
     #advert {
-      padding: 1rem 1rem 2rem 1rem; } }
+      padding: 1rem 1rem 2rem 1rem; }
+      #advert a {
+        padding: 0 1rem; } }
 
 #advert-text .h4 {
   padding-bottom: 1rem; }
@@ -12105,7 +12109,9 @@ a.chip {
     padding: 2rem; } }
 @media only screen and (max-width: 600px) {
   #sections {
-    padding: 1rem; } }
+    padding: 1rem; }
+    #sections a {
+      padding: 0 1rem; } }
 
 .page-parent .entry-content p,
 .page-child .entry-content p {

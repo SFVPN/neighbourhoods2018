@@ -918,6 +918,9 @@ a.chip {
   }
   @media #{$small-and-down} {
     padding: 1rem 1rem 2rem 1rem;
+    a {
+      padding: 0 1rem;
+    }
   }
 }
 
@@ -936,6 +939,9 @@ a.chip {
   }
   @media #{$small-and-down} {
     padding: 1rem;
+      a {
+        padding: 0 1rem;
+      }
   }
 }
 // Entry content
