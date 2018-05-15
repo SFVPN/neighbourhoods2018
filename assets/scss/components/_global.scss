@@ -530,6 +530,18 @@ td, th{
         left: 15px;
         display: inline-block;
         vertical-align: middle;
+      }
+      i.circle {
+        @media #{$medium-and-down} {
+
+        }
+        @media #{$small-and-down} {
+          position: relative;
+          left: 0;
+          margin-left: calc(50% - 21px);
+        }
+      }
+      img.circle {
         @media #{$medium-and-down} {
 
         }
@@ -538,6 +550,17 @@ td, th{
           width: 30%;
           height: 30%;
           left: 35%;
+        }
+      }
+      .title {
+        @media #{$medium-and-down} {
+
+        }
+        @media #{$small-and-down} {
+          display: block;
+          text-align: center;
+          padding: 1rem 0;
+          line-height: 2rem;
         }
       }
       h5 {

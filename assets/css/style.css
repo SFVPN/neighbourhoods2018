@@ -3203,12 +3203,23 @@ td, th {
         left: 15px;
         display: inline-block;
         vertical-align: middle; }
-        @media only screen and (max-width: 600px) {
-          .collection .collection-item.avatar .circle {
-            position: relative;
-            width: 30%;
-            height: 30%;
-            left: 35%; } }
+      @media only screen and (max-width: 600px) {
+        .collection .collection-item.avatar i.circle {
+          position: relative;
+          left: 0;
+          margin-left: calc(50% - 21px); } }
+      @media only screen and (max-width: 600px) {
+        .collection .collection-item.avatar img.circle {
+          position: relative;
+          width: 30%;
+          height: 30%;
+          left: 35%; } }
+      @media only screen and (max-width: 600px) {
+        .collection .collection-item.avatar .title {
+          display: block;
+          text-align: center;
+          padding: 1rem 0;
+          line-height: 2rem; } }
       @media only screen and (max-width: 600px) {
         .collection .collection-item.avatar h5 {
           text-align: center; } }
