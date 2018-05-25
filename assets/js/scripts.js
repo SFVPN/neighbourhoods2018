@@ -48,13 +48,6 @@ $(".field input[value='Report location']").addClass("btn");
 
 
 
-window.cookieconsent_options = {
-       learnMore: 'More info',
-       theme: 'dark-bottom',
-       link: document.location.origin + '/privacy'
-   };
-
-
    // $('body').on('click','a[href^="#"]',function(event){
    //     event.preventDefault();
    //     var target_offset = $(this.hash).offset() ? $(this.hash).offset().top : 0;
@@ -99,7 +92,16 @@ $('#plustext').on('click', function () {
     $('body, p, .chip, span').animate({'font-size': '+=5'});
 });
 
+$('#plustext_mob').on('click', function () {
+    $('body, p, .chip, span').animate({'font-size': '+=5'});
+});
+
 $('#minustext').on('click', function () {
+    $('body, p, .chip, span').animate({'font-size': '-=5'});
+});
+
+
+$('#minustext_mob').on('click', function () {
     $('body, p, .chip, span').animate({'font-size': '-=5'});
 });
 
@@ -113,12 +115,26 @@ $('.acf-hl .acf-button').addClass('btn blue-grey darken-4');
 });
   //var checkbox = document.getElementById('themer');
   var contrast = document.getElementById('themeContrast');
+  var contrast_mob = document.getElementById('themeContrast_mob');
   var invertor = document.getElementById('inverter');
 
 
   const toggle = document.querySelector('[aria-pressed]');
 
-  toggle.addEventListener('click', (e) => {
+  contrast.addEventListener('click', (e) => {
+   let pressed = e.target.getAttribute('aria-pressed') === 'true';
+   e.target.setAttribute('aria-pressed', String(!pressed));
+   if(!pressed) {
+     invertor.setAttribute('media', 'screen');
+     localStorage.setItem("theme", 'screen');
+   } else {
+     invertor.setAttribute('media', 'none');
+     localStorage.setItem("theme", 'none');
+   }
+  invertor.textContent = invertor.textContent.trim();
+  });
+
+  contrast_mob.addEventListener('click', (e) => {
    let pressed = e.target.getAttribute('aria-pressed') === 'true';
    e.target.setAttribute('aria-pressed', String(!pressed));
    if(!pressed) {

@@ -11509,25 +11509,25 @@ main {
   left: 0;
   right: 0; }
 
-#access-top, #access-bottom, #access-toolbar {
+#access-top, #access-bottom, #access-toolbar, #access-mob {
   font-size: 0.8rem;
   line-height: 1.5; }
-  #access-top label, #access-bottom label, #access-toolbar label {
+  #access-top label, #access-bottom label, #access-toolbar label, #access-mob label {
     color: white; }
-  #access-top .btn-flat, #access-bottom .btn-flat, #access-toolbar .btn-flat {
+  #access-top .btn-flat, #access-bottom .btn-flat, #access-toolbar .btn-flat, #access-mob .btn-flat {
     border: 1px solid transparent !important; }
-  #access-top .btn-flat:focus, #access-top .btn-flat:hover, #access-bottom .btn-flat:focus, #access-bottom .btn-flat:hover, #access-toolbar .btn-flat:focus, #access-toolbar .btn-flat:hover {
+  #access-top .btn-flat:focus, #access-top .btn-flat:hover, #access-bottom .btn-flat:focus, #access-bottom .btn-flat:hover, #access-toolbar .btn-flat:focus, #access-toolbar .btn-flat:hover, #access-mob .btn-flat:focus, #access-mob .btn-flat:hover {
     background: transparent !important;
     color: yellow !important; }
-  #access-top [aria-pressed]:after, #access-bottom [aria-pressed]:after, #access-toolbar [aria-pressed]:after {
+  #access-top [aria-pressed]:after, #access-bottom [aria-pressed]:after, #access-toolbar [aria-pressed]:after, #access-mob [aria-pressed]:after {
     background: #000;
     color: white;
     padding: 0 3px;
     margin: 0 5px;
     border-radius: 2px; }
-  #access-top [aria-pressed="true"]:after, #access-bottom [aria-pressed="true"]:after, #access-toolbar [aria-pressed="true"]:after {
+  #access-top [aria-pressed="true"]:after, #access-bottom [aria-pressed="true"]:after, #access-toolbar [aria-pressed="true"]:after, #access-mob [aria-pressed="true"]:after {
     content: 'on'; }
-  #access-top [aria-pressed="false"]:after, #access-bottom [aria-pressed="false"]:after, #access-toolbar [aria-pressed="false"]:after {
+  #access-top [aria-pressed="false"]:after, #access-bottom [aria-pressed="false"]:after, #access-toolbar [aria-pressed="false"]:after, #access-mob [aria-pressed="false"]:after {
     content: 'off'; }
 
 .cc-revoke {

@@ -58,7 +58,6 @@ add_filter('script_loader_tag', 'gioga_add_async_defer_attribute', 10, 2);
 
     // Adding Cookie Consent scripts file in the footer
 
-    wp_enqueue_script( 'cookie-js', 'https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js', array(), '', true );
 
     // Adding scripts file in the footer
     wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );

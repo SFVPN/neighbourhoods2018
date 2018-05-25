@@ -46,12 +46,12 @@
 				if ($access){
 
 				?>
-					<li id="access-<?php echo $toolbar_pos;?>" class="purple darken-1 col s12" aria-label="Accessibility Settings">
+					<li id="access-mob" class="purple darken-1 col s12" aria-label="Accessibility Settings">
 
-						<button id="themeContrast" class="btn-flat waves-effect waves-light white-text" type="button" aria-pressed="false"><?php echo $theme_switcher;?></button>
+						<button id="themeContrast_mob" class="btn-flat waves-effect waves-light white-text" type="button" aria-pressed="false"><?php echo $theme_switcher;?></button>
 
-						<button class="btn-flat waves-effect waves-light white-text" id="plustext"><?php echo $increase_text;?></button>
-					<button class="btn-flat waves-effect waves-light white-text" id="minustext"><?php echo $decrease_text;?></button>
+						<button class="btn-flat waves-effect waves-light white-text" id="plustext_mob"><?php echo $increase_text;?></button>
+					<button class="btn-flat waves-effect waves-light white-text" id="minustext_mob"><?php echo $decrease_text;?></button>
 				</li>
 				<?php }
 				?>
