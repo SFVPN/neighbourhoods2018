@@ -140,3 +140,8 @@ span.chip {
   border: 2px solid color("grey", "darken-3");
   cursor: default;
 }
+
+.page-template-page-cookies span.chip {
+  margin: 0;
+  font-size: 1rem;
+}

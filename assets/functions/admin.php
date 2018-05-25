@@ -194,14 +194,22 @@ if (function_exists('acf_add_options_page')) {
 		'icon_url'   => 'dashicons-megaphone',
     'redirect'   => false
   ));
+
 	acf_add_options_page(array(
-    'page_title' => 'Theme Options',
-    'menu_title' => 'Theme Options',
-    'menu_slug'  => 'theme-options',
-    'capability' => 'edit_posts',
-		'icon_url'   => 'dashicons-admin-settings',
-    'redirect'   => false
-  ));
+	'page_title' 	=> 'Privacy + Cookies Settings',
+	'menu_title'	=> 'Privacy',
+	'menu_slug' 	=> 'privacy-settings',
+	'capability'	=> 'edit_posts',
+	'icon_url'   => 'dashicons-admin-network',
+	'redirect'		=> false
+));
+
+// acf_add_options_sub_page(array(
+// 	'page_title' 	=> 'Privacy + Cookies Settings',
+// 	'menu_title'	=> 'Privacy',
+// 	'parent_slug'	=> 'theme-general-settings',
+// ));
+
 }
 
 add_action('wp_footer', function() {

@@ -14,6 +14,19 @@ function site_scripts() {
     // Adding Materialize scripts file in the footer
   wp_enqueue_script( 'materialize-js', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js', array( 'jquery' ), '', true );
 
+  // Adding Cookie Consent scripts file in the footer
+  $cookies = get_field('information_collected', 'option');
+
+
+  $cookies_set = $cookies['cookies_set'];
+
+  if($cookies_set) {
+    wp_enqueue_script( 'cookie-js', '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js', array(), '', true );
+    wp_enqueue_script( 'cookie-init-js', get_template_directory_uri() . '/assets/js/cookieinit.js', array( 'jquery' ), '', true );
+
+    wp_enqueue_style( 'slick-css', '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css', array(), '', 'all' );
+  }
+
     // Adding flickity slider script
   if(is_single()){
   wp_enqueue_script( 'flickity-js', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), '', true );

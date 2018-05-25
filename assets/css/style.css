@@ -4848,6 +4848,10 @@ span.chip {
   border: 2px solid #424242;
   cursor: default; }
 
+.page-template-page-cookies span.chip {
+  margin: 0;
+  font-size: 1rem; }
+
 .materialboxed {
   display: block;
   cursor: zoom-in;
@@ -11526,51 +11530,8 @@ main {
   #access-top [aria-pressed="false"]:after, #access-bottom [aria-pressed="false"]:after, #access-toolbar [aria-pressed="false"]:after {
     content: 'off'; }
 
-#cookie-bar {
-  background: rgba(0, 0, 0, 0.85);
-  height: 2rem;
-  line-height: 2rem;
-  color: #eeeeee;
-  text-align: center;
-  padding: 3px 0; }
-  #cookie-bar.fixed {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%; }
-  #cookie-bar.fixed.bottom {
-    bottom: 0px;
-    top: auto; }
-
-#cookie-bar p {
-  margin: 0px;
-  padding: 0; }
-
-#cookie-bar a {
-  color: #ffffff;
-  display: inline-block;
-  border-radius: 3px;
-  text-decoration: none;
-  padding: 0 6px;
-  margin-left: 8px; }
-
-#cookie-bar .cb-enable {
-  background: #144a45; }
-
-#cookie-bar .cb-enable:hover {
-  background: #144a45; }
-
-#cookie-bar .cb-disable {
-  background: #144a45; }
-
-#cookie-bar .cb-disable:hover {
-  background: #144a45; }
-
-#cookie-bar .cb-policy {
-  background: #144a45; }
-
-#cookie-bar .cb-policy:hover {
-  background: #144a45; }
+.cc-revoke {
+  display: none !important; }
 
 /*********************
 LINK STYLES
