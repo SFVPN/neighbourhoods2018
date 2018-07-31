@@ -8,7 +8,7 @@ acf_form(array(
     'post_type'		=> 'audits',
     'post_status'		=> 'draft'),
   'return'		=> home_url(),
-  'field_groups' => array('501','629','927'),
+  'field_groups' => array('7','22','26'),
   //'fields' => array('field_59f8aa752b9b9', 'field_59f8afc020642', 'field_59f8aff63c8e4', 'field_5aaa97f9057dd', 'field_59f8a8282855c'),
   'submit_value'		=> __("Submit Your Audit", 'acf'),
 ));
@@ -23,7 +23,7 @@ acf_form(array(
       'post_type'		=> 'audits',
       'post_status'		=> 'draft'),
     'return'		=> home_url(),
-    'field_groups' => array('501','629','499'),
+    'field_groups' => array('7','22','392'),
     //'fields' => array('field_59f8aa752b9b9', 'field_59f8afc020642', 'field_59f8aff63c8e4', 'field_5aaa97f9057dd', 'field_59f8a8282855c'),
     'submit_value'		=> __("Submit Your Audit", 'acf'),
   ));
