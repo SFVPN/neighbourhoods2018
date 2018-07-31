@@ -34,9 +34,9 @@ function site_scripts() {
 }
 
 if(is_post_type_archive('audits')){
-wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?v=3.30&key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true ); // removed &callback=initMap
+wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'cluster-js', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array( 'maps-js' ), '', true );
-wp_enqueue_script( 'mapping-js', get_template_directory_uri() . '/assets/js/places.js', array( 'jquery', 'maps-js' ), '', true );
+wp_enqueue_script( 'mapping-js', get_template_directory_uri() . '/assets/js/places_new.js', array( 'jquery', 'maps-js' ), '', true );
 }
 
 if(is_singular('audits')){

@@ -12378,6 +12378,9 @@ FOOTER STYLES
 footer .padding-bottom {
   padding-bottom: 2rem; }
 
+#funder-logos {
+  padding: 2rem; }
+
 .page-footer {
   font-weight: 300; }
   .page-footer ul {

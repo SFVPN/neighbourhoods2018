@@ -186,7 +186,17 @@ add_filter('acf/settings/google_api_key', function () {
 });
 
 if (function_exists('acf_add_options_page')) {
-  acf_add_options_page(array(
+
+		acf_add_options_page(array(
+		'page_title' 	=> 'Theme Settings',
+		'menu_title'	=> 'Options',
+		'menu_slug' 	=> 'theme-settings',
+		'capability'	=> 'edit_posts',
+		'icon_url'   => 'dashicons-admin-generic',
+		'redirect'		=> false
+	));
+
+	acf_add_options_page(array(
     'page_title' => 'SEO Details',
     'menu_title' => 'SEO Details',
     'menu_slug'  => 'seo-details',
