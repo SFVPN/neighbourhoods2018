@@ -1,6 +1,9 @@
 <?php
 
+$group_ID = get_field('group_id', 'option');
+
 acf_form(array(
+  'id' => 'survey',
   'post_id'		=> 'new_post',
   'post_content' => false,
   'post_title' => false,
@@ -9,7 +12,7 @@ acf_form(array(
     'post_title' => current_time('timestamp'),
     'post_status'		=> 'draft'),
   'return'		=> get_permalink( get_page_by_path( 'thanks' ) ),
-  'field_groups' => array('1074'),
+  'field_groups' => array($group_ID),
   'submit_value'		=> __("Submit your survey", 'acf')
 ));
 ?>

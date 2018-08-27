@@ -5246,6 +5246,12 @@ textarea {
   Radio Buttons
 ***************/
 /* Remove default Radio Buttons */
+form:not(#survey) [type="radio"]:not(:checked),
+form:not(#survey) [type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+  visibility: hidden; }
+
 [type="radio"]:not(:checked) + label,
 [type="radio"]:checked + label {
   position: relative;
@@ -5343,8 +5349,8 @@ form p:last-child {
   margin-bottom: 0; }
 
 /* Remove default checkbox */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
+form:not(#survey) [type="checkbox"]:not(:checked),
+form:not(#survey) [type="checkbox"]:checked {
   position: absolute;
   left: -9999px;
   visibility: hidden; }

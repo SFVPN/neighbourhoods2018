@@ -40,6 +40,7 @@ $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 		<?php
 
+
 			get_template_part( 'parts/form', 'survey' );
 
 
