@@ -424,10 +424,13 @@ ul.map-filters__wrap, ul.map-filters_kml {
 }
 
 .acf-label label {
-  text-transform: uppercase;
   color: color("grey", "darken-3");
-  padding: 5px 0;
+  padding: 5px 0px;
   font-size: 1.25rem !important;
+}
+
+.acf-form-submit {
+  margin-top: 5rem;
 }
 
 .acf-fields > .acf-field {

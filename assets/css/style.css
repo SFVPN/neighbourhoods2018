@@ -11726,10 +11726,12 @@ ul.map-filters__wrap, ul.map-filters_kml {
     padding: 0 1rem; }
 
 .acf-label label {
-  text-transform: uppercase;
   color: #424242;
-  padding: 5px 0;
+  padding: 5px 0px;
   font-size: 1.25rem !important; }
+
+.acf-form-submit {
+  margin-top: 5rem; }
 
 .acf-fields > .acf-field {
   border-top: none; }
