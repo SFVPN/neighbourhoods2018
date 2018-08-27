@@ -9,6 +9,7 @@ acf_form(array(
     'post_status'		=> 'draft'),
   'return'		=> home_url(),
   'field_groups' => array('7','22','26'),
+   //'field_groups' => array('501','629','499'), //localhost groups
   //'fields' => array('field_59f8aa752b9b9', 'field_59f8afc020642', 'field_59f8aff63c8e4', 'field_5aaa97f9057dd', 'field_59f8a8282855c'),
   'submit_value'		=> __("Submit Your Audit", 'acf'),
 ));
@@ -24,6 +25,7 @@ acf_form(array(
       'post_status'		=> 'draft'),
     'return'		=> home_url(),
     'field_groups' => array('7','22','392'),
+    //  'field_groups' => array('501','629','927'), // localhost groups
     //'fields' => array('field_59f8aa752b9b9', 'field_59f8afc020642', 'field_59f8aff63c8e4', 'field_5aaa97f9057dd', 'field_59f8a8282855c'),
     'submit_value'		=> __("Submit Your Audit", 'acf'),
   ));
@@ -81,7 +83,10 @@ acf.add_action('load', function( $el ){
   $(".search").val(placename + ' ' + placeaddress);
   $(".-search").trigger('click');
   $("#acf-_post_title").focus();
-  $(".entry-content").prepend("<div class='yellow center' style='padding: 1em;'><i class='material-icons left'>info</i>This is an audit for " + placename + ". Please check all of the details are correct before submitting</div>");
+  if(placename){
+    $(".entry-content").prepend("<div class='yellow center' style='padding: 1em;'><i class='material-icons left'>info</i>This is an audit for " + placename + ". Please check all of the details are correct before submitting</div>");
+  }
+
 //   $("textarea").each(function(){
 // if($(this).val() === "") {
 // 	$(this).attr("placeholder", "Please add a description of " + placename + " here");

@@ -42,7 +42,7 @@ wp_enqueue_script( 'mapping-js', get_template_directory_uri() . '/assets/js/plac
 if(is_singular('audits')){
 wp_enqueue_script( 'chart-js', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', array(), '', true );
 wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places', null, null, true ); // removed &callback=initMap
-wp_enqueue_script( 'map-js', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery' ), '', true );
+wp_enqueue_script( 'map-js', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery',  'maps-js' ), '', true );
 }
 
 
@@ -76,7 +76,12 @@ add_filter('script_loader_tag', 'gioga_add_async_defer_attribute', 10, 2);
 
     // Deregister admin stylesheet so that it doesn't load on the front-end form
 
-    wp_deregister_style( 'wp-admin' );
+    add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
+
+function my_deregister_styles() {
+	wp_deregister_style( 'wp-admin' );
+}
+
 
 
     // Comment reply script for threaded comments
