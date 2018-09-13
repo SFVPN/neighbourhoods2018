@@ -8,7 +8,7 @@
 
     <?php while( have_rows('logos', 'option') ): the_row(); ?>
 
-        <div class="col s6"><a href="<?php the_sub_field('link_to'); ?>"><img src="<?php the_sub_field('image_file'); ?>"></a></div>
+        <div class="col s6"><a href="<?php the_sub_field('link_to'); ?>"><img class="responsive-img" src="<?php the_sub_field('image_file'); ?>"></a></div>
 
     <?php endwhile; ?>
 

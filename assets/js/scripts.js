@@ -10,6 +10,9 @@ jQuery(document).ready(function() {
   }
 );
 
+
+
+
 $('.collapsible').collapsible();
 
 $(".collapsible-header button").click(function () {

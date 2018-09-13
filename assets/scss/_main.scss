@@ -261,17 +261,25 @@ HEADER STYLES
     	height: 24px;
       margin-top: 15px;
   	}
-  }
-  .brand-logo {
-    animation: show 1000ms 1;
-    @media #{$small-and-down} {
-    	font-size: 1.25rem;
+    @media #{$medium-and-down} {
+      margin-left: 0;
+      margin-right: 0;
   	}
   }
-
   a.brand-logo {
     padding-left: 7rem;
+    @media #{$medium-and-down} {
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute !important;
+      width: 1px;
+    }
+    @media #{$small-and-down} {
+      font-size: 1.25rem;
+    }
   }
+
 
 }
 

@@ -21,8 +21,18 @@
 			<?php }?>
 			/>
 
-			<a href="<?php bloginfo('url'); ?>" class="thin center hide-on-large-only"><?php bloginfo('name'); ?></a>
-			<a href="<?php bloginfo('url'); ?>" class="brand-logo thin left hide-on-med-and-down"><?php bloginfo('name'); ?></a>
+			<img id="logo" class="hide-on-large-only brand-logo center" style="margin-left: 0;"
+				<?php $logo_image = get_theme_mod( 'tcx_logo_image' );
+				if ($logo_image){?>
+				src="<?php echo $logo_image;?>" alt=""
+				<?php
+				} else {?>
+				src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
+				<?php }?>
+				/>
+
+
+			<a href="<?php bloginfo('url'); ?>" class="brand-logo thin left"><?php bloginfo('name'); ?></a>
 
 			<span class="hide-on-med-and-down right">
 				<?php joints_top_nav(); ?>
@@ -69,7 +79,7 @@
 	 			<?php joints_top_nav(); ?>
 	   </ul>
 
-	   <a href="" data-activates="slide-out" class="button-collapse"><i class="mdi mdi-menu"></i></a>
+	   <a href="" data-activates="slide-out" class="button-collapse right"><i class="mdi mdi-menu"></i></a>
 	  </div>
 
 	<?php

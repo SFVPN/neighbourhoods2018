@@ -46,6 +46,12 @@ wp_enqueue_script( 'map-js', get_template_directory_uri() . '/assets/js/map.js',
 }
 
 
+if(is_page_template('page-form_survey.php')) {
+  wp_enqueue_script( 'remember-js', get_template_directory_uri() . '/assets/js/remember_state.js', array( 'jquery' ), '', true );
+  wp_enqueue_script( 'form-js', get_template_directory_uri() . '/assets/js/form.js', array( 'jquery', 'remember-js' ), '', true );
+}
+
+
 function gioga_add_async_defer_attribute($tag, $handle) {
 	if ( 'maps-js' !== $handle )
 	return $tag;

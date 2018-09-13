@@ -4912,6 +4912,9 @@ label[for=acf-field_59f6f941d4156] {
   padding: .5rem !important;
   font-weight: 300 !important; }
 
+.acf-field-range .acf-label {
+  margin-bottom: 3rem !important; }
+
 /***************************
    Text Inputs + Textarea
 ****************************/
@@ -11615,13 +11618,22 @@ HEADER STYLES
       .header #logo {
         height: 24px;
         margin-top: 15px; } }
-  .header .brand-logo {
-    animation: show 1000ms 1; }
-    @media only screen and (max-width: 600px) {
-      .header .brand-logo {
-        font-size: 1.25rem; } }
+    @media only screen and (max-width: 992px) {
+      .header #logo {
+        margin-left: 0;
+        margin-right: 0; } }
   .header a.brand-logo {
     padding-left: 7rem; }
+    @media only screen and (max-width: 992px) {
+      .header a.brand-logo {
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px;
+        overflow: hidden;
+        position: absolute !important;
+        width: 1px; } }
+    @media only screen and (max-width: 600px) {
+      .header a.brand-logo {
+        font-size: 1.25rem; } }
 
 .lean-overlay {
   height: 0; }

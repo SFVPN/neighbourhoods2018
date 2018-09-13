@@ -6,17 +6,18 @@
             "key": "field_5b7c1570d9cf1",
             "label": "Overview",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a82c9d1c76",
@@ -31,7 +32,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "We want to find out what you think of your neighbourhood: what you value and what you would change if you had the chance (there are no right or wrong answers)\r\n\r\nWe also want to find out about the people in your neighbourhood\r\n\r\nAnd we’d like you to tell us a little about yourself and your current situation",
+            "message": "We want to find out what you think of your neighbourhood: what you value and what you would change if you had the chance (there are no right or wrong answers). We also want to find out about the people in your neighbourhood.  And we’d like you to tell us a little about yourself and your current situation.\r\n\r\nThe questions are divided into sections.  To move between sections, click on the relevant button on the left-hand side.  The button for the section you are currently in will be the one with the black text.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -48,7 +49,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Only answer the questions you want to – you can ‘pass’ on anything you don’t want to answer. You can pause or stop the survey at any time. Everything you say is confidential and we will anonymise any information we use.\r\n\r\nWe will use what you tell us in this survey to raise awareness of what’s important to people living with dementia and their carers in Stirling and the kinds of changes you would like to see. It will take approximately 30 minutes to complete.",
+            "message": "Only answer the questions you want to – you can ‘pass’ on anything you don’t want to answer. You can pause or stop the survey at any time. Everything you say is confidential and we will anonymise any information we use.\r\n\r\nWe will use what you tell us in this survey to raise awareness of what’s important to people living with dementia and their carers in Stirling and the kinds of changes you would like to see. It will take approximately 30 minutes to complete.\r\n\r\nPlease check that you have completed all the sections you want to before clicking the submit button at the bottom of the form.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -56,17 +57,18 @@
             "key": "field_5b7c15bdfd47a",
             "label": "About",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a831890556",
@@ -98,9 +100,10 @@
                     },
                     "choices": {
                         "A person living with dementia": "A person living with dementia",
-                        "A carer": "A carer"
+                        "A carer": "A carer",
+                        "An Our Connected Neighbourhoods volunteer": "An Our Connected Neighbourhoods volunteer"
                     },
-                    "allow_null": 0,
+                    "allow_null": 1,
                     "other_choice": 0,
                     "default_value": "",
                     "layout": "vertical",
@@ -116,7 +119,15 @@
             "type": "group",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b7a832e90557",
+                        "operator": "==",
+                        "value": "An Our Connected Neighbourhoods volunteer"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -124,6 +135,30 @@
             },
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_5b9a41d024048",
+                    "label": "On whose behalf are you filling in this survey?",
+                    "name": "on_whose_behalf",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "A person living with dementia": "A person living with dementia",
+                        "A carer": "A carer"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
                 {
                     "key": "field_5b7a83ca9f5ea",
                     "label": "Name",
@@ -182,6 +217,23 @@
             ]
         },
         {
+            "key": "field_5b894de3dcb61",
+            "label": "Section One",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "grey lighten-2",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_5b7a84759428f",
             "label": "Where you live",
             "name": "where_you_live",
@@ -220,7 +272,7 @@
                     "label": "Please tell us how long you’ve lived in this neighbourhood? (If you moved here recently – where from?)",
                     "name": "community_duration",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "If you have lived in your neighbourhood for less than 3 years an extra box with the title <strong>'Where did you previously live?'<\/strong> will appear when you enter the number of years below.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -228,7 +280,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "row",
+                    "layout": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b7a873c87e10",
@@ -277,7 +329,7 @@
                             "label": "Where did you previously live?",
                             "name": "previous_community",
                             "type": "textarea",
-                            "instructions": "If you have lived at your current location for less than 3 years, please tell us where you previously lived (the neighbourhood or community, rather than address)",
+                            "instructions": "If you have lived at your current location for less than 3 years, please tell us where you previously lived (the neighbourhood or community, rather than address).",
                             "required": 0,
                             "conditional_logic": [
                                 [
@@ -361,7 +413,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "row",
+                    "layout": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b7a89913a1f3",
@@ -428,17 +480,18 @@
             "key": "field_5b7a84b11e14f",
             "label": "Section Two",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a864e97225",
@@ -460,7 +513,7 @@
                     "label": "What makes you proud of your neighbourhood (please tick all that apply)?",
                     "name": "neighhourhood_pride",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -486,7 +539,7 @@
                     "key": "field_5b7a8ac25ccc7",
                     "label": "Would you describe your neighbourhood as well-maintained and cared-for?",
                     "name": "maintenance",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -495,17 +548,22 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a8ad95ccc8",
                     "label": "Do you feel safe in your neighbourhood?",
                     "name": "safety",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -514,11 +572,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a8afa5ccc9",
@@ -562,7 +625,7 @@
                     "key": "field_5b7a8b2f5cccb",
                     "label": "Does your neighbourhood provide for most of your needs?",
                     "name": "neighbourhood_provides",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -571,15 +634,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a8b84a3170",
-                    "label": "If no, what do you feel is missing?",
+                    "label": "What do you feel is missing?",
                     "name": "missing_places",
                     "type": "textarea",
                     "instructions": "",
@@ -588,8 +656,8 @@
                         [
                             {
                                 "field": "field_5b7a8b2f5cccb",
-                                "operator": "!=",
-                                "value": "1"
+                                "operator": "==",
+                                "value": "No"
                             }
                         ]
                     ],
@@ -609,7 +677,7 @@
                     "label": "Does your neighbourhood have any of the following amenities (tick all that apply)?",
                     "name": "neighbourhood_amenities",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -639,7 +707,7 @@
                     "label": "Which of these amenities do you visit most often (tick all that apply)?",
                     "name": "neighbourhood_amenities_visited",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -666,10 +734,10 @@
                 },
                 {
                     "key": "field_5b7a8c5553ff2",
-                    "label": "How important are the following places to you? Please rank each place from 1-7 in order of their importance to you (1 being most important, and 8 being least important)",
+                    "label": "How important are the following places to you?",
                     "name": "amenities_ranked",
                     "type": "group",
-                    "instructions": "",
+                    "instructions": "Please rank each place from 1-7 in order of their importance to you (1 being most important, and 8 being least important).<br><br>\r\nYou can either click or tap on circular marker and drag it along the line to the desired ranking or you can enter the number in the box below this (by default this will be showing '1').",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -677,7 +745,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "row",
+                    "layout": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b7a8c6f53ff3",
@@ -847,17 +915,18 @@
             "key": "field_5b7a84bd1e150",
             "label": "Section Three",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a86607ed71",
@@ -878,7 +947,7 @@
                     "key": "field_5b7a8d6fea5b1",
                     "label": "Do you feel that you are able to have a say in things that are important to you in your neighbourhood?",
                     "name": "having_a_say",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -887,17 +956,22 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a8d7dea5b2",
                     "label": "Do you feel able to take part in changing things for the better in your neighbourhood?",
                     "name": "taking_part",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -906,15 +980,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a8dacea5b3",
-                    "label": "If yes, could you give any examples of this?",
+                    "label": "Could you give any examples of this?",
                     "name": "examples",
                     "type": "textarea",
                     "instructions": "",
@@ -924,7 +1003,7 @@
                             {
                                 "field": "field_5b7a8d7dea5b2",
                                 "operator": "==",
-                                "value": "1"
+                                "value": "Yes"
                             }
                         ]
                     ],
@@ -943,7 +1022,7 @@
                     "key": "field_5b7a92f28c6dc",
                     "label": "Have you ever felt unfairly treated in your neighbourhood? (maybe excluded from an activity or not treated with respect)",
                     "name": "unfair_treatment",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -952,15 +1031,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a92ef8c6db",
-                    "label": "If yes, could you give any examples of this?",
+                    "label": "Could you give any examples of this?",
                     "name": "unfair_examples",
                     "type": "textarea",
                     "instructions": "",
@@ -970,7 +1054,7 @@
                             {
                                 "field": "field_5b7a92f28c6dc",
                                 "operator": "==",
-                                "value": "1"
+                                "value": "Yes"
                             }
                         ]
                     ],
@@ -1029,17 +1113,18 @@
             "key": "field_5b7a84cb1e151",
             "label": "Section Four",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a86627ed72",
@@ -1061,7 +1146,7 @@
                     "label": "Who are the people that make up your neighbourhood (tick all that apply)?",
                     "name": "neighbourhood_makeup",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1087,7 +1172,7 @@
                     "label": "Who are the people that you see often (tick all that apply)?",
                     "name": "people_you_see",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1143,14 +1228,14 @@
                         "class": "",
                         "id": ""
                     },
-                    "layout": "row",
+                    "layout": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b7a9675f266f",
                             "label": "Things you do for your neighbours",
                             "name": "for_neighbours",
                             "type": "checkbox",
-                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1176,7 +1261,7 @@
                             "label": "Things your neighbours do for you",
                             "name": "from_neighbours",
                             "type": "checkbox",
-                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -1205,17 +1290,18 @@
             "key": "field_5b7a84d31e152",
             "label": "Section Five",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a86637ed73",
@@ -1264,13 +1350,20 @@
                     "type": "group",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b7a9808a7ad1",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "layout": "row",
+                    "layout": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b7a98cea7ad3",
@@ -1279,7 +1372,22 @@
                             "type": "checkbox",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5b7a9808a7ad1",
+                                        "operator": "==",
+                                        "value": "I go out alone"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "field": "field_5b7a9808a7ad1",
+                                        "operator": "==",
+                                        "value": "I go out both alone and with other people"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -1308,7 +1416,22 @@
                             "type": "checkbox",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_5b7a9808a7ad1",
+                                        "operator": "==",
+                                        "value": "I go out with other people"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "field": "field_5b7a9808a7ad1",
+                                        "operator": "==",
+                                        "value": "I go out both alone and with other people"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -1336,7 +1459,7 @@
                     "key": "field_5b7a993be62e5",
                     "label": "Do you use public transport",
                     "name": "public_transport",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1345,15 +1468,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9959e62e6",
-                    "label": "If yes, does public transport currently meet your needs?",
+                    "label": "Does public transport currently meet your needs?",
                     "name": "public_transport_needs",
                     "type": "radio",
                     "instructions": "",
@@ -1363,7 +1491,7 @@
                             {
                                 "field": "field_5b7a993be62e5",
                                 "operator": "==",
-                                "value": "1"
+                                "value": "Yes"
                             }
                         ]
                     ],
@@ -1390,7 +1518,7 @@
                     "key": "field_5b7a99d5521f1",
                     "label": "How often do you go out within your neighbourhood each week?",
                     "name": "going_out_frequency",
-                    "type": "checkbox",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1407,21 +1535,33 @@
                         "Very rarely": "Very rarely",
                         "Never": "Never"
                     },
-                    "allow_custom": 0,
-                    "default_value": [],
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
                     "layout": "vertical",
-                    "toggle": 0,
                     "return_format": "value",
-                    "save_custom": 0
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9a05521f2",
                     "label": "How easy is it to get about in your immediate neighbourhood?",
                     "name": "going_out_ease",
-                    "type": "checkbox",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b7a99d5521f1",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_5b7a99d5521f1",
+                                "operator": "!=",
+                                "value": "Never"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -1434,18 +1574,18 @@
                         "Very difficult": "Very difficult",
                         "Don’t know": "Don’t know"
                     },
-                    "allow_custom": 0,
-                    "default_value": [],
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
                     "layout": "vertical",
-                    "toggle": 0,
                     "return_format": "value",
-                    "save_custom": 0
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9a1a521f3",
                     "label": "How often do you go outside of your neighbourhood each week?",
                     "name": "going_out_of_neighbourhood_frequency",
-                    "type": "checkbox",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1462,21 +1602,33 @@
                         "Very rarely": "Very rarely",
                         "Never": "Never"
                     },
-                    "allow_custom": 0,
-                    "default_value": [],
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
                     "layout": "vertical",
-                    "toggle": 0,
                     "return_format": "value",
-                    "save_custom": 0
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9a61521f4",
                     "label": "How easy is it to get to the places that you want to visit outside of your neighbourhood?",
                     "name": "going_outside_neighbourhood_ease",
-                    "type": "checkbox",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b7a9a1a521f3",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_5b7a9a1a521f3",
+                                "operator": "!=",
+                                "value": "Never"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -1489,21 +1641,33 @@
                         "Very difficult": "Very difficult",
                         "Don’t know": "Don’t know"
                     },
-                    "allow_custom": 0,
-                    "default_value": [],
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
                     "layout": "vertical",
-                    "toggle": 0,
                     "return_format": "value",
-                    "save_custom": 0
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9a98521f5",
                     "label": "If you go outside of your neighbourhood what is the main purpose of this (tick all that apply)?",
                     "name": "going_outside_neighbourhood_reasons",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b7a9a1a521f3",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_5b7a9a1a521f3",
+                                "operator": "!=",
+                                "value": "Never"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -1534,17 +1698,18 @@
             "key": "field_5b7a84d81e153",
             "label": "Section Six",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a86637ed74",
@@ -1566,7 +1731,7 @@
                     "label": "What types of activities are most important to you (please tick all that apply)?",
                     "name": "important_activities",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1594,7 +1759,7 @@
                     "key": "field_5b7a9b93257fd",
                     "label": "Are there places and opportunities where you can meet people locally?",
                     "name": "opportunities_to_meet_locally",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1603,11 +1768,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9ba9257fe",
@@ -1671,7 +1841,7 @@
                     "label": "Do any of the following factors discourage you from going to places and doing activities that you most enjoy, or used to enjoy? (Tick all\/any that apply)",
                     "name": "local_activity_participation_obstacles",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1700,7 +1870,7 @@
                     "label": "Do you visit any art, music, or cultural places in Stirling? (Tick any\/all that apply)",
                     "name": "local_activity_participation_cultural",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1728,7 +1898,14 @@
                     "type": "radio",
                     "instructions": "",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b7a9c4725802",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -1753,10 +1930,22 @@
                     "key": "field_5b7a9ca525804",
                     "label": "What was the purpose of your visit?",
                     "name": "local_activity_participation_cultural_purpose",
-                    "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "type": "radio",
+                    "instructions": "Click on the round button at the bottom of the list to enter any option not on the list",
                     "required": 0,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5b7a9c4725802",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_5b7a9c6c25803",
+                                "operator": "!=",
+                                "value": "Never"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -1769,11 +1958,11 @@
                         "To view an exhibition": "To view an exhibition",
                         "To meet up with friends": "To meet up with friends"
                     },
-                    "allow_custom": 1,
-                    "save_custom": 0,
-                    "default_value": [],
+                    "allow_null": 1,
+                    "other_choice": 1,
+                    "save_other_choice": 0,
+                    "default_value": "",
                     "layout": "vertical",
-                    "toggle": 0,
                     "return_format": "value"
                 }
             ]
@@ -1782,17 +1971,18 @@
             "key": "field_5b7a84dc1e154",
             "label": "Section Seven",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a868d7ed76",
@@ -1811,10 +2001,10 @@
             "sub_fields": [
                 {
                     "key": "field_5b7a9d847b385",
-                    "label": "Do you currently use any kind of technology?",
+                    "label": "Do you currently use any kind of technology? (Tick all that apply)",
                     "name": "technology_use",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1842,7 +2032,7 @@
                     "label": "If you use the internet can you tell us what for? Do you have any favorite websites or online services?",
                     "name": "technology_use_reasons",
                     "type": "textarea",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1858,10 +2048,10 @@
                 },
                 {
                     "key": "field_5b7a9ddf7b387",
-                    "label": "Are there any forms of technology that you would like to learn to use or have access to?",
+                    "label": "Are there any forms of technology that you would like to learn to use or have access to?  (Tick all that apply)",
                     "name": "technology_use_learning",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1886,10 +2076,10 @@
                 },
                 {
                     "key": "field_5b7a9e167b388",
-                    "label": "How do you stay informed about your local neighbourhood?",
+                    "label": "How do you stay informed about your local neighbourhood?  (Tick all that apply)",
                     "name": "technology_use_staying_informed",
                     "type": "checkbox",
-                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                    "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -1916,17 +2106,18 @@
             "key": "field_5b7a84e21e155",
             "label": "Section Eight",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a868c7ed75",
@@ -1947,7 +2138,7 @@
                     "key": "field_5b7a9e71a455d",
                     "label": "Do you currently receive any care or support from formal services (perhaps health or social care?)",
                     "name": "care_support_received",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -1956,15 +2147,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9e8da455e",
-                    "label": "If yes, what kind of help do you receive? (Tick all that apply)",
+                    "label": "What kind of help do you receive? (Tick all that apply)",
                     "name": "care_support_received_type",
                     "type": "checkbox",
                     "instructions": "",
@@ -1974,7 +2170,7 @@
                             {
                                 "field": "field_5b7a9e71a455d",
                                 "operator": "==",
-                                "value": "1"
+                                "value": "Yes"
                             }
                         ]
                     ],
@@ -2003,7 +2199,7 @@
                     "key": "field_5b7a9ec4a455f",
                     "label": "Do you have any support needs that currently aren’t being met?",
                     "name": "care_support_unmet",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -2012,15 +2208,20 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7a9ef9a4560",
-                    "label": "If yes, please describe any unmet needs you feel that you have",
+                    "label": "Please describe any unmet needs you feel that you have",
                     "name": "care_support_unmet_description",
                     "type": "textarea",
                     "instructions": "",
@@ -2030,7 +2231,7 @@
                             {
                                 "field": "field_5b7a9ec4a455f",
                                 "operator": "==",
-                                "value": "1"
+                                "value": "Yes"
                             }
                         ]
                     ],
@@ -2062,10 +2263,10 @@
                     "sub_fields": [
                         {
                             "key": "field_5b7aa2c47658e",
-                            "label": "Does anyone else give you help or support? If yes, please tell us who gives you this help",
+                            "label": "Does anyone else give you help or support?",
                             "name": "care_support_people_received",
                             "type": "checkbox",
-                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2084,9 +2285,9 @@
                             "allow_custom": 1,
                             "save_custom": 0,
                             "default_value": [],
-                            "layout": "",
+                            "layout": "vertical",
                             "toggle": 0,
-                            "return_format": ""
+                            "return_format": "value"
                         },
                         {
                             "key": "field_5b7aa37aa37b3",
@@ -2133,10 +2334,10 @@
                     "sub_fields": [
                         {
                             "key": "field_5b7aa3d7a37b5",
-                            "label": "Do you care for or support anyone? If yes, to whom?",
+                            "label": "Do you care for or support anyone?",
                             "name": "care_support_people_given",
                             "type": "checkbox",
-                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list",
+                            "instructions": "Click on the 'Add new choice' button to enter any option not on the list.",
                             "required": 0,
                             "conditional_logic": 0,
                             "wrapper": {
@@ -2146,11 +2347,11 @@
                             },
                             "choices": {
                                 "Spouse\/partner": "Spouse\/partner",
-                                "Son\/Daughter": "Son\/Daughter",
-                                "Son\/Daughter in law": "Son\/Daughter in law",
+                                "Child": "Child",
+                                "Grandchildren": "Grandchildren",
+                                "Other relative": "Other relative",
                                 "Friend": "Friend",
-                                "Neighbour": "Neighbour",
-                                "Other relative": "Other relative"
+                                "Neighbour": "Neighbour"
                             },
                             "allow_custom": 1,
                             "save_custom": 0,
@@ -2353,6 +2554,64 @@
                             "save_other_choice": 0
                         }
                     ]
+                },
+                {
+                    "key": "field_5b8957dbb8ea5",
+                    "label": "Would you say your health is…?",
+                    "name": "general_health",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Excellent": "Excellent",
+                        "Very good": "Very good",
+                        "Good": "Good",
+                        "Fair": "Fair",
+                        "Poor": "Poor",
+                        "Don’t know": "Don’t know",
+                        "Prefer not to say": "Prefer not to say"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_5b895805b8ea6",
+                    "label": "What about your emotional or mental health?",
+                    "name": "mental_health",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "Excellent": "Excellent",
+                        "Very good": "Very good",
+                        "Good": "Good",
+                        "Fair": "Fair",
+                        "Poor": "Poor",
+                        "Don’t know": "Don’t know",
+                        "Prefer not to say": "Prefer not to say"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 }
             ]
         },
@@ -2360,17 +2619,18 @@
             "key": "field_5b7a84ea1e156",
             "label": "Section Nine",
             "name": "",
-            "type": "tab",
+            "type": "message",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
+                "class": "grey lighten-2",
                 "id": ""
             },
-            "placement": "left",
-            "endpoint": 0
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
         },
         {
             "key": "field_5b7a869f7ed77",
@@ -2415,7 +2675,7 @@
                     "key": "field_5b7aa5cb7eb95",
                     "label": "Is your gender identity the same as you were born with?",
                     "name": "gender_birth",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -2424,11 +2684,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7aa5e47eb96",
@@ -2474,7 +2739,7 @@
                     "key": "field_5b7aa6027eb98",
                     "label": "Do you consider yourself to be disabled?",
                     "name": "disability",
-                    "type": "true_false",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -2483,11 +2748,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "choices": {
+                        "Yes": "Yes",
+                        "No": "No"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 },
                 {
                     "key": "field_5b7aa61c7eb99",
@@ -2501,7 +2771,7 @@
                             {
                                 "field": "field_5b7aa6027eb98",
                                 "operator": "==",
-                                "value": "1"
+                                "value": "Yes"
                             }
                         ]
                     ],
@@ -2521,7 +2791,7 @@
                     "label": "What is your relationship status? Are you",
                     "name": "relationship_status",
                     "type": "radio",
-                    "instructions": "Click on the round button at the end of the list to enter another option",
+                    "instructions": "Click on the round button at the end of the list to enter another option.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -2549,7 +2819,7 @@
                     "label": "What is your sexual orientation. Are you",
                     "name": "sexual_orientation",
                     "type": "radio",
-                    "instructions": "If you select 'Prefer to self-describe' an additional box will be made available to add your own description",
+                    "instructions": "If you select 'Prefer to self-describe' an additional box will be made available to add your own description.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -2633,40 +2903,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Thank you for taking the time to fill in our survey.  \r\n\r\nIf you are interested in taking part in further research with Our Connected Neighbourhoods, please complete the 'Staying in touch' section.",
-            "new_lines": "wpautop",
-            "esc_html": 0
-        },
-        {
-            "key": "field_5b7aa998632bb",
-            "label": "Staying in touch",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5b7aa9a8632bc",
-            "label": "What next?",
-            "name": "",
-            "type": "message",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "In the next phase of this project we plan to hold a number of workshops to look in more detail at the things that are important to you in your community\/neighbourhood and the way that you use digital information. If you would be interested in being involved please provide us with your contact details below. These will be stored separately from your answers above.",
+            "message": "Thank you for taking the time to fill in our survey.  You should now click on the 'Submit your survey' button below.  If you are interested in taking part in further research with Our Connected Neighbourhoods, please fill in your details on the page that you will be directed to.",
             "new_lines": "wpautop",
             "esc_html": 0
         }
@@ -2703,5 +2940,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534858899
+    "modified": 1536842676
 }
