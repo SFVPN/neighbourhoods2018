@@ -12207,6 +12207,9 @@ RESOURCE PAGES
 *********************/
 div#resources_category .l4 .s12 {
   padding: 4rem 0; }
+  @media only screen and (max-width: 600px) {
+    div#resources_category .l4 .s12 {
+      margin-bottom: 2rem; } }
 
 #resources_category span.block {
   width: 3rem;
@@ -12214,10 +12217,18 @@ div#resources_category .l4 .s12 {
   background: #8e24aa;
   color: white;
   line-height: 3rem;
-  margin: 1rem auto 0 auto;
+  margin: 1rem auto 0rem auto;
   border-radius: 50%; }
 
-.single-resources article {
+#cat-icon {
+  padding: 1rem;
+  border-radius: 50%; }
+
+a.current.chip {
+  background: #eeeeee;
+  border: 1px solid #eeeeee; }
+
+.single-resources article, .archive .article-header {
   margin-top: 4rem; }
 
 .single-resources .article-header {
@@ -12225,6 +12236,9 @@ div#resources_category .l4 .s12 {
 
 .resources-meta {
   margin-bottom: 2rem; }
+
+.index-wrapper {
+  margin-bottom: 3rem; }
 
 .single-resources .entry-content ul {
   list-style-type: circle;
@@ -12594,10 +12608,10 @@ place.
 Stylesheet: Print Stylesheet
 
 This is the print stylesheet. There's probably not a lot
-of reasons to edit this stylesheet. 
+of reasons to edit this stylesheet.
 
-Remember to add things that won't make sense to print at 
-the bottom. Things like nav, ads, and forms shouldbe set 
+Remember to add things that won't make sense to print at
+the bottom. Things like nav, ads, and forms shouldbe set
 to display none.
 ******************************************************************/
 @media print {
@@ -12648,6 +12662,10 @@ to display none.
   .page-navigation,
   .wp-prev-next,
   .respond-form,
+  .resources-meta,
+  #inner-footer,
+  #share-links,
+  .parent-page,
   nav {
     display: none; } }
 

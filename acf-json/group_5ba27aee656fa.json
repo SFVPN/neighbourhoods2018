@@ -1,0 +1,64 @@
+{
+    "key": "group_5ba27aee656fa",
+    "title": "Categories",
+    "fields": [
+        {
+            "key": "field_5ba27a171210e",
+            "label": "Assign a category to this resource",
+            "name": "resource_type",
+            "type": "taxonomy",
+            "instructions": "You can assign as many categories as you wish, but always make sure to select the parent category and the relevant sub-category.  For example, if you are adding guidance for a video calling app, make sure to select the main 'Communications' category as well as 'Video Calling'.<br><br>\r\nIf a resource comprises sub-pages, categories are only assigned to the main, parent page.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "resources_category",
+            "field_type": "checkbox",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resources"
+            },
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "parent"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1537375595
+}

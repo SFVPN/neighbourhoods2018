@@ -358,5 +358,8 @@ function my_admin_style() {
       background: whitesmoke;
       color: black;
     }
+		#resources_categorydiv {
+			display: none;
+		}
   </style>';
 }

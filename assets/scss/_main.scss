@@ -1099,6 +1099,9 @@ RESOURCE PAGES
 
 div#resources_category .l4 .s12 {
   padding: 4rem 0;
+  @media #{$small-and-down} {
+    margin-bottom: 2rem;
+  }
 }
 
 #resources_category span.block {
@@ -1107,11 +1110,20 @@ div#resources_category .l4 .s12 {
   background: color("purple", "darken-1");
   color: white;
   line-height: 3rem;
-  margin: 1rem auto 0 auto;
+  margin: 1rem auto 0rem auto;
   border-radius: 50%;
 }
 
-.single-resources article {
+#cat-icon {
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+a.current.chip {
+  background: color("grey", "lighten-3");
+  border: 1px solid color("grey", "lighten-3");
+}
+.single-resources article, .archive .article-header {
   margin-top: 4rem;
 }
 
@@ -1129,6 +1141,10 @@ div#resources_category .l4 .s12 {
 //     border-width: 0px;
 //   }
 // }
+
+.index-wrapper {
+  margin-bottom: 3rem;
+}
 
 .single-resources .entry-content ul {
     list-style-type: circle;

@@ -66,20 +66,20 @@ function remove_plugin_image_sizes() {
 		$archive = get_post_type_archive_link( $post_type );
 		$obj = get_post_type_object( $post_type );
 		?>
-		<nav class="control btns">
+		<nav class="control btns center">
 
-				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Content</span>
+				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Resources</span>
 			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
-				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><i class="material-icons right">check</i><?php echo 'All ' . $queried_object->name;?></a>
+				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><?php echo 'All ' . $queried_object->name;?></a>
 			<?php } elseif ($archive) {?>
 				<a href="<?php echo $archive;?>" class="waves-effect waves-light chip"><?php echo 'Back to All ' . $obj->labels->name;?></a>
 			<?php }?>
 			<?php foreach($terms as $term) {
 
 				if ($queried_object->name === $term->name) {
-					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip"><i class="material-icons right">check</i>' . $term->name . ' ' . $obj->labels->name . '</a>';
+					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip">' . $term->name . '</a>';
 				} else {
-				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . ' ' . $obj->labels->name . '</a>';
+				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . '</a>';
 			}
 
 		}?>
@@ -98,10 +98,10 @@ function remove_plugin_image_sizes() {
 		$archive = get_post_type_archive_link( $post_type );
 		$obj = get_post_type_object( $post_type );
 		?>
-		<nav class="control btns">
-				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Content</span>
+		<nav class="control btns center">
+				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Resources</span>
 			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
-				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><i class="material-icons right">check</i><?php echo 'All ' . $obj->labels->name;?></a>
+				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><?php echo 'All ' . $obj->labels->name;?></a>
 			<?php } elseif ($archive) {
 				$parent_term = get_term($queried_object->parent);
 				?>
@@ -110,9 +110,9 @@ function remove_plugin_image_sizes() {
 			<?php foreach($terms as $term) {
 
 				if ($queried_object->name === $term->name) {
-					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip"><i class="material-icons right">check</i>' . $term->name . ' ' . $obj->labels->name . '</a>';
+					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip">' . $term->name . '</a>';
 				} else {
-				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . ' ' . $obj->labels->name . '</a>';
+				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . '</a>';
 			}
 
 		}?>

@@ -7,7 +7,7 @@
             "label": "Show table of contents",
             "name": "show_toc",
             "type": "true_false",
-            "instructions": "<strong style=\"color: red;\">This enables a table of contents on a given resource page.  Only turn this off if you are on an introductory page with no section headings.<\/strong>",
+            "instructions": "<strong >This enables a table of contents on a given resource page.  Only turn this off if you are on an introductory page with no section headings.<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -283,13 +283,15 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 1,
     "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "field",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "categories"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1537297628
+    "modified": 1537375296
 }

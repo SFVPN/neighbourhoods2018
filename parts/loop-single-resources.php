@@ -48,11 +48,59 @@ if($queried_object->post_parent === 0 ) {
 	</header> <!-- end article header -->
 
 
-	<div class="col s12 m12 grey lighten-4 parent-page">
 
-		 <?php
+<?php
+
+if ( $post->post_parent === 0 ) {
+echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
+	$args = array(
+			'post_type'      => 'resources',
+			'posts_per_page' => -1,
+			'post_parent'    => $post->ID,
+			'order'          => 'ASC',
+			'orderby'        => 'menu_order'
+	 );
+
+
+	$parent = new WP_Query( $args );
+
+	if ( $parent->have_posts() ) :
+			//print_R($parent);
+	$pages = array($post->ID );
+		?>
+
+
+			<ol id="guide-contents">
+				<label class="block black-text"><?php the_title(); ?> guide pages</label>
+				<li id="parent-<?php the_ID(); ?>" class="parent">
+
+						<?php echo '<span class="active-page">' . get_the_title() . '</span>'; ?>
+
+				</li>
+
+			<?php while ( $parent->have_posts() ) : $parent->the_post();
+$pages[] += get_the_ID();
+			?>
+
+					<li id="parent-<?php the_ID(); ?>">
+
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+
+					</li>
+
+
+			<?php endwhile;
+
+			 ?>
+		 </ol>
+
+	<?php endif; wp_reset_postdata();
+
+} else {
 		$show_toc = get_field('show_toc');
-		if($show_toc): //check if the repeater field has rows of data
+		if ($show_toc):
+		echo '<div class="col s12 m12 grey lighten-4 toc-wrapper">';
+		//check if the repeater field has rows of data
 		 if( have_rows('section') ):
 
 
@@ -95,7 +143,8 @@ if($queried_object->post_parent === 0 ) {
 		     // no rows found
 
 		 endif;
-	endif;
+		endif;
+}
 		 ?>
 
 
@@ -227,48 +276,7 @@ get_template_part( 'parts/content', 'contact' );
 
 if ( $post->post_parent === 0 ) {
 
-	$args = array(
-			'post_type'      => 'resources',
-			'posts_per_page' => -1,
-			'post_parent'    => $post->ID,
-			'order'          => 'ASC',
-			'orderby'        => 'menu_order'
-	 );
 
-
-	$parent = new WP_Query( $args );
-
-	if ( $parent->have_posts() ) :
-			//print_R($parent);
-	$pages = array($post->ID );
-		?>
-
-
-			<ol id="guide-contents">
-				<label class="block black-text">Pages in the <?php the_title(); ?> guide</label>
-				<li id="parent-<?php the_ID(); ?>" class="parent">
-
-						<?php echo '<span class="active-page">' . get_the_title() . '</span>'; ?>
-
-				</li>
-
-			<?php while ( $parent->have_posts() ) : $parent->the_post();
-$pages[] += get_the_ID();
-			?>
-
-					<li id="parent-<?php the_ID(); ?>">
-
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-
-					</li>
-
-
-			<?php endwhile;
-
-			 ?>
-		 </ol>
-
-	<?php endif; wp_reset_postdata();
 
 } else {
 
@@ -287,7 +295,7 @@ $pages[] += get_the_ID();
 		$queried_object = get_queried_object();
 		$ID = $queried_object->ID;?>
 					<ol id="guide-contents">
-				<label class="block black-text">Pages in the <?php echo get_the_title($post->post_parent); ?> guide</label>
+				<label class="block black-text"><?php echo get_the_title($post->post_parent); ?> guide pages</label>
 				<li class="parent">
 					<a href="<?php the_permalink($post->post_parent); ?>" title="<?php the_title(); ?>"><?php echo get_the_title($post->post_parent); ?></a>
 				</li>

@@ -7,8 +7,14 @@ $icon = get_field('material_icon_code', $queried_object);
 
 	<div class="row">
 
-		<header class="article-header">
-			<h1 class="entry-title h3 single-title center" style="" itemprop="headline"><?php archive_title('Resources');?></h1>
+		<header class="article-header center">
+			<h1 class="resources-title h3 center" style="" itemprop="headline"><?php archive_title('Resources');?></h1>
+			<?php if ($icon) {
+				echo '<i id="cat-icon" class="medium purple darken-1 white-text material-icons">' . $icon . '</i>';
+			} else {
+				echo '<i id="cat-icon" class="medium purple darken-1 white-text material-icons">format_list_numbered</i>';
+			}?>
+
 		</header> <!-- end article header -->
 
 		<section class="section">
@@ -16,8 +22,10 @@ $icon = get_field('material_icon_code', $queried_object);
 			<div class="container">
 				<?php
 				if($queried_object->parent === 0 ) {
+
 					archive_terms('resources_category', 'resources');
 				} else {
+
 					archive_terms_child('resources_category', 'resources');
 				}
 				?>
@@ -25,6 +33,7 @@ $icon = get_field('material_icon_code', $queried_object);
 				<div class="row">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
 
 				<?php get_template_part( 'parts/loop', 'resources' ); ?>
 
