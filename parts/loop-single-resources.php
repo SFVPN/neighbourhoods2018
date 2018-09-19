@@ -52,7 +52,7 @@ if($queried_object->post_parent === 0 ) {
 <?php
 
 if ( $post->post_parent === 0 ) {
-echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
+
 	$args = array(
 			'post_type'      => 'resources',
 			'posts_per_page' => -1,
@@ -65,7 +65,7 @@ echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
 	$parent = new WP_Query( $args );
 
 	if ( $parent->have_posts() ) :
-			//print_R($parent);
+	echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
 	$pages = array($post->ID );
 		?>
 
@@ -96,7 +96,8 @@ $pages[] += get_the_ID();
 
 	<?php endif; wp_reset_postdata();
 
-} else {
+}
+
 		$show_toc = get_field('show_toc');
 		if ($show_toc):
 		echo '<div class="col s12 m12 grey lighten-4 toc-wrapper">';
@@ -144,7 +145,7 @@ $pages[] += get_the_ID();
 
 		 endif;
 		endif;
-}
+
 		 ?>
 
 
