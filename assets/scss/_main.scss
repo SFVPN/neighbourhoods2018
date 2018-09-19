@@ -158,13 +158,9 @@ a, a:visited {
 #share-links {
 
   a.chip {
-    color: $link-color;
+    //color: $link-color;
     margin: 1rem 1rem .5rem 1rem;
-    &:hover, &:focus {
-      color: $hover-color;
-      border: 1px solid $hover-color;
-      text-decoration: none;
-    }
+
   }
 }
 
@@ -321,20 +317,21 @@ i.mdi.mdi-menu {
 
 
 .control.btns {
-  padding: 1rem 0 2rem 0;
+  padding: 1rem 0rem 3rem 0rem;
   a:not(:first-of-type) {
     margin-right: .25rem;
   }
   a {
 
     &:hover, &:focus {
-      background: $link-color;
-      color: $contrast-hover;
+      // color: $hover-color;
+      // border: 1px solid $hover-color;
+      // text-decoration: none;
     }
   }
 }
 
-i {transition: 350ms;}
+i, a {transition: 350ms;}
 
 #completed {
   position: fixed;
@@ -1107,7 +1104,8 @@ div#resources_category .l4 .s12 {
 #resources_category span.block {
   width: 3rem;
   height: 3rem;
-  background: color("yellow", "base");
+  background: color("purple", "darken-1");
+  color: white;
   line-height: 3rem;
   margin: 1rem auto 0 auto;
   border-radius: 50%;
@@ -1121,7 +1119,9 @@ div#resources_category .l4 .s12 {
   padding-bottom: 3rem;
 }
 
-
+.resources-meta {
+  margin-bottom: 2rem;
+}
 // .single-resources .article-header {
 //   border: 1px solid color("grey", "lighten-3");
 //   border-radius: 3px;
@@ -1612,6 +1612,11 @@ SIDEBARS & ASIDES
   }
 }
 
+#search-again {
+  margin-top: 4rem;
+  border: 1px solid color("grey", "lighten-3");
+  border-radius: 3px;
+}
 .widgettitle {
 }
 

@@ -1,13 +1,13 @@
 {
     "key": "group_5ba205bd26a9f",
-    "title": "Icon",
+    "title": "Category Icons",
     "fields": [
         {
             "key": "field_5ba205c3e1d11",
             "label": "Material Icon Code",
             "name": "material_icon_code",
             "type": "text",
-            "instructions": "",
+            "instructions": "Add the base code for the icon you wish to use.  See the <a target=\"_blank\" href=\"https:\/\/material.io\/tools\/icons\/?style=baseline\">Material Design Icons<\/a> page for more information. The code for each icon will show if you hover over it (this will be lower case such as <strong>alarm_off<\/strong> or <strong>alarm_on<\/strong>).",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -27,7 +27,7 @@
             {
                 "param": "taxonomy",
                 "operator": "==",
-                "value": "resources_category"
+                "value": "all"
             }
         ]
     ],
@@ -39,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1537345012
+    "modified": 1537362748
 }

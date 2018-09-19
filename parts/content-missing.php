@@ -3,7 +3,7 @@
 	<?php if ( is_search() ) : ?>
 
 		<header class="article-header">
-			<h1><?php _e("Sorry, No Results.", "jointswp");?></h1>
+			<h1 class="h3"><?php _e("Sorry, No Results.", "jointswp");?></h1>
 		</header>
 
 		<section class="entry-content">
@@ -14,7 +14,7 @@
 	<?php else: ?>
 
 		<header class="article-header">
-			<h1><?php _e("We are regularly adding content, so please check back soon.", "jointstheme"); ?></h1>
+			<h1 class="h3"><?php _e("We are regularly adding content, so please check back soon.", "jointstheme"); ?></h1>
 		</header>
 
 

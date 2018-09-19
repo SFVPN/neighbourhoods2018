@@ -25,18 +25,20 @@ if($queried_object->post_parent === 0 ) {
 
 
 
-		echo '<span class="terms block" style="padding-bottom: 2rem;"><i class="mdi mdi-information"></i> This is part of the <em>' . $guide . '</em> guide';
+		// echo '<span class="terms block" style="padding-bottom: 2rem;"><i class="mdi mdi-information"></i> This is part of the <em>' . $guide . '</em> guide';
+		echo '<div class="resources-meta">';
+
 		if($terms) {
-			echo ' which is filed under ';
+			echo '<i class="mdi mdi-tag-multiple"></i> ';
 			foreach ($terms as $term) {
 				// if ($term->parent === 0) {
 				// 		echo '<a href="' . get_term_link($term->term_id) . '" class="chip yellow">' . $term->name . '</a>';
 				// } else {
-					echo '<a href="' . get_term_link($term->term_id) . '" class="chip yellow">' . $term->name . '</a>';
+					echo '<a href="' . get_term_link($term->term_id) . '" class="chip">' . $term->name . '</a>';
 			//	}
 			}
 		}
-		echo '. This page was last updated on ' . get_the_modified_time('F j, Y') . '.</span>';
+		echo '<br /><i class="mdi mdi-information"></i> This page was last updated on ' . get_the_modified_time('F j, Y') . '</span></div>';
 		//get_template_part( 'parts/content', 'byline' );
 		get_template_part( 'parts/content', 'share' );
 

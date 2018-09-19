@@ -4749,15 +4749,15 @@ a.waves-effect .waves-ripple {
   line-height: 24px;
   padding: 0 12px;
   border-radius: 16px;
-  border: 1px solid transparent;
-  background-color: #eeeeee;
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  background-color: white;
   margin-bottom: 5px;
   margin-right: 5px;
   margin-top: 15px; }
-  .chip:focus {
+  .chip:focus, .chip:hover {
     outline: none;
-    background-color: #26a69a;
-    color: #fff; }
+    border: 1px solid #eeeeee;
+    background-color: #eeeeee; }
   .chip > img {
     float: left;
     margin: 0 8px 0 -12px;
@@ -4770,6 +4770,9 @@ a.waves-effect .waves-ripple {
     font-size: 16px;
     line-height: 32px;
     padding-left: 8px; }
+
+a.chip {
+  text-decoration: none !important; }
 
 .chips {
   border: none;
@@ -11550,12 +11553,7 @@ a:link, a:visited:link {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
 #share-links a.chip {
-  color: #283593;
   margin: 1rem 1rem .5rem 1rem; }
-  #share-links a.chip:hover, #share-links a.chip:focus {
-    color: #212121;
-    border: 1px solid #212121;
-    text-decoration: none; }
 
 /*********************
 H1, H2, H3, H4, H5 P STYLES
@@ -11668,14 +11666,11 @@ i.mdi.mdi-menu {
     height: 64px; } }
 
 .control.btns {
-  padding: 1rem 0 2rem 0; }
+  padding: 1rem 0rem 3rem 0rem; }
   .control.btns a:not(:first-of-type) {
     margin-right: .25rem; }
-  .control.btns a:hover, .control.btns a:focus {
-    background: #283593;
-    color: #ffffff; }
 
-i {
+i, a {
   transition: 350ms; }
 
 #completed {
@@ -12216,7 +12211,8 @@ div#resources_category .l4 .s12 {
 #resources_category span.block {
   width: 3rem;
   height: 3rem;
-  background: #ffeb3b;
+  background: #8e24aa;
+  color: white;
   line-height: 3rem;
   margin: 1rem auto 0 auto;
   border-radius: 50%; }
@@ -12226,6 +12222,9 @@ div#resources_category .l4 .s12 {
 
 .single-resources .article-header {
   padding-bottom: 3rem; }
+
+.resources-meta {
+  margin-bottom: 2rem; }
 
 .single-resources .entry-content ul {
   list-style-type: circle;
@@ -12482,6 +12481,11 @@ SIDEBARS & ASIDES
     font-size: 1.25rem;
     color: #E57373;
     text-align: center; }
+
+#search-again {
+  margin-top: 4rem;
+  border: 1px solid #eeeeee;
+  border-radius: 3px; }
 
 .widget {
   margin-top: 2em;

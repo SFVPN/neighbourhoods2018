@@ -121,7 +121,7 @@ register_taxonomy( 'resources_category',
     		'show_ui' => true,
     		'query_var' => true,
         'has_archive' => true,
-        'rewrite'           => array( 'slug' => 'resources/cat' ),
+        'rewrite'           => array( 'slug' => 'resources/category' ),
     	)
     );
 

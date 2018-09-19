@@ -8,9 +8,9 @@ $icon = get_field('material_icon_code', $queried_object);
 	<div class="row">
 
 		<header class="article-header">
-			<h1 class="entry-title single-title center" style="" itemprop="headline"><?php archive_title('Posts');?></h1>
+			<h1 class="entry-title h3 single-title center" style="" itemprop="headline"><?php archive_title('Resources');?></h1>
 		</header> <!-- end article header -->
-		
+
 		<section class="section">
 
 			<div class="container">

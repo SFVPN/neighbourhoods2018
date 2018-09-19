@@ -48,7 +48,7 @@ get_template_part( 'parts/loop', 'resources' );
 <?php endif;?>
 					</div>
 
-<?php echo '<div class="col s12 center"><p>If you didn\'t find what you where looking for, try changing your search word.</p>';
+<?php echo '<div id="search-again" class="col s12 center"><p>If you didn\'t find what you where looking for, try changing your search word.</p>';
 get_search_form();
 echo '</div>';?>
 
