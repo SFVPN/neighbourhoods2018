@@ -1028,8 +1028,10 @@ h1.archive-title {
 .key_link {
   font-size: 1.25rem;
   margin: 20px 0;
-  padding: 1.5rem;
   border-left: 5px solid #ee6e73;
+  a {
+      padding: 1.5rem;
+  }
 }
 
 .error404 {
