@@ -165,7 +165,7 @@ if( have_rows('content') ):
 
 				if( get_row_layout() == 'links' ):
 					$links_title = get_sub_field("links_title");
-        	echo '<div class="grey lighten-3 key_link">';
+        	echo '<div class="grey lighten-3 col s12 key_link">';
 
 					 	if($links_title) {
 							echo '<span class="links_title">' . $links_title . '</span>';

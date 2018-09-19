@@ -1,6 +1,6 @@
 {
     "key": "group_5ba27aee656fa",
-    "title": "Categories",
+    "title": "Resource Type",
     "fields": [
         {
             "key": "field_5ba27a171210e",
@@ -60,5 +60,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537375595
+    "modified": 1537386314
 }
