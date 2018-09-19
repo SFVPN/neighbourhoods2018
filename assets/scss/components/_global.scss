@@ -145,6 +145,9 @@ i {
   }
   &.large {
     font-size: 6rem;
+    @media #{$small-and-down} {
+      font-size: 2rem;
+    }
   }
 }
 

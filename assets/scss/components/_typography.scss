@@ -40,6 +40,9 @@ h6, .h6 { font-size: $h6-fontsize; line-height: 110%; margin: ($h6-fontsize / 2)
 p {
   font-size: 1.25rem;
   line-height: 2rem;
+  @media #{$small-and-down} {
+    font-size: 1.15rem;
+  }
 }
 
 // Text Styles

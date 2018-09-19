@@ -1,10 +1,14 @@
-
+<?php $parent_id = wp_get_post_parent_id( $post_ID );
+$parent_title = get_the_title($parent_id);
+ // storing this so we have it available in the other loops
+?>
 <article id="post-<?php the_ID(); ?>" class="container <?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
-	<header class="article-header">
+	<header class="article-header center">
 		<h1 class="entry-title h2 single-title center" itemprop="headline"><?php the_title();?></h1>
 		<?php
+
 		if(is_user_logged_in()) {
-			get_template_part( 'parts/content', 'edit' );
+			//get_template_part( 'parts/content', 'edit' );
 		}
 		?>
 		<?php
@@ -154,7 +158,7 @@ if( have_rows('content') ):
 
         if( get_row_layout() == 'main_content' ):
 
-        	echo '<div class="cols12">'
+        	echo '<div class="col s12">'
 					. get_sub_field("description") .
 					'</div>';
 				endif;
@@ -205,7 +209,7 @@ if( have_rows('content') ):
         if( get_row_layout() == 'single_image' ):
 
         	$file = get_sub_field('image');
-					echo '<div class="cols12">
+					echo '<div class="col s12 center">
 					<img class="responsive-img" src="' . $file['url']. '" alt="' . $file['alt']. '" />
 					<label>' . $file['caption'] . '</label>
 					</div>';
@@ -213,7 +217,7 @@ if( have_rows('content') ):
         endif;
 
 				if( get_row_layout() == 'video_embed' ):
-					echo '<div class="cols12"><div class="video-container">';
+					echo '<div class="col s12"><div class="video-container">';
 
         	$video = get_sub_field('video_url');
 					echo $video;

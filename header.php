@@ -41,7 +41,9 @@
       html { background-color: #eee; filter: invert(100%); }
       .drag-target {background: transparent;}
       * { background-color: inherit; }
-      img:not([src*=".svg"]), [style*="url("] { filter: invert(100%); }
+			#map div {background-color: transparent;}
+      img:not([src*=".svg"]), [style*="url("] { filter: invert(100%);
+			}
     </style>
 
     <!--[if lt IE 9]>

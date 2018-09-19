@@ -2932,6 +2932,9 @@ i {
     font-size: 4rem; }
   i.large {
     font-size: 6rem; }
+    @media only screen and (max-width: 600px) {
+      i.large {
+        font-size: 2rem; } }
 
 img.responsive-img,
 video.responsive-video {
@@ -4074,6 +4077,9 @@ h6, .h6 {
 p {
   font-size: 1.25rem;
   line-height: 2rem; }
+  @media only screen and (max-width: 600px) {
+    p {
+      font-size: 1.15rem; } }
 
 em {
   font-style: italic; }
@@ -4737,13 +4743,14 @@ a.waves-effect .waves-ripple {
 .chip {
   display: inline-block;
   height: 24px;
-  font-size: 12px;
+  font-size: 1rem;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.85);
   line-height: 24px;
   padding: 0 12px;
   border-radius: 16px;
-  background-color: #e4e4e4;
+  border: 1px solid transparent;
+  background-color: #eeeeee;
   margin-bottom: 5px;
   margin-right: 5px;
   margin-top: 15px; }
@@ -11546,8 +11553,9 @@ a:link, a:visited:link {
   color: #283593;
   margin: 1rem 1rem .5rem 1rem; }
   #share-links a.chip:hover, #share-links a.chip:focus {
-    background: #283593;
-    color: #ffffff; }
+    color: #212121;
+    border: 1px solid #212121;
+    text-decoration: none; }
 
 /*********************
 H1, H2, H3, H4, H5 P STYLES
@@ -11568,10 +11576,6 @@ h1, .h1 {
 @media only screen and (max-width: 992px) {
   h2, .h2 {
     font-size: 2rem; } }
-@media only screen and (max-width: 600px) {
-  h2, .h2 {
-    font-size: 1.3rem;
-    font-weight: 300; } }
 
 .collection h2 {
   font-size: 1.64rem; }
@@ -11795,6 +11799,9 @@ POSTS & CONTENT STYLES
 .contact .container {
   padding: 4rem; }
 
+#contact-details {
+  margin-top: 4rem; }
+
 p.label {
   font-size: 0.8rem;
   color: #424242; }
@@ -11919,9 +11926,6 @@ footer.card-content {
 @media only screen and (max-width: 992px) {
   article section {
     padding: .5em 0; } }
-
-.single main {
-  margin: 0px; }
 
 .teacher .col.s12 {
   padding: 2rem; }
@@ -12117,6 +12121,15 @@ h1.entry-title {
       font-size: 2rem;
       font-weight: 400; } }
 
+h1.archive-title {
+  padding: 4rem 0 2rem 0;
+  text-transform: capitalize; }
+  @media only screen and (max-width: 600px) {
+    h1.archive-title {
+      padding: 3rem 0 1rem 0;
+      font-size: 2rem;
+      font-weight: 400; } }
+
 .entry-content img.hide-on-large-only {
   margin-top: 2rem; }
 .entry-content img {
@@ -12193,6 +12206,83 @@ img.hide-on-med-and-up {
 .page-template-page-about h1 {
   position: absolute;
   width: 100%; }
+
+/*********************
+RESOURCE PAGES
+*********************/
+div#resources_category .l4 .s12 {
+  padding: 4rem 0; }
+
+#resources_category span.block {
+  width: 3rem;
+  height: 3rem;
+  background: #ffeb3b;
+  line-height: 3rem;
+  margin: 1rem auto 0 auto;
+  border-radius: 50%; }
+
+.single-resources article {
+  margin-top: 4rem; }
+
+.single-resources .article-header {
+  padding-bottom: 3rem; }
+
+.single-resources .entry-content ul {
+  list-style-type: circle;
+  padding-left: 2rem;
+  font-size: 1.25rem; }
+
+.single-resources .entry-content ul li {
+  list-style-type: disc; }
+
+.single-resources .container {
+  width: 65%; }
+
+.parent-page {
+  margin-top: 2rem; }
+
+.row.tip, .row.link, .row.recommendation, .row.warning, .row.info {
+  margin: 1rem 0;
+  padding: 1rem 0; }
+  .row.tip #note-heading, .row.link #note-heading, .row.recommendation #note-heading, .row.warning #note-heading, .row.info #note-heading {
+    padding: 0.5rem 1rem; }
+  .row.tip #note-content, .row.link #note-content, .row.recommendation #note-content, .row.warning #note-content, .row.info #note-content {
+    padding: 1rem; }
+    .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a {
+      padding-top: 1rem; }
+
+figure.card {
+  margin: 2rem 0; }
+  figure.card img {
+    width: 100%;
+    padding: .5rem; }
+  figure.card figcaption {
+    padding: .5rem; }
+
+#toc, #guide-contents {
+  padding: 1rem; }
+  #toc label, #guide-contents label {
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600; }
+
+#toc li {
+  padding: .25rem 0em; }
+
+#guide-contents li {
+  padding-left: 0.5rem; }
+  #guide-contents li.parent span.active-page:after {
+    content: ' (Introduction)'; }
+
+#page-nav a.right {
+  position: fixed;
+  right: 0;
+  bottom: calc(50% - 118px); }
+
+#page-nav a.left {
+  position: fixed;
+  left: 0;
+  bottom: calc(50% - 118px); }
 
 /*********************
 IMAGE GALLERY STYLES
@@ -12363,7 +12453,7 @@ SIDEBARS & ASIDES
     display: block;
     padding: .25em 0; }
 
-input[type="submit"] {
+#survey input[type="submit"] {
   margin: 1em 0;
   width: 100%;
   border: none;
@@ -12372,8 +12462,26 @@ input[type="submit"] {
   color: white;
   text-transform: uppercase;
   transition: 350ms; }
-  input[type="submit"]:hover, input[type="submit"] :focus {
+  #survey input[type="submit"]:hover, #survey input[type="submit"] :focus {
     background: #212121; }
+
+#search {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto 2rem auto; }
+  #search label {
+    font-size: 1.25rem;
+    display: inline-block; }
+  #search input {
+    width: auto; }
+  #search input[type="submit"] {
+    border-radius: 5px;
+    margin-left: 1rem;
+    text-transform: capitalize; }
+  #search input[type="search"] {
+    font-size: 1.25rem;
+    color: #E57373;
+    text-align: center; }
 
 .widget {
   margin-top: 2em;

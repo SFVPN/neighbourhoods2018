@@ -57,26 +57,89 @@ function remove_plugin_image_sizes() {
 
 	function archive_terms($taxonomy, $post_type) {
 		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
-		$terms = get_terms( $taxonomy );
+		$queried_object = get_queried_object();
+		$terms = get_terms(array(
+        'taxonomy' => $taxonomy,
+				'hide_empty' => false,
+        'parent' => $queried_object->term_id
+    ) );
 		$archive = get_post_type_archive_link( $post_type );
 		$obj = get_post_type_object( $post_type );
-		$queried_object = get_queried_object();?>
+		?>
 		<nav class="control btns">
+
 				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Content</span>
 			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
-				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><i class="material-icons right">check</i><?php echo 'All ' . $obj->labels->name;?></a>
+				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><i class="material-icons right">check</i><?php echo 'All ' . $queried_object->name;?></a>
 			<?php } elseif ($archive) {?>
-				<a href="<?php echo $archive;?>" class="waves-effect waves-light chip"><?php echo 'All ' . $obj->labels->name;?></a>
+				<a href="<?php echo $archive;?>" class="waves-effect waves-light chip"><?php echo 'Back to All ' . $obj->labels->name;?></a>
 			<?php }?>
 			<?php foreach($terms as $term) {
+
 				if ($queried_object->name === $term->name) {
 					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip"><i class="material-icons right">check</i>' . $term->name . ' ' . $obj->labels->name . '</a>';
 				} else {
 				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . ' ' . $obj->labels->name . '</a>';
 			}
+
 		}?>
 
 	</nav>
+	<?php }
+
+	function archive_terms_child($taxonomy, $post_type) {
+		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
+		$queried_object = get_queried_object();
+		$terms = get_terms(array(
+				'taxonomy' => $taxonomy,
+				'hide_empty' => false,
+				'parent' => $queried_object->parent
+		) );
+		$archive = get_post_type_archive_link( $post_type );
+		$obj = get_post_type_object( $post_type );
+		?>
+		<nav class="control btns">
+				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Content</span>
+			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
+				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><i class="material-icons right">check</i><?php echo 'All ' . $obj->labels->name;?></a>
+			<?php } elseif ($archive) {
+				$parent_term = get_term($queried_object->parent);
+				?>
+				<a href="<?php echo get_term_link($queried_object->parent);?>" class="waves-effect waves-light chip"><?php echo 'All ' . $parent_term->name;?></a>
+			<?php }?>
+			<?php foreach($terms as $term) {
+
+				if ($queried_object->name === $term->name) {
+					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip"><i class="material-icons right">check</i>' . $term->name . ' ' . $obj->labels->name . '</a>';
+				} else {
+				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . ' ' . $obj->labels->name . '</a>';
+			}
+
+		}?>
+
+	</nav>
+	<?php }
+
+	function archive_terms_cards($taxonomy, $post_type) {
+		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
+		$terms = get_terms( $taxonomy );
+		$archive = get_post_type_archive_link( $post_type );
+		$obj = get_post_type_object( $post_type );
+		$queried_object = get_queried_object();?>
+		<div id="resources_category" class="row center">
+
+			<?php foreach($terms as $term) {
+				$parent = ( isset( $term->parent ) ) ? get_term_by( 'id', $term->parent, 'types' ) : false;
+				if ($term->parent === 0) {
+				if ($queried_object->name === $term->name) {
+					echo '<div class="col s12 m6 l4"><div class="col s12 grey lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a><span class="block">' . $term->count . '</span></div></div>';
+				} else {
+				echo '<div class="col s12 m6 l4"><div class="col s12 grey lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a><span class="block">' . $term->count . '</span></div></div>';
+			}
+		}
+	}?>
+
+	</div>
 	<?php }
 
 function archive_title($affix) {
@@ -103,6 +166,19 @@ function my_add_excerpts_to_pages() {
 }
 
 
+
+function searchfilter($query) {
+    if ($query->is_search && !is_admin() ) {
+        if(isset($_GET['post_type'])) {
+            $type = $_GET['post_type'];
+                if($type == 'resources') {
+                    $query->set('post_type',array('resources'));
+                }
+        }
+    }
+return $query;
+}
+add_filter('pre_get_posts','searchfilter');
 // limits search to locations custom post type
 //
 // function searchfilter($query) {

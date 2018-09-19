@@ -5,7 +5,7 @@
 		<?php the_field('description'); ?>
 	</section>
 	<footer class="card-content flow-text">
-			<?php get_template_part( 'parts/content', 'meta-archives' ); ?>
+			<?php //get_template_part( 'parts/content', 'meta-archives' ); ?>
 
 	</footer>
 

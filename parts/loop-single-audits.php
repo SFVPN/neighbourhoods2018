@@ -57,7 +57,7 @@
 	</header> <!-- end article header -->
 
 <div class="section white">
- <div class="row container">
+ <div class="row">
 
 	 <!-- flexible content -->
 

@@ -28,7 +28,7 @@ function sfvpn_audits() {
       'menu_position' => 6, /* this is what order you want it to appear in on the left hand side menu */
       'menu_icon' => 'dashicons-location-alt', /* the icon for the custom post type menu */
       'has_archive' => true, /* you can rename the slug here */
-      'rewrite'     => ['slug' => 'audits'],
+      'rewrite'     => ['slug' => 'audits-environmental'],
       'capability_type' => 'post',
       'hierarchical' => false,
       /* the next one is important, it tells what's enabled in the post editor */
@@ -58,7 +58,7 @@ register_taxonomy( 'audit_category',
     		'show_admin_column' => true,
     		'show_ui' => true,
     		'query_var' => true,
-        'rewrite'           => array( 'slug' => 'audits/category' ),
+        'rewrite'           => array( 'slug' => 'audits-environmental/category' ),
     	)
     );
 
@@ -83,7 +83,7 @@ function sfvpn_resources() {
       ), /* end of arrays */
       'public' => true,
       'publicly_queryable' => true,
-      'exclude_from_search' => true,
+      'exclude_from_search' => false,
       'show_ui' => true,
       'query_var' => true,
       'show_in_admin_bar' => true,
@@ -91,10 +91,10 @@ function sfvpn_resources() {
       'menu_icon' => 'dashicons-clipboard', /* the icon for the custom post type menu */
       'has_archive' => true, /* you can rename the slug here */
       'rewrite'     => ['slug' => 'resources'],
-      'capability_type' => 'post',
-      'hierarchical' => false,
+      'capability_type' => 'page',
+      'hierarchical' => true,
       /* the next one is important, it tells what's enabled in the post editor */
-      'supports' => array( 'title')
+      'supports' => array( 'title', 'page-attributes' )
     ) /* end of options */
   ); /* end of register post type */
 
@@ -102,6 +102,28 @@ function sfvpn_resources() {
 
 add_action( 'init', 'sfvpn_resources');
 
+register_taxonomy( 'resources_category',
+    	array('resources'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+    	array('hierarchical' => true,    /* if this is false, it acts like tags */
+    		'labels' => array(
+    			'name' => __( 'Resource Types', 'neurovisiontheme' ), /* name of the custom taxonomy */
+    			'singular_name' => __( 'Resource Type', 'neurovisiontheme' ), /* single taxonomy name */
+    			'search_items' =>  __( 'Search Resource Types', 'neurovisiontheme' ), /* search title for taxomony */
+    			'all_items' => __( 'All Resource Types', 'neurovisiontheme' ), /* all title for taxonomies */
+    			'parent_item' => __( 'Parent Resource Type', 'neurovisiontheme' ), /* parent title for taxonomy */
+    			'parent_item_colon' => __( 'Parent Resource Type:', 'neurovisiontheme' ), /* parent taxonomy title */
+    			'edit_item' => __( 'Edit Resource Type', 'neurovisiontheme' ), /* edit custom taxonomy title */
+    			'update_item' => __( 'Update Resource Type', 'neurovisiontheme' ), /* update title for taxonomy */
+    			'add_new_item' => __( 'Add New Resource Type', 'neurovisiontheme' ), /* add new title for taxonomy */
+    			'new_item_name' => __( 'New Resource Type Name', 'neurovisiontheme' ) /* name title for taxonomy */
+    		),
+    		'show_admin_column' => true,
+    		'show_ui' => true,
+    		'query_var' => true,
+        'has_archive' => true,
+        'rewrite'           => array( 'slug' => 'resources/cat' ),
+    	)
+    );
 
 function sfvpn_progress() {
   // creating (registering) the custom type

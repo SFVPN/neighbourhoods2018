@@ -2,7 +2,7 @@
 acf_form_head();
 
 get_header(); ?>
-<main id="maincontent" class="row">
+<main id="maincontent" class="container">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post();
 
