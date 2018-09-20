@@ -1,11 +1,9 @@
 <?php $parent_id = wp_get_post_parent_id( $post_ID );
 $parent_title = get_the_title($parent_id);
 $queried_object = get_queried_object();
-if($queried_object->post_parent === 0 ) {
-	$terms = get_the_terms( $queried_object->id, 'resources_category' );
-	$guide = $queried_object->post_title;
-} else {
-	$terms = get_the_terms( $queried_object->post_parent, 'resources_category' );
+$terms = get_the_terms( $queried_object->id, 'resources_category' );
+if($queried_object->post_parent != 0 ) {
+	//$terms = get_the_terms( $queried_object->id, 'resources_category' );
 	$guide = get_the_title($queried_object->post_parent);
 }
 
@@ -38,7 +36,13 @@ if($queried_object->post_parent === 0 ) {
 			//	}
 			}
 		}
-		echo '<br /><i class="mdi mdi-information"></i> This page was last updated on ' . get_the_modified_time('F j, Y') . '</span></div>';
+		if($queried_object->post_parent === 0 ) {
+				echo '<br /><i class="mdi mdi-information"></i> This page was last updated on ' . get_the_modified_time('F j, Y') . '</span></div>';
+		} else {
+				echo '<br /><i class="mdi mdi-information"></i> This page is part of the ' . $guide . ' guide was last updated on ' . get_the_modified_time('F j, Y') . '</span></div>';
+		}
+
+
 		//get_template_part( 'parts/content', 'byline' );
 		get_template_part( 'parts/content', 'share' );
 

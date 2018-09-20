@@ -361,5 +361,8 @@ function my_admin_style() {
 		#resources_categorydiv {
 			display: none;
 		}
+		.tip {
+    background: whitesmoke;
+}
   </style>';
 }

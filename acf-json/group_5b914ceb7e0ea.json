@@ -1,6 +1,6 @@
 {
     "key": "group_5b914ceb7e0ea",
-    "title": "Guidance Layout",
+    "title": "Resource Layout",
     "fields": [
         {
             "key": "field_5ba0dc209731b",
@@ -293,5 +293,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537375296
+    "modified": 1537438883
 }
