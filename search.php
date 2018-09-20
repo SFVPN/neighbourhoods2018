@@ -22,7 +22,7 @@
 // echo '<div class="col s12"><p>
 // <a class="" href="' . get_post_type_archive_link( $type ) . '">To carry outClick on this link to go back to the main resources page.</a>
 // </p></div>';
-get_template_part( 'parts/loop', 'resources' );
+get_template_part( 'parts/loop', 'search' );
 
 
 ?>

@@ -1,5 +1,5 @@
 
-<article id="post-<?php the_ID(); ?>" class="col s12 m6 resource-article" role="article">
+<article id="post-<?php the_ID(); ?>" class="col s12 m6 search-article" role="article">
 
 	<section class="col s12 grey lighten-3 center">
 		<h2 class="h5 "><a href="<?php the_permalink() ?>" class="center" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
@@ -23,7 +23,16 @@
 
 		}
 		//print_R($post);
-	
+
+			$terms = wp_get_post_terms($post->ID, 'resources_category', array("fields" => "all"));
+						echo '<div>';
+						foreach ($terms as $term) {
+							echo '<a href="' . get_term_link($term->term_id) . '" class="chip">' . $term->name . '</a>';
+							// code...
+						}
+
+						echo '</div>';
+
 ?>
 
 	<footer class="card-content" style="position: relative; padding: .5rem 0;">
