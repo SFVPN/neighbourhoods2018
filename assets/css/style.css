@@ -2921,15 +2921,24 @@ i {
   i.left {
     float: left;
     margin-right: 15px; }
+    @media only screen and (max-width: 600px) {
+      i.left {
+        margin-right: 5px; } }
   i.right {
     float: right;
     margin-left: 15px; }
+    @media only screen and (max-width: 600px) {
+      i.right {
+        margin-left: 5px; } }
   i.tiny {
     font-size: 1rem; }
   i.small {
     font-size: 2rem; }
   i.medium {
     font-size: 4rem; }
+    @media only screen and (max-width: 600px) {
+      i.medium {
+        font-size: 2rem; } }
   i.large {
     font-size: 6rem; }
     @media only screen and (max-width: 600px) {
@@ -4420,6 +4429,11 @@ small {
   text-transform: uppercase;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent; }
+
+@media only screen and (max-width: 600px) {
+  .btn-flat {
+    padding: 0;
+    font-size: 0.85rem; } }
 
 .btn.disabled, .disabled.btn-large, .btn-floating.disabled, .btn-large.disabled, .btn:disabled, .btn-large:disabled, .btn-large:disabled, .btn-floating:disabled {
   background-color: #DFDFDF !important;

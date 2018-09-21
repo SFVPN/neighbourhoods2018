@@ -6,7 +6,7 @@
 
 		<?php
 		if ($post->post_parent != 0) {
-			echo '<div id="guide-name"><a class="btn-flat" href="' . get_the_permalink($post->post_parent) . '"><i class="material-icons left">library_books</i>Part of the ' . get_the_title($post->post_parent) . ' guide</a></div>';
+			echo '<div id="guide-name"><a class="btn-flat" href="' . get_the_permalink($post->post_parent) . '"><i class="material-icons left">library_books</i>From ' . get_the_title($post->post_parent) . ' guide</a></div>';
 		} else {
 			$args = array(
 				'post_parent' => $post->ID,
@@ -23,7 +23,7 @@
 
 		}
 		//print_R($post);
-	
+
 ?>
 
 	<footer class="card-content" style="position: relative; padding: .5rem 0;">

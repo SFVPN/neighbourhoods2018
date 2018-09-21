@@ -13,6 +13,13 @@
   // Gets rid of tap active state
   -webkit-tap-highlight-color: transparent;
 }
+
+.btn-flat {
+  @media #{$small-and-down} {
+    padding: 0;
+    font-size: 0.85rem;
+  }
+}
 // Disabled shared style
 .btn.disabled, .btn-floating.disabled, .btn-large.disabled, .btn:disabled, .btn-large:disabled, .btn-floating:disabled {
   background-color: $button-bg-color-disabled !important;

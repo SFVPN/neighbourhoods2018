@@ -4,7 +4,7 @@
 <?php
 if(!is_single()){
 	if( strtotime( $post->post_date ) > strtotime('-7 day') ) {
-			echo '<span class="new badge"></span>';
+			echo '<span class="new badge hide-on-small-only"></span>';
 	}
 }
 ?>

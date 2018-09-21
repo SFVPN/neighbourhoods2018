@@ -129,10 +129,16 @@ i {
   &.left {
     float: left;
     margin-right: 15px;
+    @media #{$small-and-down} {
+      margin-right: 5px;
+    }
   }
   &.right {
     float: right;
     margin-left: 15px;
+    @media #{$small-and-down} {
+      margin-left: 5px;
+    }
   }
   &.tiny {
     font-size: 1rem;
@@ -142,6 +148,9 @@ i {
   }
   &.medium {
     font-size: 4rem;
+    @media #{$small-and-down} {
+      font-size: 2rem;
+    }
   }
   &.large {
     font-size: 6rem;
