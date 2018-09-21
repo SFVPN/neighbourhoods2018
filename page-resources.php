@@ -49,7 +49,7 @@ get_header();
 		}
 		</script>
 
-<?php	echo '<h1 class="red-text">' . get_the_title($parent_page) . '</h1>';
+<?php	echo '<h1 class="h2 grey-text text-darken-2">' . get_the_title($parent_page) . '</h1>';
 	  // check if the repeater field has rows of data
 	  if( have_rows('section', $parent_page) ):
 
@@ -67,13 +67,13 @@ get_header();
 	 				 // display a sub field value
 	 				 if( have_rows('blocks', $parent_page) ):
 	 					 $rows = get_field('heading_block', $parent_page);
-	 					 print_R($rows);
+
 	 	 // loop through the rows of data
 	 	while ( have_rows('blocks', $parent_page) ) : the_row();
 
 	 			if( get_row_layout() == 'heading_block' ):
 
-	 					echo '<' . get_sub_field('heading_size', $parent_page) . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading', $parent_page) . '</' . get_sub_field('heading_size', $parent_page) . '>';
+	 					echo '<' . get_sub_field('heading_size', $parent_page) . ' id="heading-' . get_row_index() . '" class="h4">' . get_sub_field('heading', $parent_page) . '</' . get_sub_field('heading_size', $parent_page) . '>';
 
 	 			endif;
 
@@ -146,9 +146,7 @@ get_header();
 
 	 endif;
 
-	 echo '<div style="page-break-after: always;">
-
-	 </div>';
+	 echo '<div style="page-break-after: always;"></div>'; // adds a div after the intro page of the guide to create a page break when printing
 
 	 		 endwhile;
 
@@ -167,7 +165,7 @@ get_header();
 		foreach($children_array as $child)
 		{
 
-			echo '<h1 class="red-text">' . get_the_title($child) . '</h1>';
+			echo '<h1 class="h2 grey-text text-darken-2">' . get_the_title($child) . '</h1>';
 
 		if( have_rows('section', $child) ):
 
@@ -190,7 +188,7 @@ get_header();
 
 				if( get_row_layout() == 'heading_block' ):
 
-						echo '<' . get_sub_field('heading_size', $child) . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading', $child) . '</' . get_sub_field('heading_size', $child) . '>';
+						echo '<' . get_sub_field('heading_size', $child) . ' id="heading-' . get_row_index() . '" class="h4">' . get_sub_field('heading', $child) . '</' . get_sub_field('heading_size', $child) . '>';
 
 				endif;
 
@@ -263,9 +261,7 @@ get_header();
 
 		endif;
 
-		echo '<div style="page-break-after: always;">
-
-		</div>';
+		echo '<div style="page-break-after: always;"></div>'; // adds a div after each page of the guide to create a page break when printing
 
 			 endwhile;
 

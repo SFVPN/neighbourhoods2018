@@ -1176,7 +1176,6 @@ a.current.chip {
 }
 
 .single-resources .entry-content ul {
-    list-style-type: circle;
     padding-left: 2rem;
     font-size: 1.25rem;
 }
@@ -1276,6 +1275,17 @@ figure.card {
 
 .no-print {
   margin-bottom: 2rem;
+}
+
+.page-template-page-resources ul {
+    padding-left: 2rem;
+    font-size: 1.25rem;
+    li {
+      list-style-type: disc;
+      &:first-letter {
+        text-transform: capitalize;
+      }
+    }
 }
 
 /*********************

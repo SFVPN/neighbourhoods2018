@@ -12261,7 +12261,6 @@ a.current.chip {
   margin-bottom: 3rem; }
 
 .single-resources .entry-content ul {
-  list-style-type: circle;
   padding-left: 2rem;
   font-size: 1.25rem; }
 
@@ -12319,6 +12318,14 @@ figure.card {
 
 .no-print {
   margin-bottom: 2rem; }
+
+.page-template-page-resources ul {
+  padding-left: 2rem;
+  font-size: 1.25rem; }
+  .page-template-page-resources ul li {
+    list-style-type: disc; }
+    .page-template-page-resources ul li:first-letter {
+      text-transform: capitalize; }
 
 /*********************
 IMAGE GALLERY STYLES
