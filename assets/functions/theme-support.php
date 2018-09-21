@@ -146,6 +146,54 @@ function remove_plugin_image_sizes() {
 	</div>
 	<?php }
 
+
+	function archive_terms_list($taxonomy, $post_type) {
+		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
+		$terms = get_terms( $taxonomy );
+		$archive = get_post_type_archive_link( $post_type );
+		$obj = get_post_type_object( $post_type );
+		$queried_object = get_queried_object();
+		$icon = get_field('material_icon_code', $queried_object);
+		?>
+		<div id="resources_category" class="row center">
+
+			<?php foreach($terms as $term) {
+				$children = get_term_children( $term->term_id, $taxonomy );
+				$parent = ( isset( $term->parent ) ) ? get_term_by( 'id', $term->parent, 'types' ) : false;
+				if ($term->parent === 0) {
+				$children = get_term_children( $term->term_id, $taxonomy );
+				if ($queried_object->name === $term->name) {
+					echo '<div class="col s12 m6 l4"><div class="col s12 green lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a><i class="material-icons purple darken-1 white-text">' . get_field('material_icon_code', $term) . '</i></div></div>';
+				} else {
+				$cat_total[] = $term->count;
+				echo '<div class="col s12 m6 l4"><ul class="col s12"><i class="material-icons purple darken-1 white-text">' . get_field('material_icon_code', $term) . '</i><li><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a>';
+				if($children) {
+					$child_sorted = array(); //initialize empty array
+					echo '<ul>';
+					foreach($children as $child) {
+						$child_meta = get_term($child); // get taxonomy meta from taxonomy id
+						$child_sorted[$child] = $child_meta->name; // associate tax id with tax name (so we can sort alphabetically)
+					}
+					asort($child_sorted); // sort taxonomy children alphabetically
+
+					// loop sorted associative array of taxonomy children
+					foreach($child_sorted as $x => $x_value) {
+					    echo '<li>
+							<a href="' . get_term_link($x) . '" class="block">' . $x_value . '</a>
+							</li>';
+						}
+				//	print_R($child_sorted);
+					echo '</ul>';
+				}
+
+				echo '</li></ul></div>';
+			}
+		}
+	}?>
+
+	</div>
+	<?php }
+
 function archive_title($affix) {
 	//NOTE: the archive_title comprises the queried object name - for example, the name of the category if on a category archive page - appended with the $affix argument. So, on the archive page for the category 'Arts', you may wish to add 'Resources' or 'Content' as the $affix argument to give you 'Arts Resources' as the archive page title. You can set $affix to null
 	$queried_object = get_queried_object();

@@ -15,7 +15,7 @@
 			<div >
 
 
-				<?php archive_terms_cards('resources_category', 'resources');?>
+				<?php archive_terms_list('resources_category', 'resources');?>
 
 
 

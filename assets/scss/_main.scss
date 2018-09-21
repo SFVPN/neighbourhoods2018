@@ -1115,7 +1115,12 @@ div#resources_category .l4 .s12 {
 #resources_category i {
   padding: 1rem;
   border-radius: 50%;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+div#resources_category ul:first-child {
+  border: 1px solid color("grey", "lighten-2");
+  border-radius: 3px;
 }
 
 a.current.chip {
@@ -1268,6 +1273,11 @@ figure.card {
   //   font-size: 1.25rem;
   // }
 }
+
+.no-print {
+  margin-bottom: 2rem;
+}
+
 /*********************
 IMAGE GALLERY STYLES
 *********************/

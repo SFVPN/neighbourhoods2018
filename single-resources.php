@@ -15,7 +15,6 @@ get_header();
 		endwhile; endif;
 
 		?>
-
 	</div>
 	</main> <!-- end main -->
 
@@ -82,6 +81,17 @@ if ($parent_ID === 0 ) {
 
 }
 echo '</nav>';?>
-
+<div class="fixed-action-btn no-print">
+<?php if(($parent_ID === 0) && $children){
+echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn">Print full guide</a>';
+} else {
+	echo '<button class="btn" onclick="printFunction()">Print page</button>';
+};?>
+</div>
+<script>
+function printFunction() {
+		window.print();
+}
+</script>
 
 <?php get_footer(); ?>

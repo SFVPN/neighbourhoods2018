@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_5b83b772d0cbf",
-            "label": "Group ID",
+            "label": "Survey form group ID",
             "name": "group_id",
             "type": "number",
-            "instructions": "",
+            "instructions": "This is required to output the correct field group for the community survey page.   You can get the ID number by going to the \"Custom Fields\" \"Field Groups\" sub-page and clicking on the \"Our Connected Neighbourhoods Survey\" group link.  In the browser address bar you will see a url which looks something like this ...'wp-admin\/post.php?post=1258&action=ed'...  The ID number you need is after 'post=' (so in this example it would be 1258).",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -35,11 +35,11 @@
     ],
     "menu_order": 0,
     "position": "normal",
-    "style": "default",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1535358929
+    "modified": 1537526578
 }
