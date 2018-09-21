@@ -3426,7 +3426,7 @@ nav ul a span.badge {
 .container {
   margin: 0 auto;
   max-width: 1280px;
-  width: 90%; }
+  width: 75%; }
 
 @media only screen and (min-width: 601px) {
   .container {
@@ -4844,9 +4844,10 @@ span.chip:hover:after {
   color: white;
   position: absolute;
   left: 106%;
+  top: 0;
   padding: 0 1rem;
   z-index: 2;
-  min-width: 200px;
+  min-width: 250px;
   text-align: center; }
 
 span.chip {
@@ -12059,19 +12060,23 @@ a.chip {
   padding: 0 1rem .75rem 1rem;
   border-bottom: 2px solid #ffeb3b; }
 
-#advert {
+#callouts #callout-1 {
+  background: #f5f5f5; }
+#callouts #callout-2 {
+  background: #90CAF9; }
+#callouts .callout-content {
   padding: 3rem; }
-  #advert a {
-    border: 1px solid;
-    background: transparent; }
-  @media only screen and (max-width: 992px) {
-    #advert {
-      padding: 2rem; } }
-  @media only screen and (max-width: 600px) {
-    #advert {
-      padding: 1rem 1rem 2rem 1rem; }
-      #advert a {
-        padding: 0 1rem; } }
+#callouts a {
+  border: 1px solid;
+  background: transparent; }
+@media only screen and (max-width: 992px) {
+  #callouts {
+    padding: 2rem; } }
+@media only screen and (max-width: 600px) {
+  #callouts {
+    padding: 1rem 1rem 2rem 1rem; }
+    #callouts a {
+      padding: 0 1rem; } }
 
 #advert-text .h4 {
   padding-bottom: 1rem; }
@@ -12319,12 +12324,12 @@ figure.card {
 .no-print {
   margin-bottom: 2rem; }
 
-.page-template-page-resources ul {
+.page-template-page-resources #maincontent ul {
   padding-left: 2rem;
   font-size: 1.25rem; }
-  .page-template-page-resources ul li {
+  .page-template-page-resources #maincontent ul li {
     list-style-type: disc; }
-    .page-template-page-resources ul li:first-letter {
+    .page-template-page-resources #maincontent ul li:first-letter {
       text-transform: capitalize; }
 
 /*********************
@@ -12521,10 +12526,16 @@ SIDEBARS & ASIDES
     border-radius: 5px;
     margin-left: 1rem;
     text-transform: capitalize; }
+    @media only screen and (max-width: 600px) {
+      #search input[type="submit"] {
+        margin-left: 0rem; } }
   #search input[type="search"] {
     font-size: 1.25rem;
     color: #E57373;
     text-align: center; }
+  @media only screen and (max-width: 600px) {
+    #search span {
+      display: block; } }
 
 #search-again {
   margin-top: 4rem;
@@ -12687,6 +12698,10 @@ to display none.
   h2,
   h3 {
     page-break-after: avoid; }
+
+  .row.tip, .row.link, .row.recommendation, .row.warning, .row.info {
+    padding: 0;
+    border: 1px solid; }
 
   .sidebar,
   .page-navigation,

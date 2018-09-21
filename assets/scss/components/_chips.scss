@@ -129,9 +129,10 @@ span.chip:hover:after {
     color: white;
     position: absolute;
     left: 106%;
+    top: 0;
     padding: 0 1rem;
     z-index: 2;
-    min-width: 200px;
+    min-width: 250px;
     text-align: center;
 }
 

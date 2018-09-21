@@ -888,8 +888,16 @@ a.chip {
   border-bottom: 2px solid color("yellow", "base");
 }
 
-#advert {
-  padding: 3rem;
+#callouts {
+  #callout-1 {
+    background: color("grey", "lighten-4")
+  }
+  #callout-2 {
+    background: color("blue", "lighten-3")
+  }
+  .callout-content {
+    padding: 3rem;
+  }
   a {
     border: 1px solid;
     background: transparent;
@@ -1277,7 +1285,7 @@ figure.card {
   margin-bottom: 2rem;
 }
 
-.page-template-page-resources ul {
+.page-template-page-resources #maincontent ul {
     padding-left: 2rem;
     font-size: 1.25rem;
     li {
@@ -1664,11 +1672,19 @@ SIDEBARS & ASIDES
     border-radius: 5px;
     margin-left: 1rem;
     text-transform: capitalize;
+    @media #{$small-and-down} {
+      margin-left: 0rem;
+    }
   }
   input[type="search"] {
     font-size: 1.25rem;
     color: color("red", "lighten-2");
     text-align: center;
+  }
+  @media #{$small-and-down} {
+    span {
+      display: block;
+    }
   }
 }
 

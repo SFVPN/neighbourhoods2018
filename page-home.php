@@ -38,34 +38,48 @@ get_header();
 	?>
 <?php endwhile; endif;?>
 
-<?php if (get_field('alert_title')) {?>
-	<div id="advert" class="row grey lighten-4">
-		<div id="advert-text" class="col s12" >
-			<h2 class="center h4"><?php the_field('alert_title');?></h2>
-			<p>
-				<?php the_field('alert_description');?>
-			</p>
+<?php if( have_rows('front_page_callouts') ):?>
+<div id="callouts" class="row" style="margin-bottom: 0;">
+	<?php while ( have_rows('front_page_callouts') ) : the_row();
+		$options = get_sub_field('callout_options');
+	?>
+
+		<div id="callout-<?php echo get_row_index();?>" class="col s12 callout-content">
+			<div>
+				<h2 class="center h4"><?php the_sub_field('callout_title');?></h2>
+				<p class="col s12">
+					<?php the_sub_field('callout_description');?>
+				</p>
+			</div>
+			<div class="col s12 center" >
+				<a class="btn-large z-depth-0 waves-effect black-text"
+				<?php if($options === 'Page Link') {
+						echo 'href="' . get_sub_field('page_link') . '"';
+				}
+
+				if($options === 'External Link') {
+					 echo 'href="' . get_sub_field('external_link') . '"';
+				}
+
+				if($options === 'File Upload') {
+					 echo 'href="' . get_sub_field('file_to_upload') . '"';
+				}?>
+
+				aria-label="View more information about <?php the_sub_field('callout_title'); ?>">
+					View Details</a>
+			</div>
+
 		</div>
-		<div class="col s12 center" >
-			<a class="btn-large z-depth-0 waves-effect black-text"
-			<?php if(get_field('choose_page_link')) {
-					echo 'href="' . get_field('choose_page_link') . '"';
-			}
 
-			if(get_field('external_url')) {
-				 echo 'href="' . get_field('external_url') . '"';
-		  }
+<?php
+endwhile;?>
+</div>
+<?php
+else :
+ // no rows found
+endif;
+?>
 
-			if(get_field('file_to_upload')) {
-				 echo 'href="' . get_field('file_to_upload') . '"';
-		  }?>
-
-			aria-label="View more information about <?php the_field('alert_title'); ?>">
-				View Details</a>
-		</div>
-
-	</div>
-<?php } ?>
 
 
 <?php if( have_rows('front_page_sections') ):?>

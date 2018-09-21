@@ -71,6 +71,11 @@ to display none.
       page-break-after: avoid;
     }
 
+    .row.tip, .row.link, .row.recommendation, .row.warning, .row.info {
+      padding: 0;
+      border: 1px solid;
+    }
+
     // Hide content people who print don't need to see
     .sidebar,
     .page-navigation,

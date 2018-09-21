@@ -83,9 +83,11 @@ if ($parent_ID === 0 ) {
 echo '</nav>';?>
 <div class="fixed-action-btn no-print">
 <?php if(($parent_ID === 0) && $children){
-echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn">Print full guide</a>';
+echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn-floating hide-on-large-only"><i class="material-icons">print</i></a>';
+echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn hide-on-med-and-down">Print full guide</a>';
 } else {
-	echo '<button class="btn" onclick="printFunction()">Print page</button>';
+	echo '<button class="btn-floating hide-on-large-only" onclick="printFunction()"><i class="material-icons">print</i></button>';
+	echo '<button class="btn hide-on-med-and-down" onclick="printFunction()">Print page</button>';
 };?>
 </div>
 <script>

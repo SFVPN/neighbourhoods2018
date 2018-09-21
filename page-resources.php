@@ -39,7 +39,8 @@ get_header();
 		</div>
 
 		<div class="fixed-action-btn no-print">
-			<button class="btn" onclick="printFunction()">Print</button>
+			<button class="btn-floating hide-on-large-only" onclick="printFunction()"><i class="material-icons">print</i></button>
+			<button class="btn hide-on-med-and-down" onclick="printFunction()">Print page</button>
 		</div>
 
 
