@@ -1200,7 +1200,7 @@ a.current.chip {
   margin-top: 2rem;
 }
 
-.row.tip, .row.link, .row.recommendation, .row.warning, .row.info {
+.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
   margin: 1rem 0;
   padding: 1rem 0;
   #note-heading {
@@ -1210,6 +1210,15 @@ a.current.chip {
     padding: 1rem;
     a {
         padding-top: 1rem;
+    }
+    ul li {
+      list-style-type: none;
+      a {
+        padding-top: 0rem;
+        a:hover, a:focus {
+          color: $hover-color;
+        }
+      }
     }
   }
 }
@@ -1226,7 +1235,8 @@ figure.card {
 }
 
 #toc, #guide-contents {
-  padding: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   label {
     padding-bottom: 1rem;
     font-size: 1.25rem;

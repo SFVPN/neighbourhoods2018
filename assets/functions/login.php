@@ -81,11 +81,11 @@ class SiteRules {
 //
 // Rewrite the register url to the custom page
 //
-add_filter( 'register_url', array( SiteRules, 'register_url' ) );
+add_filter( 'register_url', array( 'SiteRules', 'register_url' ) );
 //
 // Redirect the registration form
 //
-add_action( 'login_form_register', array( SiteRules, 'redirect_register' ) );
+add_action( 'login_form_register', array( 'SiteRules', 'redirect_register' ) );
 
 
 if ( is_user_logged_in() && ! empty( $_GET['DeleteMyAccount'] ) ) {

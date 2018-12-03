@@ -1,6 +1,6 @@
 {
     "key": "group_5b914ceb7e0ea",
-    "title": "Resource Layout",
+    "title": "Guidance Layout",
     "fields": [
         {
             "key": "field_5ba0dc209731b",
@@ -166,23 +166,7 @@
                                     "placeholder": "",
                                     "maxlength": "",
                                     "rows": "",
-                                    "new_lines": ""
-                                },
-                                {
-                                    "key": "field_5ba0cd7806ff2",
-                                    "label": "Note Url",
-                                    "name": "note_url",
-                                    "type": "url",
-                                    "instructions": "If you are linking to an external website or a document to download, please enter the URL here.",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": ""
+                                    "new_lines": "br"
                                 },
                                 {
                                     "key": "field_5ba0b653f5552",
@@ -200,14 +184,142 @@
                                     "choices": {
                                         "info": "Info",
                                         "link": "Link",
-                                        "recommendation": "Recommendation",
+                                        "required": "Required",
                                         "tip": "Tip",
-                                        "warning": "Warning"
+                                        "warning": "Annoying"
                                     },
                                     "allow_null": 0,
                                     "default_value": "",
                                     "layout": "horizontal",
                                     "return_format": "array"
+                                },
+                                {
+                                    "key": "field_5ba0cd7806ff2",
+                                    "label": "Note Url",
+                                    "name": "note_url",
+                                    "type": "url",
+                                    "instructions": "If you are linking to an external website or a document to download, please enter the URL here.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5c00448d5517e": {
+                            "key": "layout_5c00448d5517e",
+                            "name": "recommendation_block",
+                            "label": "Recommendations",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5c005322b655e",
+                                    "label": "Block Title",
+                                    "name": "block_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5c00448d5517f",
+                                    "label": "Add recommendation",
+                                    "name": "recommendation_add",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "block",
+                                    "button_label": "Add Recommendation",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5c00456055182",
+                                            "label": "Recommendation Type",
+                                            "name": "recommendation_type",
+                                            "type": "select",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "Best all-rounder": "Best all-rounder",
+                                                "Best for Android users": "Best for Android users",
+                                                "Best for iOS users": "Best for iOS users",
+                                                "Honorable Mention": "Honorable Mention"
+                                            },
+                                            "default_value": [],
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "ui": 1,
+                                            "ajax": 0,
+                                            "return_format": "value",
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_5c0045be55183",
+                                            "label": "Product Name",
+                                            "name": "recommended_product",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5c0045e055184",
+                                            "label": "Product Link",
+                                            "name": "product_link",
+                                            "type": "url",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": ""
+                                        }
+                                    ]
                                 }
                             ],
                             "min": "",
@@ -293,5 +405,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537438883
+    "modified": 1543580087
 }

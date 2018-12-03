@@ -12292,15 +12292,21 @@ a.current.chip {
 .parent-page {
   margin-top: 2rem; }
 
-.row.tip, .row.link, .row.recommendation, .row.warning, .row.info {
+.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
   margin: 1rem 0;
   padding: 1rem 0; }
-  .row.tip #note-heading, .row.link #note-heading, .row.recommendation #note-heading, .row.warning #note-heading, .row.info #note-heading {
+  .row.tip #note-heading, .row.link #note-heading, .row.recommendation #note-heading, .row.warning #note-heading, .row.info #note-heading, .row.required #note-heading {
     padding: 0.5rem 1rem; }
-  .row.tip #note-content, .row.link #note-content, .row.recommendation #note-content, .row.warning #note-content, .row.info #note-content {
+  .row.tip #note-content, .row.link #note-content, .row.recommendation #note-content, .row.warning #note-content, .row.info #note-content, .row.required #note-content {
     padding: 1rem; }
-    .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a {
+    .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a, .row.required #note-content a {
       padding-top: 1rem; }
+    .row.tip #note-content ul li, .row.link #note-content ul li, .row.recommendation #note-content ul li, .row.warning #note-content ul li, .row.info #note-content ul li, .row.required #note-content ul li {
+      list-style-type: none; }
+      .row.tip #note-content ul li a, .row.link #note-content ul li a, .row.recommendation #note-content ul li a, .row.warning #note-content ul li a, .row.info #note-content ul li a, .row.required #note-content ul li a {
+        padding-top: 0rem; }
+        .row.tip #note-content ul li a a:hover, .row.tip #note-content ul li a a:focus, .row.link #note-content ul li a a:hover, .row.link #note-content ul li a a:focus, .row.recommendation #note-content ul li a a:hover, .row.recommendation #note-content ul li a a:focus, .row.warning #note-content ul li a a:hover, .row.warning #note-content ul li a a:focus, .row.info #note-content ul li a a:hover, .row.info #note-content ul li a a:focus, .row.required #note-content ul li a a:hover, .row.required #note-content ul li a a:focus {
+          color: #212121; }
 
 figure.card {
   margin: 2rem 0; }
@@ -12311,7 +12317,8 @@ figure.card {
     padding: .5rem; }
 
 #toc, #guide-contents {
-  padding: 1rem; }
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
   #toc label, #guide-contents label {
     padding-bottom: 1rem;
     font-size: 1.25rem;
