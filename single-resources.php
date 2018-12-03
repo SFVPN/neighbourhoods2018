@@ -43,7 +43,7 @@ if ($parent_ID === 0 ) {
 	if($current) {
 		$next = $pages[$current+1]; // returns previous element's key: 34
 		$prev = $pages[$current-1]; // returns previous element's key: 34
-	}
+
 
 
 	if($prev) {
@@ -53,7 +53,7 @@ if ($parent_ID === 0 ) {
 	if($next) {
 		echo '<a class="right" title="Go to the next page in this guide - ' . get_the_title($next) . '" href="' . get_permalink( $next ) . '"><i class="large material-icons right">chevron_right</i></a>';
 	}
-
+}
 	//print_R($pages);
 } else {
 	$pages = array($parent_ID);

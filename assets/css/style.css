@@ -12304,11 +12304,13 @@ a.current.chip {
     padding: 0.5rem 1rem; }
   .row.tip #note-content, .row.link #note-content, .row.recommendation #note-content, .row.warning #note-content, .row.info #note-content, .row.required #note-content {
     padding: 1rem; }
+    .row.tip #note-content .product_link, .row.link #note-content .product_link, .row.recommendation #note-content .product_link, .row.warning #note-content .product_link, .row.info #note-content .product_link, .row.required #note-content .product_link {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding-top: 1rem; }
     .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a, .row.required #note-content a {
       padding-top: 1rem; }
-    .row.tip #note-content a.product_link, .row.link #note-content a.product_link, .row.recommendation #note-content a.product_link, .row.warning #note-content a.product_link, .row.info #note-content a.product_link, .row.required #note-content a.product_link {
-      font-size: 1.25rem; }
-      .row.tip #note-content a.product_link:hover, .row.tip #note-content a.product_link:focus, .row.link #note-content a.product_link:hover, .row.link #note-content a.product_link:focus, .row.recommendation #note-content a.product_link:hover, .row.recommendation #note-content a.product_link:focus, .row.warning #note-content a.product_link:hover, .row.warning #note-content a.product_link:focus, .row.info #note-content a.product_link:hover, .row.info #note-content a.product_link:focus, .row.required #note-content a.product_link:hover, .row.required #note-content a.product_link:focus {
+      .row.tip #note-content a:hover, .row.tip #note-content a:focus, .row.link #note-content a:hover, .row.link #note-content a:focus, .row.recommendation #note-content a:hover, .row.recommendation #note-content a:focus, .row.warning #note-content a:hover, .row.warning #note-content a:focus, .row.info #note-content a:hover, .row.info #note-content a:focus, .row.required #note-content a:hover, .row.required #note-content a:focus {
         color: #212121; }
   .row.tip ul.platforms li, .row.link ul.platforms li, .row.recommendation ul.platforms li, .row.warning ul.platforms li, .row.info ul.platforms li, .row.required ul.platforms li {
     display: inline-block;

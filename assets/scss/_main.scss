@@ -1218,11 +1218,13 @@ a.current.chip {
   }
   #note-content {
     padding: 1rem;
+    .product_link {
+      font-size: 1.25rem;
+      font-weight: 600;
+      padding-top: 1rem;
+    }
     a {
         padding-top: 1rem;
-    }
-    a.product_link {
-      font-size: 1.25rem;
         &:hover, &:focus {
           color: $hover-color;
         }
