@@ -262,7 +262,7 @@ if( have_rows('recommendation_add') ):
 				if($link) {
 					echo '<div><a class="block product_link" href="' . $link . '">' . get_sub_field('recommended_product') . '</a></div>';
 				} else {
-						echo '<div><span class="block product_link">' . get_sub_field('recommended_product') . '</span>';
+						echo '<div><span class="block product_link">' . get_sub_field('recommended_product') . '</span></div>';
 				}
 
 				if($desc) {
@@ -308,7 +308,7 @@ if( have_rows('recommendation_add') ):
 
 				}
 
-				echo '</div>';
+			
 
     endwhile;
 
