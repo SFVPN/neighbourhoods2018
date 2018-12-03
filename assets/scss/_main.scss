@@ -1221,14 +1221,19 @@ a.current.chip {
     a {
         padding-top: 1rem;
     }
-    ul li {
-      list-style-type: none;
-      a {
+    a.product_link {
+
         padding-top: 0rem;
-        a:hover, a:focus {
+        &:hover, &:focus {
           color: $hover-color;
         }
-      }
+
+    }
+  }
+  ul.platforms {
+    li {
+      display: inline-block;
+      padding: 0 1rem;
     }
   }
 }

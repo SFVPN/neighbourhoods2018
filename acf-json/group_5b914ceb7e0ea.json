@@ -109,25 +109,6 @@
                                     "ajax": 0,
                                     "return_format": "value",
                                     "placeholder": ""
-                                },
-                                {
-                                    "key": "field_5c051a809c5f8",
-                                    "label": "Heading Icon",
-                                    "name": "heading_icon",
-                                    "type": "text",
-                                    "instructions": "This is primarily for adding material design icons to sections discussing certain apps. You can leave this empty for general sections.  \r\n\r\nThe text you should add here will be in the form of <em>mdi-<\/em>. For example, to add a file icon you would enter the code mdi-file in this text box. All icon codes can be found at the link below.\r\n<a href=\"https:\/\/cdn.materialdesignicons.com\/3.2.89\/\">Reference for icon code<\/a>",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
                                 }
                             ],
                             "min": "",
@@ -277,33 +258,6 @@
                                     "button_label": "Add Recommendation",
                                     "sub_fields": [
                                         {
-                                            "key": "field_5c00456055182",
-                                            "label": "Recommendation Type",
-                                            "name": "recommendation_type",
-                                            "type": "select",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "choices": {
-                                                "Best all-rounder": "Best all-rounder",
-                                                "Best for Android users": "Best for Android users",
-                                                "Best for iOS users": "Best for iOS users",
-                                                "Honorable Mention": "Honorable Mention"
-                                            },
-                                            "default_value": [],
-                                            "allow_null": 0,
-                                            "multiple": 0,
-                                            "ui": 1,
-                                            "ajax": 0,
-                                            "return_format": "value",
-                                            "placeholder": ""
-                                        },
-                                        {
                                             "key": "field_5c0045be55183",
                                             "label": "Product Name",
                                             "name": "recommended_product",
@@ -321,6 +275,81 @@
                                             "prepend": "",
                                             "append": "",
                                             "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5c053e0ee05e6",
+                                            "label": "Product Description",
+                                            "name": "product_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": ""
+                                        },
+                                        {
+                                            "key": "field_5c00456055182",
+                                            "label": "Recommendation Type",
+                                            "name": "recommendation_type",
+                                            "type": "select",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "web": "Web App",
+                                                "android: Android App": "android: Android App",
+                                                "ios": "iOS App",
+                                                "desktop": "Desktop App",
+                                                "honorable": "Honorable Mention"
+                                            },
+                                            "default_value": [],
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "ui": 1,
+                                            "ajax": 0,
+                                            "return_format": "value",
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_5c053f9661fba",
+                                            "label": "Available on",
+                                            "name": "product_platforms",
+                                            "type": "select",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "web": "Web App",
+                                                "android": "Android App",
+                                                "ios": "iOS App",
+                                                "desktop": "Desktop App",
+                                                "honorable": "Honorable Mention"
+                                            },
+                                            "default_value": [],
+                                            "allow_null": 1,
+                                            "multiple": 1,
+                                            "ui": 1,
+                                            "ajax": 0,
+                                            "return_format": "array",
+                                            "placeholder": ""
                                         },
                                         {
                                             "key": "field_5c0045e055184",
@@ -424,5 +453,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1543838800
+    "modified": 1543850359
 }

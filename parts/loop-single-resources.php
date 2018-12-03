@@ -180,13 +180,10 @@ $pages[] += get_the_ID();
 						 //print_R($rows);
      // loop through the rows of data
     while ( have_rows('blocks') ) : the_row();
-				$icon = get_sub_field('heading_icon');
         if( get_row_layout() == 'heading_block' ):
-						if($icon) {
-							echo '<' . get_sub_field('heading_size') . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading') . '<span class="mdi ' . $icon . '"></span></' . get_sub_field('heading_size') . '>';
-						} else {
+
 							echo '<' . get_sub_field('heading_size') . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading') . '</' . get_sub_field('heading_size') . '>';
-						}
+
 
 
         endif;
@@ -210,7 +207,7 @@ $pages[] += get_the_ID();
 					}
 
 					if($note_type['value'] === 'required') {
-						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 green darken-2 white-text"><i class="material-icons left">assignment_turned_in</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 green darken-1 white-text"><i class="material-icons left">assignment_turned_in</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 						if($note_url) {
 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 						}
@@ -251,20 +248,57 @@ if( get_row_layout() == 'recommendation_block' ):
 // check if the repeater field has rows of data
 if( have_rows('recommendation_add') ):
 
-	echo '<div class="row recommendation"><div id="note-heading" class="col s12 green lighten-1 white-text"><i class="material-icons left">thumb_up</i><strong>' . $block_title . '</strong></div> <div id="note-content" class="col s12 grey lighten-4"><ul>';
+	echo '<div class="row recommendation"><div id="note-heading" class="col s12 purple darken-1 white-text"><i class="material-icons left">thumb_up</i><strong>' . $block_title . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">';
  	// loop through the rows of data
     while ( have_rows('recommendation_add') ) : the_row();
 
         $link = get_sub_field('product_link');
-        echo '<li class="row"><div><strong>' . get_sub_field('recommendation_type') . '</strong></div>';
+				$desc = get_sub_field('product_description');
+				$platforms = get_sub_field('product_platforms');
+
 
 				if($link) {
-					echo '<div><a class="block" href="' . $link . '"><i class="material-icons left">check_circle</i>' . get_sub_field('recommended_product') . '</a></div>';
+					echo '<div><a class="block product_link" href="' . $link . '"><i class="material-icons left">check_circle</i>' . get_sub_field('recommended_product') . '</a></div>';
 				} else {
-						echo '<div><span class="block"><i class="material-icons left">check_circle</i>' . get_sub_field('recommended_product') . '</span></div>';
+						echo '<div><span class="block"><i class="material-icons left">check_circle</i>' . get_sub_field('recommended_product') . '</span>';
 				}
 
-				echo '</li>';
+				if($desc) {
+					echo '<p>' . $desc . '</p>';
+				}
+
+				if($platforms)  {
+						echo '<ul class="center platforms white"><li>
+						Available on:
+						</li>';
+						foreach ($platforms as $platform) {
+							if($platform['value'] === 'web') {
+								echo '<li>
+								<span class="mdi mdi-web"></span> Web
+								</li>';
+							}
+							if($platform['value'] === 'android') {
+								echo '<li>
+								<span class="mdi mdi-android"></span> Android
+								</li>';
+							}
+							if($platform['value'] === 'ios') {
+								echo '<li>
+								<span class="mdi mdi-apple-ios"></span> iOS
+								</li>';
+							}
+							if($platform['value'] === 'desktop') {
+								echo '<li>
+								<span class="mdi mdi-desktop-mac"></span> Desktop
+								</li>';
+							}
+						}
+
+						echo '</ul>';
+
+				}
+
+				echo '</div>';
 
     endwhile;
 
@@ -273,7 +307,7 @@ else :
     // no rows found
 
 endif;
-echo '</ul></div></div>';
+echo '</div></div>';
 endif;
 
 

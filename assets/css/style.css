@@ -12306,12 +12306,13 @@ a.current.chip {
     padding: 1rem; }
     .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a, .row.required #note-content a {
       padding-top: 1rem; }
-    .row.tip #note-content ul li, .row.link #note-content ul li, .row.recommendation #note-content ul li, .row.warning #note-content ul li, .row.info #note-content ul li, .row.required #note-content ul li {
-      list-style-type: none; }
-      .row.tip #note-content ul li a, .row.link #note-content ul li a, .row.recommendation #note-content ul li a, .row.warning #note-content ul li a, .row.info #note-content ul li a, .row.required #note-content ul li a {
-        padding-top: 0rem; }
-        .row.tip #note-content ul li a a:hover, .row.tip #note-content ul li a a:focus, .row.link #note-content ul li a a:hover, .row.link #note-content ul li a a:focus, .row.recommendation #note-content ul li a a:hover, .row.recommendation #note-content ul li a a:focus, .row.warning #note-content ul li a a:hover, .row.warning #note-content ul li a a:focus, .row.info #note-content ul li a a:hover, .row.info #note-content ul li a a:focus, .row.required #note-content ul li a a:hover, .row.required #note-content ul li a a:focus {
-          color: #212121; }
+    .row.tip #note-content a.product_link, .row.link #note-content a.product_link, .row.recommendation #note-content a.product_link, .row.warning #note-content a.product_link, .row.info #note-content a.product_link, .row.required #note-content a.product_link {
+      padding-top: 0rem; }
+      .row.tip #note-content a.product_link:hover, .row.tip #note-content a.product_link:focus, .row.link #note-content a.product_link:hover, .row.link #note-content a.product_link:focus, .row.recommendation #note-content a.product_link:hover, .row.recommendation #note-content a.product_link:focus, .row.warning #note-content a.product_link:hover, .row.warning #note-content a.product_link:focus, .row.info #note-content a.product_link:hover, .row.info #note-content a.product_link:focus, .row.required #note-content a.product_link:hover, .row.required #note-content a.product_link:focus {
+        color: #212121; }
+  .row.tip ul.platforms li, .row.link ul.platforms li, .row.recommendation ul.platforms li, .row.warning ul.platforms li, .row.info ul.platforms li, .row.required ul.platforms li {
+    display: inline-block;
+    padding: 0 1rem; }
 
 figure.card {
   margin: 2rem 0; }
