@@ -109,6 +109,25 @@
                                     "ajax": 0,
                                     "return_format": "value",
                                     "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5c051a809c5f8",
+                                    "label": "Heading Icon",
+                                    "name": "heading_icon",
+                                    "type": "text",
+                                    "instructions": "This is primarily for adding material design icons to sections discussing certain apps. You can leave this empty for general sections.  \r\n\r\nThe text you should add here will be in the form of <em>mdi-<\/em>. For example, to add a file icon you would enter the code mdi-file in this text box. All icon codes can be found at the link below.\r\n<a href=\"https:\/\/cdn.materialdesignicons.com\/3.2.89\/\">Reference for icon code<\/a>",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
                                 }
                             ],
                             "min": "",
@@ -405,5 +424,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1543580087
+    "modified": 1543838800
 }

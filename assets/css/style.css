@@ -12140,7 +12140,7 @@ h1.archive-title {
   text-transform: capitalize; }
   @media only screen and (max-width: 600px) {
     h1.archive-title {
-      padding: 3rem 0 1rem 0;
+      padding: 3rem 0rem 1rem 0rem;
       font-size: 2rem;
       font-weight: 400; } }
 
@@ -12154,6 +12154,11 @@ h1.archive-title {
   @media only screen and (max-width: 600px) {
     .entry-content h2 {
       font-size: 1.75rem; } }
+.entry-content h3 {
+  font-size: 1.64rem; }
+  @media only screen and (max-width: 600px) {
+    .entry-content h3 {
+      font-size: 1.5rem; } }
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
   display: inline;
@@ -12323,6 +12328,8 @@ figure.card {
     padding-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 600; }
+  #toc .toc-h3, #guide-contents .toc-h3 {
+    padding-left: 1rem; }
 
 #toc li {
   padding: .25rem 0em; }
@@ -12720,9 +12727,9 @@ to display none.
   h3 {
     page-break-after: avoid; }
 
-  .row.tip, .row.link, .row.recommendation, .row.warning, .row.info {
+  .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
     padding: 0;
-    border: 1px solid; }
+    border: 2px solid; }
 
   .sidebar,
   .page-navigation,

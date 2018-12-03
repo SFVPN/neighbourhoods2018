@@ -127,7 +127,7 @@ $pages[] += get_the_ID();
 
 	        if( get_row_layout() == 'heading_block' ):
 
-	        	echo '<li><a href="#heading-' . get_row_index() . '">' . get_sub_field('heading') . '</a></li>';
+	        	echo '<li><a class="toc-' . get_sub_field('heading_size') . '" href="#heading-' . get_row_index() . '">' . get_sub_field('heading') . '</a></li>';
 
 	        endif;
 
@@ -177,13 +177,17 @@ $pages[] += get_the_ID();
 	         // display a sub field value
 					 if( have_rows('blocks') ):
 						 $rows = get_field('heading_block');
-						 print_R($rows);
+						 //print_R($rows);
      // loop through the rows of data
     while ( have_rows('blocks') ) : the_row();
-
+				$icon = get_sub_field('heading_icon');
         if( get_row_layout() == 'heading_block' ):
+						if($icon) {
+							echo '<' . get_sub_field('heading_size') . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading') . '<span class="mdi ' . $icon . '"></span></' . get_sub_field('heading_size') . '>';
+						} else {
+							echo '<' . get_sub_field('heading_size') . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading') . '</' . get_sub_field('heading_size') . '>';
+						}
 
-          	echo '<' . get_sub_field('heading_size') . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading') . '</' . get_sub_field('heading_size') . '>';
 
         endif;
 

@@ -71,9 +71,9 @@ to display none.
       page-break-after: avoid;
     }
 
-    .row.tip, .row.link, .row.recommendation, .row.warning, .row.info {
+    .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
       padding: 0;
-      border: 1px solid;
+      border: 2px solid;
     }
 
     // Hide content people who print don't need to see

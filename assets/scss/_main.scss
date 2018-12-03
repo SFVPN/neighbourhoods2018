@@ -979,7 +979,7 @@ h1.archive-title {
 
     }
     @media #{$small-and-down} {
-      padding: 3rem 0 1rem 0;
+      padding: 3rem 0rem 1rem 0rem;
       font-size: 2rem;
       font-weight: 400;
     }
@@ -1000,6 +1000,16 @@ h1.archive-title {
     }
     @media #{$small-and-down} {
       font-size: 1.75rem;
+    }
+  }
+
+  h3 {
+    font-size: $h5-fontsize;
+    @media #{$medium-and-down} {
+
+    }
+    @media #{$small-and-down} {
+      font-size: 1.5rem;
     }
   }
 
@@ -1241,6 +1251,9 @@ figure.card {
     padding-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 600;
+  }
+  .toc-h3 {
+    padding-left: 1rem;
   }
 }
 
