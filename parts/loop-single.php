@@ -13,7 +13,7 @@
 		?>
 		<?php
 
-		$parentID = wp_get_post_parent_id( $post_ID );
+		$parentID = wp_get_post_parent_id( the_ID() );
 		$uncompleted = [];
 		if(is_user_logged_in() && is_singular('lesson')) {
 		if($parentID) {
