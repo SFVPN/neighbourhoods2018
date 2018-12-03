@@ -157,15 +157,15 @@ if(count($uncompleted) == 1) {
 }
 
 //pre_get_posts filter is called before WordPress gets posts
-add_filter( 'pre_get_posts', 'lesson_get_posts' );
-
-function lesson_get_posts( $query ) {
-    //if page is an archive and post_parent is not set and post_type is the post type in question
-    if ( is_archive() && false == $query->query_vars['post_parent'] &&  $query->query_vars['post_type'] == 'lesson')
-        //set post_parent to 0, which is the default post_parent for top level posts
-        $query->set( 'post_parent', 0 );
-    return $query;
-}
+// add_filter( 'pre_get_posts', 'lesson_get_posts' );
+//
+// function lesson_get_posts( $query ) {
+//     //if page is an archive and post_parent is not set and post_type is the post type in question
+//     if ( is_archive() && false == $query->query_vars['post_parent'] &&  $query->query_vars['post_type'] == 'lesson')
+//         //set post_parent to 0, which is the default post_parent for top level posts
+//         $query->set( 'post_parent', 0 );
+//     return $query;
+// }
 
 
 add_filter( 'register_post_type_args', 'wpse247328_register_post_type_args', 10, 2 );

@@ -1,5 +1,5 @@
-<?php $parent_id = wp_get_post_parent_id( $post_ID );
-$parent_title = get_the_title($parent_id);
+<?php //$parent_id = wp_get_post_parent_id( $post_ID );
+//$parent_title = get_the_title($parent_id);
  // storing this so we have it available in the other loops
 ?>
 <article id="post-<?php the_ID(); ?>" class="container <?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
