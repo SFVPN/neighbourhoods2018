@@ -40,8 +40,11 @@ if ($parent_ID === 0 ) {
 	}
 
 	$current = array_search($ID, $pages);
-	$next = $pages[$current+1]; // returns previous element's key: 34
-	$prev = $pages[$current-1]; // returns previous element's key: 34
+	if($current) {
+		$next = $pages[$current+1]; // returns previous element's key: 34
+		$prev = $pages[$current-1]; // returns previous element's key: 34
+	}
+
 
 	if($prev) {
 			echo '<a class="left" title="Go to the previous page in this guide - ' . get_the_title($prev) . '" href="' . get_permalink( $prev ) . '"><i class="large material-icons left">chevron_left</i></a>';

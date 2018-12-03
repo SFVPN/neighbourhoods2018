@@ -12307,7 +12307,7 @@ a.current.chip {
     .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a, .row.required #note-content a {
       padding-top: 1rem; }
     .row.tip #note-content a.product_link, .row.link #note-content a.product_link, .row.recommendation #note-content a.product_link, .row.warning #note-content a.product_link, .row.info #note-content a.product_link, .row.required #note-content a.product_link {
-      padding-top: 0rem; }
+      font-size: 1.25rem; }
       .row.tip #note-content a.product_link:hover, .row.tip #note-content a.product_link:focus, .row.link #note-content a.product_link:hover, .row.link #note-content a.product_link:focus, .row.recommendation #note-content a.product_link:hover, .row.recommendation #note-content a.product_link:focus, .row.warning #note-content a.product_link:hover, .row.warning #note-content a.product_link:focus, .row.info #note-content a.product_link:hover, .row.info #note-content a.product_link:focus, .row.required #note-content a.product_link:hover, .row.required #note-content a.product_link:focus {
         color: #212121; }
   .row.tip ul.platforms li, .row.link ul.platforms li, .row.recommendation ul.platforms li, .row.warning ul.platforms li, .row.info ul.platforms li, .row.required ul.platforms li {

@@ -1222,8 +1222,7 @@ a.current.chip {
         padding-top: 1rem;
     }
     a.product_link {
-
-        padding-top: 0rem;
+      font-size: 1.25rem;
         &:hover, &:focus {
           color: $hover-color;
         }

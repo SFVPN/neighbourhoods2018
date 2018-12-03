@@ -1,5 +1,5 @@
-<?php $parent_id = wp_get_post_parent_id( $post_ID );
-$parent_title = get_the_title($parent_id);
+<?php //$parent_id = wp_get_post_parent_id( $post_ID );
+//$parent_title = get_the_title($parent_id);
 $queried_object = get_queried_object();
 $terms = get_the_terms( $queried_object->id, 'resources_category' );
 if($queried_object->post_parent != 0 ) {
@@ -248,23 +248,33 @@ if( get_row_layout() == 'recommendation_block' ):
 // check if the repeater field has rows of data
 if( have_rows('recommendation_add') ):
 
-	echo '<div class="row recommendation"><div id="note-heading" class="col s12 purple darken-1 white-text"><i class="material-icons left">thumb_up</i><strong>' . $block_title . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">';
+	echo '<div class="row recommendation"><div id="note-heading" class="col s12 purple darken-1 white-text"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">';
  	// loop through the rows of data
     while ( have_rows('recommendation_add') ) : the_row();
 
         $link = get_sub_field('product_link');
 				$desc = get_sub_field('product_description');
+				$good = get_sub_field('product_good');
+				$bad = get_sub_field('product_bad');
 				$platforms = get_sub_field('product_platforms');
 
 
 				if($link) {
-					echo '<div><a class="block product_link" href="' . $link . '"><i class="material-icons left">check_circle</i>' . get_sub_field('recommended_product') . '</a></div>';
+					echo '<div><a class="block product_link" href="' . $link . '">' . get_sub_field('recommended_product') . '</a></div>';
 				} else {
-						echo '<div><span class="block"><i class="material-icons left">check_circle</i>' . get_sub_field('recommended_product') . '</span>';
+						echo '<div><span class="block product_link">' . get_sub_field('recommended_product') . '</span>';
 				}
 
 				if($desc) {
 					echo '<p>' . $desc . '</p>';
+				}
+
+				if($good) {
+					echo '<p><i class="material-icons left green-text lighten-1">thumb_up</i> Good - ' . $good . '</p>';
+				}
+
+				if($bad) {
+					echo '<p><i class="material-icons left materialize-red-text lighten-2">thumb_down</i> Bad - ' . $bad . '</p>';
 				}
 
 				if($platforms)  {
