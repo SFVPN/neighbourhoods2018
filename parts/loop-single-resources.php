@@ -99,12 +99,12 @@ $pages[] += get_the_ID();
 		 </ol>
 
 	<?php endif; wp_reset_postdata();
-
+echo '</div>';
 }
 
 		$show_toc = get_field('show_toc');
 		if ($show_toc):
-		echo '<div class="col s12 m12 grey lighten-4 toc-wrapper">';
+			echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
 		//check if the repeater field has rows of data
 		 if( have_rows('section') ):
 
@@ -120,7 +120,7 @@ $pages[] += get_the_ID();
 
 		         // display a sub field 'value'
 						 if( have_rows('blocks') ):
-						echo '<ul id="toc">
+						echo '<ol id="toc">
 						<label class="block black-text">What\'s on this page?</label>';
 	     // loop through the rows of data
 	    while ( have_rows('blocks') ) : the_row();
@@ -134,7 +134,7 @@ $pages[] += get_the_ID();
 
 
 	    endwhile;
-			echo '</ul>';
+			echo '</ol>';
 	else :
 
 	    // no layouts found
@@ -260,7 +260,7 @@ if( have_rows('recommendation_add') ):
 
 
 				if($link) {
-					echo '<div><a class="block product_link" href="' . $link . '">' . get_sub_field('recommended_product') . '</a></div>';
+					echo '<div><a class="block product_link" href="' . $link . '" data-note="This link takes you to an external website">' . get_sub_field('recommended_product') . '</a></div>';
 				} else {
 						echo '<div><span class="block product_link">' . get_sub_field('recommended_product') . '</span></div>';
 				}
@@ -308,7 +308,7 @@ if( have_rows('recommendation_add') ):
 
 				}
 
-			
+
 
     endwhile;
 

@@ -1198,12 +1198,21 @@ a.current.chip {
     font-size: 1.25rem;
 }
 
+.single-resources .platforms ul {
+    padding-left: 0rem;
+}
+
+
 .single-resources .entry-content ul li {
     list-style-type: disc;
 }
 
 .single-resources .container {
   width: 65%;
+}
+
+.single-resources h2 {
+  text-decoration: underline;
 }
 
 .parent-page {
@@ -1222,6 +1231,19 @@ a.current.chip {
       font-size: 1.25rem;
       font-weight: 600;
       padding-top: 1rem;
+      transition: 350ms;
+      &:hover:after, &:focus:after {
+        content: attr(data-note);
+        background: #333;
+        color: white;
+        font-weight: 300;
+        font-size: 1rem;
+        padding: 0 5px;
+        margin-left: .75rem;
+        display: inline-block;
+        border-radius: 3px;
+        transition: 350ms;
+      }
     }
     a {
         padding-top: 1rem;
@@ -1276,38 +1298,46 @@ figure.card {
   }
 }
 
+#toc {
+  li {
+    padding-left: 0.5rem;
+  }
+}
+
 #page-nav a.right {
   position: fixed;
   right: 0;
   bottom: calc(50% - 118px);
-  // &:hover:before {
-  //   content: attr(data-title);
-  //   position: absolute;
-  //   background: #eaeaea;
-  //   right: calc(100% - 10px);
-  //   height: 6rem;
-  //   line-height: 6rem;
-  //   padding-left: 10px;
-  //   text-align: left;
-  //   font-size: 1.25rem;
-  // }
+  &:hover:before, &:focus:before {
+    content: attr(data-title);
+    background: #333;
+    color: white;
+    padding: 0 5px;
+    font-size: 1rem;
+    font-weight: 300;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 2rem;
+    border-radius: 3px;
+  }
 }
 
 #page-nav a.left {
   position: fixed;
   left: 0;
   bottom: calc(50% - 118px);
-  // &:hover:before {
-  //   content: attr(data-title);
-  //   position: absolute;
-  //   background: #eaeaea;
-  //   left: calc(100% - 10px);
-  //   height: 6rem;
-  //   line-height: 6rem;
-  //   padding-right: 10px;
-  //   text-align: right;
-  //   font-size: 1.25rem;
-  // }
+  &:hover:before, &:focus:before {
+    content: attr(data-title);
+    background: #333;
+    color: white;
+    padding: 0 5px;
+    font-size: 1rem;
+    font-weight: 300;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 2rem;
+    border-radius: 3px;
+  }
 }
 
 .no-print {

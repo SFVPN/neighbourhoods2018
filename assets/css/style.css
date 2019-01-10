@@ -12288,11 +12288,17 @@ a.current.chip {
   padding-left: 2rem;
   font-size: 1.25rem; }
 
+.single-resources .platforms ul {
+  padding-left: 0rem; }
+
 .single-resources .entry-content ul li {
   list-style-type: disc; }
 
 .single-resources .container {
   width: 65%; }
+
+.single-resources h2 {
+  text-decoration: underline; }
 
 .parent-page {
   margin-top: 2rem; }
@@ -12307,7 +12313,19 @@ a.current.chip {
     .row.tip #note-content .product_link, .row.link #note-content .product_link, .row.recommendation #note-content .product_link, .row.warning #note-content .product_link, .row.info #note-content .product_link, .row.required #note-content .product_link {
       font-size: 1.25rem;
       font-weight: 600;
-      padding-top: 1rem; }
+      padding-top: 1rem;
+      transition: 350ms; }
+      .row.tip #note-content .product_link:hover:after, .row.tip #note-content .product_link:focus:after, .row.link #note-content .product_link:hover:after, .row.link #note-content .product_link:focus:after, .row.recommendation #note-content .product_link:hover:after, .row.recommendation #note-content .product_link:focus:after, .row.warning #note-content .product_link:hover:after, .row.warning #note-content .product_link:focus:after, .row.info #note-content .product_link:hover:after, .row.info #note-content .product_link:focus:after, .row.required #note-content .product_link:hover:after, .row.required #note-content .product_link:focus:after {
+        content: attr(data-note);
+        background: #333;
+        color: white;
+        font-weight: 300;
+        font-size: 1rem;
+        padding: 0 5px;
+        margin-left: .75rem;
+        display: inline-block;
+        border-radius: 3px;
+        transition: 350ms; }
     .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a, .row.required #note-content a {
       padding-top: 1rem; }
       .row.tip #note-content a:hover, .row.tip #note-content a:focus, .row.link #note-content a:hover, .row.link #note-content a:focus, .row.recommendation #note-content a:hover, .row.recommendation #note-content a:focus, .row.warning #note-content a:hover, .row.warning #note-content a:focus, .row.info #note-content a:hover, .row.info #note-content a:focus, .row.required #note-content a:hover, .row.required #note-content a:focus {
@@ -12342,15 +12360,40 @@ figure.card {
   #guide-contents li.parent span.active-page:after {
     content: ' (Introduction)'; }
 
+#toc li {
+  padding-left: 0.5rem; }
+
 #page-nav a.right {
   position: fixed;
   right: 0;
   bottom: calc(50% - 118px); }
+  #page-nav a.right:hover:before, #page-nav a.right:focus:before {
+    content: attr(data-title);
+    background: #333;
+    color: white;
+    padding: 0 5px;
+    font-size: 1rem;
+    font-weight: 300;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 2rem;
+    border-radius: 3px; }
 
 #page-nav a.left {
   position: fixed;
   left: 0;
   bottom: calc(50% - 118px); }
+  #page-nav a.left:hover:before, #page-nav a.left:focus:before {
+    content: attr(data-title);
+    background: #333;
+    color: white;
+    padding: 0 5px;
+    font-size: 1rem;
+    font-weight: 300;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 2rem;
+    border-radius: 3px; }
 
 .no-print {
   margin-bottom: 2rem; }
