@@ -80,6 +80,9 @@ add_filter('script_loader_tag', 'gioga_add_async_defer_attribute', 10, 2);
     // Register main stylesheet
     wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/style.css', array(), '', 'all' );
 
+    wp_enqueue_style( 'old-ie', get_stylesheet_directory_uri() . "/assets/css/styleie.css", array( 'site-css' ) );
+	  wp_style_add_data( 'old-ie', 'conditional', 'lt IE 9' );
+
     // Deregister admin stylesheet so that it doesn't load on the front-end form
 
     add_action( 'wp_print_styles', 'my_deregister_styles', 100 );

@@ -26,15 +26,17 @@ $pages = array();
 $next;
 $prev;
 if ($parent_ID === 0 ) {
+
 	$pages = array($ID);
 	$args = array(
 		'post_parent' => $ID,
-		'post_type'   => 'any',
+		'post_type'   => 'resources',
 		'numberposts' => -1,
 		'orderby'     => 'menu_order',
     'order'       => 'ASC'
 	);
 	$children = get_children( $args );
+
 
 if($children) {
 	foreach ($children as $child) {
@@ -63,7 +65,7 @@ if($children) {
 	$pages = array($parent_ID);
 	$args = array(
 		'post_parent' => $parent_ID,
-		'post_type'   => 'any',
+		'post_type'   => 'resources',
 		'numberposts' => -1,
 		'orderby'     => 'menu_order',
     'order'       => 'ASC'

@@ -12272,7 +12272,7 @@ a.current.chip {
     .resource-article section {
       height: auto !important; } }
 
-.single-resources article, .archive .article-header {
+.single article, .archive .article-header {
   margin-top: 4rem; }
 
 .single-resources .article-header {
@@ -12303,36 +12303,66 @@ a.current.chip {
 .parent-page {
   margin-top: 2rem; }
 
-.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
+.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required, .row.steps_block {
   margin: 1rem 0;
   padding: 1rem 0; }
-  .row.tip #note-heading, .row.link #note-heading, .row.recommendation #note-heading, .row.warning #note-heading, .row.info #note-heading, .row.required #note-heading {
+  .row.tip .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.warning .note-heading, .row.info .note-heading, .row.required .note-heading, .row.steps_block .note-heading {
     padding: 0.5rem 1rem; }
-  .row.tip #note-content, .row.link #note-content, .row.recommendation #note-content, .row.warning #note-content, .row.info #note-content, .row.required #note-content {
+  .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content {
     padding: 1rem; }
-    .row.tip #note-content .product_link, .row.link #note-content .product_link, .row.recommendation #note-content .product_link, .row.warning #note-content .product_link, .row.info #note-content .product_link, .row.required #note-content .product_link {
+    .row.tip .note-content .product_link, .row.link .note-content .product_link, .row.recommendation .note-content .product_link, .row.warning .note-content .product_link, .row.info .note-content .product_link, .row.required .note-content .product_link, .row.steps_block .note-content .product_link {
       font-size: 1.25rem;
       font-weight: 600;
-      padding-top: 1rem;
-      transition: 350ms; }
-      .row.tip #note-content .product_link:hover:after, .row.tip #note-content .product_link:focus:after, .row.link #note-content .product_link:hover:after, .row.link #note-content .product_link:focus:after, .row.recommendation #note-content .product_link:hover:after, .row.recommendation #note-content .product_link:focus:after, .row.warning #note-content .product_link:hover:after, .row.warning #note-content .product_link:focus:after, .row.info #note-content .product_link:hover:after, .row.info #note-content .product_link:focus:after, .row.required #note-content .product_link:hover:after, .row.required #note-content .product_link:focus:after {
+      padding: 1rem 0;
+      transition: 350ms;
+      position: relative; }
+      .row.tip .note-content .product_link:hover:after, .row.tip .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.warning .note-content .product_link:hover:after, .row.warning .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.required .note-content .product_link:hover:after, .row.required .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after {
         content: attr(data-note);
+        position: absolute;
+        top: 100%;
+        left: 0;
         background: #333;
         color: white;
         font-weight: 300;
         font-size: 1rem;
         padding: 0 5px;
-        margin-left: .75rem;
         display: inline-block;
         border-radius: 3px;
         transition: 350ms; }
-    .row.tip #note-content a, .row.link #note-content a, .row.recommendation #note-content a, .row.warning #note-content a, .row.info #note-content a, .row.required #note-content a {
+    .row.tip .note-content a, .row.link .note-content a, .row.recommendation .note-content a, .row.warning .note-content a, .row.info .note-content a, .row.required .note-content a, .row.steps_block .note-content a {
       padding-top: 1rem; }
-      .row.tip #note-content a:hover, .row.tip #note-content a:focus, .row.link #note-content a:hover, .row.link #note-content a:focus, .row.recommendation #note-content a:hover, .row.recommendation #note-content a:focus, .row.warning #note-content a:hover, .row.warning #note-content a:focus, .row.info #note-content a:hover, .row.info #note-content a:focus, .row.required #note-content a:hover, .row.required #note-content a:focus {
+      .row.tip .note-content a:hover, .row.tip .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.warning .note-content a:hover, .row.warning .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.required .note-content a:hover, .row.required .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus {
         color: #212121; }
-  .row.tip ul.platforms li, .row.link ul.platforms li, .row.recommendation ul.platforms li, .row.warning ul.platforms li, .row.info ul.platforms li, .row.required ul.platforms li {
+  .row.tip ul.platforms li, .row.link ul.platforms li, .row.recommendation ul.platforms li, .row.warning ul.platforms li, .row.info ul.platforms li, .row.required ul.platforms li, .row.steps_block ul.platforms li {
     display: inline-block;
     padding: 0 1rem; }
+
+ol.steps {
+  list-style: none;
+  counter-reset: steps-counter;
+  padding-left: 0rem; }
+  ol.steps li {
+    counter-increment: steps-counter;
+    position: relative;
+    font-size: 1.25rem;
+    padding: 0rem 0 2rem 4rem; }
+    ol.steps li p {
+      display: inline-block; }
+  ol.steps li::before {
+    content: counter(steps-counter) " ";
+    color: #8e24aa;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 2rem;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background: #f5f5f5;
+    margin: 0 1rem 1rem 0;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%; }
 
 figure.card {
   margin: 2rem 0; }

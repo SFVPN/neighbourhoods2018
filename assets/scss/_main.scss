@@ -1170,7 +1170,7 @@ a.current.chip {
   }
 }
 
-.single-resources article, .archive .article-header {
+.single article, .archive .article-header {
   margin-top: 4rem;
 }
 
@@ -1219,27 +1219,30 @@ a.current.chip {
   margin-top: 2rem;
 }
 
-.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
+.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required, .row.steps_block {
   margin: 1rem 0;
   padding: 1rem 0;
-  #note-heading {
+  .note-heading {
     padding: 0.5rem 1rem;
   }
-  #note-content {
+  .note-content {
     padding: 1rem;
     .product_link {
       font-size: 1.25rem;
       font-weight: 600;
-      padding-top: 1rem;
+      padding: 1rem 0;
       transition: 350ms;
+      position: relative;
       &:hover:after, &:focus:after {
         content: attr(data-note);
+        position: absolute;
+        top: 100%;
+        left: 0;
         background: #333;
         color: white;
         font-weight: 300;
         font-size: 1rem;
         padding: 0 5px;
-        margin-left: .75rem;
         display: inline-block;
         border-radius: 3px;
         transition: 350ms;
@@ -1259,6 +1262,38 @@ a.current.chip {
       padding: 0 1rem;
     }
   }
+}
+
+
+ol.steps {
+  list-style: none;
+  counter-reset: steps-counter;
+  padding-left: 0rem;
+li {
+  counter-increment: steps-counter;
+  position: relative;
+  font-size: 1.25rem;
+  padding: 0rem 0 2rem 4rem;
+  p {
+    display: inline-block;
+  }
+}
+li::before {
+  content: counter(steps-counter) " ";
+  color: color("purple", "darken-1");
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  font-size: 2rem;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: color("grey", "lighten-4");
+  margin: 0 1rem 1rem 0;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+}
 }
 
 figure.card {

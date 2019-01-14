@@ -134,10 +134,60 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "tabs": "visual",
+                                    "tabs": "all",
                                     "toolbar": "full",
-                                    "media_upload": 0,
+                                    "media_upload": 1,
                                     "delay": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5c3c57b27d245": {
+                            "key": "layout_5c3c57b27d245",
+                            "name": "steps_block",
+                            "label": "Set-up Steps",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5c3c57b27d246",
+                                    "label": "Step",
+                                    "name": "step",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "col s12",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "row",
+                                    "button_label": "Add new step",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5c3c57e37d247",
+                                            "label": "Description",
+                                            "name": "step_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": ""
+                                        }
+                                    ]
                                 }
                             ],
                             "min": "",
@@ -146,7 +196,7 @@
                         "layout_5b914de4ab022": {
                             "key": "layout_5b914de4ab022",
                             "name": "note_block",
-                            "label": "Key Note",
+                            "label": "Information Callout",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -216,12 +266,12 @@
                         "layout_5c00448d5517e": {
                             "key": "layout_5c00448d5517e",
                             "name": "recommendation_block",
-                            "label": "Recommendations",
+                            "label": "Suggested Products",
                             "display": "block",
                             "sub_fields": [
                                 {
                                     "key": "field_5c005322b655e",
-                                    "label": "Block Title",
+                                    "label": "Section Title",
                                     "name": "block_title",
                                     "type": "text",
                                     "instructions": "",
@@ -255,10 +305,143 @@
                                     "min": 0,
                                     "max": 0,
                                     "layout": "block",
-                                    "button_label": "Add Recommendation",
+                                    "button_label": "Add Suggested Product",
                                     "sub_fields": [
                                         {
                                             "key": "field_5c0045be55183",
+                                            "label": "Product Name",
+                                            "name": "recommended_product_name",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5c3c675c20b04",
+                                            "label": "Product Logo",
+                                            "name": "recommended_product_logo",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "url",
+                                            "preview_size": "thumbnail",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": ""
+                                        },
+                                        {
+                                            "key": "field_5c053e0ee05e6",
+                                            "label": "Product Description",
+                                            "name": "recommended_product_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": ""
+                                        },
+                                        {
+                                            "key": "field_5c3c893002c2f",
+                                            "label": "Product Guide Link",
+                                            "name": "recommended_product_guide",
+                                            "type": "page_link",
+                                            "instructions": "You can link through to any relevant guides in the resources section that relate to this product",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "post_type": [
+                                                "resources"
+                                            ],
+                                            "taxonomy": [],
+                                            "allow_null": 1,
+                                            "allow_archives": 0,
+                                            "multiple": 0
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5c3c6d173e5ae": {
+                            "key": "layout_5c3c6d173e5ae",
+                            "name": "product_overview_block",
+                            "label": "Product Overview",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5c3c6d173e5af",
+                                    "label": "Section Title",
+                                    "name": "overview_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5c3c6d173e5b0",
+                                    "label": "Add product",
+                                    "name": "product_add",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "block",
+                                    "button_label": "Add Recommendation",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5c3c6d173e5b1",
                                             "label": "Product Name",
                                             "name": "recommended_product",
                                             "type": "text",
@@ -277,7 +460,31 @@
                                             "maxlength": ""
                                         },
                                         {
-                                            "key": "field_5c053e0ee05e6",
+                                            "key": "field_5c3c6d173e5b2",
+                                            "label": "Product Logo",
+                                            "name": "product_logo",
+                                            "type": "image",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "url",
+                                            "preview_size": "thumbnail",
+                                            "library": "all",
+                                            "min_width": "",
+                                            "min_height": "",
+                                            "min_size": "",
+                                            "max_width": "",
+                                            "max_height": "",
+                                            "max_size": "",
+                                            "mime_types": ""
+                                        },
+                                        {
+                                            "key": "field_5c3c6d173e5b3",
                                             "label": "Product Description",
                                             "name": "product_description",
                                             "type": "textarea",
@@ -296,7 +503,7 @@
                                             "new_lines": ""
                                         },
                                         {
-                                            "key": "field_5c0552bfeff56",
+                                            "key": "field_5c3c6d173e5b4",
                                             "label": "The Good",
                                             "name": "product_good",
                                             "type": "textarea",
@@ -315,7 +522,7 @@
                                             "new_lines": "br"
                                         },
                                         {
-                                            "key": "field_5c0552deeff57",
+                                            "key": "field_5c3c6d173e5b5",
                                             "label": "The Bad",
                                             "name": "product_bad",
                                             "type": "textarea",
@@ -334,35 +541,7 @@
                                             "new_lines": "br"
                                         },
                                         {
-                                            "key": "field_5c00456055182",
-                                            "label": "Recommendation Type",
-                                            "name": "recommendation_type",
-                                            "type": "select",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "choices": {
-                                                "web": "Web App",
-                                                "android: Android App": "android: Android App",
-                                                "ios": "iOS App",
-                                                "desktop": "Desktop App",
-                                                "honorable": "Honorable Mention"
-                                            },
-                                            "default_value": [],
-                                            "allow_null": 0,
-                                            "multiple": 0,
-                                            "ui": 1,
-                                            "ajax": 0,
-                                            "return_format": "value",
-                                            "placeholder": ""
-                                        },
-                                        {
-                                            "key": "field_5c053f9661fba",
+                                            "key": "field_5c3c6d173e5b7",
                                             "label": "Available on",
                                             "name": "product_platforms",
                                             "type": "select",
@@ -390,7 +569,7 @@
                                             "placeholder": ""
                                         },
                                         {
-                                            "key": "field_5c0045e055184",
+                                            "key": "field_5c3c6d173e5b8",
                                             "label": "Product Link",
                                             "name": "product_link",
                                             "type": "url",
@@ -491,5 +670,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1543852786
+    "modified": 1547474199
 }

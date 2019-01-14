@@ -1,10 +1,11 @@
-<?php //$parent_id = wp_get_post_parent_id( $post_ID );
-//$parent_title = get_the_title($parent_id);
+<?php
+//$parent_id = wp_get_post_parent_id( $post_ID );
+//$parent_title = get_the_title($parent_id;
  // storing this so we have it available in the other loops
 ?>
-<article id="post-<?php the_ID(); ?>" class="container <?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
-	<header class="article-header center">
-		<h1 class="entry-title h2 single-title center" itemprop="headline"><?php the_title();?></h1>
+<article id="post-<?php the_ID(); ?>" class="<?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
+	<header class="article-header col s12 center">
+		<h1 class="resource-title h2" itemprop="headline"><?php the_title();?></h1>
 		<?php
 
 		if(is_user_logged_in()) {
@@ -156,6 +157,13 @@ if( have_rows('content') ):
      // loop through the rows of data
     while ( have_rows('content') ) : the_row();
 
+				if( get_row_layout() == 'sub_headings' ):
+
+					echo '<h2 class="h4 col s12">'
+					. get_sub_field("sub_heading") .
+					'</h2>';
+				endif;
+
         if( get_row_layout() == 'main_content' ):
 
         	echo '<div class="col s12">'
@@ -210,8 +218,8 @@ if( have_rows('content') ):
 
         	$file = get_sub_field('image');
 					echo '<div class="col s12 center">
-					<img class="responsive-img" src="' . $file['url']. '" alt="' . $file['alt']. '" />
-					<label>' . $file['caption'] . '</label>
+					<img class="responsive-img" src="' . $file['url']. '" alt="' . get_sub_field('caption') . '" />
+					<label>' . get_sub_field('caption') . '</label>
 					</div>';
 
         endif;
