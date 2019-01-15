@@ -10,7 +10,7 @@
 		} else {
 			$args = array(
 				'post_parent' => $post->ID,
-				'post_type'   => 'any',
+				'post_type'   => 'resources',
 				'numberposts' => -1,
 				'post_status' => 'any'
 			);

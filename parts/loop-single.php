@@ -219,7 +219,7 @@ if( have_rows('content') ):
         	$file = get_sub_field('image');
 					echo '<div class="col s12 center">
 					<img class="responsive-img" src="' . $file['url']. '" alt="' . get_sub_field('caption') . '" />
-					<label>' . get_sub_field('caption') . '</label>
+					<label class="block">' . get_sub_field('caption') . '</label>
 					</div>';
 
         endif;
