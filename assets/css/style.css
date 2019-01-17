@@ -11949,6 +11949,8 @@ footer.card-content {
     border: 1px solid #e0e0e0;
     margin-bottom: 2rem;
     border-radius: 3px; }
+  #events_list .ended {
+    display: none; }
 
 .day {
   width: 50px;

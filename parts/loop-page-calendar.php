@@ -21,6 +21,7 @@
 				$end = get_sub_field("end", false, false);
 				$start = new DateTime($start);
 				$end = new DateTime($end);
+				$now = new DateTime();
 				$event_title = get_sub_field('event_title');
 				$provisional = get_sub_field('provisional');
 				$where = get_sub_field('event_location');
@@ -29,8 +30,13 @@
 				$tickets = get_sub_field('eventbrite_link')
 				?>
 
-				<li class="collection-item mix white avatar">
+
 				 <?php
+				 if ($start < $now) {
+					 echo '<li class="ended collection-item mix white avatar">';
+				 } else {
+					 echo '<li class="collection-item mix white avatar">';
+				 }
 					if( $start ):
 
 						echo '<span class="right day purple darken-2 white-text">' . $start->format('j') . '</br>' . $start->format('M') . '</span>';
