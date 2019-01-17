@@ -11942,10 +11942,41 @@ footer.card-content {
   .teacher .col.s12 img {
     width: 200px; }
 
-.page-template-page-calendar h3 {
-  display: inline-block;
-  border-bottom: 2px solid teal;
-  padding: .5rem 2rem; }
+#events_list {
+  border: none; }
+  #events_list .collection-item {
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 2rem;
+    border-radius: 3px; }
+
+.day {
+  width: 50px;
+  height: 50px;
+  padding-top: 5px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  text-transform: uppercase;
+  font-weight: 600; }
+
+.provisional {
+  font-size: 1rem;
+  padding: 0 5px;
+  border-radius: 3px;
+  margin-left: 1rem; }
+
+.event_description {
+  padding: 1rem 0; }
+
+.event_ticket {
+  padding-bottom: 2rem; }
+
+.event_contact {
+  padding: 1rem; }
+
+.share-event {
+  padding-top: 1rem; }
 
 #cancelled-classes, #holiday-dates {
   border-radius: 3px;

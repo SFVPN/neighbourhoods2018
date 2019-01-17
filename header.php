@@ -23,7 +23,6 @@
 			<!-- Icons & Favicons -->
 			<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 			<link rel="icon" sizes="32x32" href="<?php echo get_template_directory_uri(); ?>/favicon-32x32.png">
-			<link rel="icon" sizes="16x16" href="<?php echo get_template_directory_uri(); ?>/favicon-16x16.png">
 			<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 			<link href="<?php echo get_template_directory_uri(); ?>/apple-icon-touch.png" rel="apple-touch-icon" />
 			<link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/safari-pinned-tab.svg" color="#60b58c" />
