@@ -54,21 +54,20 @@
 
 						<?php
 
-						 if($start->format('G') < "12") {
-							
+						 if($start) {
+							if($start->format('G') < "12") {
 							 echo '<p class="time"><strong>Time </strong>' . $start->format('g:i') . 'am';
-							 if($end) {
-								 echo ' to ' . $end->format('g:i') . 'am' ;
-							 }
-							 echo '</p>';
 						 } else {
-
 							 echo '<p class="time"><strong>Time </strong>' . $start->format('g:i') . 'pm';
-							 if($end) {
+						 }
+							 if($end->format('G') < "12") {
+								 echo ' to ' . $end->format('g:i') . 'am' ;
+							 } else {
 								 echo ' to ' . $end->format('g:i') . 'pm' ;
 							 }
 							 echo '</p>';
 						 }
+
 
 						?>
 						<?php if($where){
