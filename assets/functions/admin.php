@@ -366,3 +366,22 @@ function my_admin_style() {
 }
   </style>';
 }
+
+
+function myplugin_comment_columns( $columns )
+{
+	$columns['status'] = __( 'Status' );
+	return $columns;
+}
+add_filter( 'manage_edit-comments_columns', 'myplugin_comment_columns' );
+
+function myplugin_comment_column( $column, $comment_ID )
+{
+	if ( 'status' == $column ) {
+		if ( $meta = get_comment_meta( $comment_ID, 'status' , true ) ) {
+			echo $meta;
+		}
+	}
+}
+
+add_filter( 'manage_comments_custom_column', 'myplugin_comment_column', 10, 2 );

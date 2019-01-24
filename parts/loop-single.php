@@ -408,5 +408,7 @@ endwhile; ?>
 get_template_part( 'parts/content', 'contact' );
 
  ?>
+
+ 
 </section>
 </article>

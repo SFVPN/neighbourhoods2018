@@ -12,6 +12,9 @@
   vertical-align: middle;
   // Gets rid of tap active state
   -webkit-tap-highlight-color: transparent;
+  @media #{$small-and-down} {
+    padding: 0 1rem;
+  }
 }
 
 .btn-flat {

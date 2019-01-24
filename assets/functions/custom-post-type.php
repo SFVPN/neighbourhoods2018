@@ -94,7 +94,7 @@ function sfvpn_resources() {
       'capability_type' => 'page',
       'hierarchical' => true,
       /* the next one is important, it tells what's enabled in the post editor */
-      'supports' => array( 'title', 'page-attributes' )
+      'supports' => array( 'title', 'page-attributes', 'comments' )
     ) /* end of options */
   ); /* end of register post type */
 

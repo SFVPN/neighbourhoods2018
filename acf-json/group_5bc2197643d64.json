@@ -1,0 +1,48 @@
+{
+    "key": "group_5bc2197643d64",
+    "title": "Suggestion Tracking",
+    "fields": [
+        {
+            "key": "field_5c431e2f86cb1",
+            "label": "Status",
+            "name": "status",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Pending": "Pending",
+                "Accepted": "Accepted",
+                "Marked as Duplicate": "Marked as Duplicate",
+                "Rejected": "Rejected"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "comment",
+                "operator": "==",
+                "value": "resources"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1548089053
+}

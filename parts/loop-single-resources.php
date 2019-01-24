@@ -487,4 +487,9 @@ if ( $post->post_parent === 0 ) {
 
 ?>
 </div>
+<?php
+if (comments_open()){
+	comments_template();
+}
+?>
 </article>
