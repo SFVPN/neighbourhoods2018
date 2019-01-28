@@ -166,7 +166,7 @@ if( have_rows('content') ):
 
         if( get_row_layout() == 'main_content' ):
 
-        	echo '<div class="col s12">'
+        	echo '<div class="col content_block s12">'
 					. get_sub_field("description") .
 					'</div>';
 				endif;
@@ -223,6 +223,15 @@ if( have_rows('content') ):
 					</div>';
 
         endif;
+
+				if( get_row_layout() == 'document' ):
+
+					$doc = get_sub_field('single_document');
+					echo '<div class="col s12">
+					<a class="btn z-depth-0 green darken-1" href="' . $doc['url']. '" /><i class="material-icons left" aria-hidden="true">cloud_download</i>Download - ' . get_sub_field('document_description') . '</a>
+					</div>';
+
+				endif;
 
 				if( get_row_layout() == 'video_embed' ):
 					echo '<div class="col s12"><div class="video-container">';
@@ -409,6 +418,6 @@ get_template_part( 'parts/content', 'contact' );
 
  ?>
 
- 
+
 </section>
 </article>
