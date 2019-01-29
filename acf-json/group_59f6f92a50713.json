@@ -349,10 +349,10 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_59f6fca0af143",
-                            "label": "File to upload",
-                            "name": "single_document",
-                            "type": "file",
+                            "key": "field_5c50344b5c533",
+                            "label": "Files to upload",
+                            "name": "document_upload",
+                            "type": "repeater",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -361,30 +361,51 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "array",
-                            "library": "all",
-                            "min_size": "",
-                            "max_size": "",
-                            "mime_types": ""
-                        },
-                        {
-                            "key": "field_59f6fd27a02b1",
-                            "label": "Description",
-                            "name": "document_description",
-                            "type": "textarea",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": "",
-                            "maxlength": "",
-                            "rows": 3,
-                            "new_lines": ""
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "Add Document",
+                            "sub_fields": [
+                                {
+                                    "key": "field_59f6fca0af143",
+                                    "label": "File to upload",
+                                    "name": "single_document",
+                                    "type": "file",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_size": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_59f6fd27a02b1",
+                                    "label": "Description",
+                                    "name": "document_description",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 3,
+                                    "new_lines": ""
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -471,5 +492,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1547476743
+    "modified": 1548760468
 }

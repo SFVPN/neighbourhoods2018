@@ -226,10 +226,21 @@ if( have_rows('content') ):
 
 				if( get_row_layout() == 'document' ):
 
-					$doc = get_sub_field('single_document');
-					echo '<div class="col s12">
-					<a class="btn z-depth-0 green darken-1" href="' . $doc['url']. '" /><i class="material-icons left" aria-hidden="true">cloud_download</i>Download - ' . get_sub_field('document_description') . '</a>
-					</div>';
+					if( have_rows('document_upload') ):
+						echo '<div class="documents col s12">';
+					// loop through the rows of data
+						while ( have_rows('document_upload') ) : the_row();
+						$doc = get_sub_field('single_document');
+								// display a sub field value
+								echo '<a class="block" href="' . $doc['url']. '" /><i class="material-icons left" aria-hidden="true">cloud_download</i>Download - ' . get_sub_field('document_description') . '</a>';
+
+						endwhile;
+						echo '</div>';
+					else :
+
+							// no rows found
+
+					endif;
 
 				endif;
 
