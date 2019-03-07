@@ -99,3 +99,10 @@ function my_deregister_styles() {
     }
 }
 add_action('wp_enqueue_scripts', 'site_scripts', 999);
+
+function my_enqueue() {
+    
+
+    wp_enqueue_script( 'image-marker-js', get_template_directory_uri() . '/assets/js/image-marker.js', array( 'jquery' ), '', true );
+}
+add_action( 'admin_enqueue_scripts', 'my_enqueue' );

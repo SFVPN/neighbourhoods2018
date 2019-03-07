@@ -26,7 +26,7 @@ to display none.
 
     // show links on printed pages
     &:after {
-      content: " (" attr(href) ")";
+      content: " [LINK: " attr(href) "]";
     }
 
     // show title too
@@ -74,7 +74,17 @@ to display none.
 
     .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
       padding: 0;
-      border: 2px solid;
+      border: 0px solid;
+    }
+
+    #print_logo {
+      position: absolute;
+      right: 0rem !important;
+      top: 0rem !important;
+    }
+
+    .h4 {
+      margin-top: 2.28rem;
     }
 
     // Hide content people who print don't need to see

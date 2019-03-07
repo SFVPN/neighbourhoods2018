@@ -10,14 +10,18 @@ $parent_page = url_to_postid(wp_get_referer()); // and then use $parent_page to 
 get_header();
 
 ?>
-<main id="maincontent" class="container">
-	<div class="row" style="margin-top: 6rem;">
+<main id="maincontent" class="container" style="margin-top: 3rem;">
+	<div class="row">
 
 		<?php
 		if($parent_page) {
 		$print_page = get_post($parent_page);
+		$args = array(
+		'post_parent' => $parent_page,
+		'post_type' => 'resources'
+	);
 		$children_array = array();
-		$children = get_children($parent_page);
+		$children = get_children($args);
 		foreach ($children as $child) {
 			$children_array[] = $child->ID;
 		}?>
@@ -49,7 +53,7 @@ get_header();
 		}
 		</script>
 
-<div class="center">
+<div id="print_logo" class="center row">
 	<?php the_post_thumbnail('full');?>
 </div>
 
@@ -92,7 +96,7 @@ get_header();
 	 				$note_url = get_sub_field('note_url', $parent_page);
 
 	 				if($note_type['value'] === 'tip') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 yellow lighten-1"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 					if($note_url) {
 	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 					}
@@ -100,7 +104,7 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'warning') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 red lighten-1 white-text"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 					if($note_url) {
 	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 					}
@@ -108,7 +112,7 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'recommendation') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 green lighten-1 white-text"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 					if($note_url) {
 	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 					}
@@ -116,7 +120,7 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'link') {
-	 						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 blue lighten-1 white-text"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 						if($note_url) {
 	 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 						}
@@ -124,16 +128,164 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'info') {
-	 						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey darken-2 white-text"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 						if($note_url) {
 	 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 						}
 	 						echo '</div></div>';
 	 				}
 
-
-
 	 			endif;
+
+				if( get_row_layout() == 'recommendation_block' ):
+
+					$block_title = get_sub_field('block_title');
+				// check if the repeater field has rows of data
+				if( have_rows('recommendation_add') ):
+
+					echo '<div class="row recommendation"><div class="col s12 note-heading grey lighten-2"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div  class="col center s12 note-content grey lighten-4">';
+				 	// loop through the rows of data
+				    while ( have_rows('recommendation_add') ) : the_row();
+
+				        $rec_link = get_sub_field('recommended_product_guide');
+								$rec_desc = get_sub_field('recommended_product_description');
+								$rec_product_logo = get_sub_field('recommended_product_logo');
+								$rec_name = get_sub_field('recommended_product_name');
+
+								echo '<div class="col s12 l3">';
+								if($rec_link) {
+									echo '<div><a class="block product_link" href="' . $rec_link . '" data-note="View the guide to using ' . $rec_name . '">' . $rec_name . '</a></div>';
+								} else {
+										echo '<div><span class="block product_link">' . $rec_name . '</span></div>';
+								}
+
+								if($rec_product_logo) {
+									echo '<img src="' . $rec_product_logo . '" />';
+								}
+
+								if($rec_desc) {
+									echo '<p>' . $rec_desc . '</p>';
+								}
+
+
+								echo '</div>';
+
+				    endwhile;
+
+				else :
+
+				    // no rows found
+
+				endif;
+				echo '</div></div>';
+				endif;
+
+
+				if( get_row_layout() == 'product_overview_block' ):
+
+					$overview_title = get_sub_field('overview_title');
+				// check if the repeater field has rows of data
+				if( have_rows('product_add') ):
+
+					echo '<div class="row recommendation"><div class="col s12 note-heading purple darken-1 white-text"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div id="note-content" class="col center s12 note-content grey lighten-4">';
+				 	// loop through the rows of data
+				    while ( have_rows('product_add') ) : the_row();
+
+				        $link = get_sub_field('product_link');
+								$desc = get_sub_field('product_description');
+								$good = get_sub_field('product_good');
+								$bad = get_sub_field('product_bad');
+								$platforms = get_sub_field('product_platforms');
+
+
+								if($link) {
+									echo '<div><a class="block product_link" href="' . $link . '" data-note="This link takes you to an external website">' . get_sub_field('recommended_product') . '</a></div>';
+								} else {
+										echo '<div><span class="block product_link">' . get_sub_field('recommended_product') . '</span></div>';
+								}
+
+								if($desc) {
+									echo '<p>' . $desc . '</p>';
+								}
+
+								if($good) {
+									echo '<p><i class="material-icons left green-text lighten-1">thumb_up</i> Good - ' . $good . '</p>';
+								}
+
+								if($bad) {
+									echo '<p><i class="material-icons left materialize-red-text lighten-2">thumb_down</i> Bad - ' . $bad . '</p>';
+								}
+
+								if($platforms)  {
+										echo '<ul class="center platforms white"><li>
+										Available on:
+										</li>';
+										foreach ($platforms as $platform) {
+											if($platform['value'] === 'web') {
+												echo '<li>
+												<span class="mdi mdi-web"></span> Web
+												</li>';
+											}
+											if($platform['value'] === 'android') {
+												echo '<li>
+												<span class="mdi mdi-android"></span> Android
+												</li>';
+											}
+											if($platform['value'] === 'ios') {
+												echo '<li>
+												<span class="mdi mdi-apple-ios"></span> iOS
+												</li>';
+											}
+											if($platform['value'] === 'desktop') {
+												echo '<li>
+												<span class="mdi mdi-desktop-mac"></span> Desktop
+												</li>';
+											}
+										}
+
+										echo '</ul>';
+
+								}
+
+
+
+				    endwhile;
+
+				else :
+
+				    // no rows found
+
+				endif;
+				echo '</div></div>';
+				endif;
+
+
+				if( get_row_layout() == 'steps_block' ):
+
+					$step_title = get_sub_field('step_title');
+
+				// check if the repeater field has rows of data
+				if( have_rows('step') ):
+
+					echo '<div class="row steps_block"><ol class="steps">';
+					// loop through the rows of data
+						while ( have_rows('step') ) : the_row();
+
+							echo '<li>' . get_sub_field('step_description') .  '</li>';
+
+
+
+						endwhile;
+
+						echo '</ol>';
+
+				else :
+
+						// no rows found
+
+endif; // end steps block
+echo '</div>';
+endif;
 
 	 			if( get_row_layout() == 'image_block' ):
 

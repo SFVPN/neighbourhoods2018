@@ -519,6 +519,7 @@ POSTS & CONTENT STYLES
 
 .documents.col {
   padding: 1.25rem;
+  margin-bottom: 2rem;
   border: 1px solid color("grey", "lighten-2");
   border-radius: 3px;
 }
@@ -1351,6 +1352,60 @@ li::before {
 }
 }
 
+.markers {
+  background: color("red", "base");
+  &.active-marker {
+    background-color: lighten($button-color, 15%);
+  }
+  &.info {
+    color: white;
+    left: calc(100% - 30px);
+    top: calc(100% - 30px);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    background: transparent;
+    padding: 0 !important;
+    &.active-marker {
+      color: yellow;
+    }
+    i {
+      font-size: 1.4rem;
+      line-height: 30px;
+    }
+  }
+}
+
+.row.image_guide {
+  background: white;
+  display:flex;
+   display: -webkit-flex;
+   flex-direction: row;
+   -webkit-flex-direction: row;
+   -webkit-align-content: stretch;
+   align-content: stretch;
+}
+
+ul.marker-desc {
+  position: relative;
+  -webkit-flex: 1;
+  flex:1;
+  overflow-y: sroll;
+  li {
+    list-style-type: none !important;
+    position: absolute;
+   width: 90%;
+   left: 5%;
+   height: 100%;
+   opacity: 0;
+
+   &.active-desc {
+     opacity: 1;
+   }
+  }
+}
+
 figure.card {
   margin: 2rem 0;
   img {
@@ -1671,7 +1726,7 @@ COMMENT STYLES
 
 } // end .commentlist
 
-.suggestion-trigger {
+#suggestion-trigger {
   padding: 1rem 1rem 2rem 1rem;
   margin-bottom: 5rem;
 }

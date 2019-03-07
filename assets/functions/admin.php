@@ -364,6 +364,9 @@ function my_admin_style() {
 		.tip {
     background: whitesmoke;
 }
+	.image-wrap {
+		position: relative;
+	}
   </style>';
 }
 

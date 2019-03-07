@@ -4,7 +4,7 @@
 	}
 ?>
 
-<div class="suggestion-trigger col s12 grey lighten-2 center no-print">
+<div id="suggestion-trigger" class="col s12 grey lighten-2 center no-print">
 <p>
 	Do you have any suggestions to improve this resource?
 </p>
@@ -19,7 +19,7 @@
     __( 'You do not need to include your email address to submit a suggestion. However, if you do, OCN may contact you regarding this submission. We will not use your email for any other purposes.' ) . ( $req ? $required_text : '' ) .
     '</p>',)); ?>
      </div>
-		 
+
 
 
    </div>

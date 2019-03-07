@@ -151,6 +151,13 @@ endif;
 
 	 <?php
 
+	 	$calendar_desc = get_field('calendar_info');
+		if ($calendar_desc) {
+			echo '<div>
+			' . $calendar_desc . '
+			</div>';
+		}
+
 // check if the flexible content field has rows of data
 if( have_rows('content') ):
 

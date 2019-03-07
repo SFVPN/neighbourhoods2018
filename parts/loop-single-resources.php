@@ -395,10 +395,47 @@ endif;
 
 
 				if( get_row_layout() == 'image_block' ):
-
+					$markers_desc = [];
+					$emptyArray = [[]];
+					echo '<div class="row grey lighten-3 image_guide">';
+					echo '<div class="pink col s6 image_wrapper" style="position: relative;">';
 					echo '<figure class="card"><img src="' . get_sub_field('image') . '" />
 					<figcaption class="grey lighten-4"><i class="material-icons left">camera_alt</i>' . get_sub_field('caption') . '</figcaption></figure>';
 
+					if( have_rows('markers') ):
+							echo '<button class="btn-flat info markers" style="position: absolute;" data-id="marker-intro"><i class="material-icons">error_outline</i></button>';
+
+					 	// loop through the rows of data
+					    while ( have_rows('markers') ) : the_row();
+								$marker_ID = get_sub_field('left_position') * get_row_index();
+								$marker_desc[] = '<li id="marker-' . $marker_ID . '"><span class="block h6">Step ' . get_row_index() . '</span>' . get_sub_field('marker_description') . '</li>';
+								echo '<button class="btn-floating small markers" style="position: absolute; left: ' . get_sub_field('left_position') . '%; top:' . get_sub_field('top_position') . '%;" data-id="marker-' . $marker_ID . '"><i class="material-icons">add</i></button>';
+
+
+
+					    endwhile;
+
+
+
+							else :
+
+					    // no rows found
+
+					endif; // end markers
+					echo '</div>';
+
+
+					if($marker_desc) {
+						echo '<ul class="marker-desc col s6"><li id="marker-intro" class="intro-desc active-desc"><span class="block h6">Guide</span>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in" voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</li>';
+						foreach ($marker_desc as $key=>$value) {
+								echo $value;
+						}
+						echo '</ul>';
+					}
+
+					echo '</div>';
 				endif;
 
     endwhile;

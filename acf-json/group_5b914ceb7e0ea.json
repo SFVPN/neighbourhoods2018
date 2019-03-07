@@ -610,7 +610,7 @@
                                         "id": ""
                                     },
                                     "return_format": "url",
-                                    "preview_size": "medium",
+                                    "preview_size": "large",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -638,6 +638,132 @@
                                     "maxlength": "",
                                     "rows": 2,
                                     "new_lines": ""
+                                },
+                                {
+                                    "key": "field_5c5c761c9f7a2",
+                                    "label": "",
+                                    "name": "remove_markers",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": "remove"
+                                    },
+                                    "choices": {
+                                        "Remove markers": "Remove markers"
+                                    },
+                                    "allow_null": 0,
+                                    "default_value": "",
+                                    "layout": "horizontal",
+                                    "return_format": "value"
+                                },
+                                {
+                                    "key": "field_5c5ae69929aa4",
+                                    "label": "Latest Marker Co-ordinates",
+                                    "name": "coordinates",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "coords",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "Create a new marker position with these values",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5c5ad5fa6bdf4",
+                                    "label": "Add New Marker Position",
+                                    "name": "markers",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": "markers"
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "block",
+                                    "button_label": "Add New",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5c5ad6116bdf5",
+                                            "label": "Left Position",
+                                            "name": "left_position",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "left",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5c5ad6586bdf6",
+                                            "label": "Top Position",
+                                            "name": "top_position",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5c5ad67c6bdf7",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "top",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5c5ec37691e5e",
+                                            "label": "Marker Description",
+                                            "name": "marker_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": ""
+                                        }
+                                    ]
                                 }
                             ],
                             "min": "",
@@ -670,5 +796,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1547474199
+    "modified": 1549714310
 }

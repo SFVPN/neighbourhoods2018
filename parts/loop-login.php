@@ -14,7 +14,7 @@
 			?>
 			<?php
 $args = array(
-'redirect' => home_url(),
+//'redirect' => home_url(),
 'id_username' => 'user',
 'id_password' => 'pass',
 )

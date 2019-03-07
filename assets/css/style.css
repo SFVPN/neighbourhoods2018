@@ -11820,6 +11820,7 @@ POSTS & CONTENT STYLES
 
 .documents.col {
   padding: 1.25rem;
+  margin-bottom: 2rem;
   border: 1px solid #e0e0e0;
   border-radius: 3px; }
 
@@ -12411,6 +12412,50 @@ ol.steps {
     line-height: 50px;
     border-radius: 50%; }
 
+.markers {
+  background: #F44336; }
+  .markers.active-marker {
+    background-color: #24867d; }
+  .markers.info {
+    color: white;
+    left: calc(100% - 30px);
+    top: calc(100% - 30px);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    background: transparent;
+    padding: 0 !important; }
+    .markers.info.active-marker {
+      color: yellow; }
+    .markers.info i {
+      font-size: 1.4rem;
+      line-height: 30px; }
+
+.row.image_guide {
+  background: white;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  -webkit-align-content: stretch;
+  align-content: stretch; }
+
+ul.marker-desc {
+  position: relative;
+  -webkit-flex: 1;
+  flex: 1;
+  overflow-y: sroll; }
+  ul.marker-desc li {
+    list-style-type: none !important;
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    height: 100%;
+    opacity: 0; }
+    ul.marker-desc li.active-desc {
+      opacity: 1; }
+
 figure.card {
   margin: 2rem 0; }
   figure.card img {
@@ -12573,7 +12618,7 @@ COMMENT STYLES
   .commentlist .comment-edit-link {
     display: none; } }
 
-.suggestion-trigger {
+#suggestion-trigger {
   padding: 1rem 1rem 2rem 1rem;
   margin-bottom: 5rem; }
 
@@ -12860,7 +12905,7 @@ to display none.
     color: #444 !important;
     text-decoration: underline; }
     a:after, a:visited:after {
-      content: " (" attr(href) ")"; }
+      content: " [LINK: " attr(href) "]"; }
     a abbr[title]:after, a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
 
@@ -12894,7 +12939,15 @@ to display none.
 
   .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
     padding: 0;
-    border: 2px solid; }
+    border: 0px solid; }
+
+  #print_logo {
+    position: absolute;
+    right: 0rem !important;
+    top: 0rem !important; }
+
+  .h4 {
+    margin-top: 2.28rem; }
 
   .sidebar,
   .page-navigation,

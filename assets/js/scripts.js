@@ -57,26 +57,63 @@ $(".field input[value='Report location']").addClass("btn");
    // });
 
 // smooth scroll function which does not break skip to content accessibility
-   $(function() {
-   $('a[href*="#"]:not([href="#"])').click(function() {
-     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-       var target = $(this.hash);
-       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-       if (target.length) {
-         $('html, body').animate({
-           scrollTop: target.offset().top - 100
-         }, 1000);
-         target.focus(); // Setting focus
-         if (target.is(":focus")){ // Checking if the target was focused
-           return false;
-         } else {
-           target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-           target.focus(); // Setting focus
-         };
-         return false;
-       }
-     }
-   });
+ //   $(function() {
+ //   $('a[href*="#"]:not([href="#"])').click(function() {
+ //     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+ //       var target = $(this.hash);
+ //       target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+ //       if (target.length) {
+ //         $('html, body').animate({
+ //           scrollTop: target.offset().top - 100
+ //         }, 1000);
+ //         target.focus(); // Setting focus
+ //         if (target.is(":focus")){ // Checking if the target was focused
+ //           return false;
+ //         } else {
+ //           target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+ //           target.focus(); // Setting focus
+ //         };
+ //         return false;
+ //       }
+ //     }
+ //   });
+ // });
+
+ $(".markers").on("click", function(event) {
+
+    var marker = this;
+    var id = $(this).attr("data-id");
+
+
+
+    if ( $(this).hasClass('active-marker') ) {
+        $(this).removeClass('active-marker');
+        $('.markers.active-marker').removeClass('active-marker');
+    } else {
+        $('.markers.active-marker').removeClass('active-marker');
+         $( this ).addClass('active-marker');
+    }
+
+    if ( $("#" + id).hasClass('active-desc') ) {
+        $(this).removeClass('active-desc');
+
+    } else {
+        $('.marker-desc li.active-desc').removeClass('active-desc');
+         $( "#" + id ).addClass('active-desc');
+    }
+
+
+
+
+
+
+
+
+     //$(".coords input:text").val("Left Position : " + x + " --- Top Position : " + y);
+
+
+   //  $(".top input:text").val(y);
+     //alert("X Coordinate: " + x + " Y Coordinate: " + y);
  });
 
    $("#acf-_post_title").attr("placeholder","Please add a title for your submission. Just click on this text and start writing - it will disappear!");
