@@ -27,7 +27,8 @@
 				$where = get_sub_field('event_location');
 				$description = get_sub_field('event_description');
 				$contact = get_sub_field('event_contact');
-				$tickets = get_sub_field('eventbrite_link')
+				$more_info = get_sub_field('moreinfo_link');
+				$more_info_label = get_sub_field('moreinfo_label')
 				?>
 
 
@@ -83,8 +84,8 @@
 
 						?>
 
-						<?php if($tickets){
-							echo '<p class="event_ticket"><a class="btn z-depth-0 purple darken-2" href="' . $tickets . '">Tickets</a></p>';
+						<?php if($more_info){
+							echo '<p class="event_ticket"><a class="btn z-depth-0 purple darken-2" href="' . $more_info . '">' . $more_info_label . '</a></p>';
 						}
 
 						?>

@@ -132,8 +132,8 @@
                 },
                 {
                     "key": "field_5c405a2c5f9a7",
-                    "label": "Eventbrite Link",
-                    "name": "eventbrite_link",
+                    "label": "More Info Link",
+                    "name": "moreinfo_link",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -145,6 +145,25 @@
                     },
                     "default_value": "",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_5c827c9a4562a",
+                    "label": "More Info Label",
+                    "name": "moreinfo_label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
                     "key": "field_5c40651701396",
@@ -194,5 +213,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1547724081
+    "modified": 1552055518
 }
