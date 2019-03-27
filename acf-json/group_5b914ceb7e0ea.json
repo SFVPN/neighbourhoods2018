@@ -233,7 +233,7 @@
                                     },
                                     "choices": {
                                         "info": "Info",
-                                        "link": "Link",
+                                        "link": "Links and downloads",
                                         "required": "Required",
                                         "tip": "Tip",
                                         "warning": "Annoying"
@@ -242,6 +242,54 @@
                                     "default_value": "",
                                     "layout": "horizontal",
                                     "return_format": "array"
+                                },
+                                {
+                                    "key": "field_5c9b9a1c2479f",
+                                    "label": "Note Upload",
+                                    "name": "note_upload",
+                                    "type": "repeater",
+                                    "instructions": "If you are uploading resource files, please do so here. You can upload a maximum of 4 files.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5ba0b653f5552",
+                                                "operator": "==",
+                                                "value": "link"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 4,
+                                    "layout": "block",
+                                    "button_label": "Add File",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5c9b9a74247a0",
+                                            "label": "File",
+                                            "name": "file_source",
+                                            "type": "file",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "array",
+                                            "library": "all",
+                                            "min_size": "",
+                                            "max_size": "",
+                                            "mime_types": ""
+                                        }
+                                    ]
                                 },
                                 {
                                     "key": "field_5ba0cd7806ff2",
@@ -796,5 +844,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1549714310
+    "modified": 1553703798
 }

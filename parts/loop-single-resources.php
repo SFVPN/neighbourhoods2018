@@ -226,6 +226,24 @@ echo '</div>';
 							if($note_url) {
 								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 							}
+							if( have_rows('note_upload') ):
+
+							 	// loop through the rows of data
+							    while ( have_rows('note_upload') ) : the_row();
+
+							        $file_link = get_sub_field('file_source');
+											$file_type = $file_link['mime_type'];
+
+											echo '<a class="block" href="' . $file_link['url'] . '"><i class="material-icons left">folder</i>Download ' . $file_link['title'] . '</a>';
+
+
+							    endwhile;
+
+							else :
+
+							    // no rows found
+
+							endif;
 							echo '</div></div>';
 					}
 
