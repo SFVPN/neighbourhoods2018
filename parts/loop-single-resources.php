@@ -193,6 +193,14 @@ echo '</div>';
 
         endif;
 
+				if( get_row_layout() == 'video_block' ):
+
+					echo '<div class="video-container">' . get_sub_field('video_url') . '</div>';
+
+        	echo '<div class="content_block center grey lighten-4">' . get_sub_field('video_caption') . '</div>';
+
+        endif;
+
 				if( get_row_layout() == 'note_block' ):
 					$note_type = get_sub_field('note_type');
 					$note_url = get_sub_field('note_url');
@@ -222,7 +230,7 @@ echo '</div>';
 					}
 
 					if($note_type['value'] === 'link') {
-							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading blue lighten-1 white-text"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
+							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading blue lighten-1 white-text"><i class="material-icons left">library_books</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
 							if($note_url) {
 								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 							}
@@ -244,11 +252,28 @@ echo '</div>';
 							    // no rows found
 
 							endif;
+
+							if( have_rows('note_link') ):
+
+							 	// loop through the rows of data
+							    while ( have_rows('note_link') ) : the_row();
+
+											echo '<a class="block" href="' . get_sub_field('link_url') . '"><i class="material-icons left">link	</i>' . get_sub_field('link_text') . '</a>';
+
+
+							    endwhile;
+
+							else :
+
+							    // no rows found
+
+							endif;
+
 							echo '</div></div>';
 					}
 
 					if($note_type['value'] === 'info') {
-							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading grey darken-2 white-text"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
+							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading grey darken-4 white-text"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
 							if($note_url) {
 								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 							}

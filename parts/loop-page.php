@@ -13,19 +13,18 @@
 	    <?php the_content(); ?>
 			<?php accessible_thumbnail('thumbnail', 'thumbnail');
 
-			get_template_part( 'parts/content', 'contact' );
+
 			?>
 
 
 
-	    <?php wp_link_pages(); ?>
-	</section> <!-- end article section -->
+
 
 <?php
 if( have_rows('list') ):
 ?>
 
-<div id="test-swipe-1" class="container">
+<div id="test-swipe-1">
 	<ul id="<?php the_sub_field('list_title'); ?>" class="collection with-header">
 	<?php while ( have_rows('list') ) : the_row();?>
 
@@ -44,26 +43,20 @@ if( have_rows('list') ):
 			while ( have_rows('list_items') ) : the_row();
 
 ?>
+		<li class="collection-item avatar" >
 
-				<li class="collection-item avatar" >
+		<?php
+			echo '<i class="material-icons yellow darken-3 circle">star</i>';
+		?>
+			<p>
+	 			<?php the_sub_field('list_item_description'); ?>
+			</p>
 
-					<?php
-
-						echo '<i class="material-icons yellow darken-3 circle">star</i>';
-					?>
-
-<p>
-	 <?php
-
-	 the_sub_field('list_item_description'); ?>
-</p>
-
-</li> <!-- end col s12 l4 -->
-
+		</li> <!-- end col s12 l4 -->
 
 		<?php
 		endwhile;
-?>
+		?>
 
 		<?php
 
@@ -72,15 +65,21 @@ if( have_rows('list') ):
 		endif;
 		?>
 
-<?php
-endwhile;?>
-</ul>
-</div>
-<?php
-else :
- // no rows found
-endif;
+		<?php
+		endwhile;
+		?>
+		</ul>
+	</div>
+		<?php
+		else :
+		 // no rows found
+		endif;
+		?>
 
-?>
+		<?php
+		get_template_part( 'parts/content', 'contact' );
+		wp_link_pages(); ?>
+
+	</section> <!-- end article section -->
 
 </article> <!-- end article -->

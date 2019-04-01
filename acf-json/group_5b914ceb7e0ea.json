@@ -143,6 +143,230 @@
                             "min": "",
                             "max": ""
                         },
+                        "layout_5b914d79ab01f": {
+                            "key": "layout_5b914d79ab01f",
+                            "name": "image_block",
+                            "label": "Image",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5b914d91ab020",
+                                    "label": "Image File",
+                                    "name": "image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "responsive-img",
+                                        "id": ""
+                                    },
+                                    "return_format": "url",
+                                    "preview_size": "large",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5b914dacab021",
+                                    "label": "Image Caption",
+                                    "name": "caption",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 2,
+                                    "new_lines": ""
+                                },
+                                {
+                                    "key": "field_5c5c761c9f7a2",
+                                    "label": "",
+                                    "name": "remove_markers",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": "remove"
+                                    },
+                                    "choices": {
+                                        "Remove markers": "Remove markers"
+                                    },
+                                    "allow_null": 0,
+                                    "default_value": "",
+                                    "layout": "horizontal",
+                                    "return_format": "value"
+                                },
+                                {
+                                    "key": "field_5c5ae69929aa4",
+                                    "label": "Latest Marker Co-ordinates",
+                                    "name": "coordinates",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "coords",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "Create a new marker position with these values",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5c5ad5fa6bdf4",
+                                    "label": "Add New Marker Position",
+                                    "name": "markers",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": "markers"
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "block",
+                                    "button_label": "Add New",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5c5ad6116bdf5",
+                                            "label": "Left Position",
+                                            "name": "left_position",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "left",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5c5ad6586bdf6",
+                                            "label": "Top Position",
+                                            "name": "top_position",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5c5ad67c6bdf7",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "top",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5c5ec37691e5e",
+                                            "label": "Marker Description",
+                                            "name": "marker_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": ""
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5ca22594218ee": {
+                            "key": "layout_5ca22594218ee",
+                            "name": "video_block",
+                            "label": "Video",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ca225b3218ef",
+                                    "label": "Video Url",
+                                    "name": "video_url",
+                                    "type": "oembed",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "width": "",
+                                    "height": ""
+                                },
+                                {
+                                    "key": "field_5ca225e5218f0",
+                                    "label": "Video Caption",
+                                    "name": "video_caption",
+                                    "type": "textarea",
+                                    "instructions": "Add a caption to describe the video being added. This is primarily for users with visual impairments",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
                         "layout_5c3c57b27d245": {
                             "key": "layout_5c3c57b27d245",
                             "name": "steps_block",
@@ -267,7 +491,7 @@
                                     "collapsed": "",
                                     "min": 0,
                                     "max": 4,
-                                    "layout": "block",
+                                    "layout": "row",
                                     "button_label": "Add File",
                                     "sub_fields": [
                                         {
@@ -288,6 +512,70 @@
                                             "min_size": "",
                                             "max_size": "",
                                             "mime_types": ""
+                                        }
+                                    ]
+                                },
+                                {
+                                    "key": "field_5ca226b471740",
+                                    "label": "Note Link",
+                                    "name": "note_link",
+                                    "type": "repeater",
+                                    "instructions": "If you are uploading resource files, please do so here. You can upload a maximum of 4 files.",
+                                    "required": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5ba0b653f5552",
+                                                "operator": "==",
+                                                "value": "link"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 4,
+                                    "layout": "row",
+                                    "button_label": "Add Link",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5ca226b471741",
+                                            "label": "Link",
+                                            "name": "link_url",
+                                            "type": "url",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_5ca2273c71742",
+                                            "label": "Link text",
+                                            "name": "link_text",
+                                            "type": "text",
+                                            "instructions": "This is the text that be linked. Make sure it's descriptive and not just something like \"Read More\".",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
                                         }
                                     ]
                                 },
@@ -637,185 +925,6 @@
                             ],
                             "min": "",
                             "max": ""
-                        },
-                        "layout_5b914d79ab01f": {
-                            "key": "layout_5b914d79ab01f",
-                            "name": "image_block",
-                            "label": "Image",
-                            "display": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_5b914d91ab020",
-                                    "label": "Image File",
-                                    "name": "image",
-                                    "type": "image",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "responsive-img",
-                                        "id": ""
-                                    },
-                                    "return_format": "url",
-                                    "preview_size": "large",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": ""
-                                },
-                                {
-                                    "key": "field_5b914dacab021",
-                                    "label": "Image Caption",
-                                    "name": "caption",
-                                    "type": "textarea",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "maxlength": "",
-                                    "rows": 2,
-                                    "new_lines": ""
-                                },
-                                {
-                                    "key": "field_5c5c761c9f7a2",
-                                    "label": "",
-                                    "name": "remove_markers",
-                                    "type": "button_group",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": "remove"
-                                    },
-                                    "choices": {
-                                        "Remove markers": "Remove markers"
-                                    },
-                                    "allow_null": 0,
-                                    "default_value": "",
-                                    "layout": "horizontal",
-                                    "return_format": "value"
-                                },
-                                {
-                                    "key": "field_5c5ae69929aa4",
-                                    "label": "Latest Marker Co-ordinates",
-                                    "name": "coordinates",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "coords",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "Create a new marker position with these values",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5c5ad5fa6bdf4",
-                                    "label": "Add New Marker Position",
-                                    "name": "markers",
-                                    "type": "repeater",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": "markers"
-                                    },
-                                    "collapsed": "",
-                                    "min": 0,
-                                    "max": 0,
-                                    "layout": "block",
-                                    "button_label": "Add New",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_5c5ad6116bdf5",
-                                            "label": "Left Position",
-                                            "name": "left_position",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "left",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_5c5ad6586bdf6",
-                                            "label": "Top Position",
-                                            "name": "top_position",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": [
-                                                [
-                                                    {
-                                                        "field": "field_5c5ad67c6bdf7",
-                                                        "operator": "==",
-                                                        "value": "1"
-                                                    }
-                                                ]
-                                            ],
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "top",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_5c5ec37691e5e",
-                                            "label": "Marker Description",
-                                            "name": "marker_description",
-                                            "type": "textarea",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "maxlength": "",
-                                            "rows": "",
-                                            "new_lines": ""
-                                        }
-                                    ]
-                                }
-                            ],
-                            "min": "",
-                            "max": ""
                         }
                     },
                     "button_label": "Add Content Block",
@@ -844,5 +953,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1553703798
+    "modified": 1554131920
 }

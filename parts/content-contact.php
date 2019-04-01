@@ -5,7 +5,7 @@ $landline = get_field('landline_number', 'user_' . $contact->ID);
 $mobile = get_field('mobile_number', 'user_' . $contact->ID);
 	?>
 
-	<div id="contact-details" class="col s12">
+	<div id="contact-details" class="">
 		<ul class="collection">
 		<li class="collection-item header grey lighten-3 center">
 			<h3 class="h5">Contact</h3>
