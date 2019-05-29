@@ -11791,8 +11791,18 @@ BADGEOS OVERRIDES
 SIMPLE CALENDAR OVERRIDES
 *********************/
 .simcal-default-calendar-grid .simcal-events {
-  font-size: .8rem !important;
-  padding: 0 5px !important; }
+  font-size: .8rem !important; }
+
+.simcal-default-calendar-grid.simcal-default-calendar-light .simcal-event {
+  padding: 1rem .5rem !important; }
+  .simcal-default-calendar-grid.simcal-default-calendar-light .simcal-event:hover, .simcal-default-calendar-grid.simcal-default-calendar-light .simcal-event:focus {
+    background: #eeeeee; }
+
+.simcal-day div {
+  border: none !important; }
+
+.simcal-default-calendar-grid.simcal-default-calendar-light .simcal-day-has-events:hover, .simcal-weekday-6:hover, .simcal-weekday-0:hover {
+  background: transparent !important; }
 
 .simcal-event-details.simcal-tooltip-content .event_title {
   padding: .5rem;
