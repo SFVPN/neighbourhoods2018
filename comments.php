@@ -4,11 +4,11 @@
 	}
 ?>
 
-<div id="suggestion-trigger" class="col s12 grey lighten-2 center no-print">
+<div id="suggestion-trigger" class="col s12 grey lighten-3 center no-print">
 <p>
 	Do you have any suggestions to improve this resource?
 </p>
-<button data-target="suggestion" class="btn red waves-effect waves-light modal-trigger">Send us your thoughts</button>
+<button data-target="suggestion" class="btn grey darken-4 waves-effect waves-light modal-trigger">Send us your thoughts</button>
 </div>
 	<!-- Modal Structure -->
    <div id="suggestion" class="modal bottom-sheet no-print">

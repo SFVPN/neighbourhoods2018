@@ -19,7 +19,7 @@
 
 .btn-flat {
   @media #{$small-and-down} {
-    padding: 0;
+    padding: 0 .5rem;
     font-size: 0.85rem;
   }
 }

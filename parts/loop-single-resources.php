@@ -206,7 +206,7 @@ echo '</div>';
 					$note_url = get_sub_field('note_url');
 
 					if($note_type['value'] === 'tip') {
-						echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading yellow lighten-1"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
+						echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
 						if($note_url) {
 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 						}
@@ -214,7 +214,7 @@ echo '</div>';
 					}
 
 					if($note_type['value'] === 'required') {
-						echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading green darken-1 white-text"><i class="material-icons left">assignment_turned_in</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
+						echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">assignment_turned_in</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
 						if($note_url) {
 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 						}
@@ -222,7 +222,7 @@ echo '</div>';
 					}
 
 					if($note_type['value'] === 'warning') {
-						echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading materialize-red lighten-2 white-text"><i class="material-icons left">thumb_down</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
+						echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">thumb_down</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
 						if($note_url) {
 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 						}
@@ -319,7 +319,7 @@ if( get_row_layout() == 'recommendation_block' ):
 // check if the repeater field has rows of data
 if( have_rows('recommendation_add') ):
 
-	echo '<div class="row recommendation"><div class="col s12 note-heading purple darken-1 white-text"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div  class="col center s12 note-content grey lighten-4">';
+	echo '<div class="row recommendation"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div  class="col center s12 note-content grey lighten-4">';
  	// loop through the rows of data
     while ( have_rows('recommendation_add') ) : the_row();
 
@@ -363,7 +363,7 @@ if( get_row_layout() == 'product_overview_block' ):
 // check if the repeater field has rows of data
 if( have_rows('product_add') ):
 
-	echo '<div class="row recommendation"><div class="col s12 note-heading purple darken-1 white-text"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div id="note-content" class="col center s12 note-content grey lighten-4">';
+	echo '<div class="row recommendation"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div id="note-content" class="col center s12 note-content grey lighten-4">';
  	// loop through the rows of data
     while ( have_rows('product_add') ) : the_row();
 

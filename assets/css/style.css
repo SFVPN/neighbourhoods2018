@@ -3868,13 +3868,13 @@ nav ul a span.badge {
         left: 100%; } }
 
 nav#main-nav {
-  color: #616161;
+  color: #212121;
   background-color: #FFFFFF;
   width: 100%;
   height: 64px;
   line-height: 64px; }
   nav#main-nav a {
-    color: #616161; }
+    color: #212121; }
   nav#main-nav i,
   nav#main-nav [class^="mdi-"], nav#main-nav [class*="mdi-"],
   nav#main-nav i.material-icons {
@@ -3909,7 +3909,7 @@ nav#main-nav {
     nav#main-nav ul a {
       transition: background-color .3s;
       font-size: 1rem;
-      color: #616161;
+      color: #212121;
       display: block;
       padding: 0 15px;
       cursor: pointer; }
@@ -3938,7 +3938,7 @@ nav#main-nav {
         color: rgba(255, 255, 255, 0.7);
         transition: color .3s; }
       nav#main-nav .input-field label.active i {
-        color: #616161; }
+        color: #212121; }
       nav#main-nav .input-field label.active {
         transform: translateY(0); }
 
@@ -3951,7 +3951,7 @@ img#mobilelogo {
 
 .brand-logo {
   position: absolute;
-  color: #616161;
+  color: #212121;
   display: inline-block;
   font-size: 1.5rem;
   padding: 0;
@@ -4435,7 +4435,7 @@ small {
 
 @media only screen and (max-width: 600px) {
   .btn-flat {
-    padding: 0;
+    padding: 0 .5rem;
     font-size: 0.85rem; } }
 
 .btn.disabled, .disabled.btn-large, .btn-floating.disabled, .btn-large.disabled, .btn:disabled, .btn-large:disabled, .btn-large:disabled, .btn-floating:disabled {
@@ -4942,6 +4942,55 @@ label[for=acf-field_59f6f941d4156] {
 
 .acf-field-range .acf-label {
   margin-bottom: 3rem !important; }
+
+.choices .acf-button-group label {
+  font-size: 2rem;
+  height: 4rem;
+  position: relative; }
+
+.choices .acf-button-group label:first-child:before {
+  content: "\01F622";
+  position: absolute;
+  left: calc(50% - 20px); }
+
+.choices .acf-button-group label:nth-child(2):before {
+  content: "\01F641";
+  position: absolute;
+  left: calc(50% - 20px); }
+
+.choices .acf-button-group label:nth-child(3):before {
+  content: "\01F615";
+  position: absolute;
+  left: calc(50% - 20px); }
+
+.choices .acf-button-group label:nth-child(4):before {
+  content: "\01F610";
+  position: absolute;
+  left: calc(50% - 20px); }
+
+.choices .acf-button-group label:nth-child(5):before {
+  content: "\01F642";
+  position: absolute;
+  left: calc(50% - 20px); }
+
+.choices .acf-button-group label:nth-child(6):before {
+  content: "\01F60A";
+  position: absolute;
+  left: calc(50% - 20px); }
+
+.choices .acf-button-group label:nth-child(7):before {
+  content: "\01F600";
+  position: absolute;
+  left: calc(50% - 20px); }
+
+.choices .acf-button-group {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: .5rem; }
+
+.acf-field-group {
+  background: #f5f5f5;
+  margin: 1rem 0 !important; }
 
 /***************************
    Text Inputs + Textarea
@@ -11739,6 +11788,42 @@ BADGEOS OVERRIDES
   display: none; }
 
 /*********************
+SIMPLE CALENDAR OVERRIDES
+*********************/
+.simcal-default-calendar-grid .simcal-events {
+  font-size: .8rem !important;
+  padding: 0 5px !important; }
+
+.simcal-event-details.simcal-tooltip-content .event_title {
+  padding: .5rem;
+  font-size: 16px; }
+.simcal-event-details.simcal-tooltip-content .event_time {
+  padding: 1rem .5rem; }
+  .simcal-event-details.simcal-tooltip-content .event_time:before {
+    content: '\e192';
+    font-family: "Material Icons";
+    padding: 0 5px 0 0; }
+.simcal-event-details.simcal-tooltip-content .event_location {
+  padding: .5rem;
+  background: #f5f5f5;
+  border-radius: 3px;
+  font-size: 16px; }
+.simcal-event-details.simcal-tooltip-content .event_description {
+  padding: .5rem;
+  margin: .5rem 0; }
+.simcal-event-details.simcal-tooltip-content .btn-flat {
+  width: 100%; }
+  .simcal-event-details.simcal-tooltip-content .btn-flat a {
+    color: white; }
+.simcal-event-details.simcal-tooltip-content p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5rem; }
+
+.simcal-event-details.simcal-tooltip-content .btn-flat a {
+  color: white; }
+
+/*********************
 ACF FORM OVERRIDES
 *********************/
 @media only screen and (max-width: 600px) {
@@ -12093,8 +12178,7 @@ a.chip {
 
 #intro-text {
   padding: 4rem;
-  border-radius: 3px;
-  margin: 4rem 0 0 0; }
+  border-radius: 3px; }
   #intro-text p {
     padding: 1rem; }
   #intro-text i {
@@ -12108,6 +12192,47 @@ a.chip {
 
 #home-intro h1 {
   margin-bottom: 0; }
+#home-intro img {
+  padding: 1rem 0; }
+
+#team_members .mdi {
+  padding-right: .5rem; }
+
+#themes .col.s12 {
+  padding: 1rem; }
+
+.today {
+  position: relative; }
+
+.today:after {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: yellow;
+  border-radius: 50%;
+  margin-left: 5px;
+  position: absolute;
+  right: 10px;
+  top: 10px; }
+
+.w200 {
+  width: 200px;
+  height: 200px;
+  margin-top: 2rem; }
+
+#social_media_contact {
+  margin-bottom: 0;
+  padding-bottom: 2rem; }
+  #social_media_contact span {
+    padding: 1rem 0; }
+    #social_media_contact span .mdi {
+      width: 4.5rem;
+      height: 4.5rem;
+      line-height: 4.5rem;
+      border-radius: 50%;
+      display: inline-block;
+      border: 2px solid; }
 
 .section-details {
   border: 2px solid #aaa;
@@ -12120,7 +12245,8 @@ a.chip {
   color: #424242;
   font-weight: 300;
   padding: 0 1rem .75rem 1rem;
-  border-bottom: 2px solid #ffeb3b; }
+  border-bottom: 2px solid #ffeb3b;
+  margin-bottom: 2rem; }
 
 #callouts #callout-1 {
   background: #f5f5f5; }
@@ -12802,27 +12928,20 @@ footer .padding-bottom {
 
 .page-footer {
   font-weight: 300; }
-  .page-footer ul {
-    font-size: 0;
-    margin-top: 1rem; }
-  .page-footer li {
+  .page-footer #contact_options li {
     display: inline-block;
     width: 20%;
-    font-size: .85rem; }
+    font-size: 1rem; }
     @media only screen and (max-width: 600px) {
-      .page-footer li {
+      .page-footer #contact_options li {
         width: 100%;
         padding: 5px 0; } }
-  .page-footer li:not(:first-of-type) {
-    border-left: 1px solid #144a45; }
-    @media only screen and (max-width: 600px) {
-      .page-footer li:not(:first-of-type) {
-        border-left: 1px solid transparent; } }
-  .page-footer li:not(:last-of-type) {
-    border-right: 1px solid #144a45; }
-    @media only screen and (max-width: 600px) {
-      .page-footer li:not(:last-of-type) {
-        border-right: 1px solid transparent; } }
+    .page-footer #contact_options li a {
+      color: white; }
+      .page-footer #contact_options li a .mdi {
+        padding: 0 5px; }
+      .page-footer #contact_options li a:hover, .page-footer #contact_options li a :focus {
+        text-decoration: underline; }
   .page-footer .row {
     margin-bottom: 0; }
   .page-footer .copyright {

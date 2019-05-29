@@ -32,7 +32,7 @@
 				/>
 
 
-			<a href="<?php bloginfo('url'); ?>" class="brand-logo thin left"><?php bloginfo('name'); ?></a>
+			<a href="<?php bloginfo('url'); ?>" class="brand-logo left"><?php bloginfo('name'); ?></a>
 
 			<span class="hide-on-med-and-down right">
 				<?php joints_top_nav(); ?>

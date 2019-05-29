@@ -402,6 +402,54 @@ BADGEOS OVERRIDES
 
 
 /*********************
+SIMPLE CALENDAR OVERRIDES
+*********************/
+.simcal-default-calendar-grid .simcal-events {
+  font-size: .8rem !important;
+  padding: 0 5px !important;
+}
+
+.simcal-event-details.simcal-tooltip-content {
+  .event_title {
+    padding: .5rem;
+    font-size: 16px;
+
+  }
+  .event_time {
+    padding: 1rem .5rem;
+    &:before {
+      content: '\e192';
+      font-family: "Material Icons";
+      padding: 0 5px 0 0;
+    }
+  }
+  .event_location {
+    padding: .5rem;
+    background: color("grey", "lighten-4");
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  .event_description {
+    padding: .5rem;
+    margin: .5rem 0;
+  }
+  .btn-flat {
+    width: 100%;
+    a {
+      color: white;
+    }
+  }
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5rem;
+  }
+
+}
+
+.simcal-event-details.simcal-tooltip-content .btn-flat a {color: white;;}
+
+/*********************
 ACF FORM OVERRIDES
 *********************/
 
@@ -909,7 +957,6 @@ a.chip {
 #intro-text {
     padding: 4rem;
     border-radius: 3px;
-    margin: 4rem 0 0 0;
   p {
     padding: 1rem;
   }
@@ -928,6 +975,60 @@ a.chip {
   h1 {
     margin-bottom: 0;
   }
+  img {
+    padding: 1rem 0;
+  }
+}
+
+#team_members {
+  .mdi {
+    padding-right: .5rem;
+  }
+}
+
+#themes {
+  .col.s12 {
+    padding: 1rem;
+  }
+}
+
+.today {
+    position: relative;
+}
+
+.today:after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 50%;
+    margin-left: 5px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.w200 {
+  width: 200px;
+  height: 200px;
+  margin-top: 2rem;
+}
+
+#social_media_contact {
+  span {
+    padding: 1rem 0;
+    .mdi {
+      width: 4.5rem;
+      height: 4.5rem;
+      line-height: 4.5rem;
+      border-radius: 50%;
+      display: inline-block;
+      border: 2px solid;
+    }
+  }
+  margin-bottom: 0;
+  padding-bottom: 2rem;
 }
 .section-details {
   border: 2px solid #aaa;
@@ -942,6 +1043,7 @@ a.chip {
   font-weight: 300;
   padding: 0 1rem .75rem 1rem;
   border-bottom: 2px solid color("yellow", "base");
+  margin-bottom: 2rem;
 }
 
 #callouts {
@@ -1117,6 +1219,8 @@ article#content-not-found {
       padding: 3rem 0;
     }
 }
+
+
 
 .home .article-header {
   font-weight: 100;
@@ -1993,30 +2097,26 @@ footer .padding-bottom {
 
 .page-footer {
   font-weight: 300;
-  ul {
-    font-size: 0; // this removes white space between li children for application of side borders. Margin needs to reapplied hence...
-    margin-top: 1rem;
+
+  #contact_options {
+    li {
+      display: inline-block;
+      width: 20%;
+      font-size: 1rem;
+      @media #{$small-and-down} {
+        width: 100%;
+        padding: 5px 0;
+      }
+      a {
+        color: white;
+        .mdi {
+        padding: 0 5px;
+        }
+        &:hover, :focus {
+          text-decoration: underline;
+        }
+      }
   }
-  li {
-    display: inline-block;
-    width: 20%;
-    font-size: .85rem;
-    @media #{$small-and-down} {
-    	width: 100%;
-      padding: 5px 0;
-    }
-  }
-  li:not(:first-of-type) {
-    border-left: 1px solid $secondary-color;
-    @media #{$small-and-down} {
-      border-left: 1px solid transparent;
-    }
-  }
-  li:not(:last-of-type) {
-    border-right: 1px solid $secondary-color;
-    @media #{$small-and-down} {
-      border-right: 1px solid transparent;
-    }
   }
   .row {
     margin-bottom: 0;

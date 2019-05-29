@@ -367,7 +367,31 @@ function my_admin_style() {
 	.image-wrap {
 		position: relative;
 	}
+
+.choices .acf-button-group label {font-size: 30px; height: 40px; line-height: 40px; position: relative;}
+
+.choices .acf-button-group {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr)
+}
   </style>';
+	echo '<style>
+
+	.choices .acf-button-group label:first-child:before { content: "\01F622"; position: absolute; left: calc(50% - 20px);}
+
+	.choices .acf-button-group label:nth-child(2):before { content: "\01F641"; position: absolute; left: calc(50% - 20px);}
+
+	.choices .acf-button-group label:nth-child(3):before { content: "\01F615"; position: absolute; left: calc(50% - 20px);}
+
+	.choices .acf-button-group label:nth-child(4):before { content: "\01F610"; position: absolute; left: calc(50% - 20px);}
+
+	.choices .acf-button-group label:nth-child(5):before { content: "\01F642"; position: absolute; left: calc(50% - 20px);}
+
+	.choices .acf-button-group label:nth-child(6):before { content: "\01F60A"; position: absolute; left: calc(50% - 20px);}
+
+	.choices .acf-button-group label:nth-child(7):before { content: "\01F600"; position: absolute; left: calc(50% - 20px);}
+
+	</style>';
 }
 
 

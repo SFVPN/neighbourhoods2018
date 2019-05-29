@@ -1,11 +1,11 @@
 {
-    "key": "group_5c404be2d75a8",
-    "title": "Calendar",
+    "key": "group_5cebeeecee832",
+    "title": "Team",
     "fields": [
         {
-            "key": "field_5c404beae0013",
-            "label": "Event Dates",
-            "name": "event_dates",
+            "key": "field_5cebeefd55856",
+            "label": "Member",
+            "name": "team_member",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -18,14 +18,14 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "block",
-            "button_label": "Add Event",
+            "layout": "row",
+            "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5c405a145f9a6",
-                    "label": "Provisional",
-                    "name": "provisional",
-                    "type": "true_false",
+                    "key": "field_5cebef2455857",
+                    "label": "Image",
+                    "name": "team_image",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -34,50 +34,21 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
-                    "key": "field_5c404c05e0014",
-                    "label": "Start",
-                    "name": "start",
-                    "type": "date_time_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y g:i a",
-                    "return_format": "F j, Y g:i a",
-                    "first_day": 1
-                },
-                {
-                    "key": "field_5c404c26e0016",
-                    "label": "End",
-                    "name": "end",
-                    "type": "date_time_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y g:i a",
-                    "return_format": "F j, Y g:i a",
-                    "first_day": 1
-                },
-                {
-                    "key": "field_5c404c3be0017",
-                    "label": "Event Title",
-                    "name": "event_title",
+                    "key": "field_5cebef4a55858",
+                    "label": "Name",
+                    "name": "team_name",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -94,62 +65,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5c4064e601395",
-                    "label": "Event Description",
-                    "name": "event_description",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
-                },
-                {
-                    "key": "field_5c404c43e0018",
-                    "label": "Event Location",
-                    "name": "event_location",
-                    "type": "google_map",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "center_lat": "",
-                    "center_lng": "",
-                    "zoom": "",
-                    "height": ""
-                },
-                {
-                    "key": "field_5c405a2c5f9a7",
-                    "label": "More Info Link",
-                    "name": "moreinfo_link",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_5c827c9a4562a",
-                    "label": "More Info Label",
-                    "name": "moreinfo_label",
+                    "key": "field_5cebef6555859",
+                    "label": "Position",
+                    "name": "team_position",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -166,9 +84,67 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5c40651701396",
-                    "label": "Event Contact",
-                    "name": "event_contact",
+                    "key": "field_5cebf7b16d77e",
+                    "label": "Link Text",
+                    "name": "team_page_link_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5cebefd01f809",
+                    "label": "More details link",
+                    "name": "team_page",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": "",
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "id",
+                    "ui": 1
+                },
+                {
+                    "key": "field_5cebf88878058",
+                    "label": "Phone",
+                    "name": "member_phone",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5cebf8d778059",
+                    "label": "Email",
+                    "name": "member_email",
                     "type": "email",
                     "instructions": "",
                     "required": 0,
@@ -189,9 +165,9 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "options_page",
                 "operator": "==",
-                "value": "page-calendar.php"
+                "value": "theme-settings"
             }
         ]
     ],
@@ -200,18 +176,8 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content",
-        "excerpt",
-        "discussion",
-        "comments",
-        "author",
-        "format",
-        "categories",
-        "tags",
-        "send-trackbacks"
-    ],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555507321
+    "modified": 1558968551
 }

@@ -1,11 +1,11 @@
 {
-    "key": "group_5c404be2d75a8",
-    "title": "Calendar",
+    "key": "group_5cec1036245bc",
+    "title": "Partners",
     "fields": [
         {
-            "key": "field_5c404beae0013",
-            "label": "Event Dates",
-            "name": "event_dates",
+            "key": "field_5cec10362e1c9",
+            "label": "Member",
+            "name": "partner_member",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -18,14 +18,14 @@
             "collapsed": "",
             "min": 0,
             "max": 0,
-            "layout": "block",
-            "button_label": "Add Event",
+            "layout": "row",
+            "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5c405a145f9a6",
-                    "label": "Provisional",
-                    "name": "provisional",
-                    "type": "true_false",
+                    "key": "field_5cec103632b4a",
+                    "label": "Image",
+                    "name": "partner_logo",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -34,50 +34,21 @@
                         "class": "",
                         "id": ""
                     },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
-                    "key": "field_5c404c05e0014",
-                    "label": "Start",
-                    "name": "start",
-                    "type": "date_time_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y g:i a",
-                    "return_format": "F j, Y g:i a",
-                    "first_day": 1
-                },
-                {
-                    "key": "field_5c404c26e0016",
-                    "label": "End",
-                    "name": "end",
-                    "type": "date_time_picker",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "display_format": "F j, Y g:i a",
-                    "return_format": "F j, Y g:i a",
-                    "first_day": 1
-                },
-                {
-                    "key": "field_5c404c3be0017",
-                    "label": "Event Title",
-                    "name": "event_title",
+                    "key": "field_5cec103632d36",
+                    "label": "Name",
+                    "name": "partner_name",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -94,9 +65,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5c4064e601395",
-                    "label": "Event Description",
-                    "name": "event_description",
+                    "key": "field_5cec103632e12",
+                    "label": "Description",
+                    "name": "partner_description",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -113,27 +84,9 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_5c404c43e0018",
-                    "label": "Event Location",
-                    "name": "event_location",
-                    "type": "google_map",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "center_lat": "",
-                    "center_lng": "",
-                    "zoom": "",
-                    "height": ""
-                },
-                {
-                    "key": "field_5c405a2c5f9a7",
-                    "label": "More Info Link",
-                    "name": "moreinfo_link",
+                    "key": "field_5cec103632f18",
+                    "label": "More details link",
+                    "name": "partner_page",
                     "type": "url",
                     "instructions": "",
                     "required": 0,
@@ -147,9 +100,9 @@
                     "placeholder": ""
                 },
                 {
-                    "key": "field_5c827c9a4562a",
-                    "label": "More Info Label",
-                    "name": "moreinfo_label",
+                    "key": "field_5cec103632fe3",
+                    "label": "Phone",
+                    "name": "partner_phone",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -166,9 +119,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5c40651701396",
-                    "label": "Event Contact",
-                    "name": "event_contact",
+                    "key": "field_5cec103633040",
+                    "label": "Email",
+                    "name": "partner_email",
                     "type": "email",
                     "instructions": "",
                     "required": 0,
@@ -189,9 +142,9 @@
     "location": [
         [
             {
-                "param": "page_template",
+                "param": "options_page",
                 "operator": "==",
-                "value": "page-calendar.php"
+                "value": "theme-settings"
             }
         ]
     ],
@@ -200,18 +153,8 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": [
-        "the_content",
-        "excerpt",
-        "discussion",
-        "comments",
-        "author",
-        "format",
-        "categories",
-        "tags",
-        "send-trackbacks"
-    ],
+    "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1555507321
+    "modified": 1558974835
 }

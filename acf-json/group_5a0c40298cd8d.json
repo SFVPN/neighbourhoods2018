@@ -19,7 +19,7 @@
             "min": 0,
             "max": 0,
             "layout": "row",
-            "button_label": "Add Byline",
+            "button_label": "",
             "sub_fields": [
                 {
                     "key": "field_5a0db1e4ce34d",
@@ -70,168 +70,8 @@
             ]
         },
         {
-            "key": "field_5ba5109e6e6ac",
-            "label": "Front Page Callouts",
-            "name": "front_page_callouts",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": 0,
-            "max": 0,
-            "layout": "row",
-            "button_label": "Add Callout",
-            "sub_fields": [
-                {
-                    "key": "field_5ba510e36e6ad",
-                    "label": "Callout Title",
-                    "name": "callout_title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_5ba5110a6e6ae",
-                    "label": "Callout Description",
-                    "name": "callout_description",
-                    "type": "textarea",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
-                },
-                {
-                    "key": "field_5ba5112e6e6af",
-                    "label": "Callout Options",
-                    "name": "callout_options",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Page Link": "Page Link",
-                        "External Link": "External Link",
-                        "File Upload": "File Upload"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                },
-                {
-                    "key": "field_5ba511516e6b0",
-                    "label": "Page Link",
-                    "name": "page_link",
-                    "type": "page_link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ba5112e6e6af",
-                                "operator": "==",
-                                "value": "Page Link"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "post_type": [],
-                    "taxonomy": [],
-                    "allow_null": 0,
-                    "allow_archives": 1,
-                    "multiple": 0
-                },
-                {
-                    "key": "field_5ba511866e6b1",
-                    "label": "External Link",
-                    "name": "external_link",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ba5112e6e6af",
-                                "operator": "==",
-                                "value": "External Link"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_5ba511996e6b2",
-                    "label": "File to Upload",
-                    "name": "file_to_upload",
-                    "type": "file",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ba5112e6e6af",
-                                "operator": "==",
-                                "value": "File Upload"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "library": "all",
-                    "min_size": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
-        },
-        {
             "key": "field_5aeb25f544260",
-            "label": "Section Cards Layout Heading",
+            "label": "Front Page Section Heading",
             "name": "front_page_section_heading",
             "type": "text",
             "instructions": "",
@@ -250,7 +90,7 @@
         },
         {
             "key": "field_5a0c403df52fa",
-            "label": "Section Cards Layout",
+            "label": "Front Page Sections",
             "name": "front_page_sections",
             "type": "repeater",
             "instructions": "",
@@ -265,7 +105,7 @@
             "min": 0,
             "max": 0,
             "layout": "row",
-            "button_label": "Add Section Card",
+            "button_label": "",
             "sub_fields": [
                 {
                     "key": "field_5a0c4059f52fb",
@@ -389,5 +229,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1537549203
+    "modified": 1559036705
 }

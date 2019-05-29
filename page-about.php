@@ -1,24 +1,22 @@
 <?php
-
 /*
-Template Name: Teaching
+Template Name: Old Template
 */
+get_header();
+?>
 
-get_header(); ?>
-
-<main id="maincontent">
+<main  id="maincontent">
 	<div class="row" role="main">
 
 		<?php if (have_posts()) : while (have_posts()) : the_post();
 
-		get_template_part( 'parts/loop', 'page-about' );
+		get_template_part( 'parts/loop', 'page' );
 
-	 	endwhile; endif;
+		endwhile; endif;
 
 		?>
 
 	</div> <!-- end row -->
-
 </main> <!-- end main -->
 
 <?php get_footer(); ?>

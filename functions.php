@@ -47,6 +47,14 @@ require_once(get_template_directory().'/assets/functions/login.php');
 // Customize the WordPress admin
 require_once(get_template_directory().'/assets/functions/admin.php');
 
+function gioga_add_async_defer_attribute($tag, $handle) {
+	if ( 'maps-js' !== $handle )
+	return $tag;
+	return str_replace( ' src', ' async defer src', $tag );
+  // removed defer from function
+}
+add_filter('script_loader_tag', 'gioga_add_async_defer_attribute', 10, 2);
+
 function my_acf_update_average_rating($post_id)
 {
    if( have_rows('location_details') ):

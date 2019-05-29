@@ -20,6 +20,22 @@ get_header();
 		</div> <!-- end #strapline -->
 	</div> <!-- end row center -->
 
+	<div id="social_media_contact" class="row center">
+	<?php
+	$facebook = get_field('facebook', 'option');
+	$twitter = get_field('twitter', 'option');
+	if($facebook):?>
+		<div class="col s6">
+			<a class="" href="<?php echo $facebook; ?>"><span class="block h3"><i aria-hidden="true" class="mdi mdi-facebook"></i></span>Find OCN on Facebook</a>
+		</div>
+	<?php endif;
+
+	if($twitter):?>
+		<div class="col s6">
+				<a class="" href="<?php echo $twitter; ?>"><span class="block h3"><i aria-hidden="true" class="mdi mdi-twitter"></i></span>Follow OCN on Twitter</a>
+		</div>
+	<?php endif; ?>
+	</div>
 	<?php if( have_rows('front_page_bylines') ):?>
 	<div id="intro-text" class="row yellow">
 		<?php while ( have_rows('front_page_bylines') ) : the_row();?>

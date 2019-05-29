@@ -36,10 +36,16 @@ function site_scripts() {
 if(is_post_type_archive('audits')){
 wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'cluster-js', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array( 'maps-js' ), '', true );
-wp_enqueue_script( 'mapping-js', get_template_directory_uri() . '/assets/js/places_new.js', array( 'jquery', 'maps-js' ), '', true );
+wp_enqueue_script( 'audit-map-js', get_template_directory_uri() . '/assets/js/places_new.js', array( 'jquery', 'maps-js' ), '', true );
 }
 
-if(is_singular('audits')){
+// if(is_post_type_archive('activities')){
+// wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true ); // removed &callback=initMap
+// wp_enqueue_script( 'cluster-js', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array( 'maps-js' ), '', true );
+// wp_enqueue_script( 'activities-map-js', get_template_directory_uri() . '/assets/js/activities-map.js', array( 'jquery', 'maps-js' ), '', true );
+// }
+
+if(is_singular(array( 'audits' ))){
 wp_enqueue_script( 'chart-js', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', array(), '', true );
 wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'map-js', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery',  'maps-js' ), '', true );
@@ -52,13 +58,7 @@ if(is_page_template('page-form_survey.php')) {
 }
 
 
-function gioga_add_async_defer_attribute($tag, $handle) {
-	if ( 'maps-js' !== $handle )
-	return $tag;
-	return str_replace( ' src', ' async defer src', $tag );
-  // removed defer from function
-}
-add_filter('script_loader_tag', 'gioga_add_async_defer_attribute', 10, 2);
+
 //wp_enqueue_script( 'mixitup-js', 'https://cdn.jsdelivr.net/gh/patrickkunka/mixitup@3.2.1/dist/mixitup.js', array(), '', true );
 //wp_enqueue_script( 'mixitup-init', get_template_directory_uri() . '/assets/js/mixitup_init.js', array( ), '', true );
 
@@ -101,7 +101,7 @@ function my_deregister_styles() {
 add_action('wp_enqueue_scripts', 'site_scripts', 999);
 
 function my_enqueue() {
-    
+
 
     wp_enqueue_script( 'image-marker-js', get_template_directory_uri() . '/assets/js/image-marker.js', array( 'jquery' ), '', true );
 }

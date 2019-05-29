@@ -1,0 +1,62 @@
+{
+    "key": "group_5cebb2b2547c5",
+    "title": "Social Media",
+    "fields": [
+        {
+            "key": "field_5cebb2b25d0e7",
+            "label": "Facebook",
+            "name": "facebook",
+            "type": "text",
+            "instructions": "Add the link to your Facebook page here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5cebb30303160",
+            "label": "Twitter",
+            "name": "twitter",
+            "type": "text",
+            "instructions": "Add the link to your Twitter profile here.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1558950676
+}

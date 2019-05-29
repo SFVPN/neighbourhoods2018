@@ -10,15 +10,18 @@ if(is_tax()) {
 }
 
 ?>
-<li class="collection-item mix white <?php echo esc_html( $post_terms[0]->slug );?> avatar" id="m<?=$i?>" data-lat="<?php echo $loc['lat']; ?>" data-lng="<?php echo $loc['lng']; ?>">
+<li class="collection-item col s12 white <?php echo esc_html( $post_terms[0]->slug );?>" id="m<?=$i?>" data-lat="<?php echo $loc['lat']; ?>" data-lng="<?php echo $loc['lng']; ?>">
+  <div class="col hide-on-small-only m3">
     <?php
 
     if ( has_post_thumbnail() ) {
       accessible_thumbnail('thumbnail', 'circle');
     } else {
-      echo '<i class="material-icons yellow circle black-text" aria-hidden="true">filter_7</i>';
+      //echo '<i class="material-icons yellow circle black-text" aria-hidden="true">filter_7</i>';
     }?>
 
+  </div>
+  <div class="col s12 m9">
     <span class="title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></span>
     <p class="label"><i class="mdi mdi-clock"></i> Posted on <?php the_time('F j, Y');?><br>
       <?php the_excerpt(); ?>
@@ -29,5 +32,5 @@ if(is_tax()) {
       <?php  }
       ?>
     <?php }?>
-
+  </div>
 </li>

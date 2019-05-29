@@ -1,42 +1,51 @@
 <?php
-$contact = get_field('main_contact');
-if($contact) {
-$landline = get_field('landline_number', 'user_' . $contact->ID);
-$mobile = get_field('mobile_number', 'user_' . $contact->ID);
-	?>
+$page_id = get_queried_object_id();
 
-	<div id="contact-details" class="">
-		<ul class="collection">
-		<li class="collection-item header grey lighten-3 center">
-			<h3 class="h5">Contact</h3>
-		</li>
-    <li class="collection-item avatar">
-      <img src="<?php the_field('profile_picture', 'user_' . $contact->ID);?>" alt="" class="circle">
-      <h5 class="title"><?php echo $contact->display_name . ' - ' . get_field('position', 'user_' . $contact->ID) ;?></h5>
-			<?php if($contact->user_email){?>
-				<p>
-					<i class="material-icons left">email</i>
-					<?php echo 'Email: <a href="mailto:' . $contact->user_email . '">' . $contact->user_email . '</a>';?>
-				</p>
-			<?php }
-      	if($landline){?>
-					<p>
-						<i class="material-icons left">phone</i>
-						<?php echo 'Landline: ' . $landline;?>
-					</p>
-			<?php }
-	      	if($mobile){?>
+if( have_rows('team_member', 'option') ):
 
-				<p>
-					<i class="material-icons left">phone_android</i>
-					<?php echo 'Mobile: ' . $mobile;?>
-				</p>
-			<?php }?>
+ ?>
 
-    </li>
-	</ul>
+
+<?php while( have_rows('team_member', 'option') ): the_row();
+
+$image = get_sub_field('team_image');
+$email = get_sub_field('member_email');
+$phone = get_sub_field('member_phone');
+$name = get_sub_field('team_name');
+$team_page = get_sub_field('team_page');
+
+if($page_id === $team_page): // loop through the team member list and check whose page link ID matches the current page ID
+?>
+<div id="contact-details">
+ <ul class="collection">
+ <li class="collection-item header grey lighten-3 center">
+	 <h3 class="h5">Contact</h3>
+ </li>
+<li class="collection-item avatar">
+	<img class="circle" alt="<?php echo $image['alt']; ?>" src="<?php echo $image['url']; ?>"/>
+	<h5 class="title"><?php echo $name;?></h5>
+	<?php if($email){?>
+		<p>
+			<i class="material-icons left">email</i>
+			<?php echo 'Email: <a href="mailto:' . $email . '">' . $email . '</a>';?>
+		</p>
+	<?php }
+			if($phone){?>
+
+		<p>
+			<i class="material-icons left">phone</i>
+			<?php echo 'Phone: ' . $phone;?>
+		</p>
+	<?php }?>
+
+</li>
+
+</ul>
 </div>
+<?php endif;?>
 
 
+<?php endwhile; ?>
 
-<?php } ?>
+
+<?php endif; ?>
