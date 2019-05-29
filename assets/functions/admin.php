@@ -181,9 +181,6 @@ function sfvpn_posts_orderby( $query ) {
   }
 }
 
-add_filter('acf/settings/google_api_key', function () {
-    return 'AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA';
-});
 
 if (function_exists('acf_add_options_page')) {
 
@@ -412,3 +409,11 @@ function myplugin_comment_column( $column, $comment_ID )
 }
 
 add_filter( 'manage_comments_custom_column', 'myplugin_comment_column', 10, 2 );
+
+
+function my_acf_init() {
+	$api_key = get_field('api_key', 'option');
+	acf_update_setting('google_api_key', $api_key);
+}
+
+add_action('acf/init', 'my_acf_init');
