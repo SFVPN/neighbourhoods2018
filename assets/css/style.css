@@ -11790,6 +11790,21 @@ BADGEOS OVERRIDES
 /*********************
 SIMPLE CALENDAR OVERRIDES
 *********************/
+.simcal-events {
+  border: 1px solid #9e9e9e;
+  margin: 1rem 4px !important;
+  border-radius: 3px; }
+
+.simcal-day-label {
+  margin: 0 4px;
+  border-radius: 3px; }
+
+thead {
+  border-bottom: 0px !important; }
+
+.simcal-day-void {
+  background: transparent !important; }
+
 .simcal-default-calendar-grid .simcal-events {
   font-size: .8rem !important; }
 
@@ -11903,9 +11918,6 @@ POSTS & CONTENT STYLES
 .page p, .single-post p, .blog p {
   font-size: 1.2rem;
   font-weight: 300; }
-
-.contact .container {
-  padding: 4rem; }
 
 .content_block ul {
   padding-left: 40px; }
@@ -12410,6 +12422,30 @@ img.hide-on-med-and-up {
 .page-template-page-about h1 {
   position: absolute;
   width: 100%; }
+
+/*********************
+CONTACT PAGE
+*********************/
+.no-pad {
+  padding: 0 !important; }
+
+#contact_options {
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 3px; }
+  #contact_options p {
+    line-height: 1.5rem;
+    font-size: 1rem; }
+  #contact_options .mdi {
+    padding-right: 5px; }
+  #contact_options img {
+    border-radius: 3px; }
+
+#contact_form {
+  padding: 2rem;
+  border: 1px solid #eee;
+  margin-top: 2rem;
+  border-radius: 3px; }
 
 /*********************
 RESOURCE PAGES
