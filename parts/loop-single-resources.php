@@ -230,7 +230,7 @@ echo '</div>';
 					}
 
 					if($note_type['value'] === 'link') {
-							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading blue lighten-1 white-text"><i class="material-icons left">library_books</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
+							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">library_books</i><strong>' . $note_type['label'] . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
 							if($note_url) {
 								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 							}
