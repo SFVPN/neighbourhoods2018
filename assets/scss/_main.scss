@@ -406,7 +406,7 @@ SIMPLE CALENDAR OVERRIDES
 *********************/
 
 .single-calendar .container {
-  width: 90%;
+  width: 80%;
   .calendar_desc {
     padding: 0 10%;
   }
@@ -491,7 +491,56 @@ SIMPLE CALENDAR OVERRIDES
 
 }
 
-.simcal-event-details.simcal-tooltip-content .btn-flat a {color: white;;}
+.simcal-events-list-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  @media #{$small-and-down} {
+    grid-template-columns: 1fr;
+  }
+  grid-gap: 1rem;
+  .simcal-day-label {
+    border-bottom: 0px !important;
+    margin: 0 !important;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem !important;
+    span {
+      border-radius: 3px;
+    }
+  }
+.simcal-day {
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: 3px;
+}
+.simcal-event-details.simcal-tooltip-content .btn-flat a {color: white;}
+
+
+.simcal-event-details {font-size: 1rem !important; padding-bottom: 2rem;}
+
+.simcal-event-details .btn-flat a {color: white;}
+
+.simcal-event-details .event_location {background: whitesmoke; padding: 1rem;}
+
+.simcal-event-details .event_title { font-size: 1.25rem; padding: .5rem 0rem;}
+
+.simcal-event-details .event_time {
+  padding: 0 0 1rem 0rem;
+  &:before {
+    content: '\e192';
+    font-family: "Material Icons";
+    padding: 0 5px 0 0;
+  }
+}
+
+.event_description p {font-size: 1rem;}
+
+.simcal-events {
+    border: none;
+}
+}
 
 /*********************
 ACF FORM OVERRIDES

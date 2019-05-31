@@ -11791,7 +11791,7 @@ BADGEOS OVERRIDES
 SIMPLE CALENDAR OVERRIDES
 *********************/
 .single-calendar .container {
-  width: 90%; }
+  width: 80%; }
   .single-calendar .container .calendar_desc {
     padding: 0 10%; }
 
@@ -11851,8 +11851,50 @@ thead {
   font-size: 16px;
   line-height: 1.5rem; }
 
-.simcal-event-details.simcal-tooltip-content .btn-flat a {
-  color: white; }
+.simcal-events-list-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1rem; }
+  @media only screen and (max-width: 600px) {
+    .simcal-events-list-container {
+      grid-template-columns: 1fr; } }
+  .simcal-events-list-container .simcal-day-label {
+    border-bottom: 0px !important;
+    margin: 0 !important;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    text-align: center;
+    font-size: 1.5rem !important; }
+    .simcal-events-list-container .simcal-day-label span {
+      border-radius: 3px; }
+  .simcal-events-list-container .simcal-day {
+    border: 1px solid #eee;
+    padding: 1rem;
+    border-radius: 3px; }
+  .simcal-events-list-container .simcal-event-details.simcal-tooltip-content .btn-flat a {
+    color: white; }
+  .simcal-events-list-container .simcal-event-details {
+    font-size: 1rem !important;
+    padding-bottom: 2rem; }
+  .simcal-events-list-container .simcal-event-details .btn-flat a {
+    color: white; }
+  .simcal-events-list-container .simcal-event-details .event_location {
+    background: whitesmoke;
+    padding: 1rem; }
+  .simcal-events-list-container .simcal-event-details .event_title {
+    font-size: 1.25rem;
+    padding: .5rem 0rem; }
+  .simcal-events-list-container .simcal-event-details .event_time {
+    padding: 0 0 1rem 0rem; }
+    .simcal-events-list-container .simcal-event-details .event_time:before {
+      content: '\e192';
+      font-family: "Material Icons";
+      padding: 0 5px 0 0; }
+  .simcal-events-list-container .event_description p {
+    font-size: 1rem; }
+  .simcal-events-list-container .simcal-events {
+    border: none; }
 
 /*********************
 ACF FORM OVERRIDES
