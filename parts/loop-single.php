@@ -153,7 +153,7 @@ endif;
 
 	 	$calendar_desc = get_field('calendar_info');
 		if ($calendar_desc) {
-			echo '<div>
+			echo '<div class="calendar_desc">
 			' . $calendar_desc . '
 			</div>';
 		}
