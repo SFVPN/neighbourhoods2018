@@ -493,7 +493,7 @@ SIMPLE CALENDAR OVERRIDES
 
 .simcal-events-list-container {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 3fr;
   @media #{$small-and-down} {
     grid-template-columns: 1fr;
   }
@@ -505,7 +505,7 @@ SIMPLE CALENDAR OVERRIDES
     justify-content: flex-start;
     flex-direction: column;
     text-align: center;
-    font-size: 1.5rem !important;
+    font-size: 1.25rem !important;
     span {
       border-radius: 3px;
     }
