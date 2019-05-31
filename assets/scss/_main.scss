@@ -515,14 +515,30 @@ SIMPLE CALENDAR OVERRIDES
   padding: 1rem;
   border-radius: 3px;
 }
-.simcal-event-details.simcal-tooltip-content .btn-flat a {color: white;}
 
+.event_location:before {
+  content:"Location";
+  display: block;
+  font-weight: bold;
+  padding-bottom: 1rem;
+  text-decoration: underline;
+}
 
-.simcal-event-details {font-size: 1rem !important; padding-bottom: 2rem;}
+.simcal-event-details.simcal-tooltip-content .btn-flat a {
+  color: white;
+}
 
-.simcal-event-details .btn-flat a {color: white;}
+.simcal-event-details {
+  font-size: 1rem !important; padding-bottom: 2rem;
+}
 
-.simcal-event-details .event_location {background: whitesmoke; padding: 1rem;}
+.simcal-event-details .btn-flat a {
+  color: white;
+}
+
+.simcal-event-details .event_location {
+  background: color("grey", "lighten-4");
+  padding: 1rem;}
 
 .simcal-event-details .event_title { font-size: 1.25rem; padding: .5rem 0rem;}
 
@@ -535,8 +551,12 @@ SIMPLE CALENDAR OVERRIDES
   }
 }
 
-.event_description p {font-size: 1rem;}
-
+.event_description {
+  background: color("grey", "lighten-4");
+  padding: 1rem;
+  margin-bottom: 1rem;
+  p {font-size: 1rem;}
+}
 .simcal-events {
     border: none;
 }
