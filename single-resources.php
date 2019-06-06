@@ -100,10 +100,6 @@ echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn hide-on
 	echo '<button class="btn hide-on-med-and-down" onclick="printFunction()">Print page</button>';
 };?>
 </div>
-<script>
-function printFunction() {
-		window.print();
-}
-</script>
+
 
 <?php get_footer(); ?>

@@ -156,6 +156,7 @@ endif;
 			echo '<div class="calendar_desc">
 			' . $calendar_desc . '
 			</div>';
+			echo '<div class="fixed-action-btn no-print"><button class="btn" onclick="printFunction()">Print Page</button></div>';
 		}
 
 // check if the flexible content field has rows of data

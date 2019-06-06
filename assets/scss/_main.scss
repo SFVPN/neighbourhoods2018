@@ -473,7 +473,7 @@ SIMPLE CALENDAR OVERRIDES
     border-radius: 3px;
     font-size: 16px;
   }
-  .event_description {
+  .event_desc {
     padding: .5rem;
     margin: .5rem 0;
   }
@@ -536,9 +536,12 @@ SIMPLE CALENDAR OVERRIDES
   color: white;
 }
 
-.simcal-event-details .event_location {
+
+.event_wrapper {
   background: color("grey", "lighten-4");
-  padding: 1rem;}
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
 
 .simcal-event-details .event_title { font-size: 1.25rem; padding: .5rem 0rem;}
 
@@ -551,10 +554,8 @@ SIMPLE CALENDAR OVERRIDES
   }
 }
 
-.event_description {
-  background: color("grey", "lighten-4");
-  padding: 1rem;
-  margin-bottom: 1rem;
+.event_desc {
+  padding-top: 1rem;
   p {font-size: 1rem;}
 }
 .simcal-events {

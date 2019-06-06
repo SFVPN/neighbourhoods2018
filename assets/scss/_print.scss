@@ -97,8 +97,47 @@ to display none.
     #share-links,
     .parent-page,
     .no-print,
+    .location_link,
+    .calendar_add,
+    .calendar_desc,
+    .post-edit-link,
+    .simcal-calendar-head,
     nav {
-      display: none;
+      display: none !important;
     }
+
+    .simcal-events-list-container .event_wrapper {
+      padding: 0 !important;
+    }
+
+    .simcal-events-list-container {
+      display: block;
+    }
+
+    .simcal-events-list-container .simcal-day {
+      border: 0px;
+    }
+
+    .simcal-day {
+      page-break-after: always;
+    }
+
+    .simcal-date-format {
+      font-size: 2.5rem;
+      font-weight: bolder;
+    }
+
+    .simcal-event-title {
+      font-size: 1.5rem !important;
+    }
+
+    .simcal-events-list-container .simcal-event-details {
+
+      margin-bottom: 2rem !important;
+      p {
+        margin: 0 !important;
+      }
+    }
+
 
 } // End of media query

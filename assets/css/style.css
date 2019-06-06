@@ -11839,7 +11839,7 @@ thead {
   background: #f5f5f5;
   border-radius: 3px;
   font-size: 16px; }
-.simcal-event-details.simcal-tooltip-content .event_description {
+.simcal-event-details.simcal-tooltip-content .event_desc {
   padding: .5rem;
   margin: .5rem 0; }
 .simcal-event-details.simcal-tooltip-content .btn-flat {
@@ -11885,9 +11885,10 @@ thead {
     padding-bottom: 2rem; }
   .simcal-events-list-container .simcal-event-details .btn-flat a {
     color: white; }
-  .simcal-events-list-container .simcal-event-details .event_location {
+  .simcal-events-list-container .event_wrapper {
     background: #f5f5f5;
-    padding: 1rem; }
+    padding: 1rem;
+    margin-bottom: 1rem; }
   .simcal-events-list-container .simcal-event-details .event_title {
     font-size: 1.25rem;
     padding: .5rem 0rem; }
@@ -11897,11 +11898,9 @@ thead {
       content: '\e192';
       font-family: "Material Icons";
       padding: 0 5px 0 0; }
-  .simcal-events-list-container .event_description {
-    background: #f5f5f5;
-    padding: 1rem;
-    margin-bottom: 1rem; }
-    .simcal-events-list-container .event_description p {
+  .simcal-events-list-container .event_desc {
+    padding-top: 1rem; }
+    .simcal-events-list-container .event_desc p {
       font-size: 1rem; }
   .simcal-events-list-container .simcal-events {
     border: none; }
@@ -13181,7 +13180,36 @@ to display none.
   #share-links,
   .parent-page,
   .no-print,
+  .location_link,
+  .calendar_add,
+  .calendar_desc,
+  .post-edit-link,
+  .simcal-calendar-head,
   nav {
-    display: none; } }
+    display: none !important; }
+
+  .simcal-events-list-container .event_wrapper {
+    padding: 0 !important; }
+
+  .simcal-events-list-container {
+    display: block; }
+
+  .simcal-events-list-container .simcal-day {
+    border: 0px; }
+
+  .simcal-day {
+    page-break-after: always; }
+
+  .simcal-date-format {
+    font-size: 2.5rem;
+    font-weight: bolder; }
+
+  .simcal-event-title {
+    font-size: 1.5rem !important; }
+
+  .simcal-events-list-container .simcal-event-details {
+    margin-bottom: 2rem !important; }
+    .simcal-events-list-container .simcal-event-details p {
+      margin: 0 !important; } }
 
 /*# sourceMappingURL=style.css.map */

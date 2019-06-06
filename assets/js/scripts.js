@@ -197,3 +197,7 @@ $('.acf-hl .acf-button').addClass('btn blue-grey darken-4');
   }
 
 $(".login-remember").html('<p><input name="rememberme" class="filled-in" type="checkbox" id="rememberme" value="foreover" /><label for="rememberme">Remember Me</label></p>');
+
+function printFunction() {
+		window.print();
+}
