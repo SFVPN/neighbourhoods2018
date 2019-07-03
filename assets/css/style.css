@@ -4214,6 +4214,10 @@ small {
       background-color: inherit; }
   .card.small {
     height: 300px; }
+  .card.team {
+    height: 250px; }
+    .card.team .card-content {
+      max-height: 75%; }
   .card.medium {
     height: 400px; }
   .card.large {
@@ -11776,6 +11780,12 @@ ul#dropdown-1 li {
   transform: rotate(180deg); }
 
 /*********************
+ABOUT US PAGE
+*********************/
+#team_members h2, #partner_members h2 {
+  padding: 2rem 0; }
+
+/*********************
 BADGEOS OVERRIDES
 *********************/
 .achievement-wrap {
@@ -11876,13 +11886,15 @@ thead {
     content: "Location";
     display: block;
     font-weight: bold;
-    padding-bottom: 1rem;
     text-decoration: underline; }
   .simcal-events-list-container .simcal-event-details.simcal-tooltip-content .btn-flat a {
     color: white; }
   .simcal-events-list-container .simcal-event-details {
     font-size: 1rem !important;
     padding-bottom: 2rem; }
+    .simcal-events-list-container .simcal-event-details p {
+      font-size: 1rem !important;
+      line-height: 1.5rem !important; }
   .simcal-events-list-container .simcal-event-details .btn-flat a {
     color: white; }
   .simcal-events-list-container .event_wrapper {
@@ -13185,6 +13197,8 @@ to display none.
   .calendar_desc,
   .post-edit-link,
   .simcal-calendar-head,
+  .simcal-event-details .btn-flat a,
+  .event_location a,
   nav {
     display: none !important; }
 
@@ -13208,8 +13222,6 @@ to display none.
     font-size: 1.5rem !important; }
 
   .simcal-events-list-container .simcal-event-details {
-    margin-bottom: 2rem !important; }
-    .simcal-events-list-container .simcal-event-details p {
-      margin: 0 !important; } }
+    margin-bottom: 2rem !important; } }
 
 /*# sourceMappingURL=style.css.map */

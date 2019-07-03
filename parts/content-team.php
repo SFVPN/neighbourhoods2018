@@ -15,10 +15,12 @@
 
 
   <div class="col s12 m6 l4">
-      <div class="card">
+      <div class="card team">
+        <?php if($image):?>
         <div class="card-image">
           <img class="responsive-img" alt="<?php echo $image['alt']; ?>" src="<?php echo $image['url']; ?>"/>
         </div>
+        <?php endif;?>
         <div class="card-content">
           <h3 class="h6"><?php echo $name;?></h3>
           <p><?php the_sub_field('team_position');?></p>

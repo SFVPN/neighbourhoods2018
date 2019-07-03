@@ -102,6 +102,8 @@ to display none.
     .calendar_desc,
     .post-edit-link,
     .simcal-calendar-head,
+    .simcal-event-details .btn-flat a,
+    .event_location a,
     nav {
       display: none !important;
     }
@@ -134,9 +136,6 @@ to display none.
     .simcal-events-list-container .simcal-event-details {
 
       margin-bottom: 2rem !important;
-      p {
-        margin: 0 !important;
-      }
     }
 
 
