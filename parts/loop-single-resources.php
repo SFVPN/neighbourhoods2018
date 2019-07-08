@@ -357,45 +357,28 @@ echo '</div></div>';
 endif;
 
 
-if( get_row_layout() == 'product_overview_block' ):
+if( get_row_layout() == 'available_platforms' ):
 
 	$overview_title = get_sub_field('overview_title');
 // check if the repeater field has rows of data
-if( have_rows('product_add') ):
 
-	echo '<div class="row recommendation"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div id="note-content" class="col center s12 note-content grey lighten-4">';
+
+	echo '<div class="content_block">';
  	// loop through the rows of data
-    while ( have_rows('product_add') ) : the_row();
 
-        $link = get_sub_field('product_link');
-				$desc = get_sub_field('product_description');
-				$good = get_sub_field('product_good');
-				$bad = get_sub_field('product_bad');
+
+        $link = get_sub_field('platform_link');
+				$link_text = get_sub_field('platform_link_text');
 				$platforms = get_sub_field('product_platforms');
+				$platform_text = get_sub_field('platform_text');
 
-
-				if($link) {
-					echo '<div><a class="block product_link" href="' . $link . '" data-note="This link takes you to an external website">' . get_sub_field('recommended_product') . '</a></div>';
-				} else {
-						echo '<div><span class="block product_link">' . get_sub_field('recommended_product') . '</span></div>';
+				if($platform_text) {
+					echo '<p>' . $platform_text . '</p>';
 				}
 
-				if($desc) {
-					echo '<p>' . $desc . '</p>';
-				}
-
-				if($good) {
-					echo '<p><i class="material-icons left green-text lighten-1">thumb_up</i> Good - ' . $good . '</p>';
-				}
-
-				if($bad) {
-					echo '<p><i class="material-icons left materialize-red-text lighten-2">thumb_down</i> Bad - ' . $bad . '</p>';
-				}
 
 				if($platforms)  {
-						echo '<ul class="center platforms white"><li>
-						Available on:
-						</li>';
+						echo '<div class="grey lighten-4 platforms"><ul>';
 						foreach ($platforms as $platform) {
 							if($platform['value'] === 'web') {
 								echo '<li>
@@ -421,18 +404,14 @@ if( have_rows('product_add') ):
 
 						echo '</ul>';
 
+						if($link) {
+							echo '<a class="block center product_link" href="' . $link . '" data-note="This link takes you to an external website">' . $link_text . '</a>';
+						}
+				echo '</div>';
 				}
 
 
-
-    endwhile;
-
-else :
-
-    // no rows found
-
-endif;
-echo '</div></div>';
+echo '</div>';
 endif;
 
 

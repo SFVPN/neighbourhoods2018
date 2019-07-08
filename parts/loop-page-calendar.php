@@ -27,6 +27,8 @@
 				$where = get_sub_field('event_location');
 				$description = get_sub_field('event_description');
 				$contact = get_sub_field('event_contact');
+				$contact_phone = get_sub_field('event_contact_phone');
+				$map_link = get_sub_field('map_link');
 				$more_info = get_sub_field('moreinfo_link');
 				$more_info_label = get_sub_field('moreinfo_label')
 				?>
@@ -73,7 +75,12 @@
 						?>
 						<?php if($where){
 							echo '<p class="location"><strong>Venue </strong>' . $where['address'] . ' [';
-							echo '<a href="https://www.google.co.uk/maps/place/' . $where['address'] . '/@' . $where['lat'] . ',' . $where['lng'] . ',17z" target="_blank">View on Google Maps</a>]</p>';
+							if(!$map_link) {
+								echo '<a href="https://www.google.co.uk/maps/place/' . $where['address'] . '/@' . $where['lat'] . ',' . $where['lng'] . ',17z" target="_blank">View on Google Maps</a>]';
+							} else {
+								echo '<a href="' . $map_link . '" target="_blank">View on Google Maps</a>]';
+							}
+							echo '</p>';
 						}
 
 						?>
@@ -91,7 +98,7 @@
 						?>
 
 						<?php if($contact){
-							echo '<p class="event_contact grey lighten-3">For more information about this event you can contact us via email at <a href="mailto:' . $contact . '">' . $contact . '</a> or by telephone on ' . get_field('company_phone', 'option') . '</p>';
+							echo '<p class="event_contact grey lighten-3">For more information about this event you can contact us via email at <a href="mailto:' . $contact . '">' . $contact . '</a> or by telephone on ' . $contact_phone . '</p>';
 						}
 
 

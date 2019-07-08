@@ -427,7 +427,7 @@
                                     "key": "field_5b914de4ab023",
                                     "label": "Note Text",
                                     "name": "note",
-                                    "type": "textarea",
+                                    "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -437,10 +437,10 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": "",
-                                    "maxlength": "",
-                                    "rows": "",
-                                    "new_lines": "br"
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1,
+                                    "delay": 0
                                 },
                                 {
                                     "key": "field_5ba0b653f5552",
@@ -520,7 +520,7 @@
                                     "label": "Note Link",
                                     "name": "note_link",
                                     "type": "repeater",
-                                    "instructions": "If you are uploading resource files, please do so here. You can upload a maximum of 4 files.",
+                                    "instructions": "If you are adding links, please do so here. You can a maximum of 4 links",
                                     "required": 0,
                                     "conditional_logic": [
                                         [
@@ -586,7 +586,15 @@
                                     "type": "url",
                                     "instructions": "If you are linking to an external website or a document to download, please enter the URL here.",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_5ba0b653f5552",
+                                                "operator": "!=",
+                                                "value": "link"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -732,17 +740,64 @@
                             "min": "",
                             "max": ""
                         },
-                        "layout_5c3c6d173e5ae": {
-                            "key": "layout_5c3c6d173e5ae",
-                            "name": "product_overview_block",
-                            "label": "Product Overview",
+                        "layout_5d1f729818712": {
+                            "key": "layout_5d1f729818712",
+                            "name": "available_platforms",
+                            "label": "Available Platforms",
                             "display": "block",
                             "sub_fields": [
                                 {
-                                    "key": "field_5c3c6d173e5af",
-                                    "label": "Section Title",
-                                    "name": "overview_title",
+                                    "key": "field_5c3c6d173e5b7",
+                                    "label": "Available on",
+                                    "name": "product_platforms",
+                                    "type": "select",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "web": "Web App",
+                                        "android": "Android App",
+                                        "ios": "iOS App",
+                                        "desktop": "Desktop App",
+                                        "honorable": "Honorable Mention"
+                                    },
+                                    "default_value": [],
+                                    "allow_null": 1,
+                                    "multiple": 1,
+                                    "ui": 1,
+                                    "ajax": 0,
+                                    "return_format": "array",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "key": "field_5d1f75057ed64",
+                                    "label": "Available Platform text",
+                                    "name": "platform_text",
                                     "type": "text",
+                                    "instructions": "You can change the default app platform text here if desired.  The default text should be pre-filled.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Apps for this service are available on the following platforms or systems.",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5c3c6d173e5b8",
+                                    "label": "Platform Link",
+                                    "name": "platform_link",
+                                    "type": "url",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -752,17 +807,14 @@
                                         "id": ""
                                     },
                                     "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
+                                    "placeholder": ""
                                 },
                                 {
-                                    "key": "field_5c3c6d173e5b0",
-                                    "label": "Add product",
-                                    "name": "product_add",
-                                    "type": "repeater",
-                                    "instructions": "",
+                                    "key": "field_5d1f74aa7ed63",
+                                    "label": "Platform Link Text",
+                                    "name": "platform_link_text",
+                                    "type": "text",
+                                    "instructions": "You can change the default product link text here is desired.  The default text should be pre-filled.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -770,157 +822,11 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "collapsed": "",
-                                    "min": 0,
-                                    "max": 0,
-                                    "layout": "block",
-                                    "button_label": "Add Recommendation",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_5c3c6d173e5b1",
-                                            "label": "Product Name",
-                                            "name": "recommended_product",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_5c3c6d173e5b2",
-                                            "label": "Product Logo",
-                                            "name": "product_logo",
-                                            "type": "image",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "url",
-                                            "preview_size": "thumbnail",
-                                            "library": "all",
-                                            "min_width": "",
-                                            "min_height": "",
-                                            "min_size": "",
-                                            "max_width": "",
-                                            "max_height": "",
-                                            "max_size": "",
-                                            "mime_types": ""
-                                        },
-                                        {
-                                            "key": "field_5c3c6d173e5b3",
-                                            "label": "Product Description",
-                                            "name": "product_description",
-                                            "type": "textarea",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "maxlength": "",
-                                            "rows": "",
-                                            "new_lines": ""
-                                        },
-                                        {
-                                            "key": "field_5c3c6d173e5b4",
-                                            "label": "The Good",
-                                            "name": "product_good",
-                                            "type": "textarea",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "maxlength": "",
-                                            "rows": "",
-                                            "new_lines": "br"
-                                        },
-                                        {
-                                            "key": "field_5c3c6d173e5b5",
-                                            "label": "The Bad",
-                                            "name": "product_bad",
-                                            "type": "textarea",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "maxlength": "",
-                                            "rows": "",
-                                            "new_lines": "br"
-                                        },
-                                        {
-                                            "key": "field_5c3c6d173e5b7",
-                                            "label": "Available on",
-                                            "name": "product_platforms",
-                                            "type": "select",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "choices": {
-                                                "web": "Web App",
-                                                "android": "Android App",
-                                                "ios": "iOS App",
-                                                "desktop": "Desktop App",
-                                                "honorable": "Honorable Mention"
-                                            },
-                                            "default_value": [],
-                                            "allow_null": 1,
-                                            "multiple": 1,
-                                            "ui": 1,
-                                            "ajax": 0,
-                                            "return_format": "array",
-                                            "placeholder": ""
-                                        },
-                                        {
-                                            "key": "field_5c3c6d173e5b8",
-                                            "label": "Product Link",
-                                            "name": "product_link",
-                                            "type": "url",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": ""
-                                        }
-                                    ]
+                                    "default_value": "You can find information on where to download the apps for this service by following this link.",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
                                 }
                             ],
                             "min": "",
@@ -953,5 +859,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1554131920
+    "modified": 1562343077
 }

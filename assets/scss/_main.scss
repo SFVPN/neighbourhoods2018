@@ -1534,7 +1534,7 @@ a.current.chip {
   margin-top: 2rem;
 }
 
-.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required, .row.steps_block {
+.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0;
   .note-heading {
@@ -1571,7 +1571,8 @@ a.current.chip {
 
     }
   }
-  ul.platforms {
+  .platforms {
+    padding: 1rem;
     li {
       display: inline-block;
       padding: 0 1rem;

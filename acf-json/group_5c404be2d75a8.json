@@ -131,6 +131,22 @@
                     "height": ""
                 },
                 {
+                    "key": "field_5d2347a0a59cb",
+                    "label": "Map Link",
+                    "name": "map_link",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                },
+                {
                     "key": "field_5c405a2c5f9a7",
                     "label": "More Info Link",
                     "name": "moreinfo_link",
@@ -182,6 +198,25 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": ""
+                },
+                {
+                    "key": "field_5d23490c5b3cd",
+                    "label": "Event Contact Phone",
+                    "name": "event_contact_phone",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         }
@@ -213,5 +248,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1555507321
+    "modified": 1562593565
 }
