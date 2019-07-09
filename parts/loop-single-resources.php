@@ -30,7 +30,7 @@ if($queried_object->post_parent != 0 ) {
 			echo '<i class="mdi mdi-tag-multiple"></i> ';
 			foreach ($terms as $term) {
 				if ($term->parent === 0) {
-						echo '<a href="' . get_term_link($term->term_id) . '" class="chip yellow">' . $term->name . '</a>';
+						echo '<a href="' . get_term_link($term->term_id) . '" class="chip">' . $term->name . '</a>';
 				} else {
 					echo '<a href="' . get_term_link($term->term_id) . '" class="chip">' . $term->name . '</a>';
 				}
@@ -414,6 +414,125 @@ if( get_row_layout() == 'available_platforms' ):
 echo '</div>';
 endif;
 
+if( get_row_layout() == 'local_group_activities' ):
+
+	$group_email = get_sub_field('group_email');
+	$group_phone = get_sub_field('group_phone');
+	$group_details = get_sub_field_object('activity_group_details');
+
+// check if the repeater field has rows of data
+if( $group_details ):
+
+
+
+
+	echo '<div class="row activities">';
+ 	// loop through the rows of data
+
+    while ( have_rows('activity_group_details') ) : the_row();
+
+				$activity_start = get_sub_field('activity_start');
+				$time_start = get_sub_field('activity_start_time');
+				$activity_end = get_sub_field('activity_end');
+				$time_end = get_sub_field('activity_end_time');
+        $activity_name = get_sub_field('activity_description');
+				$activity_frequency = get_sub_field('activity_frequency');
+				$activity_frequency_month = get_sub_field('activity_frequency_month');
+				$activity_day = get_sub_field('activity_day');
+				$activity_organiser = get_sub_field('activity_organiser');
+				$activity_contact = get_sub_field('group_contact');
+				$activity_email = get_sub_field('group_email');
+				$activity_phone = get_sub_field('group_phone');
+				$contact_map = get_sub_field('map_address');
+				$map_key = get_field('api_key', 'option');
+
+				if($activity_name) {
+					echo '<p>' . $activity_name . '</p>';
+				}
+
+				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . $group_details['label']  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
+
+				echo '<div class="col s12 l6">
+								<label class="chip grey darken-4 white-text">Days</label><span class="block">';
+
+
+				if($activity_frequency) {
+
+					echo ' This is held ' . $activity_frequency['label'] . ' on ';
+				}
+
+				if($activity_frequency_month) {
+					echo 'every ' . $activity_frequency_month['label'] . ' ';
+					$frequency_interval = 'BYSETPOS=' . $activity_frequency_month['value'] . ';';
+				}
+
+
+
+
+				if($activity_day) {
+					echo $activity_day['label'];
+				}
+				echo '</span>';
+				if($time_start) {
+					echo '<label class="chip grey darken-4 white-text">Time</label><span class="block"> This activity runs from ' . $time_start . ' to ' . $time_end . '</span>';
+				}
+
+				if($activity_organiser) {
+					echo '<label class="chip grey darken-4 white-text">Organiser</label><span class="block">' . $activity_organiser . '</span>';
+				}
+
+				echo '<label class="chip grey darken-4 white-text">Contact</label>';
+
+				if($activity_contact) {
+					echo '<span class="block">' . $activity_contact . '</span>';
+				}
+
+				if($activity_email) {
+					echo '<span class="block">Email: <a href="mailto:' . $activity_email . '">' . $activity_email . '</a></span>';
+				}
+
+				if($activity_phone) {
+					echo '<span class="block">Phone: ' . $activity_phone . '</span>';
+				}
+
+
+
+
+
+				echo '</div>';
+
+				if ($contact_map):
+					$map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
+					&markers=color:0x01a89e%7Csize:mid%7C' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&key=' . $map_key;
+					echo '<div class="col s12 l6"><label class="chip grey darken-4 white-text">Address</label><span class="block">' . $contact_map['address'] . '</span>';
+					echo '<label class="chip grey darken-4 white-text">Map</label><img class="responsive-img map" src="' . $map_image . '">';
+					echo '</div>';
+				endif;
+
+				echo '<div class="col s12 right"><div title="Add to Calendar" class="addeventatc white">
+    Add to Calendar
+    <span class="start">' . $activity_start . ' ' .  $time_start . '</span>
+    <span class="end">' . $activity_end  . ' ' .  $time_end .  '</span>
+    <span class="timezone">Europe/London</span>
+    <span class="title">' . get_the_title() . '</span>
+    <span class="description">' . $activity_name . '</span>
+    <span class="location">' . $contact_map['address'] . '</span>
+		<span class="organizer">' . $activity_contact . '</span>
+		<span class="organizer_email">' . $activity_email . '</span>
+		<span class="alarm_reminder">60</span>
+		<span class="recurring">FREQ=' . $activity_frequency['value'] . ';' . $frequency_interval . 'BYDAY=' . $activity_day['value'] . ';INTERVAL=1;</span>
+		</div></div>';
+
+    endwhile;
+
+else :
+
+    // no rows found
+
+endif;
+echo '</div></div>';
+endif;
+
 
 
 				if( get_row_layout() == 'image_block' ):
@@ -478,12 +597,6 @@ endif;
 
 	 ?>
 
-
-<?php
-
-get_template_part( 'parts/content', 'contact' );
-
- ?>
 
 </section>
 <div class="col s12 m12 grey lighten-4 parent-page">

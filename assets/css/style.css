@@ -4770,15 +4770,14 @@ a.waves-effect .waves-ripple {
   line-height: 24px;
   padding: 0 12px;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.85);
-  background-color: white;
+  background-color: #eeeeee;
   margin-bottom: 5px;
   margin-right: 5px;
   margin-top: 15px; }
   .chip:focus, .chip:hover {
     outline: none;
-    border: 1px solid #eeeeee;
-    background-color: #eeeeee; }
+    background-color: #212121;
+    color: #ffffff; }
   .chip > img {
     float: left;
     margin: 0 8px 0 -12px;
@@ -12592,20 +12591,20 @@ a.current.chip {
 .parent-page {
   margin-top: 2rem; }
 
-.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
+.row.tip, .row.link, .row.recommendation, .row.activities, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0; }
-  .row.tip .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.warning .note-heading, .row.info .note-heading, .row.required .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
+  .row.tip .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.warning .note-heading, .row.info .note-heading, .row.required .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
     padding: 0.5rem 1rem; }
-  .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
+  .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
     padding: 1rem; }
-    .row.tip .note-content .product_link, .row.link .note-content .product_link, .row.recommendation .note-content .product_link, .row.warning .note-content .product_link, .row.info .note-content .product_link, .row.required .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
+    .row.tip .note-content .product_link, .row.link .note-content .product_link, .row.recommendation .note-content .product_link, .row.activities .note-content .product_link, .row.warning .note-content .product_link, .row.info .note-content .product_link, .row.required .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
       font-size: 1.25rem;
       font-weight: 600;
       padding: 1rem 0;
       transition: 350ms;
       position: relative; }
-      .row.tip .note-content .product_link:hover:after, .row.tip .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.warning .note-content .product_link:hover:after, .row.warning .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.required .note-content .product_link:hover:after, .row.required .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
+      .row.tip .note-content .product_link:hover:after, .row.tip .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.activities .note-content .product_link:hover:after, .row.activities .note-content .product_link:focus:after, .row.warning .note-content .product_link:hover:after, .row.warning .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.required .note-content .product_link:hover:after, .row.required .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
         content: attr(data-note);
         position: absolute;
         top: 100%;
@@ -12618,13 +12617,19 @@ a.current.chip {
         display: inline-block;
         border-radius: 3px;
         transition: 350ms; }
-    .row.tip .note-content a, .row.link .note-content a, .row.recommendation .note-content a, .row.warning .note-content a, .row.info .note-content a, .row.required .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
+    .row.tip .note-content a, .row.link .note-content a, .row.recommendation .note-content a, .row.activities .note-content a, .row.warning .note-content a, .row.info .note-content a, .row.required .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
       padding-top: 1rem; }
-      .row.tip .note-content a:hover, .row.tip .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.warning .note-content a:hover, .row.warning .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.required .note-content a:hover, .row.required .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
+      .row.tip .note-content a:hover, .row.tip .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.activities .note-content a:hover, .row.activities .note-content a:focus, .row.warning .note-content a:hover, .row.warning .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.required .note-content a:hover, .row.required .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
         color: #212121; }
-  .row.tip .platforms, .row.link .platforms, .row.recommendation .platforms, .row.warning .platforms, .row.info .platforms, .row.required .platforms, .row.steps_block .platforms, .content_block .platforms {
+  .row.tip img.map, .row.link img.map, .row.recommendation img.map, .row.activities img.map, .row.warning img.map, .row.info img.map, .row.required img.map, .row.steps_block img.map, .content_block img.map {
+    margin-top: .5rem;
+    border: 2px solid #212121;
+    border-radius: 3px; }
+  .row.tip .addeventatc, .row.link .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.warning .addeventatc, .row.info .addeventatc, .row.required .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
+    animation: show 3000ms 1; }
+  .row.tip .platforms, .row.link .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.warning .platforms, .row.info .platforms, .row.required .platforms, .row.steps_block .platforms, .content_block .platforms {
     padding: 1rem; }
-    .row.tip .platforms li, .row.link .platforms li, .row.recommendation .platforms li, .row.warning .platforms li, .row.info .platforms li, .row.required .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
+    .row.tip .platforms li, .row.link .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.warning .platforms li, .row.info .platforms li, .row.required .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
       display: inline-block;
       padding: 0 1rem; }
 

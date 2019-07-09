@@ -1534,7 +1534,7 @@ a.current.chip {
   margin-top: 2rem;
 }
 
-.row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
+.row.tip, .row.link, .row.recommendation, .row.activities, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0;
   .note-heading {
@@ -1571,6 +1571,17 @@ a.current.chip {
 
     }
   }
+
+  img.map {
+    margin-top: .5rem;
+    border: 2px solid color("grey", "darken-4");
+    border-radius: 3px;
+  }
+
+  .addeventatc {
+    animation: show 3000ms 1;
+  }
+
   .platforms {
     padding: 1rem;
     li {

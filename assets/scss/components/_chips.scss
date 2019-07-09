@@ -1,8 +1,8 @@
 .chip {
   &:focus, &:hover {
     outline: none;
-    border: 1px solid $chip-bg-color;
-    background-color: $chip-bg-color;
+    background-color: $chip-bg-hover;
+    color: #ffffff;
   }
 
   display: inline-block;
@@ -13,8 +13,7 @@
   line-height: 24px;
   padding: 0 12px;
   border-radius: 16px;
-  border: 1px solid rgba(0,0,0,.85);
-  background-color: white;
+  background-color: $chip-bg-color;
   margin-bottom: $chip-margin;
   margin-right: $chip-margin;
   margin-top: 15px;

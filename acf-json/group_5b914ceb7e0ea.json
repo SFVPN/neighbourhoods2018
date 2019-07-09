@@ -23,7 +23,7 @@
         },
         {
             "key": "field_5b914d29ab01c",
-            "label": "Section",
+            "label": "Content Builder",
             "name": "section",
             "type": "repeater",
             "instructions": "",
@@ -831,6 +831,317 @@
                             ],
                             "min": "",
                             "max": ""
+                        },
+                        "layout_5d2357a0142a4": {
+                            "key": "layout_5d2357a0142a4",
+                            "name": "local_group_activities",
+                            "label": "Local Group Activities",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d2463b09d181",
+                                    "label": "Activity Details",
+                                    "name": "activity_group_details",
+                                    "type": "group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "row",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5d235801142a7",
+                                            "label": "Activity Description",
+                                            "name": "activity_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": "br"
+                                        },
+                                        {
+                                            "key": "field_5d24726e18251",
+                                            "label": "Activity Start Date",
+                                            "name": "activity_start",
+                                            "type": "date_picker",
+                                            "instructions": "The start date is for the purpose of adding recurring events to calendars. It will not be shown on the front end of the website.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "display_format": "d\/m\/Y",
+                                            "return_format": "d\/m\/Y",
+                                            "first_day": 1
+                                        },
+                                        {
+                                            "key": "field_5d24849712bb1",
+                                            "label": "Activity Start Time",
+                                            "name": "activity_start_time",
+                                            "type": "time_picker",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "display_format": "g:i a",
+                                            "return_format": "g:i a"
+                                        },
+                                        {
+                                            "key": "field_5d24733018252",
+                                            "label": "Activity End Date",
+                                            "name": "activity_end",
+                                            "type": "date_picker",
+                                            "instructions": "The end date is for the purpose of adding recurring events to calendars. It will not be shown on the front end of the website.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "display_format": "d\/m\/Y",
+                                            "return_format": "d\/m\/Y",
+                                            "first_day": 1
+                                        },
+                                        {
+                                            "key": "field_5d2484a612bb2",
+                                            "label": "Activity End Time",
+                                            "name": "activity_end_time",
+                                            "type": "time_picker",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "display_format": "g:i a",
+                                            "return_format": "g:i a"
+                                        },
+                                        {
+                                            "key": "field_5d235810142a8",
+                                            "label": "Activity Frequency",
+                                            "name": "activity_frequency",
+                                            "type": "radio",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "WEEKLY": "weekly",
+                                                "MONTHLY": "monthly"
+                                            },
+                                            "allow_null": 0,
+                                            "other_choice": 0,
+                                            "default_value": "",
+                                            "layout": "vertical",
+                                            "return_format": "array",
+                                            "save_other_choice": 0
+                                        },
+                                        {
+                                            "key": "field_5d235da737898",
+                                            "label": "Position in month",
+                                            "name": "activity_frequency_month",
+                                            "type": "radio",
+                                            "instructions": "If this is a monthly activity, choose which day this occurs on. Start by selecting the increment eg \"First\" and then select the day in the next field.",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5d235810142a8",
+                                                        "operator": "==",
+                                                        "value": "MONTHLY"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "1": "first",
+                                                "2": "second",
+                                                "3": "third",
+                                                "4": "fourth",
+                                                "-1": "last"
+                                            },
+                                            "allow_null": 1,
+                                            "other_choice": 0,
+                                            "default_value": "null",
+                                            "layout": "vertical",
+                                            "return_format": "array",
+                                            "save_other_choice": 0
+                                        },
+                                        {
+                                            "key": "field_5d235c88142a9",
+                                            "label": "Activity Day",
+                                            "name": "activity_day",
+                                            "type": "radio",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "MO": "Monday",
+                                                "TU": "Tuesday",
+                                                "WE": "Wednesday",
+                                                "TH": "Thursday",
+                                                "FR": "Friday"
+                                            },
+                                            "allow_null": 0,
+                                            "other_choice": 0,
+                                            "default_value": "",
+                                            "layout": "vertical",
+                                            "return_format": "array",
+                                            "save_other_choice": 0
+                                        },
+                                        {
+                                            "key": "field_5d246d227bc9b",
+                                            "label": "Activity Calendar",
+                                            "name": "activity_calendar_link",
+                                            "type": "link",
+                                            "instructions": "You can add a link to the calendar entry for this activity (if available). Users will have the option to add the activity to their own calendar app.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "url"
+                                        },
+                                        {
+                                            "key": "field_5d246cd47bc9a",
+                                            "label": "Organised by",
+                                            "name": "activity_organiser",
+                                            "type": "radio",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "Alzheimer Scotland": "Alzheimer Scotland",
+                                                "Town Break": "Town Break"
+                                            },
+                                            "allow_null": 0,
+                                            "other_choice": 0,
+                                            "default_value": "",
+                                            "layout": "vertical",
+                                            "return_format": "value",
+                                            "save_other_choice": 0
+                                        },
+                                        {
+                                            "key": "field_5d246cac7bc99",
+                                            "label": "Contact Name",
+                                            "name": "group_contact",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d2360a9a828c",
+                                            "label": "Contact Email",
+                                            "name": "group_email",
+                                            "type": "email",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_5d2360bfa828d",
+                                            "label": "Contact Phone",
+                                            "name": "group_phone",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d23571f142a2",
+                                            "label": "Map + Address",
+                                            "name": "map_address",
+                                            "type": "google_map",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "center_lat": "",
+                                            "center_lng": "",
+                                            "zoom": "",
+                                            "height": ""
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
                         }
                     },
                     "button_label": "Add Content Block",
@@ -859,5 +1170,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562343077
+    "modified": 1562692840
 }
