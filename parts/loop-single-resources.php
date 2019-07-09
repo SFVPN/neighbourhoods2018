@@ -463,7 +463,9 @@ if( $group_details ):
 
 				if($activity_frequency_month) {
 					echo 'every ' . $activity_frequency_month['label'] . ' ';
-					$frequency_interval = 'BYSETPOS=' . $activity_frequency_month['value'] . ';';
+					if($activity_frequency_month['value'] != null) {
+					$frequency_interval = $activity_frequency_month['value'];
+					}
 				}
 
 
@@ -520,7 +522,7 @@ if( $group_details ):
 		<span class="organizer">' . $activity_contact . '</span>
 		<span class="organizer_email">' . $activity_email . '</span>
 		<span class="alarm_reminder">60</span>
-		<span class="recurring">FREQ=' . $activity_frequency['value'] . ';' . $frequency_interval . 'BYDAY=' . $activity_day['value'] . ';INTERVAL=1;</span>
+		<span class="recurring">FREQ=' . $activity_frequency['value'] . ';BYDAY=' . $frequency_interval . $activity_day['value'] . ';INTERVAL=1;</span>
 		</div></div>';
 
     endwhile;

@@ -12626,6 +12626,7 @@ a.current.chip {
     border: 2px solid #212121;
     border-radius: 3px; }
   .row.tip .addeventatc, .row.link .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.warning .addeventatc, .row.info .addeventatc, .row.required .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
+    visibility: hidden;
     animation: show 3000ms 1; }
   .row.tip .platforms, .row.link .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.warning .platforms, .row.info .platforms, .row.required .platforms, .row.steps_block .platforms, .content_block .platforms {
     padding: 1rem; }

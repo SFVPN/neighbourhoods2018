@@ -886,7 +886,7 @@
                                                 "id": ""
                                             },
                                             "display_format": "d\/m\/Y",
-                                            "return_format": "d\/m\/Y",
+                                            "return_format": "m\/d\/Y",
                                             "first_day": 1
                                         },
                                         {
@@ -919,7 +919,7 @@
                                                 "id": ""
                                             },
                                             "display_format": "d\/m\/Y",
-                                            "return_format": "d\/m\/Y",
+                                            "return_format": "m\/d\/Y",
                                             "first_day": 1
                                         },
                                         {
@@ -966,7 +966,7 @@
                                             "key": "field_5d235da737898",
                                             "label": "Position in month",
                                             "name": "activity_frequency_month",
-                                            "type": "radio",
+                                            "type": "select",
                                             "instructions": "If this is a monthly activity, choose which day this occurs on. Start by selecting the increment eg \"First\" and then select the day in the next field.",
                                             "required": 0,
                                             "conditional_logic": [
@@ -984,18 +984,22 @@
                                                 "id": ""
                                             },
                                             "choices": {
+                                                "null": "no repeat",
                                                 "1": "first",
                                                 "2": "second",
                                                 "3": "third",
                                                 "4": "fourth",
                                                 "-1": "last"
                                             },
+                                            "default_value": [
+                                                "no repeat"
+                                            ],
                                             "allow_null": 1,
-                                            "other_choice": 0,
-                                            "default_value": "null",
-                                            "layout": "vertical",
+                                            "multiple": 0,
+                                            "ui": 1,
+                                            "ajax": 0,
                                             "return_format": "array",
-                                            "save_other_choice": 0
+                                            "placeholder": ""
                                         },
                                         {
                                             "key": "field_5d235c88142a9",
@@ -1170,5 +1174,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562692840
+    "modified": 1562697810
 }
