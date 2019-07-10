@@ -1057,7 +1057,13 @@
                                                 "id": ""
                                             },
                                             "choices": {
+                                                "Active Stirling": "Active Stirling",
                                                 "Alzheimer Scotland": "Alzheimer Scotland",
+                                                "Buttercup Café": "Buttercup Café",
+                                                "Dementia Friendly Dunblane": "Dementia Friendly Dunblane",
+                                                "Paths for All": "Paths for All",
+                                                "Stirling Libraries": "Stirling Libraries",
+                                                "Teas Company": "Teas Company",
                                                 "Town Break": "Town Break"
                                             },
                                             "allow_null": 0,
@@ -1174,5 +1180,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562697810
+    "modified": 1562789065
 }
