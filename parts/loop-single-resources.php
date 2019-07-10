@@ -456,24 +456,31 @@ if( $group_details ):
 								<label class="chip grey darken-4 white-text">Days</label><span class="block">';
 
 
-				if($activity_frequency) {
+				if($activity_frequency['label'] == "monthly") {
 
+					echo ' This is held on the ';
+				} else {
 					echo ' This is held ' . $activity_frequency['label'] . ' on ';
 				}
 
+
+
 				if($activity_frequency_month) {
-					echo 'every ' . $activity_frequency_month['label'] . ' ';
+					echo 'the ' . $activity_frequency_month['label'] . ' ';
 					if($activity_frequency_month['value'] != null) {
 					$frequency_interval = $activity_frequency_month['value'];
 					}
 				}
 
-
-
-
 				if($activity_day) {
 					echo $activity_day['label'];
 				}
+
+				if($activity_frequency_month) {
+					echo ' of the month';
+				}
+
+
 				echo '</span>';
 				if($time_start) {
 					echo '<label class="chip grey darken-4 white-text">Time</label><span class="block"> This activity runs from ' . $time_start . ' to ' . $time_end . '</span>';

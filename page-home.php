@@ -55,34 +55,25 @@ get_header();
 <?php endwhile; endif;?>
 
 <?php if( have_rows('front_page_callouts') ):?>
-<div id="callouts" class="row" style="margin-bottom: 0;">
+<div id="callouts" class="row">
 	<?php while ( have_rows('front_page_callouts') ) : the_row();
-		$options = get_sub_field('callout_options');
+
 	?>
 
 		<div id="callout-<?php echo get_row_index();?>" class="col s12 callout-content">
 			<div>
 				<h2 class="center h4"><?php the_sub_field('callout_title');?></h2>
-				<p class="col s12">
+				<p class="col s12 callout-description">
 					<?php the_sub_field('callout_description');?>
 				</p>
 			</div>
 			<div class="col s12 center" >
 				<a class="btn-large z-depth-0 waves-effect black-text"
-				<?php if($options === 'Page Link') {
-						echo 'href="' . get_sub_field('page_link') . '"';
-				}
+				<?php
+						echo 'href="' . get_sub_field('callout_link') . '">' . get_sub_field('callout_link_text') . '</a>' ;
 
-				if($options === 'External Link') {
-					 echo 'href="' . get_sub_field('external_link') . '"';
-				}
 
-				if($options === 'File Upload') {
-					 echo 'href="' . get_sub_field('file_to_upload') . '"';
-				}?>
-
-				aria-label="View more information about <?php the_sub_field('callout_title'); ?>">
-					View Details</a>
+				 ?>
 			</div>
 
 		</div>
@@ -118,7 +109,7 @@ endif;
 
 
 									<div class="col s12">
-										<a class="btn-large z-depth-0 waves-effect" href="<?php the_sub_field('page_link'); ?>" aria-label="View more information about <?php the_sub_field('section_title'); ?>">
+										<a class="btn-large z-depth-0 waves-effect" href="<?php the_sub_field('page_link'); ?>">
 											<!-- <svg class="small left white-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" aria-hidden="true">
 												<use href="<?php echo get_template_directory_uri();?>/svg/download.svg#ic_accessible_24px"></use>
 											</svg> -->
