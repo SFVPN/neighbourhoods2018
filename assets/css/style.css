@@ -4252,14 +4252,9 @@ small {
       line-height: 48px; }
   .card .card-action {
     border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 20px; }
-    .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-      color: #E57373;
-      margin-right: 20px;
-      transition: color .3s ease;
-      text-transform: uppercase; }
-      .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
-        color: #f5c9c9; }
+    padding: 20px;
+    background: #283593;
+    color: white; }
   .card .card-reveal {
     padding: 20px;
     position: absolute;
@@ -12554,21 +12549,38 @@ a.current.chip {
   background: #eeeeee;
   border: 1px solid #eeeeee; }
 
+.schedule {
+  background: #ffffff;
+  padding: .5rem;
+  border-radius: 3px;
+  margin: 1rem 0; }
+
+.schedule:first-letter {
+  text-transform: uppercase; }
+
 #guide-name {
-  margin-bottom: 1rem;
-  cursor: default; }
+  cursor: default;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #ffffff;
+  background: #424242;
+  padding: .5rem; }
+  #guide-name i.left {
+    margin-right: 0px; }
   #guide-name a {
-    color: #F44336;
+    color: #ffeb3b;
     text-decoration: none; }
     #guide-name a:hover, #guide-name a:focus {
-      color: #212121; }
+      color: #fff; }
 
 .search-article .chip {
   margin-bottom: 1rem; }
 
 .resource-article section {
-  height: 150px !important;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  position: relative; }
   @media only screen and (max-width: 600px) {
     .resource-article section {
       height: auto !important; } }

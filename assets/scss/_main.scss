@@ -1476,14 +1476,34 @@ a.current.chip {
   border: 1px solid color("grey", "lighten-3");
 }
 
+.schedule {
+  background: #ffffff;
+  padding: .5rem;
+  border-radius: 3px;
+  margin: 1rem 0;
+}
+
+.schedule:first-letter {
+  text-transform: uppercase;
+}
+
 #guide-name {
-  margin-bottom: 1rem;
   cursor: default;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #ffffff;
+  background: color("grey", "darken-3");
+  padding: .5rem;
+  i.left {
+    margin-right: 0px;
+  }
   a {
-    color: color("red", "base");
+    color: color("yellow", "base");
     text-decoration: none;
     &:hover, &:focus {
-      color: $hover-color;
+      color: #fff;
     }
   }
 }
@@ -1493,8 +1513,9 @@ a.current.chip {
 }
 
 .resource-article section {
-  height: 150px !important;
+
   margin-bottom: 2rem;
+  position: relative;
   @media #{$small-and-down} {
     height: auto !important;
   }
