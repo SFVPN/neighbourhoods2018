@@ -458,7 +458,7 @@ if( $group_details ):
 
 				if($activity_frequency['label'] == "monthly") {
 
-					echo ' This is held on the ';
+					echo ' This is held on ';
 					if($activity_frequency_month) {
 						echo 'the ' . $activity_frequency_month['label'] . ' ';
 						if($activity_frequency_month['value'] != null) {
@@ -477,7 +477,7 @@ if( $group_details ):
 				}
 
 
-				
+
 
 
 				echo '</span>';

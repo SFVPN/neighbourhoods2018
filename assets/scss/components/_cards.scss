@@ -33,7 +33,7 @@
   }
 
   // Card Sizes
-  &.small, &.medium, &.large {
+  &.small, &.large {
     position: relative;
 
     .card-image {
@@ -51,6 +51,23 @@
       right: 0;
       z-index: 1;
       background-color: inherit;
+    }
+  }
+
+  &.medium {
+    position: relative;
+
+    .card-image {
+      max-height: 60%;
+      overflow: hidden;
+    }
+    .card-action {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      background-color: $link-color;
     }
   }
 

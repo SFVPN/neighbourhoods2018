@@ -1,11 +1,11 @@
 
 <article id="post-<?php the_ID(); ?>" class="col s12 m6 l4 resource-article" role="article">
 
-	<section class="grey lighten-4 card">
+	<section class="grey lighten-4 card medium">
 
 		<div class="card-content">
 			<h2 class="card-title"><a href="<?php the_permalink() ?>" class="center" rel="bookmark" ><?php the_title(); ?></a></h2>
-		
+
 
 
 		<?php

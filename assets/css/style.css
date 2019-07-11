@@ -4197,21 +4197,33 @@ small {
         line-height: 1.5rem !important; } }
     .card .card-title.activator {
       cursor: pointer; }
-  .card.small, .card.medium, .card.large {
+  .card.small, .card.large {
     position: relative; }
-    .card.small .card-image, .card.medium .card-image, .card.large .card-image {
+    .card.small .card-image, .card.large .card-image {
       max-height: 60%;
       overflow: hidden; }
-    .card.small .card-content, .card.medium .card-content, .card.large .card-content {
+    .card.small .card-content, .card.large .card-content {
       max-height: 40%;
       overflow: hidden; }
-    .card.small .card-action, .card.medium .card-action, .card.large .card-action {
+    .card.small .card-action, .card.large .card-action {
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       z-index: 1;
       background-color: inherit; }
+  .card.medium {
+    position: relative; }
+    .card.medium .card-image {
+      max-height: 60%;
+      overflow: hidden; }
+    .card.medium .card-action {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      background-color: #283593; }
   .card.small {
     height: 300px; }
   .card.team {
