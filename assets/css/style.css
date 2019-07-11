@@ -12823,6 +12823,18 @@ PAGE NAVI STYLES
 .page-navigation {
   margin-top: 1rem; }
 
+ul.pagination li.page-link {
+  background: #f5f5f5;
+  margin: 0 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px; }
+
+ul.pagination li.page-link.active {
+  background: #212121 !important;
+  color: white; }
+
 /*********************
 COMMENT STYLES
 *********************/

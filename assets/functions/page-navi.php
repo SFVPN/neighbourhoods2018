@@ -30,22 +30,22 @@ function joints_page_navi($before = '', $after = '') {
 	if($start_page <= 0) {
 		$start_page = 1;
 	}
-	echo $before.'<nav class="page-navigation"><ul class="pagination">'."";
+	echo $before.'<nav class="col s12 page-navigation"><ul class="pagination">'."";
 	if ($start_page >= 2 && $pages_to_show < $max_page) {
 		$first_page_text = __( "First", 'jointswp' );
 		echo '<li class="waves-effect"><a href="'.get_pagenum_link().'" title="'.$first_page_text.'">'.$first_page_text.'</a></li>';
 	}
-	echo '<li>';
+	echo '<li class="previous-page">';
 	previous_posts_link('Previous');
 	echo '</li>';
 	for($i = $start_page; $i  <= $end_page; $i++) {
 		if($i == $paged) {
-			echo '<li class="active"> '.$i.' </li>';
+			echo '<li class="page-link active"> '.$i.' </li>';
 		} else {
-			echo '<li><a href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
+			echo '<li class="page-link"><a href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
 		}
 	}
-	echo '<li>';
+	echo '<li class="next-page">';
 	next_posts_link('Next');
 	echo '</li>';
 	if ($end_page < $max_page) {

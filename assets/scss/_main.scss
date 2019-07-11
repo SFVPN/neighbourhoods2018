@@ -1841,6 +1841,19 @@ PAGE NAVI STYLES
 	margin-top: 1rem;
 }
 
+ul.pagination li.page-link {
+  background: color("grey", "lighten-4");
+  margin: 0 5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;}
+
+ul.pagination li.page-link.active {
+  background: color("grey", "darken-4") !important;
+  color: white;
+}
+
 /*********************
 COMMENT STYLES
 *********************/
