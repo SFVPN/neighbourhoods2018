@@ -1,17 +1,19 @@
 
 <article id="post-<?php the_ID(); ?>" class="col s12 m6 l4 resource-article" role="article">
 
-	<section class="grey lighten-4 card medium">
 
-		<div class="card-content">
-			<h2 class="card-title"><a href="<?php the_permalink() ?>" class="center" rel="bookmark" ><?php the_title(); ?></a></h2>
 
 
 
 		<?php
-		if (is_tax( 'resources_category', array( 'local-groups', 'tech-support' ) )) {
+		if (is_tax( 'resources_category', array( 'local-groups', 'tech-support' ) )) {?>
 
+		<section class="grey lighten-4 card medium">
 
+			<div class="card-content">
+				<h2 class="card-title"><a href="<?php the_permalink() ?>" class="center" rel="bookmark" ><?php the_title(); ?></a></h2>
+
+		<?php
 			$field = get_field('section', $post->ID);
 			$activity_details = $field[0]['blocks'][0]['activity_group_details'];
 			$frequency = $activity_details['activity_frequency']['label'];
@@ -32,8 +34,14 @@
 
 
 			echo '<div class="card-action"><i class="material-icons left">info</i>Organised by ' . $activity_details['activity_organiser'] . '</div>';
-		} else {
-		if ($post->post_parent != 0) {
+		} else {?>
+
+		<section class="grey lighten-4 card medium-small">
+
+			<div class="card-content">
+				<h2 class="card-title"><a href="<?php the_permalink() ?>" class="center" rel="bookmark" ><?php the_title(); ?></a></h2>
+
+		<?php if ($post->post_parent != 0) {
 			echo '</div><div class="card-action"><i class="material-icons left">library_books</i>Part of ' . get_the_title($post->post_parent) . ' guide</div>';
 		} else {
 			$args = array(

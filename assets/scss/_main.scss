@@ -1546,9 +1546,6 @@ a.current.chip {
 
   margin-bottom: 2rem;
   position: relative;
-  @media #{$small-and-down} {
-    height: auto !important;
-  }
 }
 
 .single article, .archive .article-header {

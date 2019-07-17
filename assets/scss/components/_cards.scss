@@ -54,7 +54,7 @@
     }
   }
 
-  &.medium {
+  &.medium, &.medium-small {
     position: relative;
 
     .card-image {
@@ -84,6 +84,16 @@
 
   &.medium {
     height: 400px;
+    @media #{$small-and-down} {
+      height: 225px;
+    }
+  }
+
+  &.medium-small {
+    height: 250px;
+    @media #{$small-and-down} {
+      height: 225px;
+    }
   }
 
   &.large {

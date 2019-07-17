@@ -4212,12 +4212,12 @@ small {
       right: 0;
       z-index: 1;
       background-color: inherit; }
-  .card.medium {
+  .card.medium, .card.medium-small {
     position: relative; }
-    .card.medium .card-image {
+    .card.medium .card-image, .card.medium-small .card-image {
       max-height: 60%;
       overflow: hidden; }
-    .card.medium .card-action {
+    .card.medium .card-action, .card.medium-small .card-action {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -4232,6 +4232,14 @@ small {
       max-height: 75%; }
   .card.medium {
     height: 400px; }
+    @media only screen and (max-width: 600px) {
+      .card.medium {
+        height: 225px; } }
+  .card.medium-small {
+    height: 250px; }
+    @media only screen and (max-width: 600px) {
+      .card.medium-small {
+        height: 225px; } }
   .card.large {
     height: 500px; }
   .card .card-image {
@@ -12616,9 +12624,6 @@ a.current.chip {
 .resource-article section {
   margin-bottom: 2rem;
   position: relative; }
-  @media only screen and (max-width: 600px) {
-    .resource-article section {
-      height: auto !important; } }
 
 .single article, .archive .article-header {
   margin-top: 4rem; }
