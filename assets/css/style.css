@@ -11792,6 +11792,29 @@ ABOUT US PAGE
   padding: 2rem 0; }
 
 /*********************
+GENERIC PAGE STYLES
+*********************/
+#page_links {
+  padding: 1rem; }
+  #page_links .card-link {
+    padding: 4rem 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dbdbdb' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    border: 2px solid #eeeeee;
+    border-radius: 3px;
+    margin-bottom: 1rem; }
+    #page_links .card-link a {
+      color: #000;
+      border: 1px solid;
+      background: transparent; }
+      #page_links .card-link a:hover, #page_links .card-link a:focus {
+        background: #ffffff;
+        text-decoration: underline; }
+  #page_links a {
+    color: #000;
+    border: 1px solid;
+    background: transparent; }
+
+/*********************
 BADGEOS OVERRIDES
 *********************/
 .achievement-wrap {

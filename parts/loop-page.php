@@ -63,6 +63,71 @@
 			?>
 
 			<?php
+			if( have_rows('page_links') ):
+			?>
+
+
+			<?php
+			while ( have_rows('page_links') ) : the_row();?>
+
+
+				<?php
+				$description = get_sub_field('page_links_description');
+				$section_title = get_sub_field('page_links_title');
+
+
+				if( have_rows('link_details') ):?>
+					<div id="page_links" class="col s12 center grey lighten-4">
+						<h2 class="h4"><?php echo $section_title; ?></h2>
+
+				<?php
+
+				if($description) {
+					echo '<p>
+					' . $description . '
+					</p>';
+				}
+
+				while ( have_rows('link_details') ) : the_row();
+				$page_url = get_sub_field('page_url');
+				$link_url = get_sub_field('link_url');
+				?>
+				<div class="col s12 l6">
+					<div class="card-link white">
+						<a
+						href="<?php
+
+						if($link_url) {
+							echo $link_url;
+						} else {
+							echo $page_url;
+						}
+						?>"
+							class="btn-large z-depth-0 waves-effect">
+
+
+								<?php the_sub_field('link_title'); ?>
+
+
+						</a> <!-- end col s12 l4 -->
+					</div>
+
+				</div>
+				<?php
+				endwhile;
+
+				else :
+				 // no rows found
+					echo '</div>';
+				endif;
+
+			endwhile;
+
+			else :
+			 // no rows found
+
+			endif;
+
 			$show_contact = get_field('show_contact');
 
 			if ($show_contact):
