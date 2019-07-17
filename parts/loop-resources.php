@@ -9,7 +9,7 @@
 
 
 		<?php
-		if (is_tax( 'resources_category', array( 'local-groups' ) )) {
+		if (is_tax( 'resources_category', array( 'local-groups', 'tech-support' ) )) {
 
 
 			$field = get_field('section', $post->ID);
@@ -24,7 +24,7 @@
 				echo $frequency . ' on the ' . $activity_details['activity_frequency_month']['label'] . ' '
 			 . $activity_details['activity_day']['label'];
 		 } else {
-			 echo $frequency . ' every '
+			 echo $frequency . ' on '
  		 . $activity_details['activity_day']['label'];
 
 		 }

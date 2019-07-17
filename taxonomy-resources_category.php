@@ -1,6 +1,7 @@
 <?php get_header();
 $queried_object = get_queried_object();
 $icon = get_field('material_icon_code', $queried_object);
+$term_description = term_description( $queried_object, 'resources_category' ) ?>
 ?>
 
 <main id="maincontent">
@@ -21,6 +22,7 @@ $icon = get_field('material_icon_code', $queried_object);
 
 			<div class="container">
 				<?php
+
 				if($queried_object->parent === 0 ) {
 
 					archive_terms('resources_category', 'resources');
@@ -28,7 +30,12 @@ $icon = get_field('material_icon_code', $queried_object);
 
 					archive_terms_child('resources_category', 'resources');
 				}
+
+				if($term_description) {
+					echo $term_description;
+				}
 				?>
+
 
 				<div class="row">
 
