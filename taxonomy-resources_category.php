@@ -2,7 +2,6 @@
 $queried_object = get_queried_object();
 $icon = get_field('material_icon_code', $queried_object);
 $term_description = term_description( $queried_object, 'resources_category' ) ?>
-?>
 
 <main id="maincontent">
 

@@ -8,10 +8,10 @@
 		<?php
 		if (is_tax( 'resources_category', array( 'local-groups', 'tech-support' ) )) {?>
 
-		<section class="grey lighten-4 card medium">
+		<section class="resource-card white">
 
-			<div class="card-content">
-				<h2 class="card-title"><a href="<?php the_permalink() ?>" class="center" rel="bookmark" ><?php the_title(); ?></a></h2>
+
+				<h2><a href="<?php the_permalink() ?>" rel="bookmark" ><?php the_title(); ?></a></h2>
 
 		<?php
 			$field = get_field('section', $post->ID);
@@ -20,29 +20,33 @@
 			$address = $activity_details['map_address'];
 			$address = explode(",", $address['address']);
 
-			echo '<div class="schedule">';
+			echo '<p class="content">';
 
 			if ($frequency == "monthly") {
-				echo $frequency . ' on the ' . $activity_details['activity_frequency_month']['label'] . ' '
+				echo ucfirst($frequency) . ' on the ' . $activity_details['activity_frequency_month']['label'] . ' '
 			 . $activity_details['activity_day']['label'];
 		 } else {
-			 echo $frequency . ' on '
+			 echo ucfirst($frequency) . ' on '
  		 . $activity_details['activity_day']['label'];
 
 		 }
-		 echo ' at ' . $address[0] . '</div></div>';
+		 echo ' at ' . $address[0] . '</p>';
 
 
-			echo '<div class="card-action"><i class="material-icons left">info</i>Organised by ' . $activity_details['activity_organiser'] . '</div>';
+			echo '<p class="footer-content teal lighten-4"><i class="material-icons left">info</i>Organised by ' . $activity_details['activity_organiser'] . '</p>';
 		} else {?>
 
-		<section class="grey lighten-4 card medium-small">
+		<section class="resource-card white">
 
-			<div class="card-content">
-				<h2 class="card-title"><a href="<?php the_permalink() ?>" class="center" rel="bookmark" ><?php the_title(); ?></a></h2>
+
+				<h2><a href="<?php the_permalink() ?>" rel="bookmark" ><?php the_title(); ?></a></h2>
+
+				<p class="content">
+					Click on the title to view full details of this resource.
+				</p>
 
 		<?php if ($post->post_parent != 0) {
-			echo '</div><div class="card-action"><i class="material-icons left">library_books</i>Part of ' . get_the_title($post->post_parent) . ' guide</div>';
+			echo '<p class="footer-content teal lighten-4"><i class="material-icons left">library_books</i>Part of ' . get_the_title($post->post_parent) . ' guide</p>';
 		} else {
 			$args = array(
 				'post_parent' => $post->ID,
@@ -55,7 +59,7 @@
 			$total = $count + 1;
 
 
-				echo '</div><div class="card-action"><i class="material-icons left">format_list_numbered</i>' . $total . '-page guide</div>';
+				echo '<p class="footer-content teal lighten-4"><i class="material-icons left">format_list_numbered</i>' . $total . '-page guide</p>';
 
 		}
 		}
