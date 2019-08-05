@@ -36,11 +36,15 @@
             <span class="block hide-on-med-and-down">
     					<i aria-hidden="true" class="mdi mdi-phone"></i><?php echo $phone;?>
     				</span>
-    			<?php endif;?>
+    			<?php endif;
+          if($team_page):
+          ?>
+          <a class="btn-flat yellow team-page center" href="<?php the_permalink($team_page);?>"><?php the_sub_field('team_page_link_text');?></a>
+        <?php endif;?>
         </div>
-        <div class="card-action">
-          <a href="<?php the_permalink($team_page);?>"><?php the_sub_field('team_page_link_text');?></a>
-        </div>
+
+
+
       </div>
       </div>
 

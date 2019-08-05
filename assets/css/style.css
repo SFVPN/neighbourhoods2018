@@ -4227,9 +4227,11 @@ small {
   .card.small {
     height: 300px; }
   .card.team {
-    height: 250px; }
-    .card.team .card-content {
-      max-height: 75%; }
+    height: 250px;
+    display: flex;
+    align-items: center; }
+    .card.team .card-content a.team-page {
+      margin: 1rem 0; }
   .card.medium {
     height: 350px; }
     @media only screen and (max-width: 600px) {
