@@ -40,11 +40,6 @@ wp_enqueue_script( 'cluster-js', 'https://developers.google.com/maps/documentati
 wp_enqueue_script( 'audit-map-js', get_template_directory_uri() . '/assets/js/places_new.js', array( 'jquery', 'maps-js' ), '', true );
 }
 
-// if(is_post_type_archive('activities')){
-// wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB1ogka67k0TWwlmXEcsUqLEeSZTBkgJyA&libraries=places&callback=initMap', null, null, true ); // removed &callback=initMap
-// wp_enqueue_script( 'cluster-js', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array( 'maps-js' ), '', true );
-// wp_enqueue_script( 'activities-map-js', get_template_directory_uri() . '/assets/js/activities-map.js', array( 'jquery', 'maps-js' ), '', true );
-// }
 
 if(is_singular(array( 'audits' ))){
 $api_key = get_field('api_key', 'option');
@@ -110,6 +105,19 @@ add_action('wp_enqueue_scripts', 'site_scripts', 999);
 function my_enqueue() {
 
 
-    wp_enqueue_script( 'image-marker-js', get_template_directory_uri() . '/assets/js/image-marker.js', array( 'jquery' ), '', true );
+    wp_enqueue_script( 'image-marker-js', get_template_directory_uri() . '/assets/js/image-marker.js', array('jquery' ), '', true );
 }
-add_action( 'admin_enqueue_scripts', 'my_enqueue' );
+add_action( 'admin_enqueue_scripts', 'my_enqueue');
+
+function add_defer_attribute($tag, $handle) {
+   // add script handles to the array below
+   $scripts_to_defer = array('image-marker-js');
+
+   foreach($scripts_to_defer as $defer_script) {
+      if ($defer_script === $handle) {
+         return str_replace(' src', ' async="async" src', $tag);
+      }
+   }
+   return $tag;
+}
+add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
