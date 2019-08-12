@@ -9,9 +9,22 @@ if($queried_object->post_parent != 0 ) {
 
  // storing this so we have it available in the other loops
 ?>
-<article id="post-<?php the_ID(); ?>" class="<?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
+<article id="post-<?php the_ID(); ?>" class="<?php echo $post->post_name;?>" role="article"
+<?php if( has_term( 'support-organisations', 'resources_category' ) ) {
+echo 'itemscope itemtype="http://schema.org/Organization"';
+} else {
+	echo 'itemscope itemtype="http://schema.org/WebPage"';
+}?>
+>
 	<header class="article-header col s12 center">
-		<h1 class="h2 resource-title center" itemprop="headline"><?php the_title();?></h1>
+
+		<h1 class="h2 resource-title center"
+		<?php if( has_term( 'support-organisations', 'resources_category' ) ) {
+		echo 'itemprop="name"';
+		} else {
+			echo 'itemprop="headline"';
+		}?>
+		><?php the_title();?></h1>
 		<?php
 
 		if(is_user_logged_in()) {
@@ -75,7 +88,7 @@ if ( $post->post_parent === 0 ) {
 
 
 			<ol id="guide-contents">
-				<label class="block black-text"><?php the_title(); ?> guide pages</label>
+				<li class="block black-text"><?php the_title(); ?> guide pages</li>
 				<li id="parent-<?php the_ID(); ?>" class="parent">
 
 						<?php echo '<span class="active-page">' . get_the_title() . '</span>'; ?>
@@ -121,7 +134,7 @@ echo '</div>';
 		         // display a sub field 'value'
 						 if( have_rows('blocks') ):
 						echo '<ol id="toc">
-						<label class="block black-text">What\'s on this page?</label>';
+						<li class="block label black-text">What\'s on this page?</li>';
 	     // loop through the rows of data
 	    while ( have_rows('blocks') ) : the_row();
 
@@ -287,8 +300,55 @@ echo '</div>';
 
 				if( get_row_layout() == 'steps_block' ):
 
-					$step_title = get_sub_field('step_title');
+					$step_image = get_sub_field('steps_image');
+					$step_image_title = sanitize_title($step_image['title']);
 
+					if($step_image) {
+						if( have_rows('step') ):
+
+							echo '<div class="row steps_block blue lighten-4"><div class="col s12 l5">
+							<figure class="card grey darken-4">
+								<div class="image-wrapper">
+									<img src="' . $step_image['url'] . '" alt="' . $step_image['alt'] . '"/>';
+
+									while ( have_rows('step') ) : the_row();
+										$leftPos = get_sub_field('left_pos');
+										$topPos = get_sub_field('top_pos');
+
+										if($leftPos) {
+											$rowIndex = get_row_index();
+											echo '<span class="block image-marker" style="position: absolute; top:' . $topPos . '%; left:' . $leftPos . '%" id="' . $step_image_title . '-marker' . $rowIndex . '"aria-describedby="' . $step_image_title . '-' . $rowIndex . '">' . $rowIndex .  '</span>';
+										}
+
+									endwhile;
+
+								echo '</div>
+
+							<figcaption class="white-text">
+							<i class="material-icons left">info</i>' . $step_image['caption'] . '
+							</figcaption>
+							</figure>
+
+							</div>
+							<ol class="steps col s12 l7">';
+							// loop through the rows of data
+								while ( have_rows('step') ) : the_row();
+
+									echo '<li id="' . $step_image_title . '-' . get_row_index() . '">' . get_sub_field('step_description') .  '</li>';
+
+
+
+								endwhile;
+
+								echo '</ol>';
+
+						else :
+
+								// no rows found
+
+				endif; // end steps block
+
+					} else {
 				// check if the repeater field has rows of data
 				if( have_rows('step') ):
 
@@ -309,6 +369,7 @@ echo '</div>';
 				    // no rows found
 
 endif; // end steps block
+}
 echo '</div>';
 endif;
 
@@ -414,10 +475,130 @@ if( get_row_layout() == 'available_platforms' ):
 echo '</div>';
 endif;
 
-if( get_row_layout() == 'local_group_activities' ):
+
+if( get_row_layout() == 'support_groups' ):
 
 	$group_email = get_sub_field('group_email');
 	$group_phone = get_sub_field('group_phone');
+	$group_details = get_sub_field_object('group_details');
+
+// check if the repeater field has rows of data
+if( $group_details ):
+
+
+	echo '<div class="row activities">';
+ 	// loop through the rows of data
+
+    while ( have_rows('group_details') ) : the_row();
+
+
+        $group_description = get_sub_field('group_description');
+
+				$group_contact = get_sub_field('group_contact');
+				$group_email = get_sub_field('group_email');
+				$group_phone = get_sub_field('group_phone');
+				$formatted_phone = explode(" ", $group_phone);
+				$formatted_phone = implode("-", $formatted_phone);
+				$group_address_street = get_sub_field('group_address_street');
+				$group_address_second = get_sub_field('group_address_second');
+				$group_address_town = get_sub_field('group_address_town');
+				$group_address_zip = get_sub_field('group_address_postcode');
+				$group_website = get_sub_field('group_website');
+				$group_twitter = get_sub_field('group_twitter');
+				$group_facebook = get_sub_field('group_facebook');
+				$group_map = get_sub_field('map_address');
+				$map_key = get_field('api_key', 'option');
+				$group_name = get_the_title();
+
+				echo '<h2 class="h5">' . $group_details['label'] . '</h2>';
+				if($group_description) {
+					echo '<p>' . $group_description . '</p>';
+				}
+
+				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">info</i><strong>Contact Information</strong></div> <div  class="col s12 note-content grey lighten-4">';
+
+				echo '<div class="col s12 l6">';
+
+				echo '<span class="label-resources white-text">Main Contact</span>';
+
+				if($group_contact) {
+					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-account"></i>' . $group_contact . '</span>';
+				}
+
+				if($group_email) {
+					echo '<a class="block" href="mailto:' . $group_email . '"><i aria-hidden="true" class="mdi mdi-email"></i>Email ' . $group_name . '</a>';
+				}
+
+				if($group_phone) {
+					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>Phone: ' . $group_phone . '</span>';
+				}
+
+
+					if($group_website) {
+						echo '<a class="block" href="' . $group_website . '"><i aria-hidden="true" class="mdi mdi-web"></i>' . $group_name . ' website</a>';
+					}
+
+					if($group_twitter) {
+						echo '<a class="block" href="' . $group_twitter . '"><i aria-hidden="true" class="mdi mdi-twitter"></i>' . $group_name . ' on Twitter</a>';
+					}
+
+					if($group_facebook) {
+						echo '<a class="block" href="' . $group_facebook . '"><i aria-hidden="true" class="mdi mdi-facebook"></i>' . $group_name . ' on Facebook</a>';
+					}
+
+
+				echo '</div>';
+
+				if ($group_map):
+					$group_map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $group_map['lat'] . ',' . $group_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
+					&markers=color:0x01a89e%7Csize:mid%7C' . $group_map['lat'] . ',' . $group_map['lng'] . '&key=' . $map_key;
+					echo '<div class="col s12 l6">
+					<span class="label-resources white-text">Address</span><span class="block">' . $group_address_street . '<br />';
+					if($group_address_second) {
+						echo $group_address_second . '<br />';
+					}
+					echo  $group_address_town . ' ' . $group_address_zip . '</span>';
+					echo '<span class="label-resources white-text">Map</span><img class="responsive-img map" src="' . $group_map_image . '">';
+					echo '</div>';
+				endif;
+
+    endwhile;
+
+else :
+
+    // no rows found
+
+endif;
+
+
+echo '</div></div>';?>
+
+<script type="application/ld+json">
+{ "@context" : "http://schema.org",
+  "@type" : "Organization",
+	"name": "<?php echo $group_name;?>",
+	"address": {
+    "@type": "PostalAddress",
+    "addressLocality": "<?php echo $group_address_town;?>, UK",
+    "postalCode": "<?php echo $group_address_zip;?>",
+    "streetAddress": "<?php echo $group_address_street;?>"
+  },
+  "email": "<?php echo $group_email;?>",
+  "url" : "<?php echo $group_website;?>",
+  "contactPoint" : [
+    { "@type" : "ContactPoint",
+      "telephone" : "+44-<?php echo $formatted_phone;?>",
+      "contactType" : "office",
+      "areaServed" : "UK"
+    } ] }
+</script>
+
+<?php endif;
+
+
+if( get_row_layout() == 'local_group_activities' ):
+
+
 	$group_details = get_sub_field_object('activity_group_details');
 
 // check if the repeater field has rows of data
@@ -439,10 +620,17 @@ if( $group_details ):
 				$activity_frequency = get_sub_field('activity_frequency');
 				$activity_frequency_month = get_sub_field('activity_frequency_month');
 				$activity_day = get_sub_field('activity_day');
-				$activity_organiser = get_sub_field('activity_organiser');
+				$activity_organiser = get_field('organiser');
+				$activity_organised_by = get_sub_field('activity_organised_by');
 				$activity_contact = get_sub_field('group_contact');
 				$activity_email = get_sub_field('group_email');
 				$activity_phone = get_sub_field('group_phone');
+				$formatted_phone = explode(" ", $activity_phone);
+				$formatted_phone = implode("-", $formatted_phone);
+				$activity_address_street = get_sub_field('activity_address_street');
+				$activity_address_name = get_sub_field('activity_address_name');
+				$activity_address_town = get_sub_field('activity_address_town');
+				$activity_address_zip = get_sub_field('activity_address_postcode');
 				$contact_map = get_sub_field('map_address');
 				$map_key = get_field('api_key', 'option');
 
@@ -453,7 +641,7 @@ if( $group_details ):
 				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . $group_details['label']  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
 
 				echo '<div class="col s12 l6">
-								<label class="chip grey darken-4 white-text">Days</label><span class="block">';
+								<span class="label-resources white-text">Days</span><span class="block">';
 
 
 				if($activity_frequency['label'] == "monthly") {
@@ -482,7 +670,7 @@ if( $group_details ):
 
 				echo '</span>';
 				if($time_start) {
-					echo '<label class="chip grey darken-4 white-text">Time</label><span class="block"> This activity runs from ' . $time_start;
+					echo '<span class="label-resources white-text">Time</span><span class="block"> This activity runs from ' . $time_start;
 					if($time_end) {
 						echo ' to ' . $time_end ;
 					}
@@ -492,10 +680,14 @@ if( $group_details ):
 
 
 				if($activity_organiser) {
-					echo '<label class="chip grey darken-4 white-text">Organiser</label><span class="block">' . $activity_organiser . '</span>';
+					echo '<span class="label-resources white-text">Organiser</span><a class="block" href="' . get_permalink($activity_organiser[0]) . '">' . get_the_title($activity_organiser[0]) . '</a>';
+				} elseif ($activity_organised_by) {
+					echo '<span class="label-resources white-text">Organiser</span><span class="block">' . $activity_organised_by . '</span>';
 				}
 
-				echo '<label class="chip grey darken-4 white-text">Contact</label>';
+
+
+				echo '<span class="label-resources white-text">Contact</span>';
 
 				if($activity_contact) {
 					echo '<span class="block">' . $activity_contact . '</span>';
@@ -518,12 +710,15 @@ if( $group_details ):
 				if ($contact_map):
 					$map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
 					&markers=color:0x01a89e%7Csize:mid%7C' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&key=' . $map_key;
-					echo '<div class="col s12 l6"><label class="chip grey darken-4 white-text">Address</label><span class="block">' . $contact_map['address'] . '</span>';
-					echo '<label class="chip grey darken-4 white-text">Map</label><img class="responsive-img map" src="' . $map_image . '">';
+					echo '<div class="col s12 l6"><span class="label-resources white-text">Address</span><span class="block">';
+					echo $activity_address_name . '<br />';
+					echo $activity_address_street . '<br />';
+					echo $activity_address_town . ' ' . $activity_address_zip . '</span>';
+					echo '<span class="label-resources white-text">Map</span><img class="responsive-img map" src="' . $map_image . '">';
 					echo '</div>';
 				endif;
 
-				echo '<div class="col s12 right"><div title="Add to Calendar" class="addeventatc white">
+				echo '<div class="col s12 center"><div title="Add to Calendar" class="addeventatc white">
     Add to Calendar
     <span class="start">' . $activity_start . ' ' .  $time_start . '</span>
     <span class="end">' . $activity_end  . ' ' .  $time_end .  '</span>
@@ -544,8 +739,11 @@ else :
     // no rows found
 
 endif;
-echo '</div></div>';
-endif;
+echo '</div></div>';?>
+
+
+
+<?php endif;
 
 
 
@@ -613,7 +811,64 @@ endif;
 
 
 </section>
-<div class="col s12 m12 grey lighten-4 parent-page">
+
+
+
+<?php
+if( has_term( 'support-organisations', 'resources_category' ) ):
+$relatedActivities = get_posts(array(
+							'post_type' => 'resources',
+							'meta_query' => array(
+								array(
+									'key' => 'organiser', // name of custom field
+									'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
+									'compare' => 'LIKE'
+								)
+							)
+));
+
+
+ if( $relatedActivities ):?>
+
+
+
+ <div class=" related-activities">
+
+<h2 class="h5"><?php the_title();?> Activities</h2>
+
+		 <ul class="row">
+		 <?php foreach( $relatedActivities as $relatedActivity ): ?>
+			 <?php
+
+
+
+			 ?>
+			 <li class="col s12 m6 center">
+
+				 <div class="card-link">
+					 <h3 class="h6"><?php echo get_the_title( $relatedActivity->ID ); ?></h3>
+					 <a class="btn-large z-depth-0 waves-effect" href="<?php echo get_permalink( $relatedActivity->ID ); ?>">
+						 View Details on this Activity
+					 </a>
+				 </div>
+
+			 </li>
+
+
+		 <?php endforeach; ?>
+		 </ul>
+
+
+
+	</div>
+						<?php endif;
+
+wp_reset_postdata();
+
+endif;
+?>
+
+
 
 
 <?php
@@ -625,7 +880,7 @@ if ( $post->post_parent === 0 ) {
 
 
 } else {
-
+echo '<div class="col s12 m12 grey lighten-4 parent-page">';
 		$args = array(
 				'post_type'      => 'resources',
 				'posts_per_page' => -1,
@@ -641,7 +896,7 @@ if ( $post->post_parent === 0 ) {
 		$queried_object = get_queried_object();
 		$ID = $queried_object->ID;?>
 					<ol id="guide-contents">
-				<label class="block black-text"><?php echo get_the_title($post->post_parent); ?> guide pages</label>
+				<li class="block black-text"><?php echo get_the_title($post->post_parent); ?> guide pages</li>
 				<li class="parent">
 					<a href="<?php the_permalink($post->post_parent); ?>" title="<?php the_title(); ?>"><?php echo get_the_title($post->post_parent); ?></a>
 				</li>
@@ -669,6 +924,7 @@ if ( $post->post_parent === 0 ) {
 			</ol>
 
 		<?php endif; wp_reset_postdata();
+		echo '</div>';
 }
 
 ?>

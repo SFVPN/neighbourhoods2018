@@ -243,7 +243,7 @@ HEADER STYLES
     color: $secondary-color;
     font-weight: 300;
   }
-  #logo {
+  #logo, #logo-mobile {
     vertical-align: middle;
     margin: .75rem;
     height: 40px;
@@ -398,8 +398,14 @@ ABOUT US PAGE
 GENERIC PAGE STYLES
 *********************/
 
-#page_links {
-  padding: 1rem;
+#page_links, .related-activities {
+  padding: 1rem 0;
+  h3 {
+    margin-bottom: 1rem;
+  }
+  ul {
+    margin-top: 2rem;
+  }
   .card-link {
     padding: 4rem 1rem;
     background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23dbdbdb' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -412,7 +418,6 @@ GENERIC PAGE STYLES
       background: transparent;
       &:hover, &:focus {
         background: #ffffff;
-        text-decoration: underline;
       }
     }
   }
@@ -1321,7 +1326,7 @@ h1.archive-title {
 		height: auto;
 	}
   h2 {
-    font-size: $h4-fontsize;
+    font-size: $h5-fontsize;
     @media #{$medium-and-down} {
 
     }
@@ -1597,14 +1602,47 @@ a.current.chip {
   margin-top: 2rem;
 }
 
+.row.steps_block {
+  @media #{$large-and-up} {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.related-activities {
+  margin: 2rem 0;
+  .card {
+    padding: 1rem;
+    a {
+      margin-top: 1rem;
+    }
+  }
+}
+
 .row.tip, .row.link, .row.recommendation, .row.activities, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0;
   .note-heading {
     padding: 0.5rem 1rem;
   }
+  .label-resources {
+    padding: .25rem .5rem;
+    margin: 1rem 0 .5rem 0;
+    border-radius: 3px;
+    background: color("grey", "darken-4");
+    display: block;
+  }
   .note-content {
     padding: 1rem;
+    .mdi {
+      background: white;
+      padding: .5rem;
+      border-radius: 50%;
+      margin-right: .5rem;
+    }
+    span.block {
+      padding: 0.5rem 0;
+    }
     .product_link {
       font-size: 1.25rem;
       font-weight: 600;
@@ -1627,11 +1665,15 @@ a.current.chip {
       }
     }
     a {
-        padding-top: 1rem;
+        padding: 0.5rem 0;
+        font-weight: 600;
         &:hover, &:focus {
           color: $hover-color;
         }
 
+    }
+    a.chip {
+      padding-top: 0rem;
     }
   }
 
@@ -1663,8 +1705,12 @@ ol.steps {
 li {
   counter-increment: steps-counter;
   position: relative;
-  font-size: 1.25rem;
-  padding: 0rem 0 2rem 4rem;
+  @media #{$large-and-up} {
+    font-size: 1.25rem;
+    padding: 0rem 0 2rem 4rem;
+  }
+  font-size: 1rem;
+  padding: 0rem 0 1rem 2rem;
   p {
     display: inline-block;
   }
@@ -1675,14 +1721,19 @@ li::before {
   position: absolute;
   left: 0;
   font-weight: bold;
-  font-size: 2rem;
-  display: inline-block;
-  width: 50px;
-  height: 50px;
+  @media #{$large-and-up} {
+    font-size: 2rem;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+  }
+  font-size: 1rem;
+  width: 20px;
+  height: 20px;
   background: color("grey", "lighten-4");
   margin: 0 1rem 1rem 0;
   text-align: center;
-  line-height: 50px;
   border-radius: 50%;
 }
 }
@@ -1741,11 +1792,33 @@ ul.marker-desc {
   }
 }
 
+.image-marker {
+  @media #{$large-and-up} {
+    background: tomato;
+    color: white;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+  background: transparent;
+  color: black;
+  border: 1px solid;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+}
+
 figure.card {
-  margin: 2rem 0;
+  border-radius: 5px;
+  padding: .5rem;
+  .image-wrapper {
+    position: relative;
+
+  }
   img {
     width: 100%;
-    padding: .5rem;
   }
   figcaption {
     padding: .5rem;
@@ -1755,11 +1828,6 @@ figure.card {
 #toc, #guide-contents {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  label {
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
   .toc-h3 {
     padding-left: 1rem;
   }
@@ -1767,6 +1835,11 @@ figure.card {
 
 #toc li {
     padding: .25rem 0em;
+    &.label {
+      padding-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
 }
 
 #guide-contents {
@@ -2076,7 +2149,7 @@ COMMENT STYLES
 
 #suggestion-trigger {
   padding: 1rem 1rem 2rem 1rem;
-  margin-bottom: 5rem;
+  margin: 5rem 0;
 }
 /*********************
 COMMENT FORM STYLES
@@ -2336,7 +2409,10 @@ footer .padding-bottom {
 }
 
 #funder-logos {
-  padding: 2rem;
+  padding: 2rem 2rem 4rem 2rem;
+  h2 {
+    padding-bottom: 2rem;
+  }
 }
 
 .page-footer {

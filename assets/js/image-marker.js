@@ -1,58 +1,81 @@
-$(document).ready(function() {
-    $("img").on("click", function(event) {
-        var x = event.pageX - this.offsetLeft;
-        var y = event.pageY - this.offsetTop;
 
 
+document.body.ondblclick = function changeContent(event) {
 
-        //$(".coords input:text").val("Left Position : " + x + " --- Top Position : " + y);
+var paras = document.getElementsByClassName('marker');
 
-
-      //  $(".top input:text").val(y);
-        //alert("X Coordinate: " + x + " Y Coordinate: " + y);
-    });
-
-
-
-});
+while(paras[0]) {
+    paras[0].parentNode.removeChild(paras[0]);
+}
 
 
+var newDiv = document.createElement("div");
+newDiv.setAttribute("class", "marker");
+newDiv.style.position = "absolute";
+newDiv.style.height = "40px";
+newDiv.style.width = "40px";
+newDiv.style.borderRadius = "50%";
+newDiv.style.left = (event.pageX - 20) + "px";
+newDiv.style.top = (event.pageY - 20) + "px";
+newDiv.style.background = "tomato";
 
-$(document).ready(function(){
-  var fadeDelay = 10000;
-  	var fadeDuration = 10000;
-    $(".image-wrap img").click(function (ev) {
-
-        var height = $(this).height();
-        var width = $(this).width();
-        var iwTop = $(this).offset().top;
-        var iwLeft = $(this).offset().left;
-        var x = ev.pageX - iwLeft + 20;
-        var y = ev.pageY - iwTop + 20;
-        var perY = Math.floor(y / height * 100);
-        var perX = Math.floor(x / width * 100);
-        $("body").append(
-            $('<div class="marker"></div>').css({
-                position: 'absolute',
-                top: ev.pageY + 'px',
-                left: ev.pageX + 'px',
-                width: '20px',
-                height: '20px',
-                border: '4px solid tomato',
-                background: 'pink'
-            })
-        );
-        $(".coords input:text").val("Left Position : " + perX + "% --- Top Position : " + perY + "%");
-      
-    });
-
-    $(".acf-button-group").click(function(){
-   $('.marker').remove();
-     $(".coords input:text").val(null);
-});
-
-});
+  if ((event.pageX >= 210) && (event.pageX <= 1100)) {
+  document.body.appendChild(newDiv);
+}
 
 
+}
 
-$
+//
+// var newDiv = document.createElement("div");
+// var parentDiv = document.getElementsByClassName("image-wrap")[0];
+// var placement = document.getElementsByTagName("img")[0];
+//
+// newDiv.style.position = "absolute";
+// newDiv.style.height = "20px";
+// newDiv.style.width = "20px";
+// newDiv.style.background = "yellow";
+// newDiv.setAttribute("id", "thing");
+//
+// parentDiv.insertBefore(newDiv, placement);
+// //
+//
+//
+function addElement (event) {
+  var x = (event.offsetX / 736) * 90;
+  var y = (event.offsetY / 1308) * 90;
+  var newDiv = document.createElement("div");
+  newDiv.setAttribute("class", "marker");
+  newDiv.style.position = "fixed";
+  newDiv.style.width = "20%";
+  newDiv.style.padding = "10px";
+  newDiv.style.borderRadius = "5px";
+  newDiv.style.right = "10px";
+  newDiv.style.bottom = "10px";
+  newDiv.style.background = "tomato";
+  newDiv.style.color = "white";
+  newDiv.innerHTML = "Left Coord - " + x.toFixed(1) + "%" + " Top Coord - " + y.toFixed(1) + "%" ;
+  document.body.appendChild(newDiv);
+
+}
+
+
+// var inputSelected = document.getElementsByClassName("coords");
+// var inputSelected = inputSelected[0].getElementsByTagName("input");
+// var imageSelected = document.getElementsByClassName("image-wrap")[0];
+// var imageDef = document.getElementsByTagName("img")[0];
+// var topPos = document.getElementById("acf-field_5b914d29ab01c-row-0-field_5b914d30ab01d-acfcloneindex-field_5d4ad36b467e9");
+// var topPos1 = topPos.getElementsByTagName("input")[0];
+document.ondblclick = printMousePos;
+
+function printMousePos(event) {
+  var x = (event.offsetX / 736) * 90;
+  var y = (event.offsetY / 1308) * 90;
+  if ((event.pageX >= 210) && (event.pageX <= 1100)) {
+  addElement(event);
+}
+   console.log("Left Coord - " + x.toFixed(1) + "%" + " Top Coord - " + y.toFixed(1) + "%" );
+
+  // console.log("Left Page - " + event.pageX + " Top Page - " + event.pageY);
+
+}

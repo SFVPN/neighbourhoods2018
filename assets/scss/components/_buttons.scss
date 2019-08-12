@@ -141,6 +141,10 @@ border: none;
   bottom: 23px;
   margin-bottom: 0;
   z-index: 998;
+  &.left{
+    right: unset;
+    left: 23px;
+  }
 
   ul {
     left: 0;

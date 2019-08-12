@@ -158,12 +158,12 @@
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
-                                        "width": "",
+                                        "width": "0",
                                         "class": "responsive-img",
-                                        "id": ""
+                                        "id": "img"
                                     },
                                     "return_format": "url",
-                                    "preview_size": "large",
+                                    "preview_size": "medium",
                                     "library": "all",
                                     "min_width": "",
                                     "min_height": "",
@@ -191,132 +191,6 @@
                                     "maxlength": "",
                                     "rows": 2,
                                     "new_lines": ""
-                                },
-                                {
-                                    "key": "field_5c5c761c9f7a2",
-                                    "label": "",
-                                    "name": "remove_markers",
-                                    "type": "button_group",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": "remove"
-                                    },
-                                    "choices": {
-                                        "Remove markers": "Remove markers"
-                                    },
-                                    "allow_null": 0,
-                                    "default_value": "",
-                                    "layout": "horizontal",
-                                    "return_format": "value"
-                                },
-                                {
-                                    "key": "field_5c5ae69929aa4",
-                                    "label": "Latest Marker Co-ordinates",
-                                    "name": "coordinates",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "coords",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "Create a new marker position with these values",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5c5ad5fa6bdf4",
-                                    "label": "Add New Marker Position",
-                                    "name": "markers",
-                                    "type": "repeater",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": "markers"
-                                    },
-                                    "collapsed": "",
-                                    "min": 0,
-                                    "max": 0,
-                                    "layout": "block",
-                                    "button_label": "Add New",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_5c5ad6116bdf5",
-                                            "label": "Left Position",
-                                            "name": "left_position",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "left",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_5c5ad6586bdf6",
-                                            "label": "Top Position",
-                                            "name": "top_position",
-                                            "type": "text",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": [
-                                                [
-                                                    {
-                                                        "field": "field_5c5ad67c6bdf7",
-                                                        "operator": "==",
-                                                        "value": "1"
-                                                    }
-                                                ]
-                                            ],
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "top",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "prepend": "",
-                                            "append": "",
-                                            "maxlength": ""
-                                        },
-                                        {
-                                            "key": "field_5c5ec37691e5e",
-                                            "label": "Marker Description",
-                                            "name": "marker_description",
-                                            "type": "textarea",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": "",
-                                            "maxlength": "",
-                                            "rows": "",
-                                            "new_lines": ""
-                                        }
-                                    ]
                                 }
                             ],
                             "min": "",
@@ -374,6 +248,30 @@
                             "display": "block",
                             "sub_fields": [
                                 {
+                                    "key": "field_5d4ab6b8dc4a4",
+                                    "label": "Steps Image",
+                                    "name": "steps_image",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": "steps_image"
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "full",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
                                     "key": "field_5c3c57b27d246",
                                     "label": "Step",
                                     "name": "step",
@@ -410,6 +308,83 @@
                                             "maxlength": "",
                                             "rows": "",
                                             "new_lines": ""
+                                        },
+                                        {
+                                            "key": "field_5d4c590cfa78b",
+                                            "label": "Add marker for this step",
+                                            "name": "add_marker",
+                                            "type": "true_false",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "message": "",
+                                            "default_value": 0,
+                                            "ui": 1,
+                                            "ui_on_text": "",
+                                            "ui_off_text": ""
+                                        },
+                                        {
+                                            "key": "field_5d4ad333467e8",
+                                            "label": "Left Coords",
+                                            "name": "left_pos",
+                                            "type": "number",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5d4c590cfa78b",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": "left"
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "min": "",
+                                            "max": "",
+                                            "step": ""
+                                        },
+                                        {
+                                            "key": "field_5d4ad36b467e9",
+                                            "label": "Top Coords",
+                                            "name": "top_pos",
+                                            "type": "number",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_5d4c590cfa78b",
+                                                        "operator": "==",
+                                                        "value": "1"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": "top"
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "min": "",
+                                            "max": "",
+                                            "step": ""
                                         }
                                     ]
                                 }
@@ -873,6 +848,23 @@
                                             "new_lines": "br"
                                         },
                                         {
+                                            "key": "field_5d512765c8536",
+                                            "label": "Dates \/ Times",
+                                            "name": "",
+                                            "type": "accordion",
+                                            "instructions": "Add the dates, time etc of the activity you are adding.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "open": 0,
+                                            "multi_expand": 0,
+                                            "endpoint": 0
+                                        },
+                                        {
                                             "key": "field_5d24726e18251",
                                             "label": "Activity Start Date",
                                             "name": "activity_start",
@@ -1044,6 +1036,23 @@
                                             "return_format": "url"
                                         },
                                         {
+                                            "key": "field_5d51273dc8535",
+                                            "label": "Contact",
+                                            "name": "",
+                                            "type": "accordion",
+                                            "instructions": "Add contact details for the activity you are adding.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "open": 0,
+                                            "multi_expand": 0,
+                                            "endpoint": 0
+                                        },
+                                        {
                                             "key": "field_5d246cd47bc9a",
                                             "label": "Organised by",
                                             "name": "activity_organiser",
@@ -1072,6 +1081,25 @@
                                             "layout": "vertical",
                                             "return_format": "value",
                                             "save_other_choice": 0
+                                        },
+                                        {
+                                            "key": "field_5d5129c8ce1cf",
+                                            "label": "Organised by",
+                                            "name": "activity_organised_by",
+                                            "type": "text",
+                                            "instructions": "You can link this activity to any organisation that is in our resource library using the \"Organiser\" field at the top of the page (just under \"Choose a Category\"). If the organisation is not in our library you can add it manually here",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
                                         },
                                         {
                                             "key": "field_5d246cac7bc99",
@@ -1130,7 +1158,327 @@
                                             "maxlength": ""
                                         },
                                         {
+                                            "key": "field_5d512d5bbe262",
+                                            "label": "Activity Address (Place Name)",
+                                            "name": "activity_address_name",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d512d3bbe261",
+                                            "label": "Activity Address (Street)",
+                                            "name": "activity_address_street",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d512d6bbe263",
+                                            "label": "Activity Address (Town)",
+                                            "name": "activity_address_town",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d512d79be264",
+                                            "label": "Activity Address (Postcode)",
+                                            "name": "activity_address_postcode",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
                                             "key": "field_5d23571f142a2",
+                                            "label": "Map + Address",
+                                            "name": "map_address",
+                                            "type": "google_map",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "center_lat": "",
+                                            "center_lng": "",
+                                            "zoom": "",
+                                            "height": ""
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5d4c61d5d972b": {
+                            "key": "layout_5d4c61d5d972b",
+                            "name": "support_groups",
+                            "label": "Support Groups",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d4c61d5d972c",
+                                    "label": "Organisation Details",
+                                    "name": "group_details",
+                                    "type": "group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "layout": "row",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5d4c61d5d972d",
+                                            "label": "Group Description",
+                                            "name": "group_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": "",
+                                            "new_lines": "br"
+                                        },
+                                        {
+                                            "key": "field_5d4c61d5d9737",
+                                            "label": "Contact Name",
+                                            "name": "group_contact",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d4c61d5d9738",
+                                            "label": "Contact Email",
+                                            "name": "group_email",
+                                            "type": "email",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": ""
+                                        },
+                                        {
+                                            "key": "field_5d4c61d5d9739",
+                                            "label": "Contact Phone",
+                                            "name": "group_phone",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d4fff36b7aa8",
+                                            "label": "Address (street)",
+                                            "name": "group_address_street",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d4fff5db7aa9",
+                                            "label": "Address (second line)",
+                                            "name": "group_address_second",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d4fff6cb7aaa",
+                                            "label": "Address (town \/ city)",
+                                            "name": "group_address_town",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d4fff7bb7aab",
+                                            "label": "Address (postcode)",
+                                            "name": "group_address_postcode",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d4d2c15e4fe9",
+                                            "label": "Website",
+                                            "name": "group_website",
+                                            "type": "url",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_5d4d2c38e4fea",
+                                            "label": "Twitter",
+                                            "name": "group_twitter",
+                                            "type": "url",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_5d4d2c4ee4feb",
+                                            "label": "Facebook",
+                                            "name": "group_facebook",
+                                            "type": "url",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": ""
+                                        },
+                                        {
+                                            "key": "field_5d4c61d5d973a",
                                             "label": "Map + Address",
                                             "name": "map_address",
                                             "type": "google_map",
@@ -1180,5 +1528,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562789065
+    "modified": 1565601568
 }

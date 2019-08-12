@@ -342,8 +342,9 @@ if (have_rows('social_media', 'option')) {
   endwhile;
 }
 
-
+if(is_front_page()):
 echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
+endif;
 });
 
 

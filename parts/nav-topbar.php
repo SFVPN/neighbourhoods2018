@@ -21,7 +21,7 @@
 			<?php }?>
 			/>
 
-			<img id="logo" class="hide-on-large-only brand-logo center" style="margin-left: 0;"
+			<img id="logo-mobile" class="hide-on-large-only brand-logo center" style="margin-left: 0;"
 				<?php $logo_image = get_theme_mod( 'tcx_logo_image' );
 				if ($logo_image){?>
 				src="<?php echo $logo_image;?>" alt=""

@@ -1,122 +1,7 @@
 {
     "key": "group_5ba27aee656fa",
-    "title": "Resource Type",
+    "title": "Resource Details",
     "fields": [
-        {
-            "key": "field_5ba370978bc19",
-            "label": "Tips and tricks",
-            "name": "assigning_categories",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ba370be8bc1a",
-                    "label": "What type of page is this?",
-                    "name": "what_type",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Single Page Resource": "Single Page Resource",
-                        "Intro page of a multi-page resource": "Intro page of a multi-page resource",
-                        "Sub-page of a multi-page resource": "Sub-page of a multi-page resource"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                },
-                {
-                    "key": "field_5ba371538bc1b",
-                    "label": "For Single Page Resources",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ba370be8bc1a",
-                                "operator": "==",
-                                "value": "Single Page Resource"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "tip",
-                        "id": ""
-                    },
-                    "message": "You can assign as many categories \/ sub-categories as you wish.  Choose your parent categories and then any relevant sub-categories of these.",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ba371aa8bc1c",
-                    "label": "For Intro Pages",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ba370be8bc1a",
-                                "operator": "==",
-                                "value": "Intro page of a multi-page resource"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "tip",
-                        "id": ""
-                    },
-                    "message": "Start by assigning relevant parent categories.\r\n\r\nIf the entire resource covers a single topic (EG: guidance to use an app) you should assign any relevant sub-categories on the intro\/parent page.\r\n\r\nIf the resource covers a variety of topics (EG: the carers checklist includes advice on finance, leisure, home alterations) you should ONLY assign the  parent categories on the intro\/parent page.  Specific sub-categories can be assigned on the relevant sub pages",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ba371c98bc1d",
-                    "label": "For Sub Pages",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": [
-                        [
-                            {
-                                "field": "field_5ba370be8bc1a",
-                                "operator": "==",
-                                "value": "Sub-page of a multi-page resource"
-                            }
-                        ]
-                    ],
-                    "wrapper": {
-                        "width": "",
-                        "class": "tip",
-                        "id": ""
-                    },
-                    "message": "Firstly, choose your parent page from the drop-down list in the <strong>Page Attributes<\/strong> box to the right.  Also, enter the page number into the <strong>Order<\/strong> text field.\r\n\r\nIf the entire resource covers a single topic (EG: guidance to use an app) you DO NOT need to assign any categories to sub pages. You should assign relevant categories\/sub-categories on the intro\/parent page of the resource.\r\n \r\nIf the resource covers a variety of topics (EG: the carers checklist includes advice on finance, leisure, home alterations) you should assign the relevant sub-categories here.",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                }
-            ]
-        },
         {
             "key": "field_5ba27a171210e",
             "label": "Choose a category",
@@ -138,6 +23,33 @@
             "return_format": "id",
             "multiple": 0,
             "allow_null": 0
+        },
+        {
+            "key": "field_5d4c66c72667b",
+            "label": "Organiser",
+            "name": "organiser",
+            "type": "relationship",
+            "instructions": "If you are adding a local activity group you may wish to associate it with one of the support organisations we already have in the resource directory. You can do that here.  If the organisation does not exist you can add it manually with the other contact information in the 'Activity Details' content block.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "resources"
+            ],
+            "taxonomy": [
+                "resources_category:support-organisations"
+            ],
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 1,
+            "return_format": "id"
         }
     ],
     "location": [
@@ -168,7 +80,7 @@
         "tags",
         "send-trackbacks"
     ],
-    "active": true,
+    "active": 1,
     "description": "",
-    "modified": 1562343776
+    "modified": 1565600079
 }
