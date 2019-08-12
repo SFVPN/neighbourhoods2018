@@ -55,7 +55,7 @@ function remove_plugin_image_sizes() {
 <?php }
 }
 
-	function archive_terms($taxonomy, $post_type) {
+	function archive_terms($taxonomy, $post_type, $title) {
 		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
 		$queried_object = get_queried_object();
 		$terms = get_terms(array(
@@ -66,9 +66,11 @@ function remove_plugin_image_sizes() {
 		$archive = get_post_type_archive_link( $post_type );
 		$obj = get_post_type_object( $post_type );
 		?>
-		<nav class="control btns center">
+		<details>
+			<summary><?php echo $title;?></summary>
 
-				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Resources</span>
+		<nav class="control btns">
+
 			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
 				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><?php echo 'All ' . $queried_object->name;?></a>
 			<?php } elseif ($archive) {?>
@@ -85,9 +87,10 @@ function remove_plugin_image_sizes() {
 		}?>
 
 	</nav>
+	</details>
 	<?php }
 
-	function archive_terms_child($taxonomy, $post_type) {
+	function archive_terms_child($taxonomy, $post_type, $title) {
 		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
 		$queried_object = get_queried_object();
 		$terms = get_terms(array(
@@ -98,8 +101,10 @@ function remove_plugin_image_sizes() {
 		$archive = get_post_type_archive_link( $post_type );
 		$obj = get_post_type_object( $post_type );
 		?>
-		<nav class="control btns center">
-				<span id="filter" class="current waves-effect grey darken-3 white-text chip">Filter Resources</span>
+		<details>
+
+		<summary><?php echo $title;?></summary>
+		<nav class="control btns">
 			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
 				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><?php echo 'All ' . $obj->labels->name;?></a>
 			<?php } elseif ($archive) {
@@ -118,6 +123,7 @@ function remove_plugin_image_sizes() {
 		}?>
 
 	</nav>
+	</details>
 	<?php }
 
 	function archive_terms_cards($taxonomy, $post_type) {
@@ -231,6 +237,13 @@ function searchfilter($query) {
 return $query;
 }
 add_filter('pre_get_posts','searchfilter');
+
+add_action( 'pre_get_posts', function ( $query ) {
+    if ( is_tax('resources_category') && $query->is_main_query() ) {
+        $query->set( 'orderby', 'title' );
+        $query->set( 'order', 'ASC' );
+    }
+} );
 // limits search to locations custom post type
 //
 // function searchfilter($query) {

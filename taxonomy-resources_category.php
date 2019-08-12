@@ -24,10 +24,10 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 
 				if($queried_object->parent === 0 ) {
 
-					archive_terms('resources_category', 'resources');
+					archive_terms('resources_category', 'resources', 'Filter Resources');
 				} else {
 
-					archive_terms_child('resources_category', 'resources');
+					archive_terms_child('resources_category', 'resources', 'Filter Resources');
 				}
 
 				if($term_description) {

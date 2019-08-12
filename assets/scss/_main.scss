@@ -316,19 +316,44 @@ i.mdi.mdi-menu {
   }
 
 
+details {
+  border: 1px solid color("grey", "lighten-1");
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 2rem 0;
+  summary {
+    text-transform: uppercase;
+    padding: 1rem;
+    color: color("grey", "darken-2");
+    transition: 350ms;
+    text-align: center;
+    border-bottom: 1px solid transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+  &[open] {
+    summary {
+      color: color("purple", "darken-2");
+      font-weight: 600;
+      transition: 350ms;
+    }
+  }
+}
+
 .control.btns {
-  padding: 1rem 0rem 3rem 0rem;
+  padding: 0rem 2rem 2rem 2rem;
   a:not(:first-of-type) {
     margin-right: .25rem;
   }
-  a {
-
-    &:hover, &:focus {
-      // color: $hover-color;
-      // border: 1px solid $hover-color;
-      // text-decoration: none;
-    }
+  a.current {
+    background: color("purple", "darken-1");
+    color: #ffffff;
+    &:focus, &:hover {
+    background-color: $chip-bg-hover;
   }
+  }
+
 }
 
 a {transition: 250ms;}
@@ -1493,6 +1518,7 @@ div#resources_category .l4 .s12 {
 #cat-icon {
   padding: 1rem;
   border-radius: 50%;
+  animation: show 2s 1;
 }
 
 #resources_category i {
@@ -1510,6 +1536,8 @@ a.current.chip {
   background: color("grey", "lighten-3");
   border: 1px solid color("grey", "lighten-3");
 }
+
+
 
 .schedule {
   background: #ffffff;
