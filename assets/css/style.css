@@ -12738,6 +12738,9 @@ a.current.chip {
     .related-activities .card a {
       margin-top: 1rem; }
 
+.row.activities p {
+  margin: 2rem 0; }
+
 .row.tip, .row.link, .row.recommendation, .row.activities, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0; }

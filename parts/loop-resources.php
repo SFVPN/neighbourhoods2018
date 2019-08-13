@@ -6,7 +6,9 @@
 
 
 		<?php
-		if (is_tax( 'resources_category', array( 'local-groups', 'tech-support' ) )) {?>
+		//if (is_tax( 'resources_category', array( 'local-groups', 'tech-support' ) ))
+
+		if (has_term(array( 'local-groups', 'tech-support' ), 'resources_category', null) == 1) {?>
 
 		<section class="resource-card grey lighten-4 z-depth-1">
 

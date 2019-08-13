@@ -616,7 +616,7 @@ if( $group_details ):
 				$time_start = get_sub_field('activity_start_time');
 				$activity_end = get_sub_field('activity_end');
 				$time_end = get_sub_field('activity_end_time');
-        $activity_name = get_sub_field('activity_description');
+        $activity_description = get_sub_field('activity_description');
 				$activity_frequency = get_sub_field('activity_frequency');
 				$activity_frequency_month = get_sub_field('activity_frequency_month');
 				$activity_day = get_sub_field('activity_day');
@@ -634,8 +634,8 @@ if( $group_details ):
 				$contact_map = get_sub_field('map_address');
 				$map_key = get_field('api_key', 'option');
 
-				if($activity_name) {
-					echo '<p>' . $activity_name . '</p>';
+				if($activity_description) {
+					echo '<p>' . $activity_description . '</p>';
 				}
 
 				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . $group_details['label']  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
@@ -818,6 +818,9 @@ endif;
 if( has_term( 'support-organisations', 'resources_category' ) ):
 $relatedActivities = get_posts(array(
 							'post_type' => 'resources',
+							'posts_per_page' => -1,
+							'order'          => 'ASC',
+							'orderby'        => 'title'
 							'meta_query' => array(
 								array(
 									'key' => 'organiser', // name of custom field
