@@ -820,7 +820,7 @@ $relatedActivities = get_posts(array(
 							'post_type' => 'resources',
 							'posts_per_page' => -1,
 							'order'          => 'ASC',
-							'orderby'        => 'title'
+							'orderby'        => 'title',
 							'meta_query' => array(
 								array(
 									'key' => 'organiser', // name of custom field
