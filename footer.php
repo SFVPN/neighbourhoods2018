@@ -16,16 +16,17 @@
     <div id="funder-logos" class="row">
 
 			<h2 class="h5">Our Funders</h3>
+			<div class="flex">
 
     <?php while( have_rows('logos', 'option') ): the_row();
 		$image = get_sub_field('image_file');
 		?>
 
-        <div class="col s12 l4"><a href="<?php the_sub_field('link_to'); ?>"><img class="responsive-img" alt="<?php echo $image['alt']; ?>" aria-label="<?php echo $image['caption']; ?>" src="<?php echo $image['url']; ?>"></a></div>
+        <div class="col s4"><a href="<?php the_sub_field('link_to'); ?>"><img class="responsive-img" alt="<?php echo $image['alt']; ?>" src="<?php echo $image['url']; ?>"></a></div>
 
     <?php endwhile; ?>
-
-	</div>
+			</div>
+		</div>
 
 <?php endif; ?>
 

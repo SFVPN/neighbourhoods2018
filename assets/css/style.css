@@ -3200,6 +3200,11 @@ td, th {
     padding: 10px 20px;
     margin: 0;
     border-bottom: 1px solid #e0e0e0; }
+    .collection .collection-item img.mobile-responsive-img {
+      height: 100px;
+      width: 100%;
+      object-fit: cover;
+      margin-bottom: 1rem; }
     .collection .collection-item.avatar {
       min-height: 84px;
       padding-left: 72px;
@@ -3435,7 +3440,7 @@ nav ul a span.badge {
 .container {
   margin: 0 auto;
   max-width: 1280px;
-  width: 75%; }
+  width: 90%; }
 
 @media only screen and (min-width: 601px) {
   .container {
@@ -12700,6 +12705,9 @@ a.current.chip {
 
 .single article, .archive .article-header {
   margin-top: 4rem; }
+  @media only screen and (max-width: 600px) {
+    .single article, .archive .article-header {
+      margin-top: 0; } }
 
 .single-resources .article-header {
   padding-bottom: 3rem; }
@@ -13259,6 +13267,10 @@ footer .padding-bottom {
   padding: 2rem 2rem 4rem 2rem; }
   #funder-logos h2 {
     padding-bottom: 2rem; }
+
+.flex {
+  display: flex;
+  align-items: center; }
 
 .page-footer {
   font-weight: 300; }

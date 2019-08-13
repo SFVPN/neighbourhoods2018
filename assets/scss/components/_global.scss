@@ -522,6 +522,13 @@ td, th{
     margin: 0;
     border-bottom: 1px solid $collection-border-color;
 
+    img.mobile-responsive-img {
+      height: 100px;
+      width: 100%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+    
     // Avatar Collection
     &.avatar {
       min-height: 84px;

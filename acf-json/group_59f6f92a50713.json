@@ -15,7 +15,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "We have a flexible system for submitted content to the website so you can choose just the information that is relevant to the data you are uploading. Although you have the option of adding multiple images\/documents etc in a single submission, you may feel that a report or presentation (for example) should be submitted individually from other documents you are adding. If this is the case, simply fill in the relevant details for the document being added and then click <strong>Publish\/Submit<\/strong>, before creating any other submissions you deem necessary.<br>",
+            "message": "We have a flexible system for blog content to the website which lets you add blocks of content (whether this is heading, text, images etc) to build your article. These blocks can also be easily rearranged by clicking on the mouse when hovering over a particular block (the cursor will become a cross) and then dragging the block to its new position. If required you should use heading blocks to break up the content into sections. For important links or documents you can use the relevant blocks to  highlight these. You can also add links from within the text blocks.",
             "new_lines": "wpautop",
             "esc_html": 0
         },
@@ -317,7 +317,9 @@
                             "max_width": "",
                             "max_height": "",
                             "max_size": "",
-                            "mime_types": ""
+                            "mime_types": "",
+                            "return_format": "array",
+                            "preview_size": "medium"
                         },
                         {
                             "key": "field_59f6fadd13b49",
@@ -486,11 +488,10 @@
         "author",
         "format",
         "page_attributes",
-        "categories",
         "tags",
         "send-trackbacks"
     ],
     "active": 1,
     "description": "",
-    "modified": 1548760468
+    "modified": 1565705947
 }

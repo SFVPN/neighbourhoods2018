@@ -1587,6 +1587,9 @@ a.current.chip {
 
 .single article, .archive .article-header {
   margin-top: 4rem;
+  @media #{$small-and-down} {
+     margin-top: 0;
+ }
 }
 
 .single-resources .article-header {
@@ -2451,6 +2454,11 @@ footer .padding-bottom {
   h2 {
     padding-bottom: 2rem;
   }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
 }
 
 .page-footer {

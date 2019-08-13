@@ -22,6 +22,16 @@ if(is_tax()) {
 
   </div>
   <div class="col s12 m9">
+    <div class="hide-on-med-and-up">
+      <?php
+
+      if ( has_post_thumbnail() ) {
+        accessible_thumbnail('medium', 'mobile-responsive-img');
+      } else {
+        //echo '<i class="material-icons yellow circle black-text" aria-hidden="true">filter_7</i>';
+      }?>
+
+    </div>
     <span class="title"><a href="<?php the_permalink();?>"><?php the_title(); ?></a></span>
     <p class="label"><i class="mdi mdi-clock"></i> Posted on <?php the_time('F j, Y');?><br>
       <?php the_excerpt(); ?>
