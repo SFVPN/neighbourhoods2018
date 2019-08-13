@@ -178,6 +178,29 @@ border: none;
   }
 }
 
+input#wp-submit.button-primary {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: $button-height;
+  line-height: $button-line-height;
+  margin-bottom: 2rem;
+  background: color("green", "darken-2");
+  color: white;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  // Gets rid of tap active state
+  -webkit-tap-highlight-color: transparent;
+  &:hover, &:focus {
+    background: color("green", "base");
+  }
+  @media #{$small-and-down} {
+    padding: 0 1rem;
+  }
+}
+
 // Large button
 .btn-large {
   @extend .btn;
@@ -194,7 +217,7 @@ border: none;
     height: auto;
     line-height: 1.5rem;
     font-size: 1rem;
-    padding: 0rem;
+    padding: 0.25rem 0.5rem;
   }
 }
 

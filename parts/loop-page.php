@@ -77,8 +77,8 @@
 
 
 				if( have_rows('link_details') ):?>
-					<div id="page_links" class="col s12 center grey lighten-4">
-						<h2 class="h4"><?php echo $section_title; ?></h2>
+					<div id="page_links" class="col s12 grey lighten-4">
+						<h2 class="h4 center"><?php echo $section_title; ?></h2>
 
 				<?php
 
@@ -92,7 +92,7 @@
 				$page_url = get_sub_field('page_url');
 				$link_url = get_sub_field('link_url');
 				?>
-				<div class="col s12 l6">
+				<div class="col s12 l6 center">
 					<div class="card-link white">
 						<a
 						href="<?php

@@ -37,7 +37,9 @@ if( !is_user_logged_in() ) {
 						</div>
 	</div>';
 	wp_login_form( $args );
+	if(class_exists('NextendSocialLogin', false)){
 	echo '<div class="row center"><div class="col s4">' . do_shortcode('[nextend_social_login provider="google"]') . '</div><div class="col s4">' . do_shortcode('[nextend_social_login provider="twitter"]') . '</div><div class="col s4">' . do_shortcode('[nextend_social_login provider="facebook"]') . '</div></div>';
+}
 } else {
 	echo '<div class="center"><p class="col s12">
 	You are already logged in.
@@ -45,7 +47,10 @@ if( !is_user_logged_in() ) {
 	echo '<p class="col s12">
 	<a class="btn materialize-red lighten-1" href="' . home_url() . '/wp-login.php?action=logout">Logout</a>
 	</p></div>';
-}?>
+}
+
+
+?>
 
 	</section> <!-- end article section -->
 

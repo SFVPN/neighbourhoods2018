@@ -21,7 +21,8 @@
 			<?php }?>
 			/>
 
-			<img id="logo-mobile" class="hide-on-large-only brand-logo center" style="margin-left: 0;"
+			<a href="<?php bloginfo('url'); ?>" class="hide-on-large-only">
+			<img id="logo-mobile" class="brand-logo center"
 				<?php $logo_image = get_theme_mod( 'tcx_logo_image' );
 				if ($logo_image){?>
 				src="<?php echo $logo_image;?>" alt=""
@@ -30,6 +31,7 @@
 				src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
 				<?php }?>
 				/>
+			</a>
 
 
 			<a href="<?php bloginfo('url'); ?>" class="brand-logo left"><?php bloginfo('name'); ?></a>

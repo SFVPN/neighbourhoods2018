@@ -4610,6 +4610,26 @@ button.btn-floating {
     color: #b3b3b3;
     cursor: default; }
 
+input#wp-submit.button-primary {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 2rem;
+  background: #388E3C;
+  color: white;
+  outline: 0;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent; }
+  input#wp-submit.button-primary:hover, input#wp-submit.button-primary:focus {
+    background: #4CAF50; }
+  @media only screen and (max-width: 600px) {
+    input#wp-submit.button-primary {
+      padding: 0 1rem; } }
+
 .btn-large {
   height: 54px;
   line-height: 56px; }
@@ -4621,7 +4641,7 @@ button.btn-floating {
       height: auto;
       line-height: 1.5rem;
       font-size: 1rem;
-      padding: 0rem; } }
+      padding: 0.25rem 0.5rem; } }
 
 .btn-block {
   display: block; }
@@ -11686,6 +11706,9 @@ a:link, a:visited:link {
 
 #share-links a.chip {
   margin: 1rem 1rem .5rem 1rem; }
+  @media only screen and (max-width: 600px) {
+    #share-links a.chip {
+      margin: 0; } }
 
 /*********************
 H1, H2, H3, H4, H5 P STYLES
@@ -11877,6 +11900,8 @@ GENERIC PAGE STYLES
   padding: 1rem 0; }
   #page_links h3, .related-activities h3 {
     margin-bottom: 1rem; }
+  #page_links p, .related-activities p {
+    padding: 0 1.25rem; }
   #page_links ul, .related-activities ul {
     margin-top: 2rem; }
   #page_links .card-link, .related-activities .card-link {
@@ -12506,8 +12531,7 @@ a.chip {
     .page-parent .entry-content p,
     .page-child .entry-content p {
       font-size: 1.1em;
-      margin: .5em;
-      text-align: justify; } }
+      margin: .5em; } }
 
 .single-post .entry-content p {
   font-size: 1.3rem;
