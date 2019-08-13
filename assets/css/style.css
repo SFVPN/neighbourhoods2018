@@ -12564,6 +12564,9 @@ h1.archive-title {
   border: 1px solid #cecece;
   padding: 10px; }
 
+img.responsive-img ~ label {
+  margin-bottom: 2rem; }
+
 .key_link {
   font-size: 1.25rem;
   margin: 20px 0;

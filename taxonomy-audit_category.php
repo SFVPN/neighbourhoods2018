@@ -14,7 +14,7 @@
 
 			<div class="container">
 
-				<?php archive_terms('audit_category', 'audits');?>
+				<?php archive_terms('audit_category', 'audits', 'Filter Audits');?>
 
 				<ul class="collection">
 

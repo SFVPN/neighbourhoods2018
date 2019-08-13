@@ -13,7 +13,7 @@
 
 			<div class="container">
 
-				<?php archive_terms('category', 'post');?>
+				<?php archive_terms('category', 'post', 'Filter News');?>
 
 				<ul class="collection">
 

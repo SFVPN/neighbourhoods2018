@@ -14,7 +14,7 @@ $queried_object = get_queried_object();
 
 			<div class="container">
 
-				<?php archive_terms('category', 'post');?>
+				<?php archive_terms('category', 'post', 'Filter News');?>
 
 				<ul class="collection">
 

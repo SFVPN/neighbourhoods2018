@@ -54,23 +54,29 @@
 					Click on the title to view full details of this resource.
 				</p>
 
-		<?php if ($post->post_parent != 0) {
-			echo '<p class="footer-content purple darken-1"><i class="material-icons left">library_books</i>Part of ' . get_the_title($post->post_parent) . ' guide</p>';
+		<?php
+		if (has_term(array( 'support-organisations' ), 'resources_category', null) == 1) {
+			echo '<p class="footer-content purple darken-1"><i class="material-icons left">contact_support</i>Support Organisation</p>';
 		} else {
-			$args = array(
-				'post_parent' => $post->ID,
-				'post_type'   => 'resources',
-				'numberposts' => -1,
-				'post_status' => 'any'
-			);
-			$children = get_children( $args );
-			$count = count($children);
-			$total = $count + 1;
+			if ($post->post_parent != 0) {
+				echo '<p class="footer-content purple darken-1"><i class="material-icons left">library_books</i>Part of ' . get_the_title($post->post_parent) . ' guide</p>';
+			} else {
+				$args = array(
+					'post_parent' => $post->ID,
+					'post_type'   => 'resources',
+					'numberposts' => -1,
+					'post_status' => 'any'
+				);
+				$children = get_children( $args );
+				$count = count($children);
+				$total = $count + 1;
 
 
-				echo '<p class="footer-content purple darken-1"><i class="material-icons left">format_list_numbered</i>' . $total . '-page guide</p>';
+					echo '<p class="footer-content purple darken-1"><i class="material-icons left">format_list_numbered</i>' . $total . '-page guide</p>';
 
+			}
 		}
+
 		}
 		//print_R($post);
 
