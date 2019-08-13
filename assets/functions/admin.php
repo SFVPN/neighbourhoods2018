@@ -107,7 +107,35 @@ return $urls;
 }
 
 
+add_filter( 'manage_resources_posts_columns', 'sfvpn_resources_columns' );
 
+function sfvpn_resources_columns( $columns ) {
+	 $columns = array(
+		 'cb' => $columns['cb'],
+		 'title' => __( 'Title' ),
+		 'taxonomy-resources_category' =>  __( 'Resource Type' ),
+	   'organiser' => __( 'Organiser', 'sfvpn' ),
+	 );
+
+
+ return $columns;
+}
+
+add_action( 'manage_resources_posts_custom_column', 'sfvpn_resources_column', 10, 2);
+function sfvpn_resources_column( $column, $post_id ) {
+
+
+	if ( 'organiser' === $column ) {
+		$organiser = get_post_meta($post_id, 'organiser', true);
+
+		if ( ! $organiser ) {
+			_e( 'n/a' );
+		} else {
+			echo get_the_title($organiser[0]);
+		}
+	}
+
+}
 
 
 add_filter( 'manage_audits_posts_columns', 'sfvpn_audits_columns' );

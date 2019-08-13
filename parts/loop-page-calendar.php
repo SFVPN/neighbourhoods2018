@@ -124,9 +124,11 @@
 
 		    endwhile;
 				echo '</ul>';
+
 		else :
 
 		    // no layouts found
+				get_template_part( 'parts/content', 'noevents' );
 
 		endif;
 	?>

@@ -8,7 +8,7 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 	<div class="row">
 
 		<header class="article-header center">
-			<h1 class="resources-title h3 center" style="" itemprop="headline"><?php archive_title('Resources');?></h1>
+			<h1 class="resources-title h3 center" style="" itemprop="headline"><?php archive_title('');?></h1>
 			<?php if ($icon) {
 				echo '<i id="cat-icon" class="medium purple darken-1 white-text material-icons">' . $icon . '</i>';
 			} else {
