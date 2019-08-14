@@ -484,6 +484,9 @@ SIMPLE CALENDAR OVERRIDES
 
 .single-calendar .container {
   width: 80%;
+  @media #{$small-and-down} {
+    width: 90%;
+  }
   .calendar_desc {
     padding: 0 10%;
   }
@@ -572,7 +575,7 @@ SIMPLE CALENDAR OVERRIDES
   display: grid;
   grid-template-columns: 1fr 3fr;
   @media #{$small-and-down} {
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
   }
   grid-gap: 1rem;
   .simcal-day-label {
@@ -1247,6 +1250,9 @@ a.chip {
   margin-bottom: 0px;
   .callout-content {
     padding: 3rem;
+    @media #{$small-and-down} {
+      padding: 1rem;
+    }
   }
   .callout-description {
     padding-bottom: 1rem;
@@ -1293,7 +1299,7 @@ a.chip {
   @media #{$small-and-down} {
     padding: 1rem;
       a {
-        padding: 0 1rem;
+        padding: 1rem;
       }
   }
 }
@@ -1434,10 +1440,16 @@ article#content-not-found {
 .home .article-header {
   font-weight: 100;
   padding: 4rem 0;
+  @media #{$small-and-down} {
+    padding: 0rem;
+  }
 }
 
-.article-header {
 
+header.article-header.col.s12 {
+  @media #{$small-and-down} {
+    padding: 0;
+  }
 }
 
 
@@ -1600,6 +1612,9 @@ a.current.chip {
 
 .single-resources .article-header {
   padding-bottom: 3rem;
+  @media #{$small-and-down} {
+    padding: 0;
+  }
 }
 
 .resources-meta {
@@ -1629,10 +1644,6 @@ a.current.chip {
 
 .single-resources .entry-content ul li {
     list-style-type: disc;
-}
-
-.single-resources .container {
-  width: 65%;
 }
 
 .single-resources h2 {
@@ -1681,6 +1692,14 @@ a.current.chip {
   }
   .note-content {
     padding: 1rem;
+    @media #{$small-and-down} {
+    	padding: .5rem 0;
+    }
+    .col.s12 {
+      @media #{$small-and-down} {
+      	padding:0;
+      }
+    }
     .mdi {
       background: white;
       padding: .5rem;

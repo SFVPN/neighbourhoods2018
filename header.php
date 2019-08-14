@@ -34,7 +34,7 @@
 	    	<meta name="theme-color" content="#ffffff">
 	    <?php } ?>
 
-			<?php if(is_single()):?>
+			<?php if(is_singular('post')):?>
 
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:site" content="@<?php echo get_theme_mod( 'tcx_twitter_handle' );?>" />

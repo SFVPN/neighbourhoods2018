@@ -3449,6 +3449,12 @@ nav ul a span.badge {
   margin-left: -1.25rem;
   margin-right: -1.25rem; }
 
+.single-resources .container {
+  width: 90%; }
+  @media only screen and (min-width: 601px) {
+    .single-resources .container .container {
+      width: 75%; } }
+
 .section {
   padding-top: 1rem;
   padding-bottom: 1rem; }
@@ -11938,6 +11944,9 @@ SIMPLE CALENDAR OVERRIDES
 *********************/
 .single-calendar .container {
   width: 80%; }
+  @media only screen and (max-width: 600px) {
+    .single-calendar .container {
+      width: 90%; } }
   .single-calendar .container .calendar_desc {
     padding: 0 10%; }
 
@@ -12003,7 +12012,7 @@ thead {
   grid-gap: 1rem; }
   @media only screen and (max-width: 600px) {
     .simcal-events-list-container {
-      grid-template-columns: 1fr; } }
+      grid-template-columns: 100%; } }
   .simcal-events-list-container .simcal-day-label {
     border-bottom: 0px !important;
     margin: 0 !important;
@@ -12484,6 +12493,9 @@ a.chip {
   margin-bottom: 0px; }
   #callouts .callout-content {
     padding: 3rem; }
+    @media only screen and (max-width: 600px) {
+      #callouts .callout-content {
+        padding: 1rem; } }
   #callouts .callout-description {
     padding-bottom: 1rem; }
   #callouts a {
@@ -12518,7 +12530,7 @@ a.chip {
   #sections {
     padding: 1rem; }
     #sections a {
-      padding: 0 1rem; } }
+      padding: 1rem; } }
 
 .page-parent .entry-content p,
 .page-child .entry-content p {
@@ -12615,6 +12627,13 @@ article#content-not-found {
 .home .article-header {
   font-weight: 100;
   padding: 4rem 0; }
+  @media only screen and (max-width: 600px) {
+    .home .article-header {
+      padding: 0rem; } }
+
+@media only screen and (max-width: 600px) {
+  header.article-header.col.s12 {
+    padding: 0; } }
 
 img.hide-on-med-and-up {
   width: 100%; }
@@ -12735,6 +12754,9 @@ a.current.chip {
 
 .single-resources .article-header {
   padding-bottom: 3rem; }
+  @media only screen and (max-width: 600px) {
+    .single-resources .article-header {
+      padding: 0; } }
 
 .resources-meta {
   margin-bottom: 2rem; }
@@ -12751,9 +12773,6 @@ a.current.chip {
 
 .single-resources .entry-content ul li {
   list-style-type: disc; }
-
-.single-resources .container {
-  width: 65%; }
 
 .single-resources h2 {
   text-decoration: underline; }
@@ -12789,6 +12808,12 @@ a.current.chip {
     display: block; }
   .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
     padding: 1rem; }
+    @media only screen and (max-width: 600px) {
+      .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
+        padding: .5rem 0; } }
+    @media only screen and (max-width: 600px) {
+      .row.tip .note-content .col.s12, .row.link .note-content .col.s12, .row.recommendation .note-content .col.s12, .row.activities .note-content .col.s12, .row.warning .note-content .col.s12, .row.info .note-content .col.s12, .row.required .note-content .col.s12, .row.steps_block .note-content .col.s12, .content_block .note-content .col.s12 {
+        padding: 0; } }
     .row.tip .note-content .mdi, .row.link .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.warning .note-content .mdi, .row.info .note-content .mdi, .row.required .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
       background: white;
       padding: .5rem;
