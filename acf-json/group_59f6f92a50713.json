@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5a943071c59d3",
-            "label": "Getting Started",
+            "label": "Some pointers",
             "name": "",
             "type": "message",
             "instructions": "",
@@ -12,12 +12,34 @@
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
-                "class": "",
-                "id": ""
+                "class": "grey lighten-4",
+                "id": "pointers"
             },
             "message": "We have a flexible system for blog content to the website which lets you add blocks of content (whether this is heading, text, images etc) to build your article. These blocks can also be easily rearranged by clicking on the mouse when hovering over a particular block (the cursor will become a cross) and then dragging the block to its new position. If required you should use heading blocks to break up the content into sections. For important links or documents you can use the relevant blocks to  highlight these. You can also add links from within the text blocks.",
             "new_lines": "wpautop",
             "esc_html": 0
+        },
+        {
+            "key": "field_5d551e8f02371",
+            "label": "Choose a category",
+            "name": "post_category",
+            "type": "taxonomy",
+            "instructions": "Please choose a blog category for this post.  You can create a new category if a suitable one does not exist, but please ensure these are fairly general (eg: \"Transport\") rather than being too specific (eg: \"Fairfield Workshop\").",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "grey lighten-4",
+                "id": "choose-cat"
+            },
+            "taxonomy": "category",
+            "field_type": "checkbox",
+            "add_term": 1,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0
         },
         {
             "key": "field_59f6f941d4156",
@@ -493,5 +515,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1565705947
+    "modified": 1565861323
 }

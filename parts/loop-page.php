@@ -134,7 +134,7 @@
 			get_template_part( 'parts/content', 'contact' );
 			endif;
 
-			wp_link_pages(); ?>
+			wp_link_pages();?>
 
 		</section> <!-- end article section -->
 

@@ -3,8 +3,25 @@
     "title": "Calendar",
     "fields": [
         {
+            "key": "field_5d5bb42e768aa",
+            "label": "Quick Guide",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Click on the 'Add Event' button to get started. Fill in the fields for your event and - once your are done - click on the 'Update Content' button at the bottom left of the page. You can also submit more events at the same time by simply clicking on the 'Add Event' button again and repeating the process.\r\n\r\nTo remove an event, hover over the vertical grey bar to the right of the map field and you will see a small circular ' - ' icon.  Click on it to remove that event. \r\n\r\nIf you have more than one event, you can reorder them by hovering over the vertical grey bar to the left of an event. The cursor will change to a '+' and you will be able to drag the event up or down to reorder it.",
+            "new_lines": "br",
+            "esc_html": 0
+        },
+        {
             "key": "field_5c404beae0013",
-            "label": "Event Dates",
+            "label": "Event Details",
             "name": "event_dates",
             "type": "repeater",
             "instructions": "",
@@ -22,27 +39,8 @@
             "button_label": "Add Event",
             "sub_fields": [
                 {
-                    "key": "field_5c405a145f9a6",
-                    "label": "Provisional",
-                    "name": "provisional",
-                    "type": "true_false",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "default_value": 0,
-                    "ui": 1,
-                    "ui_on_text": "",
-                    "ui_off_text": ""
-                },
-                {
                     "key": "field_5c404c05e0014",
-                    "label": "Start",
+                    "label": "Start Date",
                     "name": "start",
                     "type": "date_time_picker",
                     "instructions": "",
@@ -59,7 +57,7 @@
                 },
                 {
                     "key": "field_5c404c26e0016",
-                    "label": "End",
+                    "label": "End Date",
                     "name": "end",
                     "type": "date_time_picker",
                     "instructions": "",
@@ -135,7 +133,7 @@
                     "label": "Map Link",
                     "name": "map_link",
                     "type": "url",
-                    "instructions": "",
+                    "instructions": "This gives you the option to add a direct Google Maps link to the location with the place details showing. Otherwise a link will be generated using the address which, will point to the correct location but without immediately showing the place details.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -151,7 +149,7 @@
                     "label": "More Info Link",
                     "name": "moreinfo_link",
                     "type": "url",
-                    "instructions": "",
+                    "instructions": "You can link to an Eventbrite booking page or other external website here. Just paste in the full web URL if necessary.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -167,7 +165,7 @@
                     "label": "More Info Label",
                     "name": "moreinfo_label",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "You can add  your own text for the button that will point to the 'More Info Link'. If you leave this blank it will default to \"For More Information\". If you don't have a 'More Info Link' you don't need to fill this in.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -175,7 +173,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
+                    "default_value": "For more information",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
@@ -183,10 +181,10 @@
                 },
                 {
                     "key": "field_5c40651701396",
-                    "label": "Event Contact",
+                    "label": "Event Contact Email",
                     "name": "event_contact",
                     "type": "email",
-                    "instructions": "",
+                    "instructions": "Add a contact email for this event.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -204,7 +202,7 @@
                     "label": "Event Contact Phone",
                     "name": "event_contact_phone",
                     "type": "text",
-                    "instructions": "",
+                    "instructions": "Add a contact phone number for this event.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -248,5 +246,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1562593565
+    "modified": 1566293811
 }

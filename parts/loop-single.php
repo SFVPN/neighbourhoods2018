@@ -8,12 +8,6 @@
 		<h1 class="resource-title h2" itemprop="headline"><?php the_title();?></h1>
 		<?php
 
-		if(is_user_logged_in()) {
-			//get_template_part( 'parts/content', 'edit' );
-		}
-		?>
-		<?php
-
 		$parentID = wp_get_post_parent_id( get_the_ID() );
 		$uncompleted = [];
 		if(is_user_logged_in() && is_singular('lesson')) {
@@ -437,6 +431,14 @@ get_template_part( 'parts/content', 'contact' );
 
  ?>
 
+ <?php
+
+ if(is_user_logged_in()) {
+	if( current_user_can('editor') || current_user_can('administrator') ) {
+	 	get_template_part( 'parts/content', 'edit' );
+	}
+}
+ ?>
 
 </section>
 </article>

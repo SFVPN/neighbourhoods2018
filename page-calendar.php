@@ -2,6 +2,8 @@
 /*
 Template Name: Calendar
 */
+acf_form_head();
+
 get_header(); ?>
 
 <main  id="maincontent">

@@ -17,7 +17,7 @@ if(is_tax()) {
     if ( has_post_thumbnail() ) {
       accessible_thumbnail('thumbnail', 'circle');
     } else {
-      //echo '<i class="material-icons yellow circle black-text" aria-hidden="true">filter_7</i>';
+      echo '<img class="circle" height="150" width="150" src="' . get_template_directory_uri() . '/assets/images/OCN_News.jpg" />';
     }?>
 
   </div>

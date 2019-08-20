@@ -12,6 +12,8 @@ jQuery(document).ready(function() {
 
 $('.collapsible').collapsible();
 
+$('.tooltipped').tooltip();
+
 $(".collapsible-header button").click(function () {
       $(this).text(function(i, text){
           return text === "Hide Audit List" ? "Show Audit List" : "Hide Audit List";

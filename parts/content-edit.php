@@ -1,7 +1,7 @@
 
 
 <div data-target="modal1" class="fixed-action-btn modal-trigger">
-	 <a class="btn-floating btn-large teal" onclick="myFunction()">
+	 <a class="btn-floating btn-large teal">
 		 <i class="large material-icons">mode_edit</i>
 	 </a>
  </div>
@@ -12,7 +12,7 @@
 		 <h4 class="light center blue-grey darken-4 white-text">Edit <?php the_title();?></h4>
 		 <?php acf_form(array(
 			 'submit_value' => __("Update Content", 'acf'),
-			 'html_submit_button'	=> '<input type="submit" class="acf-button green button button-primary button-large" value="%s" />',
+			 'html_submit_button'	=> '<input type="submit" class="acf-button btn green button button-primary button-large" value="%s" />',
 		 )); ?>
 	 </div>
 	 <div class="modal-footer">

@@ -4,7 +4,15 @@
 <?php if(is_user_logged_in()):?>
 	<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 		<div class="fixed-action-btn left">
-		  <a href="<?php echo admin_url();?>" class="btn red lighten-2">Visit Admin</a>
+
+				<span>
+					<a href="<?php echo get_permalink( get_page_by_path( 'add_post' ) );?>" class="btn-floating green darken-1"><i class="material-icons">add</i></a>
+				</span>
+				<span>
+					 <a href="<?php echo admin_url();?>" class="btn-floating grey darken-3"><i class="material-icons">settings</i></a>
+				</span>
+
+
 		</div>
 	<?php } ?>
 <?php endif;?>

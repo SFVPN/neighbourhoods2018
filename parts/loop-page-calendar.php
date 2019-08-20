@@ -23,7 +23,7 @@
 				$end = new DateTime($end);
 				$now = new DateTime();
 				$event_title = get_sub_field('event_title');
-				$provisional = get_sub_field('provisional');
+				//$provisional = get_sub_field('provisional');
 				$where = get_sub_field('event_location');
 				$description = get_sub_field('event_description');
 				$contact = get_sub_field('event_contact');
@@ -48,12 +48,7 @@
 
 				    <h2 class="h6"><?php echo $event_title; ?></h2>
 
-						<p class="date"><strong>Date </strong> <?php echo $start->format('l j F, Y');?>
-							<?php if($provisional == '1') {
-								echo '<span class="provisional white-text green lighten-1">Provisional</span>';
-							}?>
-				    </p>
-
+						<p class="date"><strong>Date </strong> <?php echo $start->format('l j F, Y');?></p>
 
 						<?php
 
@@ -131,7 +126,15 @@
 				get_template_part( 'parts/content', 'noevents' );
 
 		endif;
+
+		if(is_user_logged_in()) {
+	 	if( current_user_can('editor') || current_user_can('administrator') ) {
+	 	 	get_template_part( 'parts/content', 'edit' );
+	 	}
+	 }
 	?>
 	</div>
+
+
 
 </article> <!-- end article -->

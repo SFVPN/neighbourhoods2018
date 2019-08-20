@@ -144,6 +144,10 @@ border: none;
   &.left{
     right: unset;
     left: 23px;
+    span {
+      display: block;
+      padding: .5rem 0 0 0;
+    }
   }
 
   ul {
