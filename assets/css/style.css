@@ -3451,10 +3451,10 @@ nav ul a span.badge {
 
 .single-resources .container {
   width: 90%; }
-  @media only screen and (min-width: 601px) {
-    .single-resources .container .container {
-      width: 75%; } }
 
+@media only screen and (min-width: 601px) {
+  .single-resources .container {
+    width: 75%; } }
 .section {
   padding-top: 1rem;
   padding-bottom: 1rem; }

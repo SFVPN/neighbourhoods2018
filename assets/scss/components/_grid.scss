@@ -15,10 +15,11 @@
 
 .single-resources .container {
   width: 90%;
-  @media #{$medium-and-up} {
-    .container {
-      width: 75%;
-    }
+}
+
+@media #{$medium-and-up} {
+  .single-resources .container {
+    width: 75%;
   }
 }
 
