@@ -3,8 +3,7 @@
 
 <?php if(is_user_logged_in()):?>
 	<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
-		<div class="fixed-action-btn left">
-
+		<div class="fixed-action-btn left hide-on-med-and-down">
 				<span>
 					<a href="<?php echo get_permalink( get_page_by_path( 'add_post' ) );?>" class="btn-floating green darken-1"><i class="material-icons">add</i></a>
 				</span>

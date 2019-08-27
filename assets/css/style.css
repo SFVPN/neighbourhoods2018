@@ -11959,6 +11959,7 @@ i.mdi.mdi-menu {
 details {
   border: 1px solid #bdbdbd;
   border-radius: 3px;
+  font-weight: 600;
   cursor: pointer;
   margin: 2rem 0; }
   details summary {
@@ -11972,7 +11973,6 @@ details {
       outline: none; }
   details[open] summary {
     color: #7b1fa2;
-    font-weight: 600;
     transition: 350ms; }
 
 .control.btns {
@@ -12136,9 +12136,16 @@ thead {
   font-size: 16px;
   line-height: 1.5rem; }
 
+.simcal-calendar {
+  width: 80%;
+  margin: auto; }
+  @media only screen and (max-width: 600px) {
+    .simcal-calendar {
+      width: 90%; } }
+
 .simcal-events-list-container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr;
   grid-gap: 1rem; }
   @media only screen and (max-width: 600px) {
     .simcal-events-list-container {
@@ -12275,6 +12282,24 @@ POSTS & CONTENT STYLES
   border: 1px solid #e0e0e0;
   border-radius: 3px; }
 
+.modal-content h4 {
+  position: relative; }
+  .modal-content h4 #edit-mode {
+    display: inline-block;
+    height: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 24px;
+    padding: 0 12px;
+    border-radius: 16px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 15px;
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 24px); }
+
 #contact-details {
   margin-top: 4rem; }
 
@@ -12396,8 +12421,22 @@ input.wpas-submit.btn, input.wpas-submit.btn-large {
 .home #bottom {
   margin-bottom: 0px; }
 
+.search-content {
+  padding: 1rem 0; }
+  .search-content .block {
+    margin: 0.75rem 0; }
+  .search-content strong {
+    background: #fcfcfc;
+    padding: 0 10px;
+    display: inline-block;
+    border-radius: 12px;
+    margin-right: 1rem; }
+
 footer.card-content {
   border-top: 1px solid rgba(160, 160, 160, 0.2); }
+  footer.card-content ul li {
+    display: inline-block;
+    padding-right: 3rem; }
 
 @media only screen and (max-width: 992px) {
   article section {
@@ -12984,6 +13023,8 @@ a.current.chip {
   .row.tip .addeventatc, .row.link .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.warning .addeventatc, .row.info .addeventatc, .row.required .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
     visibility: hidden;
     animation: show 3000ms 1; }
+  .row.tip #atc, .row.link #atc, .row.recommendation #atc, .row.activities #atc, .row.warning #atc, .row.info #atc, .row.required #atc, .row.steps_block #atc, .content_block #atc {
+    padding: 2rem 0; }
   .row.tip .platforms, .row.link .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.warning .platforms, .row.info .platforms, .row.required .platforms, .row.steps_block .platforms, .content_block .platforms {
     padding: 1rem; }
     .row.tip .platforms li, .row.link .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.warning .platforms li, .row.info .platforms li, .row.required .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
@@ -13103,17 +13144,19 @@ figure.card {
   #toc .toc-h3, #guide-contents .toc-h3 {
     padding-left: 1rem; }
 
-#toc li {
-  padding: .25rem 0em; }
-  #toc li.label {
-    padding-bottom: 1rem;
-    font-size: 1.25rem;
-    font-weight: 600; }
+#toc li.label {
+  padding-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600; }
 
 #guide-contents li {
   padding-left: 0.5rem; }
   #guide-contents li.parent span.active-page:after {
     content: ' (Introduction)'; }
+  #guide-contents li.label {
+    padding-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600; }
 
 #toc li {
   padding-left: 0.5rem; }

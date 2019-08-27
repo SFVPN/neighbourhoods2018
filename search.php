@@ -7,7 +7,7 @@
 		<div class="row">
 
 				<header class="article-header">
-					<h1 class="archive-title h3 center"><?php _e('Here are your search results for ', 'jointstheme'); ?> <?php echo '<span class="red-text lighten-2">' . esc_attr(get_search_query()) . '</span>'; ?></h1>
+					<h1 class="archive-title h4 center"><?php _e('Here are your search results for ', 'jointstheme'); ?> <?php echo '<span class="red-text lighten-2">' . esc_attr(get_search_query()) . '</span>'; ?></h1>
 				</header>
 
 				<section class="section">

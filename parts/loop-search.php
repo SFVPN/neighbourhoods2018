@@ -1,43 +1,93 @@
 
-<article id="post-<?php the_ID(); ?>" class="col s12 m6 search-article" role="article">
+<article id="post-<?php the_ID(); ?>" class="col s12 search-article" role="article">
 
-	<section class="col s12 grey lighten-3 center">
+	<section class="col s12 l8 offset-l2 grey lighten-3">
 		<h2 class="h5 "><a href="<?php the_permalink() ?>" class="center" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
+
+		<?php // check for rows (parent repeater)
+		if( have_rows('section', $post->ID) ): ?>
+
+			<?php echo '<div class="search-content">';
+
+			// loop through rows (parent repeater)
+			while( have_rows('section', $post->ID) ): the_row(); ?>
+
+					<?php
+
+					// check for rows (sub repeater)
+					if( have_rows('blocks') ): ?>
+
+						<?php
+
+						// loop through rows (sub repeater)
+						while( have_rows('blocks') ): the_row();
+
+							// display each item as a list - with a class of completed ( if completed )
+
+							if( get_row_layout() == 'support_groups' ):
+
+								if( have_rows('group_details') ):
+
+									while( have_rows('group_details') ): the_row();
+
+													echo '<span class="block"><strong>Location</strong> ' . get_sub_field('group_address_town') . '</span>';
+													echo '<span class="block"><strong>Telephone</strong> ' . get_sub_field('group_phone') . '</span>';
+													echo '<span class="block"><strong>Email</strong> ' . get_sub_field('group_email') . '</span>';
+
+									endwhile;
+
+								endif;
+
+	        		endif;
+
+							if( get_row_layout() == 'local_group_activities' ):
+
+
+								if( have_rows('activity_group_details') ):
+
+									while( have_rows('activity_group_details') ): the_row();
+
+									echo '<span class="block"><strong>Location</strong> ' . get_sub_field('activity_address_name') . ', ' .  get_sub_field('activity_address_town') . '</span>';
+
+									echo '<span class="block"><strong>Phone</strong> ' . get_sub_field('group_phone') . '</span>';
+									echo '<span class="block"><strong>Email</strong> ' . get_sub_field('group_email') . '</span>';
+
+							 		endwhile;
+
+						  	endif;
+
+							endif;
+
+						endwhile; ?>
+
+					<?php endif; //if( get_sub_field('blocks') ): ?>
+
+
+			<?php endwhile; // while( has_sub_field('to-do_lists') ):
+
+				echo '</div >';
+				?>
+
+		<?php endif; // if( get_field('to-do_lists') ): ?>
+
+	<?php //endwhile; // end of the loop. ?>
+ 	<footer class="card-content" style="position: relative; padding: .5rem 0;">
 		<?php
-		if ($post->post_parent != 0) {
-			echo '<div id="guide-name"><a class="btn-flat" href="' . get_the_permalink($post->post_parent) . '"><i class="material-icons left">library_books</i>Part of the ' . get_the_title($post->post_parent) . ' guide</a></div>';
-		} else {
-			$args = array(
-				'post_parent' => $post->ID,
-				'post_type'   => 'any',
-				'numberposts' => -1,
-				'post_status' => 'any'
-			);
-			$children = get_children( $args );
-			$count = count($children);
-			$total = $count + 1;
 
-
-				echo '<div id="guide-name" class="btn-flat"><i class="material-icons left">format_list_numbered</i>' . $total . '-page guide</div>';
-
-		}
-		//print_R($post);
 
 			$terms = wp_get_post_terms($post->ID, 'resources_category', array("fields" => "all"));
-						echo '<div>';
+			if($terms):
+						echo '<ul>';
 						foreach ($terms as $term) {
-							echo '<a href="' . get_term_link($term->term_id) . '" class="chip">' . $term->name . '</a>';
+							$icon = get_field('material_icon_code', 'term_' . $term->term_id);
+							echo '<li><i class="material-icons left">' . $icon . '</i>' . $term->name . '</li>';
 							// code...
 						}
 
-						echo '</div>';
-
-?>
-
-	<footer class="card-content" style="position: relative; padding: .5rem 0;">
-			<?php get_template_part( 'parts/content', 'byline' ); ?>
-
+						echo '</ul>';
+						 endif;
+		?>
 	</footer>
 	</section>
 </article>

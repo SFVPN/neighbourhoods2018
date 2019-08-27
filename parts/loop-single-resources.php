@@ -2,6 +2,7 @@
 //$parent_title = get_the_title($parent_id);
 $queried_object = get_queried_object();
 $terms = get_the_terms( $queried_object->id, 'resources_category' );
+//$days = get_the_terms( $queried_object->id, 'resources_day' );
 if($queried_object->post_parent != 0 ) {
 	//$terms = get_the_terms( $queried_object->id, 'resources_category' );
 	$guide = get_the_title($queried_object->post_parent);
@@ -49,10 +50,11 @@ echo 'itemscope itemtype="http://schema.org/Organization"';
 				}
 			}
 		}
+
 		if($queried_object->post_parent === 0 ) {
-				echo '<br /><i class="mdi mdi-information"></i> This page was last updated on ' . get_the_modified_time('F j, Y') . '</span></div>';
+				echo '<br /><i class="mdi mdi-information"></i>' . __( 'Last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span></div>';
 		} else {
-				echo '<br /><i class="mdi mdi-information"></i> This page is part of the <strong>' . $guide . '</strong> guide and was last updated on ' . get_the_modified_time('F j, Y') . '</span></div>';
+				echo '<br /><i class="mdi mdi-information"></i>' . __( ' This page is part of the ', 'ocn' ) . '<strong>' . $guide . '</strong>' . __( ' guide and was last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span></div>';
 		}
 
 
@@ -65,8 +67,9 @@ echo 'itemscope itemtype="http://schema.org/Organization"';
 	</header> <!-- end article header -->
 
 
-
+<div class="col s12 m12 grey lighten-4 index-wrapper">
 <?php
+
 
 if ( $post->post_parent === 0 ) {
 
@@ -82,13 +85,13 @@ if ( $post->post_parent === 0 ) {
 	$parent = new WP_Query( $args );
 
 	if ( $parent->have_posts() ) :
-	echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
+//	echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
 	$pages = array($post->ID );
 		?>
 
 
 			<ol id="guide-contents">
-				<li class="block black-text"><?php the_title(); ?> guide pages</li>
+				<li class="block label black-text"><?php echo get_the_title() . __( ' guide contents', 'ocn' );?></li>
 				<li id="parent-<?php the_ID(); ?>" class="parent">
 
 						<?php echo '<span class="active-page">' . get_the_title() . '</span>'; ?>
@@ -112,12 +115,58 @@ $pages[] += get_the_ID();
 		 </ol>
 
 	<?php endif; wp_reset_postdata();
-echo '</div>';
+//echo '</div>';
+} else {
+//echo '<div class="col s12 m12 grey lighten-4 parent-page">';
+		$args = array(
+				'post_type'      => 'resources',
+				'posts_per_page' => -1,
+				'post_parent'    => $post->post_parent,
+				'order'          => 'ASC',
+				'orderby'        => 'menu_order'
+		 );
+
+
+		$parent = new WP_Query( $args );
+
+		if ( $parent->have_posts() ) :
+		$queried_object = get_queried_object();
+		$ID = $queried_object->ID;?>
+					<ol id="guide-contents">
+				<li class="block label black-text"><?php echo get_the_title($post->post_parent) . __( ' guide contents', 'ocn' );?></li>
+				<li class="parent">
+					<a href="<?php the_permalink($post->post_parent); ?>" title="<?php the_title(); ?>"><?php echo get_the_title($post->post_parent); ?></a>
+				</li>
+
+				<?php while ( $parent->have_posts() ) : $parent->the_post();
+
+					if ($ID === get_the_ID()){?>
+						<li id="parent-<?php the_ID(); ?>">
+
+									<?php echo '<span class="active-page">' . get_the_title() . '</span>'; ?>
+
+						</li>
+
+				<?php	} else {?>
+					<li id="parent-<?php the_ID(); ?>">
+
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+
+					</li>
+
+				<?php }?>
+
+
+				<?php endwhile; ?>
+			</ol>
+
+		<?php endif; wp_reset_postdata();
+		//echo '</div>';
 }
 
 		$show_toc = get_field('show_toc');
 		if ($show_toc):
-			echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
+			//echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
 		//check if the repeater field has rows of data
 		 if( have_rows('section') ):
 
@@ -134,7 +183,7 @@ echo '</div>';
 		         // display a sub field 'value'
 						 if( have_rows('blocks') ):
 						echo '<ol id="toc">
-						<li class="block label black-text">What\'s on this page?</li>';
+						<li class="block label black-text">' . __( 'What\'s on this page?', 'ocn' ) . '</li>';
 	     // loop through the rows of data
 	    while ( have_rows('blocks') ) : the_row();
 
@@ -434,7 +483,7 @@ if( get_row_layout() == 'available_platforms' ):
 				$platform_text = get_sub_field('platform_text');
 
 				if($platform_text) {
-					echo '<p>' . $platform_text . '</p>';
+					echo '<p>' . __( $platform_text, 'ocn' ) . '</p>';
 				}
 
 
@@ -510,40 +559,40 @@ if( $group_details ):
 				$map_key = get_field('api_key', 'option');
 				$group_name = get_the_title();
 
-				echo '<h2 class="h5">' . $group_details['label'] . '</h2>';
+				echo '<h2 class="h5">' . __( $group_details['label'], 'ocn' ) . '</h2>';
 				if($group_description) {
-					echo '<p>' . $group_description . '</p>';
+					echo '<p>' . __( $group_description, 'ocn' ) . '</p>';
 				}
 
-				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">info</i><strong>Contact Information</strong></div> <div  class="col s12 note-content grey lighten-4">';
+				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">info</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div  class="col s12 note-content grey lighten-4">';
 
 				echo '<div class="col s12 l6">';
 
-				echo '<span class="label-resources white-text">Main Contact</span>';
+				echo '<span class="label-resources white-text">' . __( 'Main Contact', 'ocn' ) . '</span>';
 
 				if($group_contact) {
 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-account"></i>' . $group_contact . '</span>';
 				}
 
 				if($group_email) {
-					echo '<a class="block" href="mailto:' . $group_email . '"><i aria-hidden="true" class="mdi mdi-email"></i>Email ' . $group_name . '</a>';
+					echo '<a class="block" href="mailto:' . $group_email . '"><i aria-hidden="true" class="mdi mdi-email"></i>' . __( 'Email ', 'ocn' ) . $group_name . '</a>';
 				}
 
 				if($group_phone) {
-					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>Phone: ' . $group_phone . '</span>';
+					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>' . __( 'Phone: ', 'ocn' ) . $group_phone . '</span>';
 				}
 
 
 					if($group_website) {
-						echo '<a class="block" href="' . $group_website . '"><i aria-hidden="true" class="mdi mdi-web"></i>' . $group_name . ' website</a>';
+						echo '<a class="block" href="' . $group_website . '"><i aria-hidden="true" class="mdi mdi-web"></i>' . $group_name . __( ' website', 'ocn' ) . '</a>';
 					}
 
 					if($group_twitter) {
-						echo '<a class="block" href="' . $group_twitter . '"><i aria-hidden="true" class="mdi mdi-twitter"></i>' . $group_name . ' on Twitter</a>';
+						echo '<a class="block" href="' . $group_twitter . '"><i aria-hidden="true" class="mdi mdi-twitter"></i>' . $group_name . __( ' on Twitter', 'ocn' ) . '</a>';
 					}
 
 					if($group_facebook) {
-						echo '<a class="block" href="' . $group_facebook . '"><i aria-hidden="true" class="mdi mdi-facebook"></i>' . $group_name . ' on Facebook</a>';
+						echo '<a class="block" href="' . $group_facebook . '"><i aria-hidden="true" class="mdi mdi-facebook"></i>' . $group_name . __( ' on Facebook', 'ocn' ) . '</a>';
 					}
 
 
@@ -553,12 +602,12 @@ if( $group_details ):
 					$group_map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $group_map['lat'] . ',' . $group_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
 					&markers=color:0x01a89e%7Csize:mid%7C' . $group_map['lat'] . ',' . $group_map['lng'] . '&key=' . $map_key;
 					echo '<div class="col s12 l6">
-					<span class="label-resources white-text">Address</span><span class="block">' . $group_address_street . '<br />';
+					<span class="label-resources white-text">' . __( 'Address', 'ocn' ) . '</span><span class="block">' . $group_address_street . '<br />';
 					if($group_address_second) {
 						echo $group_address_second . '<br />';
 					}
 					echo  $group_address_town . ' ' . $group_address_zip . '</span>';
-					echo '<span class="label-resources white-text">Map</span><img class="responsive-img map" src="' . $group_map_image . '">';
+					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><img class="responsive-img map" src="' . $group_map_image . '">';
 					echo '</div>';
 				endif;
 
@@ -617,9 +666,9 @@ if( $group_details ):
 				$activity_end = get_sub_field('activity_end');
 				$time_end = get_sub_field('activity_end_time');
         $activity_description = get_sub_field('activity_description');
-				$activity_frequency = get_sub_field('activity_frequency');
+				$activity_frequency = get_sub_field('activity_frequency_select');
 				$activity_frequency_month = get_sub_field('activity_frequency_month');
-				$activity_day = get_sub_field('activity_day');
+				$activity_day = get_sub_field('activity_day_select');
 				$activity_organiser = get_field('organiser');
 				$activity_organised_by = get_sub_field('activity_organised_by');
 				$activity_contact = get_sub_field('group_contact');
@@ -638,29 +687,31 @@ if( $group_details ):
 					echo '<p>' . $activity_description . '</p>';
 				}
 
-				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . $group_details['label']  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
+				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . __( $group_details['label'], 'ocn' )  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
 
 				echo '<div class="col s12 l6">
-								<span class="label-resources white-text">Days</span><span class="block">';
+								<span class="label-resources white-text">' . __( 'Days', 'ocn' ) . '</span><span class="block">';
 
 
-				if($activity_frequency['label'] == "monthly") {
 
-					echo ' This is held on ';
+
+				if($activity_frequency->slug == "monthly") {
+
+					echo __( 'This is held on ', 'ocn' );
 					if($activity_frequency_month) {
-						echo 'the ' . $activity_frequency_month['label'] . ' ';
+						echo __( 'the ', 'ocn' ) . __( $activity_frequency_month['label'], 'ocn' ) . ' ';
 						if($activity_frequency_month['value'] != null) {
 						$frequency_interval = $activity_frequency_month['value'];
 						}
 						if($activity_day) {
-							echo $activity_day['label'];
+							echo __( ' ' . $activity_day->name, 'ocn' );
 						}
-						echo ' of the month';
+						echo __( ' of the month', 'ocn' );
 					}
 				} else {
-					echo ' This is held ' . $activity_frequency['label'] . ' on ';
+					echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
 					if($activity_day) {
-						echo $activity_day['label'];
+						echo __( $activity_day->name, 'ocn' );
 					}
 				}
 
@@ -670,9 +721,9 @@ if( $group_details ):
 
 				echo '</span>';
 				if($time_start) {
-					echo '<span class="label-resources white-text">Time</span><span class="block"> This activity runs from ' . $time_start;
+					echo '<span class="label-resources white-text">' . __( 'Time', 'ocn' ) . '</span><span class="block">' .  __( 'This activity runs from ', 'ocn' ) . $time_start;
 					if($time_end) {
-						echo ' to ' . $time_end ;
+						echo __( ' to ', 'ocn' ) . $time_end ;
 					}
 					echo '</span>';
 				}
@@ -680,25 +731,25 @@ if( $group_details ):
 
 
 				if($activity_organiser) {
-					echo '<span class="label-resources white-text">Organiser</span><a class="block" href="' . get_permalink($activity_organiser[0]) . '">' . get_the_title($activity_organiser[0]) . '</a>';
+					echo '<span class="label-resources white-text">' .  __( 'Organiser', 'ocn' ) . '</span><a class="block" href="' . get_permalink($activity_organiser[0]) . '">' . __( get_the_title($activity_organiser[0]), 'ocn' ) . '</a>';
 				} elseif ($activity_organised_by) {
-					echo '<span class="label-resources white-text">Organiser</span><span class="block">' . $activity_organised_by . '</span>';
+					echo '<span class="label-resources white-text">' .  __( 'Organiser', 'ocn' ) . '</span><span class="block">' . $activity_organised_by . '</span>';
 				}
 
 
 
-				echo '<span class="label-resources white-text">Contact</span>';
+				echo '<span class="label-resources white-text">' . __( 'Contact', 'ocn' ) . '</span>';
 
 				if($activity_contact) {
 					echo '<span class="block">' . $activity_contact . '</span>';
 				}
 
 				if($activity_email) {
-					echo '<span class="block">Email: <a href="mailto:' . $activity_email . '">' . $activity_email . '</a></span>';
+					echo '<span class="block">' .  __( 'Email: ', 'ocn' ) . '<a href="mailto:' . $activity_email . '">' . $activity_email . '</a></span>';
 				}
 
 				if($activity_phone) {
-					echo '<span class="block">Phone: ' . $activity_phone . '</span>';
+					echo '<span class="block">' .  __( 'Phone: ', 'ocn' ) . $activity_phone . '</span>';
 				}
 
 
@@ -708,17 +759,27 @@ if( $group_details ):
 				echo '</div>';
 
 				if ($contact_map):
+					$address = explode(",", $contact_map['address']);
+					$address_constructor = 'https://maps.google.com/?q=';
+
+					foreach ($address as $value) {
+						$value = $value . "%2C";
+						$value = implode("%2C",$address);
+						$newadd = explode(" ",$value);
+					}
+
 					$map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
 					&markers=color:0x01a89e%7Csize:mid%7C' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&key=' . $map_key;
-					echo '<div class="col s12 l6"><span class="label-resources white-text">Address</span><span class="block">';
+					echo '<div class="col s12 l6"><span class="label-resources white-text">' .  __( 'Address', 'ocn' ) . '</span><span class="block">';
 					echo $activity_address_name . '<br />';
 					echo $activity_address_street . '<br />';
 					echo $activity_address_town . ' ' . $activity_address_zip . '</span>';
-					echo '<span class="label-resources white-text">Map</span><img class="responsive-img map" src="' . $map_image . '">';
+					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><span class="block">' . __( 'Click image to view on Google Maps', 'ocn' ) . '
+					</span><a href="' . $address_constructor . implode("+",$newadd) . '" target="_blank"><img alt="Map showing location of ' . $activity_address_name . ' " class="responsive-img map" src="' . $map_image . '"></a>	';
 					echo '</div>';
 				endif;
 
-				echo '<div class="col s12 center"><div title="Add to Calendar" class="addeventatc white">
+				echo '<div id="atc" class="col s12 center"><div title="Add to Calendar" class="addeventatc white">
     Add to Calendar
     <span class="start">' . $activity_start . ' ' .  $time_start . '</span>
     <span class="end">' . $activity_end  . ' ' .  $time_end .  '</span>
@@ -729,7 +790,7 @@ if( $group_details ):
 		<span class="organizer">' . $activity_contact . '</span>
 		<span class="organizer_email">' . $activity_email . '</span>
 		<span class="alarm_reminder">60</span>
-		<span class="recurring">FREQ=' . $activity_frequency['value'] . ';BYDAY=' . $frequency_interval . $activity_day['value'] . ';INTERVAL=1;</span>
+		<span class="recurring">FREQ=' . $activity_frequency->slug . ';BYDAY=' . $frequency_interval . strtoupper($activity_day->slug) . ';INTERVAL=1;</span>
 		</div></div>';
 
     endwhile;
@@ -871,66 +932,6 @@ wp_reset_postdata();
 endif;
 ?>
 
-
-
-
-<?php
-
-
-
-if ( $post->post_parent === 0 ) {
-
-
-
-} else {
-echo '<div class="col s12 m12 grey lighten-4 parent-page">';
-		$args = array(
-				'post_type'      => 'resources',
-				'posts_per_page' => -1,
-				'post_parent'    => $post->post_parent,
-				'order'          => 'ASC',
-				'orderby'        => 'menu_order'
-		 );
-
-
-		$parent = new WP_Query( $args );
-
-		if ( $parent->have_posts() ) :
-		$queried_object = get_queried_object();
-		$ID = $queried_object->ID;?>
-					<ol id="guide-contents">
-				<li class="block black-text"><?php echo get_the_title($post->post_parent); ?> guide pages</li>
-				<li class="parent">
-					<a href="<?php the_permalink($post->post_parent); ?>" title="<?php the_title(); ?>"><?php echo get_the_title($post->post_parent); ?></a>
-				</li>
-
-				<?php while ( $parent->have_posts() ) : $parent->the_post();
-
-					if ($ID === get_the_ID()){?>
-						<li id="parent-<?php the_ID(); ?>">
-
-									<?php echo '<span class="active-page">' . get_the_title() . '</span>'; ?>
-
-						</li>
-
-				<?php	} else {?>
-					<li id="parent-<?php the_ID(); ?>">
-
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-
-					</li>
-
-				<?php }?>
-
-
-				<?php endwhile; ?>
-			</ol>
-
-		<?php endif; wp_reset_postdata();
-		echo '</div>';
-}
-
-?>
 </div>
 <?php
 if (comments_open()){

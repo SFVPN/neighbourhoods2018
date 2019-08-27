@@ -7,7 +7,7 @@
             "label": "Show table of contents",
             "name": "show_toc",
             "type": "true_false",
-            "instructions": "<strong >This enables a table of contents on a given resource page.  Only turn this off if you are on an introductory page with no section headings.<\/strong>",
+            "instructions": "<strong >This enables a table of contents on a given resource page..<\/strong>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,7 +16,7 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 1,
+            "default_value": 0,
             "ui": 1,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -830,7 +830,7 @@
                                     "sub_fields": [
                                         {
                                             "key": "field_5d235801142a7",
-                                            "label": "Activity Description",
+                                            "label": "Description",
                                             "name": "activity_description",
                                             "type": "textarea",
                                             "instructions": "",
@@ -866,7 +866,7 @@
                                         },
                                         {
                                             "key": "field_5d24726e18251",
-                                            "label": "Activity Start Date",
+                                            "label": "Start Date",
                                             "name": "activity_start",
                                             "type": "date_picker",
                                             "instructions": "The start date is for the purpose of adding recurring events to calendars. It will not be shown on the front end of the website.",
@@ -882,8 +882,25 @@
                                             "first_day": 1
                                         },
                                         {
+                                            "key": "field_5d24733018252",
+                                            "label": "End Date",
+                                            "name": "activity_end",
+                                            "type": "date_picker",
+                                            "instructions": "The end date is for the purpose of adding recurring events to calendars. This will generally be the same as the start date.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "display_format": "d\/m\/Y",
+                                            "return_format": "m\/d\/Y",
+                                            "first_day": 1
+                                        },
+                                        {
                                             "key": "field_5d24849712bb1",
-                                            "label": "Activity Start Time",
+                                            "label": "Start Time",
                                             "name": "activity_start_time",
                                             "type": "time_picker",
                                             "instructions": "",
@@ -898,25 +915,8 @@
                                             "return_format": "g:i a"
                                         },
                                         {
-                                            "key": "field_5d24733018252",
-                                            "label": "Activity End Date",
-                                            "name": "activity_end",
-                                            "type": "date_picker",
-                                            "instructions": "The end date is for the purpose of adding recurring events to calendars. It will not be shown on the front end of the website.",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "display_format": "d\/m\/Y",
-                                            "return_format": "m\/d\/Y",
-                                            "first_day": 1
-                                        },
-                                        {
                                             "key": "field_5d2484a612bb2",
-                                            "label": "Activity End Time",
+                                            "label": "End Time",
                                             "name": "activity_end_time",
                                             "type": "time_picker",
                                             "instructions": "",
@@ -932,7 +932,7 @@
                                         },
                                         {
                                             "key": "field_5d235810142a8",
-                                            "label": "Activity Frequency",
+                                            "label": "Activity Frequency (OLD)",
                                             "name": "activity_frequency",
                                             "type": "radio",
                                             "instructions": "",
@@ -955,21 +955,57 @@
                                             "save_other_choice": 0
                                         },
                                         {
+                                            "key": "field_5d65395ade6db",
+                                            "label": "Activity Repeats",
+                                            "name": "activity_frequency_select",
+                                            "type": "taxonomy",
+                                            "instructions": "How often does this activity repeat?",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "taxonomy": "resources_frequency",
+                                            "field_type": "select",
+                                            "allow_null": 1,
+                                            "add_term": 0,
+                                            "save_terms": 1,
+                                            "load_terms": 1,
+                                            "return_format": "object",
+                                            "multiple": 0
+                                        },
+                                        {
+                                            "key": "field_5d65353401f91",
+                                            "label": "On which day?",
+                                            "name": "activity_day_select",
+                                            "type": "taxonomy",
+                                            "instructions": "Choose the day this activity is held on.",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "taxonomy": "resources_day",
+                                            "field_type": "select",
+                                            "allow_null": 1,
+                                            "add_term": 0,
+                                            "save_terms": 1,
+                                            "load_terms": 1,
+                                            "return_format": "object",
+                                            "multiple": 0
+                                        },
+                                        {
                                             "key": "field_5d235da737898",
                                             "label": "Position in month",
                                             "name": "activity_frequency_month",
                                             "type": "select",
-                                            "instructions": "If this is a monthly activity, choose which day this occurs on. Start by selecting the increment eg \"First\" and then select the day in the next field.",
+                                            "instructions": "If this is a monthly activity, choose when this occurs. Start by selecting the increment eg \"First\" and then select the day in the next field.",
                                             "required": 0,
-                                            "conditional_logic": [
-                                                [
-                                                    {
-                                                        "field": "field_5d235810142a8",
-                                                        "operator": "==",
-                                                        "value": "MONTHLY"
-                                                    }
-                                                ]
-                                            ],
+                                            "conditional_logic": 0,
                                             "wrapper": {
                                                 "width": "",
                                                 "class": "",
@@ -995,7 +1031,7 @@
                                         },
                                         {
                                             "key": "field_5d235c88142a9",
-                                            "label": "Activity Day",
+                                            "label": "Activity Day (OLD)",
                                             "name": "activity_day",
                                             "type": "radio",
                                             "instructions": "",
@@ -1019,21 +1055,6 @@
                                             "layout": "vertical",
                                             "return_format": "array",
                                             "save_other_choice": 0
-                                        },
-                                        {
-                                            "key": "field_5d246d227bc9b",
-                                            "label": "Activity Calendar",
-                                            "name": "activity_calendar_link",
-                                            "type": "link",
-                                            "instructions": "You can add a link to the calendar entry for this activity (if available). Users will have the option to add the activity to their own calendar app.",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "return_format": "url"
                                         },
                                         {
                                             "key": "field_5d51273dc8535",
@@ -1528,5 +1549,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1565601568
+    "modified": 1566921492
 }

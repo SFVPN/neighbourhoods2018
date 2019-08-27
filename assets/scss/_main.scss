@@ -323,6 +323,7 @@ i.mdi.mdi-menu {
 details {
   border: 1px solid color("grey", "lighten-1");
   border-radius: 3px;
+  font-weight: 600;
   cursor: pointer;
   margin: 2rem 0;
   summary {
@@ -339,7 +340,6 @@ details {
   &[open] {
     summary {
       color: color("purple", "darken-2");
-      font-weight: 600;
       transition: 350ms;
     }
   }
@@ -571,9 +571,17 @@ SIMPLE CALENDAR OVERRIDES
 
 }
 
+.simcal-calendar {
+  width: 80%;
+  margin: auto;
+  @media #{$small-and-down} {
+    width: 90%;
+  }
+}
+
 .simcal-events-list-container {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr;
   @media #{$small-and-down} {
     grid-template-columns: 100%;
   }
@@ -766,6 +774,27 @@ POSTS & CONTENT STYLES
   border-radius: 3px;
 }
 
+.modal-content h4 {
+  position: relative;
+  #edit-mode {
+    display: inline-block;
+    height: 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    line-height: 24px;
+    padding: 0 12px;
+    border-radius: 16px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-top: 15px;
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 24px);
+  }
+}
+
+
 #contact-details {
   margin-top: 4rem;
 }
@@ -917,10 +946,26 @@ color: color("grey", "base");
   margin-bottom: 0px;
 }
 
-
+.search-content {
+  padding: 1rem 0;
+  .block {
+    margin: 0.75rem 0;
+  }
+  strong {
+    background: #fcfcfc;
+    padding: 0 10px;
+    display: inline-block;
+    border-radius: 12px;
+    margin-right: 1rem;
+  }
+}
 
 footer.card-content {
   border-top: 1px solid rgba(160,160,160,.2);
+  ul li {
+    display: inline-block;
+    padding-right: 3rem;
+  }
 }
 
 article section {
@@ -1754,6 +1799,10 @@ a.current.chip {
     animation: show 3000ms 1;
   }
 
+  #atc {
+    padding: 2rem 0;
+  }
+
   .platforms {
     padding: 1rem;
     li {
@@ -1900,7 +1949,6 @@ figure.card {
 }
 
 #toc li {
-    padding: .25rem 0em;
     &.label {
       padding-bottom: 1rem;
       font-size: 1.25rem;
@@ -1913,6 +1961,11 @@ figure.card {
     padding-left: 0.5rem;
     &.parent span.active-page:after {
       content: ' (Introduction)';
+    }
+    &.label {
+      padding-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
   }
 }

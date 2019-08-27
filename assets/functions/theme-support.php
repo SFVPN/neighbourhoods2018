@@ -172,7 +172,9 @@ function remove_plugin_image_sizes() {
 					echo '<div class="col s12 m6 l4"><div class="col s12 green lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a><i class="material-icons purple darken-1 white-text">' . get_field('material_icon_code', $term) . '</i></div></div>';
 				} else {
 				$cat_total[] = $term->count;
-				echo '<div class="col s12 m6 l4"><ul class="col s12 card medium"><i class="material-icons purple darken-1 white-text">' . get_field('material_icon_code', $term) . '</i><li><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a>';
+				echo '<div class="col s12 m6 l4"><div class="col s12 card medium">
+
+				<i class="material-icons medium purple darken-1 white-text">' . get_field('material_icon_code', $term) . '</i><ul><li><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a>';
 				if($children) {
 					$child_sorted = array(); //initialize empty array
 					echo '<ul>';
@@ -192,7 +194,7 @@ function remove_plugin_image_sizes() {
 					echo '</ul>';
 				}
 
-				echo '</li></ul></div>';
+				echo '</li></ul></div></div>';
 			}
 		}
 	}?>

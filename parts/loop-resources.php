@@ -19,24 +19,25 @@
 			$field = get_field('section', $post->ID);
 			$activity_details = $field[0]['blocks'][0]['activity_group_details'];
 			$activity_organiser = get_field('organiser', $post->ID);
-			$frequency = $activity_details['activity_frequency']['label'];
+			$frequency = $activity_details['activity_frequency_select'];
+			$day = $activity_details['activity_day_select'];
 			$address = $activity_details['map_address'];
 			$address = explode(",", $address['address']);
 
 			echo '<p class="content">';
 
-			if ($frequency == "monthly") {
-				echo ucfirst($frequency) . ' on the ' . $activity_details['activity_frequency_month']['label'] . ' '
-			 . $activity_details['activity_day']['label'];
+			if ($frequency->slug == "monthly") {
+				echo ucfirst($frequency->slug) . ' on the ' . $activity_details['activity_frequency_month']['label'] . ' '
+			 . $day->name;
 		 } else {
-			 echo ucfirst($frequency) . ' on '
- 		 . $activity_details['activity_day']['label'];
+			 echo ucfirst($frequency->slug) . ' on '
+ 		 . $day->name;
 
 		 }
 		 echo ' at ' . $address[0] . '</p>';
 
 
-			echo '<p class="footer-content purple darken-1"><i class="material-icons left">info</i>Organised by ';
+			echo '<p class="footer-content purple darken-1"><i class="material-icons left">event</i>Organised by ';
 			if($activity_organiser) {
 				echo get_the_title($activity_organiser[0]);
 			} else {

@@ -11,6 +11,8 @@
 	</div>
 
 	<div class="container">
+
+
 		<?php
 
 		if( have_rows('event_dates') ):
@@ -25,6 +27,16 @@
 				$event_title = get_sub_field('event_title');
 				//$provisional = get_sub_field('provisional');
 				$where = get_sub_field('event_location');
+				$address = explode(",", $where['address']);
+				$address_constructor = 'https://maps.google.com/?q=';
+
+				foreach ($address as $value) {
+					$value = $value . "%2C";
+					$value = implode("%2C",$address);
+					$newadd = explode(" ",$value);
+				}
+				
+
 				$description = get_sub_field('event_description');
 				$contact = get_sub_field('event_contact');
 				$contact_phone = get_sub_field('event_contact_phone');
@@ -69,9 +81,10 @@
 
 						?>
 						<?php if($where){
+
 							echo '<p class="location"><strong>Venue </strong>' . $where['address'] . ' [';
 							if(!$map_link) {
-								echo '<a href="https://www.google.co.uk/maps/place/' . $where['address'] . '/@' . $where['lat'] . ',' . $where['lng'] . ',17z" target="_blank">View on Google Maps</a>]';
+								echo '<a href="' .  $address_constructor . implode("+",$newadd) . '" target="_blank">View on Google Maps</a>]';
 							} else {
 								echo '<a href="' . $map_link . '" target="_blank">View on Google Maps</a>]';
 							}
@@ -119,6 +132,7 @@
 
 		    endwhile;
 				echo '</ul>';
+
 
 		else :
 

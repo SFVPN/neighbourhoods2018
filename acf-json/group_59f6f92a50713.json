@@ -481,7 +481,7 @@
                     "max": ""
                 }
             },
-            "button_label": "New Layout Block",
+            "button_label": "Add Layout Block",
             "min": "",
             "max": ""
         }
@@ -515,5 +515,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1565861323
+    "modified": 1566579097
 }

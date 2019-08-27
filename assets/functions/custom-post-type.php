@@ -206,6 +206,52 @@ function ocn_survey() {
 add_action( 'init', 'ocn_survey');
 
 
+register_taxonomy( 'resources_day',
+    	array('resources'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+    	array('hierarchical' => false,    /* if this is false, it acts like tags */
+    		'labels' => array(
+    			'name' => __( 'Activity Days', 'neurovisiontheme' ), /* name of the custom taxonomy */
+    			'singular_name' => __( 'Activity Day', 'neurovisiontheme' ), /* single taxonomy name */
+    			'search_items' =>  __( 'Search Activity Days', 'neurovisiontheme' ), /* search title for taxomony */
+    			'all_items' => __( 'All Activity Days', 'neurovisiontheme' ), /* all title for taxonomies */
+    			'parent_item' => __( 'Parent Activity Day', 'neurovisiontheme' ), /* parent title for taxonomy */
+    			'parent_item_colon' => __( 'Parent Activity Day:', 'neurovisiontheme' ), /* parent taxonomy title */
+    			'edit_item' => __( 'Edit Activity Day', 'neurovisiontheme' ), /* edit custom taxonomy title */
+    			'update_item' => __( 'Update Activity Day', 'neurovisiontheme' ), /* update title for taxonomy */
+    			'add_new_item' => __( 'Add New Activity Day', 'neurovisiontheme' ), /* add new title for taxonomy */
+    			'new_item_name' => __( 'New Activity Day Name', 'neurovisiontheme' ) /* name title for taxonomy */
+    		),
+    		'show_admin_column' => true,
+    		'show_ui' => true,
+    		'query_var' => true,
+        'has_archive' => true,
+        'rewrite'           => array( 'slug' => 'resources/activity_day' ),
+    	)
+    );
+
+    register_taxonomy( 'resources_frequency',
+        	array('resources'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+        	array('hierarchical' => false,    /* if this is false, it acts like tags */
+        		'labels' => array(
+        			'name' => __( 'Activity Frequency', 'neurovisiontheme' ), /* name of the custom taxonomy */
+        			'singular_name' => __( 'Activity Frequency', 'neurovisiontheme' ), /* single taxonomy name */
+        			'search_items' =>  __( 'Search Activity Frequency', 'neurovisiontheme' ), /* search title for taxomony */
+        			'all_items' => __( 'All Activity Frequency', 'neurovisiontheme' ), /* all title for taxonomies */
+        			'parent_item' => __( 'Parent Activity Frequency', 'neurovisiontheme' ), /* parent title for taxonomy */
+        			'parent_item_colon' => __( 'Parent Activity Frequency:', 'neurovisiontheme' ), /* parent taxonomy title */
+        			'edit_item' => __( 'Edit Activity Frequency', 'neurovisiontheme' ), /* edit custom taxonomy title */
+        			'update_item' => __( 'Update Activity Frequency', 'neurovisiontheme' ), /* update title for taxonomy */
+        			'add_new_item' => __( 'Add New Activity Frequency', 'neurovisiontheme' ), /* add new title for taxonomy */
+        			'new_item_name' => __( 'New Activity Frequency Name', 'neurovisiontheme' ) /* name title for taxonomy */
+        		),
+        		'show_admin_column' => true,
+        		'show_ui' => true,
+        		'query_var' => true,
+            'has_archive' => true,
+            'rewrite'           => array( 'slug' => 'resources/activity_frequency' ),
+        	)
+        );
+
 // function sfvpn_activities() {
 //   // creating (registering) the custom type
 //   register_post_type( 'activities', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
