@@ -1,88 +1,108 @@
 
-<article id="post-<?php the_ID(); ?>" class="col s12 m6 l4 resource-article" role="article">
+<article id="post-<?php the_ID(); ?>" class="col s12 search-article" role="article">
+
+	<section class="col s12 grey lighten-3">
+		<h2 class="h5 "><a href="<?php the_permalink() ?>" class="center" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
 
+		<?php // check for rows (parent repeater)
+		if( have_rows('section', $post->ID) ): ?>
+
+			<?php echo '<div class="search-content">';
+
+			// loop through rows (parent repeater)
+			while( have_rows('section', $post->ID) ): the_row(); ?>
+
+					<?php
+
+					// check for rows (sub repeater)
+					if( have_rows('blocks') ): ?>
+
+						<?php
+
+						// loop through rows (sub repeater)
+						while( have_rows('blocks') ): the_row();
+
+							// display each item as a list - with a class of completed ( if completed )
+							if( get_row_layout() == 'intro_block' ):
+
+									echo wp_trim_words( get_sub_field('intro_content'), 30, ' ... [ <em>Click on the title to view more details</em> ]' );
+
+	        		endif;
+
+							if( get_row_layout() == 'support_groups' ):
+
+								if( have_rows('group_details') ):
+
+									while( have_rows('group_details') ): the_row();
+
+													echo '<span class="block"><strong>Location</strong> ' . get_sub_field('group_address_town') . '</span>';
+													echo '<span class="block"><strong>Telephone</strong> ' . get_sub_field('group_phone') . '</span>';
+													echo '<span class="block"><strong>Email</strong> <a href="mailto:' . get_sub_field('group_email') . '">' . get_sub_field('group_email') . '</a></span>';
+
+									endwhile;
+
+								endif;
+
+	        		endif;
+
+							if( get_row_layout() == 'local_group_activities' ):
 
 
+								if( have_rows('activity_group_details') ):
 
+									while( have_rows('activity_group_details') ): the_row();
+									$day = get_sub_field('activity_day_select');
+									$freq = get_sub_field('activity_frequency_select');
+									$often = get_sub_field('activity_frequency_month');
+
+									if($freq->name == "Weekly") {
+										$freq->name = $freq->name . " on " . $day->name;
+									} else {
+										$freq->name = $freq->name . " every " . $often['label'] . " " . $day->name;
+									};
+
+									echo '<span class="block"><strong>When</strong> ' . $freq->name . '</span>';
+									echo '<span class="block"><strong>Location</strong> ' . get_sub_field('activity_address_name') . ', ' .  get_sub_field('activity_address_town') . '</span>';
+
+									echo '<span class="block"><strong>Phone</strong> ' . get_sub_field('group_phone') . '</span>';
+									echo '<span class="block"><strong>Email</strong> <a href="mailto:' . get_sub_field('group_email') . '">' . get_sub_field('group_email') . '</a></span>';
+
+							 		endwhile;
+
+						  	endif;
+
+							endif;
+
+						endwhile; ?>
+
+					<?php endif; //if( get_sub_field('blocks') ): ?>
+
+
+			<?php endwhile; // while( has_sub_field('to-do_lists') ):
+
+				echo '</div >';
+				?>
+
+		<?php endif; // if( get_field('to-do_lists') ): ?>
+
+	<?php //endwhile; // end of the loop. ?>
+ 	<footer class="card-content" style="position: relative; padding: .5rem 0;">
 		<?php
-		//if (is_tax( 'resources_category', array( 'local-groups', 'tech-support' ) ))
-
-		if (has_term(array( 'local-groups', 'tech-support' ), 'resources_category', null) == 1) {?>
-
-		<section class="resource-card grey lighten-4 z-depth-1">
 
 
-				<h2><a href="<?php the_permalink() ?>" rel="bookmark" ><?php the_title(); ?></a></h2>
+			$terms = wp_get_post_terms($post->ID, 'resources_category', array("fields" => "all"));
+			if($terms):
+						echo '<ul>';
+						foreach ($terms as $term) {
+							$icon = get_field('material_icon_code', 'term_' . $term->term_id);
+							echo '<li><i class="material-icons left">' . $icon . '</i>' . $term->name . '</li>';
+							// code...
+						}
 
-		<?php
-			$field = get_field('section', $post->ID);
-			$activity_details = $field[0]['blocks'][0]['activity_group_details'];
-			$activity_organiser = get_field('organiser', $post->ID);
-			$frequency = $activity_details['activity_frequency_select'];
-			$day = $activity_details['activity_day_select'];
-			$address = $activity_details['map_address'];
-			$address = explode(",", $address['address']);
-
-			echo '<p class="content">';
-
-			if ($frequency->slug == "monthly") {
-				echo ucfirst($frequency->slug) . ' on the ' . $activity_details['activity_frequency_month']['label'] . ' '
-			 . $day->name;
-		 } else {
-			 echo ucfirst($frequency->slug) . ' on '
- 		 . $day->name;
-
-		 }
-		 echo ' at ' . $address[0] . '</p>';
-
-
-			echo '<p class="footer-content purple darken-1"><i class="material-icons left">event</i>Organised by ';
-			if($activity_organiser) {
-				echo get_the_title($activity_organiser[0]);
-			} else {
-				echo $activity_details['activity_organised_by'];
-			}
-			echo '</p>';
-		} else {?>
-
-		<section class="resource-card grey lighten-4 z-depth-1">
-
-
-				<h2><a href="<?php the_permalink() ?>" rel="bookmark" ><?php the_title(); ?></a></h2>
-
-				<p class="content">
-					Click on the title to view full details of this resource.
-				</p>
-
-		<?php
-		if (has_term(array( 'support-organisations' ), 'resources_category', null) == 1) {
-			echo '<p class="footer-content purple darken-1"><i class="material-icons left">contact_support</i>Support Organisation</p>';
-		} else {
-			if ($post->post_parent != 0) {
-				echo '<p class="footer-content purple darken-1"><i class="material-icons left">library_books</i>Part of ' . get_the_title($post->post_parent) . ' guide</p>';
-			} else {
-				$args = array(
-					'post_parent' => $post->ID,
-					'post_type'   => 'resources',
-					'numberposts' => -1,
-					'post_status' => 'any'
-				);
-				$children = get_children( $args );
-				$count = count($children);
-				$total = $count + 1;
-
-
-					echo '<p class="footer-content purple darken-1"><i class="material-icons left">format_list_numbered</i>' . $total . '-page guide</p>';
-
-			}
-		}
-
-		}
-		//print_R($post);
-
-?>
-
-
+						echo '</ul>';
+						 endif;
+		?>
+	</footer>
 	</section>
 </article>

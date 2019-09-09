@@ -196,21 +196,15 @@
   .footer-content {
     text-transform: capitalize;
     color: white;
-    display: flex;
-    align-items: center;
-    height: 4rem;
+    padding: 1rem;
     font-size: 1rem;
   }
   h2 {
     font-size: 1.5rem;
-    height: 6.5rem;
-    padding: .5rem;
+    padding: 1rem;
     margin-top: 0;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    border-bottom: 1px solid color("grey", "lighten-2");
+
     @media #{$medium-and-down} {
       margin-top: -0.5rem;
     }

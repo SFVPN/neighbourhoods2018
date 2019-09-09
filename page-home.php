@@ -57,10 +57,10 @@ get_header();
 <?php if( have_rows('front_page_callouts') ):?>
 <div id="callouts" class="row">
 	<?php while ( have_rows('front_page_callouts') ) : the_row();
-
+		$class = get_sub_field('callout_class')
 	?>
 
-		<div id="callout-<?php echo get_row_index();?>" class="col s12 callout-content">
+		<div id="callout-<?php echo get_row_index();?>" class=" <?php echo $class['value'];?> col s12 callout-content">
 			<div>
 				<h2 class="center h4"><?php the_sub_field('callout_title');?></h2>
 				<p class="col s12 callout-description">
@@ -68,7 +68,7 @@ get_header();
 				</p>
 			</div>
 			<div class="col s12 center" >
-				<a class="btn-large z-depth-0 waves-effect black-text"
+				<a class="btn-large z-depth-0 waves-effect"
 				<?php
 						echo 'href="' . get_sub_field('callout_link') . '">' . get_sub_field('callout_link_text') . '</a>' ;
 

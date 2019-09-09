@@ -161,7 +161,7 @@ function remove_plugin_image_sizes() {
 		$queried_object = get_queried_object();
 		$icon = get_field('material_icon_code', $queried_object);
 		?>
-		<div id="resources_category" class="row center">
+		<div id="resources_category" class="col s12">
 
 			<?php foreach($terms as $term) {
 				$children = get_term_children( $term->term_id, $taxonomy );
@@ -169,32 +169,33 @@ function remove_plugin_image_sizes() {
 				if ($term->parent === 0) {
 				$children = get_term_children( $term->term_id, $taxonomy );
 				if ($queried_object->name === $term->name) {
-					echo '<div class="col s12 m6 l4"><div class="col s12 green lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a><i class="material-icons purple darken-1 white-text">' . get_field('material_icon_code', $term) . '</i></div></div>';
+					echo '<div class="col s12 green lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . ' ' . $obj->labels->name . '</h2></a></div>';
 				} else {
 				$cat_total[] = $term->count;
-				echo '<div class="col s12 m6 l4"><div class="col s12 card medium">
+				echo '<div class="term-parent col s12">
 
-				<i class="material-icons medium purple darken-1 white-text">' . get_field('material_icon_code', $term) . '</i><ul><li><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h6">' . $term->name . ' ' . $obj->labels->name . '</h2></a>';
+				<ul class="parent-item"><li><a  href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . ' ' . $obj->labels->name . '</h2></a>' . $term->description;
 				if($children) {
 					$child_sorted = array(); //initialize empty array
-					echo '<ul>';
+					echo '<ul class="child-items">';
 					foreach($children as $child) {
 						$child_meta = get_term($child); // get taxonomy meta from taxonomy id
 						$child_sorted[$child] = $child_meta->name; // associate tax id with tax name (so we can sort alphabetically)
+
 					}
 					asort($child_sorted); // sort taxonomy children alphabetically
 
 					// loop sorted associative array of taxonomy children
 					foreach($child_sorted as $x => $x_value) {
 					    echo '<li>
-							<a href="' . get_term_link($x) . '" class="block">' . $x_value . '</a>
+							<a class="btn-flat purple darken-2 white-text" href="' . get_term_link($x) . '" class="block">' . $x_value . '</a>
 							</li>';
 						}
 				//	print_R($child_sorted);
 					echo '</ul>';
 				}
 
-				echo '</li></ul></div></div>';
+				echo '</li></ul></div>';
 			}
 		}
 	}?>

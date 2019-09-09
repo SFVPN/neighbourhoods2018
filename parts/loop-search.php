@@ -1,7 +1,7 @@
 
 <article id="post-<?php the_ID(); ?>" class="col s12 search-article" role="article">
 
-	<section class="col s12 l8 offset-l2 grey lighten-3">
+	<section class="col s12 grey lighten-3">
 		<h2 class="h5 "><a href="<?php the_permalink() ?>" class="center" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
 
@@ -24,6 +24,11 @@
 						while( have_rows('blocks') ): the_row();
 
 							// display each item as a list - with a class of completed ( if completed )
+							if( get_row_layout() == 'intro_block' ):
+
+									echo wp_trim_words( get_sub_field('intro_content'), 30, ' ... [ <em>Click on the title to view more details</em> ]' );
+
+							endif;
 
 							if( get_row_layout() == 'support_groups' ):
 

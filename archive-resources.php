@@ -14,7 +14,6 @@
 
 			<div >
 
-
 				<?php archive_terms_list('resources_category', 'resources');?>
 
 

@@ -8,8 +8,17 @@ button:focus {
 }
 
 label {
-  font-size: $label-font-size;
-  color: $input-border-color;
+  font-size: 1rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.children {
+  padding-bottom: 1rem;
+  label {
+    text-transform: capitalize;
+    color: #999;
+  }
 }
 
 #switcher label {
@@ -400,11 +409,11 @@ form p {
   text-align: left;
 }
 form p:last-child {
-  margin-bottom: 0;
+  margin-bottom: 0px;
 }
 
 /* Remove default checkbox */
-form:not(#survey) {
+.acf-checkbox-list, #loginform {
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {
   position: absolute;
@@ -1160,4 +1169,52 @@ select {
    border: 1px solid #f2f2f2;
    border-radius: 2px;
    height: 3rem;
+}
+
+
+form.searchandfilter {
+    border: 1px solid color("grey", "lighten-4");
+    padding: 1rem;
+    border-radius: 3px;
+    h4 {
+      background: color("grey", "lighten-4");
+      padding: .5rem;
+    }
+[type="checkbox"] {
+   margin-right: 1.5rem;
+   cursor: pointer;
+   position: relative;
+ }
+
+ul label {
+  padding: .1rem 0;
+  cursor: pointer;
+}
+
+
+  [type="checkbox"]:after {
+    content: "";
+    border: 2px solid #47525d;
+    background: white;
+
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+
+
+  }
+
+  [type="checkbox"]:checked:after {
+    content: "";
+    border: 2px solid color("materialize-red", "lighten-2");
+    width: 20px;
+    height: 20px;
+
+    background: color("materialize-red", "lighten-2");
+    display: inline-block;
+  }
+
+  ul.children {
+
+  }
 }

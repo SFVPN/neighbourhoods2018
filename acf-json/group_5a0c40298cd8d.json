@@ -305,6 +305,29 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5d761983e4a94",
+                    "label": "CSS Class",
+                    "name": "callout_class",
+                    "type": "button_group",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "calendar": "Calendar",
+                        "conversation-cafe": "Conversation Cafe",
+                        "ocn-event": "Event"
+                    },
+                    "allow_null": 1,
+                    "default_value": "",
+                    "layout": "horizontal",
+                    "return_format": "array"
                 }
             ]
         }
@@ -326,5 +349,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1562755689
+    "modified": 1568020962
 }
