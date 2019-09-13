@@ -704,20 +704,52 @@ if( $group_details ):
 				if($activity_frequency->slug == "monthly") {
 
 					echo __( 'This is held on ', 'ocn' );
-					if($activity_frequency_month) {
-						echo __( 'the ', 'ocn' ) . __( $activity_frequency_month['label'], 'ocn' ) . ' ';
-						if($activity_frequency_month['value'] != null) {
-						$frequency_interval = $activity_frequency_month['value'];
+					if(count($activity_frequency_month) == 1) {
+						echo __( 'the ', 'ocn' ) . __( $activity_frequency_month[0]['label'], 'ocn' ) . ' ';
+						$oftValNew = $activity_frequency_month[0]['value'];
+					} else {
+						$oft = [];
+						$oftVal = [];
+						foreach($activity_frequency_month as $int) {
+							$oft[] = $int['label'];
+							$oftVal[] = $int['value'];
+							$oftNew = implode(" and ", $oft);
+							$oftValNew = implode(',', $oftVal);
 						}
-						if($activity_day) {
-							echo __( ' ' . $activity_day->name, 'ocn' );
+						echo __( 'the ', 'ocn' ) . __( $oftNew, 'ocn' ) . ' ';
+					}
+
+					if(count($activity_day) < 5) {
+				//	echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
+
+						foreach($activity_day as $day) {
+							$intervalNew[] = $day->name;
+							$interval[] = $day->slug;
 						}
+						echo implode(" and ", $intervalNew);
+						$frequency_interval = implode(",", $interval);
 						echo __( ' of the month', 'ocn' );
 					}
-				} else {
+
+				} elseif($activity_frequency->slug == "weekly") {
+					$interval = [];
+					$intervalNew = [];
+					if(count($activity_day) < 5) {
 					echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
-					if($activity_day) {
-						echo __( $activity_day->name, 'ocn' );
+
+						foreach($activity_day as $day) {
+						//	echo __( $day->name, 'ocn' ) . ' ';
+							$interval[] = $day->slug;
+							$intervalNew[] = $day->name;
+						}
+
+						echo implode(", ", $intervalNew);
+
+						$frequency_interval = implode(",", $interval);
+
+					} else {
+						echo __('This is held every weekday', 'ocn' );
+						$frequency_interval = 'MO,TU,WE,TH,FR';
 					}
 				}
 
@@ -755,7 +787,7 @@ if( $group_details ):
 				}
 
 				if($activity_phone) {
-					echo '<span class="block">' .  __( 'Phone: ', 'ocn' ) . $activity_phone . '</span>';
+					echo '<span class="block">' .  __( 'Phone: ', 'ocn' ) . '<a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
 				}
 
 
@@ -796,7 +828,11 @@ if( $group_details ):
 		<span class="organizer">' . $activity_contact . '</span>
 		<span class="organizer_email">' . $activity_email . '</span>
 		<span class="alarm_reminder">60</span>
-		<span class="recurring">FREQ=' . $activity_frequency->slug . ';BYDAY=' . $frequency_interval . strtoupper($activity_day->slug) . ';INTERVAL=1;</span>
+		<span class="recurring">FREQ=' . strtoupper($activity_frequency->slug) . ';';
+		if($oftValNew) {
+			echo 'BYSETPOS=' . $oftValNew . ';';
+		}
+		echo 'BYDAY=' . strtoupper($frequency_interval) . strtoupper($activity_day->slug) . ';INTERVAL=1;</span>
 		</div></div>';
 
     endwhile;

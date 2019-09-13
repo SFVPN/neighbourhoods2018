@@ -1336,9 +1336,9 @@ a.chip {
     padding: 2rem;
   }
   @media #{$small-and-down} {
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 0;
     a {
-      padding: 0 1rem;
+      padding: 1rem;
     }
   }
 }
@@ -1677,6 +1677,11 @@ a.current.chip {
   margin-bottom: 1rem;
 }
 
+.search-article .card-content {
+  position: relative;
+  padding: .5rem 0;
+}
+
 .archive article {
   margin: 2rem 0;
 }
@@ -1775,7 +1780,7 @@ a.current.chip {
     display: block;
   }
   .note-content {
-    padding: 1rem;
+    padding: 2rem 1rem;
     @media #{$small-and-down} {
     	padding: .5rem 0;
     }

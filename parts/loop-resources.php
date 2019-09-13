@@ -35,9 +35,12 @@
 								if( have_rows('group_details') ):
 
 									while( have_rows('group_details') ): the_row();
+									$activity_phone = get_sub_field('group_phone');
+									$formatted_phone = explode(" ", $activity_phone);
+									$formatted_phone = implode("-", $formatted_phone);
 
 													echo '<span class="block"><strong>Location</strong> ' . get_sub_field('group_address_town') . '</span>';
-													echo '<span class="block"><strong>Telephone</strong> ' . get_sub_field('group_phone') . '</span>';
+														echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
 													echo '<span class="block"><strong>Email</strong> <a href="mailto:' . get_sub_field('group_email') . '">' . get_sub_field('group_email') . '</a></span>';
 
 									endwhile;
@@ -52,20 +55,51 @@
 								if( have_rows('activity_group_details') ):
 
 									while( have_rows('activity_group_details') ): the_row();
-									$day = get_sub_field('activity_day_select');
+									$activity_details = $field[0]['blocks'][0]['activity_group_details'];
+									$activity_organiser = get_field('organiser', $post->ID);
+									$days = get_sub_field('activity_day_select');
+									$activity_phone = get_sub_field('group_phone');
+									$formatted_phone = explode(" ", $activity_phone);
+									$formatted_phone = implode("-", $formatted_phone);
+									if(count($days) > 1) {
+										$dayList = [];
+										foreach($days as $day) {
+											$dayList[] = $day->name;
+										}
+										$days = implode(", ", $dayList);
+									} else {
+										$days = $days[0]->name;
+									}
 									$freq = get_sub_field('activity_frequency_select');
 									$often = get_sub_field('activity_frequency_month');
 
 									if($freq->name == "Weekly") {
-										$freq->name = $freq->name . " on " . $day->name;
+										$freq->name = $freq->name . " on " . $days;
+
 									} else {
-										$freq->name = $freq->name . " every " . $often['label'] . " " . $day->name;
+										if(count($often) == 1) {
+											$freq->name = $freq->name . " every " . $often[0]['label'] . " " . $days;
+										} else {
+											$oft = [];
+											foreach($often as $int) {
+												$oft[] = $int['label'];
+												$oftNew = implode(" and ", $oft);
+											}
+											$freq->name = $freq->name . " every " . $oftNew . " " . $days;
+										}
+
 									};
 
 									echo '<span class="block"><strong>When</strong> ' . $freq->name . '</span>';
 									echo '<span class="block"><strong>Location</strong> ' . get_sub_field('activity_address_name') . ', ' .  get_sub_field('activity_address_town') . '</span>';
-
-									echo '<span class="block"><strong>Phone</strong> ' . get_sub_field('group_phone') . '</span>';
+									echo '<span class="block"><strong>Organiser</strong> ';
+									if($activity_organiser) {
+										echo get_the_title($activity_organiser[0]);
+									} else {
+										echo $activity_details['activity_organised_by'];
+									}
+									echo '</span>';
+									echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
 									echo '<span class="block"><strong>Email</strong> <a href="mailto:' . get_sub_field('group_email') . '">' . get_sub_field('group_email') . '</a></span>';
 
 							 		endwhile;
@@ -87,7 +121,7 @@
 		<?php endif; // if( get_field('to-do_lists') ): ?>
 
 	<?php //endwhile; // end of the loop. ?>
- 	<footer class="card-content" style="position: relative; padding: .5rem 0;">
+ 	<footer class="card-content">
 		<?php
 
 

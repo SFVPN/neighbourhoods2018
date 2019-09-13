@@ -1019,7 +1019,7 @@
                                                 "id": ""
                                             },
                                             "taxonomy": "resources_day",
-                                            "field_type": "select",
+                                            "field_type": "multi_select",
                                             "allow_null": 1,
                                             "add_term": 0,
                                             "save_terms": 1,
@@ -1052,7 +1052,7 @@
                                                 "no repeat"
                                             ],
                                             "allow_null": 1,
-                                            "multiple": 0,
+                                            "multiple": 1,
                                             "ui": 1,
                                             "ajax": 0,
                                             "return_format": "array",
@@ -1578,5 +1578,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1568029975
+    "modified": 1568295500
 }

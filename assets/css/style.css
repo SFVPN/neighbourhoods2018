@@ -12729,9 +12729,9 @@ a.chip {
       padding: 2rem; } }
   @media only screen and (max-width: 600px) {
     #callouts {
-      padding: 1rem 1rem 2rem 1rem; }
+      padding: 0; }
       #callouts a {
-        padding: 0 1rem; } }
+        padding: 1rem; } }
 
 #advert-text .h4 {
   padding-bottom: 1rem; }
@@ -12970,6 +12970,10 @@ a.current.chip {
 .search-article .chip {
   margin-bottom: 1rem; }
 
+.search-article .card-content {
+  position: relative;
+  padding: .5rem 0; }
+
 .archive article {
   margin: 2rem 0; }
 
@@ -13038,7 +13042,7 @@ a.current.chip {
     background: #212121;
     display: block; }
   .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
-    padding: 1rem; }
+    padding: 2rem 1rem; }
     @media only screen and (max-width: 600px) {
       .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
         padding: .5rem 0; } }
