@@ -169,12 +169,12 @@ function remove_plugin_image_sizes() {
 				if ($term->parent === 0) {
 				$children = get_term_children( $term->term_id, $taxonomy );
 				if ($queried_object->name === $term->name) {
-					echo '<div class="col s12 green lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . ' ' . $obj->labels->name . '</h2></a></div>';
+					echo '<div class="col s12 green lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . '</h2></a></div>';
 				} else {
 				$cat_total[] = $term->count;
 				echo '<div class="term-parent col s12">
 
-				<ul class="parent-item"><li><a  href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . ' ' . $obj->labels->name . '</h2></a>' . $term->description;
+				<ul class="parent-item"><li><a  href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . '</h2></a>' . $term->description;
 				if($children) {
 					$child_sorted = array(); //initialize empty array
 					echo '<ul class="child-items">';
