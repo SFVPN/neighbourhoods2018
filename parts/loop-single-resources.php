@@ -249,11 +249,6 @@ $pages[] += get_the_ID();
 
         endif;
 
-				if( get_row_layout() == 'intro_block' ):
-
-					the_sub_field('intro_content');
-
-				endif;
 
 				if( get_row_layout() == 'text_block' ):
 

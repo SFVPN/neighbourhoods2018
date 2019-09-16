@@ -35,7 +35,7 @@
                 "id": ""
             },
             "collapsed": "field_5b914d30ab01d",
-            "min": 0,
+            "min": 1,
             "max": 1,
             "layout": "block",
             "button_label": "Add Section",
@@ -1578,5 +1578,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1568295500
+    "modified": 1568640779
 }

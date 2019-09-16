@@ -10,6 +10,7 @@
 
 			<?php echo '<div class="search-content">';
 
+
 			// loop through rows (parent repeater)
 			while( have_rows('section', $post->ID) ): the_row(); ?>
 
@@ -24,11 +25,13 @@
 						while( have_rows('blocks') ): the_row();
 
 							// display each item as a list - with a class of completed ( if completed )
-							if( get_row_layout() == 'intro_block' ):
-
-									echo wp_trim_words( get_sub_field('intro_content'), 30, ' ... [ <em>Click on the title to view more details</em> ]' );
+							if( get_row_layout() == 'text_block' ):
+								echo '<p>' .  wp_trim_words( get_sub_field('content'), 25, ' ... [ <em>Click on the title to view more details</em> ]' ) . '</p>';
+								break;
 
 	        		endif;
+
+							//echo wp_trim_words( $contents, 30, ' ... [ <em>Click on the title to view more details</em> ]' );
 
 							if( get_row_layout() == 'support_groups' ):
 
@@ -58,6 +61,7 @@
 									$activity_details = $field[0]['blocks'][0]['activity_group_details'];
 									$activity_organiser = get_field('organiser', $post->ID);
 									$days = get_sub_field('activity_day_select');
+									$email = get_sub_field('group_email');
 									$activity_phone = get_sub_field('group_phone');
 									$formatted_phone = explode(" ", $activity_phone);
 									$formatted_phone = implode("-", $formatted_phone);
@@ -100,7 +104,9 @@
 									}
 									echo '</span>';
 									echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
-									echo '<span class="block"><strong>Email</strong> <a href="mailto:' . get_sub_field('group_email') . '">' . get_sub_field('group_email') . '</a></span>';
+									if($email) {
+										echo '<span class="block"><strong>Email</strong> <a href="mailto:' . $email . '">' . $email . '</a></span>';
+									}
 
 							 		endwhile;
 
