@@ -12928,14 +12928,40 @@ div#resources_category .l4 .s12 {
   border: 1px solid #bdbdbd; }
 
 ul.child-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+  grid-gap: 1rem;
   padding: 1rem 0; }
   ul.child-items li {
-    display: inline;
-    margin-right: .75rem; }
+    display: inline-block;
+    margin-right: .75rem;
+    text-align: center;
+    border-radius: 3px;
+    font-size: .95rem; }
+    @supports (display: flex) {
+      ul.child-items li {
+        display: flex;
+        align-items: center;
+        justify-content: center; } }
+    @supports (display: grid) {
+      ul.child-items li {
+        margin-right: 0; } }
     ul.child-items li a {
-      margin: 0.25rem 0; }
+      padding: .5rem 1rem;
+      color: white;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: block; }
       ul.child-items li a:hover, ul.child-items li a:focus {
-        background: #9c27b0 !important; }
+        color: yellow; }
+      ul.child-items li a span.count {
+        background: white;
+        color: black;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-left: .5rem; }
 
 a.current.chip {
   background: #eeeeee;

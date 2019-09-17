@@ -181,14 +181,16 @@ function remove_plugin_image_sizes() {
 					foreach($children as $child) {
 						$child_meta = get_term($child); // get taxonomy meta from taxonomy id
 						$child_sorted[$child] = $child_meta->name; // associate tax id with tax name (so we can sort alphabetically)
+						//print_R($child_meta);
 
 					}
 					asort($child_sorted); // sort taxonomy children alphabetically
 
 					// loop sorted associative array of taxonomy children
 					foreach($child_sorted as $x => $x_value) {
-					    echo '<li>
-							<a class="btn-flat purple darken-2 white-text" href="' . get_term_link($x) . '" class="block">' . $x_value . '</a>
+							$term = get_term($x);
+					    echo '<li class="purple darken-1">
+							<a href="' . get_term_link($x) . '">' . $x_value . '<span aria-label="Number of items in this category is ' . $term->count . '" class="count">' . $term->count . '</span></a>
 							</li>';
 						}
 				//	print_R($child_sorted);
