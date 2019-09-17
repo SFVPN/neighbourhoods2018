@@ -132,8 +132,12 @@ $pages[] += get_the_ID();
 		if ( $parent->have_posts() ) :
 		$queried_object = get_queried_object();
 		$ID = $queried_object->ID;?>
+				<details>
+					<summary>
+						<?php echo __( 'Click to view full contents of the ', 'ocn' ) . get_the_title($post->post_parent) . __( ' guide', 'ocn' );?>
+					</summary>
+
 					<ol id="guide-contents">
-				<li class="block label black-text"><?php echo get_the_title($post->post_parent) . __( ' guide contents', 'ocn' );?></li>
 				<li class="parent">
 					<a href="<?php the_permalink($post->post_parent); ?>" title="<?php the_title(); ?>"><?php echo get_the_title($post->post_parent); ?></a>
 				</li>
@@ -159,7 +163,7 @@ $pages[] += get_the_ID();
 
 				<?php endwhile; ?>
 			</ol>
-
+			</details>
 		<?php endif; wp_reset_postdata();
 		//echo '</div>';
 }

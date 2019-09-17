@@ -12007,7 +12007,7 @@ details {
     details summary:focus {
       outline: none; }
   details[open] summary {
-    color: #7b1fa2;
+    color: #283593;
     transition: 350ms; }
 
 .control.btns {
@@ -12015,7 +12015,7 @@ details {
   .control.btns a:not(:first-of-type) {
     margin-right: .25rem; }
   .control.btns a.current {
-    background: #8e24aa;
+    background: #283593;
     color: #ffffff; }
     .control.btns a.current:focus, .control.btns a.current:hover {
       background-color: #212121; }
@@ -12453,10 +12453,15 @@ input.wpas-submit.btn, input.wpas-submit.btn-large {
 .home #bottom {
   margin-bottom: 0px; }
 
+.search-article h2 {
+  padding-top: 1rem; }
+
 .search-content {
   padding: 1rem 0; }
   .search-content .block {
     margin: 0.75rem 0; }
+  .search-content em {
+    font-weight: 600; }
   .search-content strong {
     background: #fcfcfc;
     padding: 0 10px;

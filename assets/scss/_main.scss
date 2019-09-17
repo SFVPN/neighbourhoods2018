@@ -339,7 +339,7 @@ details {
   }
   &[open] {
     summary {
-      color: color("purple", "darken-2");
+      color: $link-color;
       transition: 350ms;
     }
   }
@@ -351,7 +351,7 @@ details {
     margin-right: .25rem;
   }
   a.current {
-    background: color("purple", "darken-1");
+    background: $link-color;
     color: #ffffff;
     &:focus, &:hover {
     background-color: $chip-bg-hover;
@@ -943,10 +943,17 @@ color: color("grey", "base");
   margin-bottom: 0px;
 }
 
+.search-article h2 {
+  padding-top: 1rem;
+}
+
 .search-content {
   padding: 1rem 0;
   .block {
     margin: 0.75rem 0;
+  }
+  em {
+    font-weight: 600;
   }
   strong {
     background: #fcfcfc;

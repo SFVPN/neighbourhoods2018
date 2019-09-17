@@ -26,7 +26,7 @@
 
 							// display each item as a list - with a class of completed ( if completed )
 							if( get_row_layout() == 'text_block' ):
-								echo '<p>' .  wp_trim_words( get_sub_field('content'), 25, ' ... [ <em>Click on the title to view more details</em> ]' ) . '</p>';
+								echo '<p>' .  wp_trim_words( get_sub_field('content'), 25, ' ... ') . '<em>' . __( 'Click on the title to view more details', 'ocn' ) . '</em></p>';
 								break;
 
 	        		endif;
@@ -38,13 +38,16 @@
 								if( have_rows('group_details') ):
 
 									while( have_rows('group_details') ): the_row();
+									$email = get_sub_field('group_email');
 									$activity_phone = get_sub_field('group_phone');
 									$formatted_phone = explode(" ", $activity_phone);
 									$formatted_phone = implode("-", $formatted_phone);
 
-													echo '<span class="block"><strong>Location</strong> ' . get_sub_field('group_address_town') . '</span>';
-														echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
-													echo '<span class="block"><strong>Email</strong> <a href="mailto:' . get_sub_field('group_email') . '">' . get_sub_field('group_email') . '</a></span>';
+									echo '<span class="block"><strong>Location</strong> ' . get_sub_field('group_address_town') . '</span>';
+									echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
+									if($email) {
+										echo '<span class="block"><strong>Email</strong> <a href="mailto:' . $email . '">' . $email . '</a></span>';
+									}
 
 									endwhile;
 
@@ -121,6 +124,11 @@
 
 			<?php endwhile; // while( has_sub_field('to-do_lists') ):
 
+				if ($post->post_parent != 0) {
+					echo '<span class="footer-content"><i class="material-icons left">assignment</i>' . __( 'This is part of the ', 'ocn' ) . '<a href="' . get_the_permalink($post->post_parent) . '">' . get_the_title($post->post_parent) . '</a>' .  __( ' guide', 'ocn' ) . '</span>';
+				}
+
+
 				echo '</div >';
 				?>
 
@@ -129,7 +137,6 @@
 	<?php //endwhile; // end of the loop. ?>
  	<footer class="card-content">
 		<?php
-
 
 			$terms = wp_get_post_terms($post->ID, 'resources_category', array("fields" => "all"));
 			if($terms):
