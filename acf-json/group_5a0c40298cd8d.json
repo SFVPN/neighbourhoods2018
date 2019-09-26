@@ -127,10 +127,10 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5a0c4060f52fc",
-                    "label": "Section Description",
-                    "name": "section_description",
-                    "type": "textarea",
+                    "key": "field_5d8c897c97bda",
+                    "label": "Section Image",
+                    "name": "section_image",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -139,11 +139,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": "",
-                    "new_lines": ""
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
                     "key": "field_5a0c407af52fd",
@@ -182,32 +187,6 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
-                },
-                {
-                    "key": "field_5a0c73b9f89d8",
-                    "label": "Button Icon",
-                    "name": "button_icon",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "wifi_tethering": "Digital",
-                        "brush": "Art",
-                        "local_florist": "Health"
-                    },
-                    "default_value": [],
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "return_format": "value",
-                    "placeholder": ""
                 }
             ]
         },
@@ -267,6 +246,30 @@
                     "maxlength": "",
                     "rows": "",
                     "new_lines": "br"
+                },
+                {
+                    "key": "field_5d8c92208a2c0",
+                    "label": "Callout Image",
+                    "name": "callout_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
                     "key": "field_5d25baa0e966d",
@@ -349,5 +352,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1568020962
+    "modified": 1569493560
 }

@@ -89,9 +89,11 @@ if ( $post->post_parent === 0 ) {
 	$pages = array($post->ID );
 		?>
 
-
+		<details>
+			<summary>
+				<?php echo __( 'Click to view full contents of the ', 'ocn' ) . get_the_title($post->post_parent) . __( ' guide', 'ocn' );?>
+			</summary>
 			<ol id="guide-contents">
-				<li class="block label black-text"><?php echo get_the_title() . __( ' guide contents', 'ocn' );?></li>
 				<li id="parent-<?php the_ID(); ?>" class="parent">
 
 						<?php echo '<span class="active-page">' . get_the_title() . '</span>'; ?>
@@ -113,7 +115,7 @@ $pages[] += get_the_ID();
 
 			 ?>
 		 </ol>
-
+</details>
 	<?php endif; wp_reset_postdata();
 //echo '</div>';
 } else {
@@ -939,16 +941,18 @@ $relatedActivities = get_posts(array(
 
  <div class=" related-activities">
 
-<h2 class="h5"><?php the_title();?> Activities</h2>
+<h2 class="h5 col s12"><?php the_title();?> Activities</h2>
 
-		 <ul class="row">
-		 <?php foreach( $relatedActivities as $relatedActivity ): ?>
+
+		 <?php foreach( $relatedActivities as $post ): ?>
 			 <?php
 
-
-
+			 setup_postdata( $post );
+			 get_template_part( 'parts/loop', 'resources' );
 			 ?>
-			 <li class="col s12 m6 center">
+
+
+			 <!-- <li class="col s12 m6 center">
 
 				 <div class="card-link">
 					 <h3 class="h6"><?php echo get_the_title( $relatedActivity->ID ); ?></h3>
@@ -957,13 +961,12 @@ $relatedActivities = get_posts(array(
 					 </a>
 				 </div>
 
-			 </li>
+			 </li> -->
 
 
-		 <?php endforeach; ?>
-		 </ul>
-
-
+		 <?php endforeach;
+		 wp_reset_postdata();
+		 ?>
 
 	</div>
 						<?php endif;

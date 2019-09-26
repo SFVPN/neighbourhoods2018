@@ -21,6 +21,8 @@
 
 						<?php
 
+					
+
 						// loop through rows (sub repeater)
 						while( have_rows('blocks') ): the_row();
 
@@ -126,6 +128,19 @@
 
 				if ($post->post_parent != 0) {
 					echo '<span class="footer-content"><i class="material-icons left">assignment</i>' . __( 'This is part of the ', 'ocn' ) . '<a href="' . get_the_permalink($post->post_parent) . '">' . get_the_title($post->post_parent) . '</a>' .  __( ' guide', 'ocn' ) . '</span>';
+				} else {
+					$args = array(
+						'post_parent' => $post->ID,
+						'post_type'   => 'resources',
+						'numberposts' => -1,
+						'post_status' => 'any'
+					);
+					$children = get_children( $args );
+					$count = count($children);
+					$total = $count + 1;
+					if($children) {
+						echo '<span class="footer-content"><i class="material-icons left">format_list_numbered</i>' . __( 'This guide is ', 'ocn' ) . $total . __( ' pages', 'ocn' ) . '</span>';
+					}
 				}
 
 

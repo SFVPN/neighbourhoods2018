@@ -37,14 +37,9 @@
 
 <?php endif; ?>
 
-		<div class="row grey lighten-4">
-			<p class="col s12 source-org copyright">
-				<a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a> &copy; <?php echo date("Y");?>
-			</p>
+		<div class="row purple darken-1">
 
-
-
-				<nav id="contact_options" class="purple darken-1 col s12">
+				<nav id="contact_options" class=" col s12">
 					<ul class="col s12">
 
 			<?php
@@ -72,6 +67,11 @@
 
 		</ul>
 	</nav>
+
+	<p class="col s12 source-org copyright">
+		<?php bloginfo('name'); ?> &copy; <?php echo date("Y");?><br />
+	This website uses icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com</a></p>
+
 
 
 

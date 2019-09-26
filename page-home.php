@@ -61,8 +61,13 @@ get_header();
 	?>
 
 		<div id="callout-<?php echo get_row_index();?>" class=" <?php echo $class['value'];?> col s12 callout-content">
-			<div>
+			<div class="container">
 				<h2 class="center h4"><?php the_sub_field('callout_title');?></h2>
+				<?php
+				$image = get_sub_field('callout_image');
+					if($image) {
+						echo '<div class="col s12 center"><img alt="" src="' . $image['sizes']['thumbnail'] . '"/></div>';
+			 	}?>
 				<p class="col s12 callout-description">
 					<?php the_sub_field('callout_description');?>
 				</p>
@@ -105,17 +110,19 @@ endif;
 
 				<h3 class="h5"><?php the_sub_field('section_title'); ?></h3 class="h5">
 
-				<?php the_sub_field('section_description'); ?>
+				<?php
 
+				$image = get_sub_field('section_image');
+					if($image) {
+						echo '<div class="col s12"><img class="circle" src="' . $image['sizes']['thumbnail'] . '"/></div>';
+			 	}
+				?>
 
-									<div class="col s12">
-										<a class="btn-large z-depth-0 waves-effect" href="<?php the_sub_field('page_link'); ?>">
-											<!-- <svg class="small left white-fill" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 24 24" aria-hidden="true">
-												<use href="<?php echo get_template_directory_uri();?>/svg/download.svg#ic_accessible_24px"></use>
-											</svg> -->
-
-											<?php the_sub_field('button_text'); ?></a>
-									</div>
+				<div class="col s12 no-pad">
+					<a class="btn-large z-depth-0 waves-effect" href="<?php the_sub_field('page_link'); ?>">
+						<?php the_sub_field('button_text'); ?>
+					</a>
+				</div>
 
 			</div> <!-- end col s12 l4 -->
 

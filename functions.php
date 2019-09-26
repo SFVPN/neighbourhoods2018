@@ -47,6 +47,8 @@ require_once(get_template_directory().'/assets/functions/login.php');
 // Customize the WordPress admin
 require_once(get_template_directory().'/assets/functions/admin.php');
 
+require_once(get_template_directory().'/assets/functions/rss.php');
+
 function gioga_add_async_defer_attribute($tag, $handle) {
 	if ( 'maps-js' !== $handle )
 	return $tag;
