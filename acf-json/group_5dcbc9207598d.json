@@ -1,0 +1,412 @@
+{
+    "key": "group_5dcbc9207598d",
+    "title": "Old Activity Fields",
+    "fields": [
+        {
+            "key": "field_5d4c66c72667b",
+            "label": "Activity Organiser",
+            "name": "organiser",
+            "type": "relationship",
+            "instructions": "If you are adding a local activity group you may wish to associate it with one of the support organisations we already have in the resource directory. You can do that here by selecting the organisation from the left-hand column. Once selected, the organisation will be seen in the right-hand column.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "resources"
+            ],
+            "taxonomy": [
+                "resources_category:support-organisations"
+            ],
+            "filters": [
+                "search"
+            ],
+            "elements": "",
+            "min": "",
+            "max": 1,
+            "return_format": "id"
+        },
+        {
+            "key": "field_5d8cde5fccf5d",
+            "label": "Activity Details",
+            "name": "activity_group_details",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_5d8cde5fccf5e",
+                    "label": "Description",
+                    "name": "activity_description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "br"
+                },
+                {
+                    "key": "field_5d8cde5fccf5f",
+                    "label": "Dates \/ Times",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "Add the dates, time etc of the activity you are adding.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5d8cde5fccf60",
+                    "label": "Start Date",
+                    "name": "activity_start",
+                    "type": "date_picker",
+                    "instructions": "The start date is for the purpose of adding recurring events to calendars. It will not be shown on the front end of the website.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y",
+                    "return_format": "m\/d\/Y",
+                    "first_day": 1
+                },
+                {
+                    "key": "field_5d8cde5fccf61",
+                    "label": "End Date",
+                    "name": "activity_end",
+                    "type": "date_picker",
+                    "instructions": "The end date is for the purpose of adding recurring events to calendars. This will generally be the same as the start date.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "d\/m\/Y",
+                    "return_format": "m\/d\/Y",
+                    "first_day": 1
+                },
+                {
+                    "key": "field_5d8cde5fccf62",
+                    "label": "Start Time",
+                    "name": "activity_start_time",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a"
+                },
+                {
+                    "key": "field_5d8cde5fccf63",
+                    "label": "End Time",
+                    "name": "activity_end_time",
+                    "type": "time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "g:i a",
+                    "return_format": "g:i a"
+                },
+                {
+                    "key": "field_5d8cde5fccf65",
+                    "label": "Activity Repeats",
+                    "name": "activity_frequency_select",
+                    "type": "taxonomy",
+                    "instructions": "How often does this activity repeat?",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "resources_frequency",
+                    "field_type": "select",
+                    "allow_null": 1,
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 1,
+                    "return_format": "object",
+                    "multiple": 0
+                },
+                {
+                    "key": "field_5d8cde5fccf66",
+                    "label": "On which day?",
+                    "name": "activity_day_select",
+                    "type": "taxonomy",
+                    "instructions": "Choose the day this activity is held on.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "resources_day",
+                    "field_type": "multi_select",
+                    "allow_null": 1,
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 1,
+                    "return_format": "object",
+                    "multiple": 0
+                },
+                {
+                    "key": "field_5d8cde5fccf67",
+                    "label": "Position in month",
+                    "name": "activity_frequency_month",
+                    "type": "select",
+                    "instructions": "If this is a monthly activity, choose when this occurs. Start by selecting the increment eg \"First\" and then select the day in the next field.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "null": "no repeat",
+                        "1": "first",
+                        "2": "second",
+                        "3": "third",
+                        "4": "fourth",
+                        "-1": "last"
+                    },
+                    "default_value": [
+                        "no repeat"
+                    ],
+                    "allow_null": 1,
+                    "multiple": 1,
+                    "ui": 1,
+                    "ajax": 0,
+                    "return_format": "array",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf69",
+                    "label": "Contact",
+                    "name": "",
+                    "type": "accordion",
+                    "instructions": "Add contact details for the activity you are adding.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "open": 0,
+                    "multi_expand": 0,
+                    "endpoint": 0
+                },
+                {
+                    "key": "field_5d8cde5fccf6c",
+                    "label": "Contact Name",
+                    "name": "group_contact",
+                    "type": "text",
+                    "instructions": "If you don't have an individual contact name, add the organisation name or something similar.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf6d",
+                    "label": "Contact Email",
+                    "name": "group_email",
+                    "type": "email",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf6e",
+                    "label": "Contact Phone",
+                    "name": "group_phone",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf6f",
+                    "label": "Activity Address (Place Name)",
+                    "name": "activity_address_name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf70",
+                    "label": "Activity Address (Street)",
+                    "name": "activity_address_street",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf71",
+                    "label": "Activity Address (Town)",
+                    "name": "activity_address_town",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf72",
+                    "label": "Activity Address (Postcode)",
+                    "name": "activity_address_postcode",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5d8cde5fccf73",
+                    "label": "Map + Address",
+                    "name": "map_address",
+                    "type": "google_map",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "center_lat": "",
+                    "center_lng": "",
+                    "zoom": "",
+                    "height": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1573636578
+}

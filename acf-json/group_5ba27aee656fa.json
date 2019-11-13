@@ -1,57 +1,7 @@
 {
     "key": "group_5ba27aee656fa",
     "title": "Resource Details",
-    "fields": [
-        {
-            "key": "field_5ba27a171210e",
-            "label": "Choose a category",
-            "name": "resource_type",
-            "type": "taxonomy",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "taxonomy": "resources_category",
-            "field_type": "checkbox",
-            "add_term": 0,
-            "save_terms": 1,
-            "load_terms": 1,
-            "return_format": "id",
-            "multiple": 0,
-            "allow_null": 0
-        },
-        {
-            "key": "field_5d4c66c72667b",
-            "label": "Organiser",
-            "name": "organiser",
-            "type": "relationship",
-            "instructions": "If you are adding a local activity group you may wish to associate it with one of the support organisations we already have in the resource directory. You can do that here.  If the organisation does not exist you can add it manually with the other contact information in the 'Activity Details' content block.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "resources"
-            ],
-            "taxonomy": [
-                "resources_category:support-organisations"
-            ],
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": 1,
-            "return_format": "id"
-        }
-    ],
+    "fields": [],
     "location": [
         [
             {
@@ -80,7 +30,7 @@
         "tags",
         "send-trackbacks"
     ],
-    "active": 1,
+    "active": 0,
     "description": "",
-    "modified": 1568633915
+    "modified": 1569532711
 }

@@ -66,8 +66,6 @@ echo 'itemscope itemtype="http://schema.org/Organization"';
 
 	</header> <!-- end article header -->
 
-
-<div class="col s12 m12 grey lighten-4 index-wrapper">
 <?php
 
 
@@ -85,14 +83,12 @@ if ( $post->post_parent === 0 ) {
 	$parent = new WP_Query( $args );
 
 	if ( $parent->have_posts() ) :
-//	echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
+		//echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
 	$pages = array($post->ID );
 		?>
 
-		<details>
-			<summary>
-				<?php echo __( 'Click to view full contents of the ', 'ocn' ) . get_the_title($post->post_parent) . __( ' guide', 'ocn' );?>
-			</summary>
+		<div class="col s12 grey lighten-4">
+
 			<ol id="guide-contents">
 				<li id="parent-<?php the_ID(); ?>" class="parent">
 
@@ -115,7 +111,7 @@ $pages[] += get_the_ID();
 
 			 ?>
 		 </ol>
-</details>
+</div>
 	<?php endif; wp_reset_postdata();
 //echo '</div>';
 } else {
@@ -134,7 +130,7 @@ $pages[] += get_the_ID();
 		if ( $parent->have_posts() ) :
 		$queried_object = get_queried_object();
 		$ID = $queried_object->ID;?>
-				<details>
+				<details class="col s12">
 					<summary>
 						<?php echo __( 'Click to view full contents of the ', 'ocn' ) . get_the_title($post->post_parent) . __( ' guide', 'ocn' );?>
 					</summary>
@@ -172,7 +168,7 @@ $pages[] += get_the_ID();
 
 		$show_toc = get_field('show_toc');
 		if ($show_toc):
-			//echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
+		//	echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
 		//check if the repeater field has rows of data
 		 if( have_rows('section') ):
 
@@ -188,7 +184,7 @@ $pages[] += get_the_ID();
 
 		         // display a sub field 'value'
 						 if( have_rows('blocks') ):
-						echo '<ol id="toc">
+						echo '<div class="col s12 m12 grey lighten-4 index-wrapper"><ol id="toc">
 						<li class="block label black-text">' . __( 'What\'s on this page?', 'ocn' ) . '</li>';
 	     // loop through the rows of data
 	    while ( have_rows('blocks') ) : the_row();
@@ -202,7 +198,7 @@ $pages[] += get_the_ID();
 
 
 	    endwhile;
-			echo '</ol>';
+			echo '</ol></div>';
 	else :
 
 	    // no layouts found
@@ -216,12 +212,11 @@ $pages[] += get_the_ID();
 		     // no rows found
 
 		 endif;
+	//	 echo '</div>';
 		endif;
 
 		 ?>
 
-
-	</div>
 
 <section class="entry-content col s12" itemprop="articleBody">
 
@@ -532,322 +527,299 @@ echo '</div>';
 endif;
 
 
-if( get_row_layout() == 'support_groups' ):
-
-	$group_email = get_sub_field('group_email');
-	$group_phone = get_sub_field('group_phone');
-	$group_details = get_sub_field_object('group_details');
-
-// check if the repeater field has rows of data
-if( $group_details ):
-
-
-	echo '<div class="row activities">';
- 	// loop through the rows of data
-
-    while ( have_rows('group_details') ) : the_row();
-
-
-        $group_description = get_sub_field('group_description');
-
-				$group_contact = get_sub_field('group_contact');
-				$group_email = get_sub_field('group_email');
-				$group_phone = get_sub_field('group_phone');
-				$formatted_phone = explode(" ", $group_phone);
-				$formatted_phone = implode("-", $formatted_phone);
-				$group_address_street = get_sub_field('group_address_street');
-				$group_address_second = get_sub_field('group_address_second');
-				$group_address_town = get_sub_field('group_address_town');
-				$group_address_zip = get_sub_field('group_address_postcode');
-				$group_website = get_sub_field('group_website');
-				$group_twitter = get_sub_field('group_twitter');
-				$group_facebook = get_sub_field('group_facebook');
-				$group_map = get_sub_field('map_address');
-				$map_key = get_field('api_key', 'option');
-				$group_name = get_the_title();
-
-				echo '<h2 class="h5">' . __( $group_details['label'], 'ocn' ) . '</h2>';
-				if($group_description) {
-					echo '<p>' . __( $group_description, 'ocn' ) . '</p>';
-				}
-
-				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">info</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div  class="col s12 note-content grey lighten-4">';
-
-				echo '<div class="col s12 l6">';
-
-				echo '<span class="label-resources white-text">' . __( 'Main Contact', 'ocn' ) . '</span>';
-
-				if($group_contact) {
-					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-account"></i>' . $group_contact . '</span>';
-				}
-
-				if($group_email) {
-					echo '<a class="block" href="mailto:' . $group_email . '"><i aria-hidden="true" class="mdi mdi-email"></i>' . __( 'Email ', 'ocn' ) . $group_name . '</a>';
-				}
-
-				if($group_phone) {
-					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>' . __( 'Phone: ', 'ocn' ) . $group_phone . '</span>';
-				}
-
-
-					if($group_website) {
-						echo '<a class="block" href="' . $group_website . '"><i aria-hidden="true" class="mdi mdi-web"></i>' . $group_name . __( ' website', 'ocn' ) . '</a>';
-					}
-
-					if($group_twitter) {
-						echo '<a class="block" href="' . $group_twitter . '"><i aria-hidden="true" class="mdi mdi-twitter"></i>' . $group_name . __( ' on Twitter', 'ocn' ) . '</a>';
-					}
-
-					if($group_facebook) {
-						echo '<a class="block" href="' . $group_facebook . '"><i aria-hidden="true" class="mdi mdi-facebook"></i>' . $group_name . __( ' on Facebook', 'ocn' ) . '</a>';
-					}
-
-
-				echo '</div>';
-
-				if ($group_map):
-					$group_map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $group_map['lat'] . ',' . $group_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
-					&markers=color:0x01a89e%7Csize:mid%7C' . $group_map['lat'] . ',' . $group_map['lng'] . '&key=' . $map_key;
-					echo '<div class="col s12 l6">
-					<span class="label-resources white-text">' . __( 'Address', 'ocn' ) . '</span><span class="block">' . $group_address_street . '<br />';
-					if($group_address_second) {
-						echo $group_address_second . '<br />';
-					}
-					echo  $group_address_town . ' ' . $group_address_zip . '</span>';
-					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><img class="responsive-img map" src="' . $group_map_image . '">';
-					echo '</div>';
-				endif;
-
-    endwhile;
-
-else :
-
-    // no rows found
-
-endif;
-
-
-echo '</div></div>';?>
-
-<script type="application/ld+json">
-{ "@context" : "http://schema.org",
-  "@type" : "Organization",
-	"name": "<?php echo $group_name;?>",
-	"address": {
-    "@type": "PostalAddress",
-    "addressLocality": "<?php echo $group_address_town;?>, UK",
-    "postalCode": "<?php echo $group_address_zip;?>",
-    "streetAddress": "<?php echo $group_address_street;?>"
-  },
-  "email": "<?php echo $group_email;?>",
-  "url" : "<?php echo $group_website;?>",
-  "contactPoint" : [
-    { "@type" : "ContactPoint",
-      "telephone" : "+44-<?php echo $formatted_phone;?>",
-      "contactType" : "office",
-      "areaServed" : "UK"
-    } ] }
-</script>
-
-<?php endif;
-
-
-if( get_row_layout() == 'local_group_activities' ):
-
-
-	$group_details = get_sub_field_object('activity_group_details');
-
-// check if the repeater field has rows of data
-if( $group_details ):
-
-
-
-
-	echo '<div class="row activities">';
- 	// loop through the rows of data
-
-    while ( have_rows('activity_group_details') ) : the_row();
-
-				$activity_start = get_sub_field('activity_start');
-				$time_start = get_sub_field('activity_start_time');
-				$activity_end = get_sub_field('activity_end');
-				$time_end = get_sub_field('activity_end_time');
-        $activity_description = get_sub_field('activity_description');
-				$activity_frequency = get_sub_field('activity_frequency_select');
-				$activity_frequency_month = get_sub_field('activity_frequency_month');
-				$activity_day = get_sub_field('activity_day_select');
-				$activity_organiser = get_field('organiser');
-				$activity_organised_by = get_sub_field('activity_organised_by');
-				$activity_contact = get_sub_field('group_contact');
-				$activity_email = get_sub_field('group_email');
-				$activity_phone = get_sub_field('group_phone');
-				$formatted_phone = explode(" ", $activity_phone);
-				$formatted_phone = implode("-", $formatted_phone);
-				$activity_address_street = get_sub_field('activity_address_street');
-				$activity_address_name = get_sub_field('activity_address_name');
-				$activity_address_town = get_sub_field('activity_address_town');
-				$activity_address_zip = get_sub_field('activity_address_postcode');
-				$contact_map = get_sub_field('map_address');
-				$map_key = get_field('api_key', 'option');
-
-				if($activity_description) {
-					echo '<p>' . $activity_description . '</p>';
-				}
-
-				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . __( $group_details['label'], 'ocn' )  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
-
-				echo '<div class="col s12 l6">
-								<span class="label-resources white-text">' . __( 'Days', 'ocn' ) . '</span><span class="block">';
-
-
-
-
-				if($activity_frequency->slug == "monthly") {
-
-					echo __( 'This is held on ', 'ocn' );
-					if(count($activity_frequency_month) == 1) {
-						echo __( 'the ', 'ocn' ) . __( $activity_frequency_month[0]['label'], 'ocn' ) . ' ';
-						$oftValNew = $activity_frequency_month[0]['value'];
-					} else {
-						$oft = [];
-						$oftVal = [];
-						foreach($activity_frequency_month as $int) {
-							$oft[] = $int['label'];
-							$oftVal[] = $int['value'];
-							$oftNew = implode(" and ", $oft);
-							$oftValNew = implode(',', $oftVal);
-						}
-						echo __( 'the ', 'ocn' ) . __( $oftNew, 'ocn' ) . ' ';
-					}
-
-					if(count($activity_day) < 5) {
-				//	echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
-
-						foreach($activity_day as $day) {
-							$intervalNew[] = $day->name;
-							$interval[] = $day->slug;
-						}
-						echo implode(" and ", $intervalNew);
-						$frequency_interval = implode(",", $interval);
-						echo __( ' of the month', 'ocn' );
-					}
-
-				} elseif($activity_frequency->slug == "weekly") {
-					$interval = [];
-					$intervalNew = [];
-					if(count($activity_day) < 5) {
-					echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
-
-						foreach($activity_day as $day) {
-						//	echo __( $day->name, 'ocn' ) . ' ';
-							$interval[] = $day->slug;
-							$intervalNew[] = $day->name;
-						}
-
-						echo implode(", ", $intervalNew);
-
-						$frequency_interval = implode(",", $interval);
-
-					} else {
-						echo __('This is held every weekday', 'ocn' );
-						$frequency_interval = 'MO,TU,WE,TH,FR';
-					}
-				}
-
-
-
-
-
-				echo '</span>';
-				if($time_start) {
-					echo '<span class="label-resources white-text">' . __( 'Time', 'ocn' ) . '</span><span class="block">' .  __( 'This activity runs from ', 'ocn' ) . $time_start;
-					if($time_end) {
-						echo __( ' to ', 'ocn' ) . $time_end ;
-					}
-					echo '</span>';
-				}
-
-
-
-				if($activity_organiser) {
-					echo '<span class="label-resources white-text">' .  __( 'Organiser', 'ocn' ) . '</span><a class="block" href="' . get_permalink($activity_organiser[0]) . '">' . __( get_the_title($activity_organiser[0]), 'ocn' ) . '</a>';
-				} elseif ($activity_organised_by) {
-					echo '<span class="label-resources white-text">' .  __( 'Organiser', 'ocn' ) . '</span><span class="block">' . $activity_organised_by . '</span>';
-				}
-
-
-
-				echo '<span class="label-resources white-text">' . __( 'Contact', 'ocn' ) . '</span>';
-
-				if($activity_contact) {
-					echo '<span class="block">' . $activity_contact . '</span>';
-				}
-
-				if($activity_email) {
-					echo '<span class="block">' .  __( 'Email: ', 'ocn' ) . '<a href="mailto:' . $activity_email . '">' . $activity_email . '</a></span>';
-				}
-
-				if($activity_phone) {
-					echo '<span class="block">' .  __( 'Phone: ', 'ocn' ) . '<a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
-				}
-
-
-
-
-
-				echo '</div>';
-
-				if ($contact_map):
-					$address = explode(",", $contact_map['address']);
-					$address_constructor = 'https://maps.google.com/?q=';
-
-					foreach ($address as $value) {
-						$value = $value . "%2C";
-						$value = implode("%2C",$address);
-						$newadd = explode(" ",$value);
-					}
-
-					$map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
-					&markers=color:0x01a89e%7Csize:mid%7C' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&key=' . $map_key;
-					echo '<div class="col s12 l6"><span class="label-resources white-text">' .  __( 'Address', 'ocn' ) . '</span><span class="block">';
-					echo $activity_address_name . '<br />';
-					echo $activity_address_street . '<br />';
-					echo $activity_address_town . ' ' . $activity_address_zip . '</span>';
-					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><span class="block">' . __( 'Click image to view on Google Maps', 'ocn' ) . '
-					</span><a href="' . $address_constructor . implode("+",$newadd) . '" target="_blank"><img alt="Map showing location of ' . $activity_address_name . ' " class="responsive-img map" src="' . $map_image . '"></a>	';
-					echo '</div>';
-				endif;
-
-				echo '<div id="atc" class="col s12 center"><div title="Add to Calendar" class="addeventatc white">
-    Add to Calendar
-    <span class="start">' . $activity_start . ' ' .  $time_start . '</span>
-    <span class="end">' . $activity_end  . ' ' .  $time_end .  '</span>
-    <span class="timezone">Europe/London</span>
-    <span class="title">' . get_the_title() . '</span>
-    <span class="description">' . $activity_name . '</span>
-    <span class="location">' . $contact_map['address'] . '</span>
-		<span class="organizer">' . $activity_contact . '</span>
-		<span class="organizer_email">' . $activity_email . '</span>
-		<span class="alarm_reminder">60</span>
-		<span class="recurring">FREQ=' . strtoupper($activity_frequency->slug) . ';';
-		if($oftValNew) {
-			echo 'BYSETPOS=' . $oftValNew . ';';
-		}
-		echo 'BYDAY=' . strtoupper($frequency_interval) . strtoupper($activity_day->slug) . ';INTERVAL=1;</span>
-		</div></div>';
-
-    endwhile;
-
-else :
-
-    // no rows found
-
-endif;
-echo '</div></div>';?>
-
-
-
-<?php endif;
+// if( get_row_layout() == 'support_groups' ):
+//
+// 	$group_email = get_sub_field('group_email');
+// 	$group_phone = get_sub_field('group_phone');
+// 	$group_details = get_sub_field_object('group_details');
+//
+// // check if the repeater field has rows of data
+// if( $group_details ):
+//
+//
+// 	echo '<div class="row activities">';
+//  	// loop through the rows of data
+//
+//     while ( have_rows('group_details') ) : the_row();
+//
+//
+//         $group_description = get_sub_field('group_description');
+//
+// 				$group_contact = get_sub_field('group_contact');
+// 				$group_email = get_sub_field('group_email');
+// 				$group_phone = get_sub_field('group_phone');
+// 				$formatted_phone = explode(" ", $group_phone);
+// 				$formatted_phone = implode("-", $formatted_phone);
+// 				$group_address_street = get_sub_field('group_address_street');
+// 				$group_address_second = get_sub_field('group_address_second');
+// 				$group_address_town = get_sub_field('group_address_town');
+// 				$group_address_zip = get_sub_field('group_address_postcode');
+// 				$group_website = get_sub_field('group_website');
+// 				$group_twitter = get_sub_field('group_twitter');
+// 				$group_facebook = get_sub_field('group_facebook');
+// 				$group_map = get_sub_field('map_address');
+// 				$map_key = get_field('api_key', 'option');
+// 				$group_name = get_the_title();
+//
+// 				echo '<h2 class="h5">' . __( $group_details['label'], 'ocn' ) . '</h2>';
+// 				if($group_description) {
+// 					echo '<p>' . __( $group_description, 'ocn' ) . '</p>';
+// 				}
+//
+// 				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">info</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div  class="col s12 note-content grey lighten-4">';
+//
+// 				echo '<div class="col s12 l6">';
+//
+// 				echo '<span class="label-resources white-text">' . __( 'Main Contact', 'ocn' ) . '</span>';
+//
+// 				if($group_contact) {
+// 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-account"></i>' . $group_contact . '</span>';
+// 				}
+//
+// 				if($group_email) {
+// 					echo '<a class="block" href="mailto:' . $group_email . '"><i aria-hidden="true" class="mdi mdi-email"></i>' . __( 'Email ', 'ocn' ) . $group_name . '</a>';
+// 				}
+//
+// 				if($group_phone) {
+// 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>' . __( 'Phone: ', 'ocn' ) . $group_phone . '</span>';
+// 				}
+//
+//
+// 					if($group_website) {
+// 						echo '<a class="block" href="' . $group_website . '"><i aria-hidden="true" class="mdi mdi-web"></i>' . $group_name . __( ' website', 'ocn' ) . '</a>';
+// 					}
+//
+// 					if($group_twitter) {
+// 						echo '<a class="block" href="' . $group_twitter . '"><i aria-hidden="true" class="mdi mdi-twitter"></i>' . $group_name . __( ' on Twitter', 'ocn' ) . '</a>';
+// 					}
+//
+// 					if($group_facebook) {
+// 						echo '<a class="block" href="' . $group_facebook . '"><i aria-hidden="true" class="mdi mdi-facebook"></i>' . $group_name . __( ' on Facebook', 'ocn' ) . '</a>';
+// 					}
+//
+//
+// 				echo '</div>';
+//
+// 				if ($group_map):
+// 					$group_map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $group_map['lat'] . ',' . $group_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
+// 					&markers=color:0x01a89e%7Csize:mid%7C' . $group_map['lat'] . ',' . $group_map['lng'] . '&key=' . $map_key;
+// 					echo '<div class="col s12 l6">
+// 					<span class="label-resources white-text">' . __( 'Address', 'ocn' ) . '</span><span class="block">' . $group_address_street . '<br />';
+// 					if($group_address_second) {
+// 						echo $group_address_second . '<br />';
+// 					}
+// 					echo  $group_address_town . ' ' . $group_address_zip . '</span>';
+// 					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><img class="responsive-img map" src="' . $group_map_image . '">';
+// 					echo '</div>';
+// 				endif;
+//
+//     endwhile;
+//
+// else :
+//
+//     // no rows found
+//
+// endif;
+//
+//
+// echo '</div></div>';
+//
+// endif;
+
+//
+// if( get_row_layout() == 'local_group_activities' ):
+//
+//
+// 	$group_details = get_sub_field_object('activity_group_details');
+//
+// // check if the repeater field has rows of data
+// if( $group_details ):
+//
+//
+// 	echo '<div class="row activities">';
+//  	// loop through the rows of data
+//
+//     while ( have_rows('activity_group_details') ) : the_row();
+//
+// 				$activity_start = get_sub_field('activity_start');
+// 				$time_start = get_sub_field('activity_start_time');
+// 				$activity_end = get_sub_field('activity_end');
+// 				$time_end = get_sub_field('activity_end_time');
+//         $activity_description = get_sub_field('activity_description');
+// 				$activity_frequency = get_sub_field('activity_frequency_select');
+// 				$activity_frequency_month = get_sub_field('activity_frequency_month');
+// 				$activity_day = get_sub_field('activity_day_select');
+// 				$activity_organiser = get_field('organiser');
+// 				$activity_organised_by = get_sub_field('activity_organised_by');
+// 				$activity_contact = get_sub_field('group_contact');
+// 				$activity_email = get_sub_field('group_email');
+// 				$activity_phone = get_sub_field('group_phone');
+// 				$formatted_phone = explode(" ", $activity_phone);
+// 				$formatted_phone = implode("-", $formatted_phone);
+// 				$activity_address_street = get_sub_field('activity_address_street');
+// 				$activity_address_name = get_sub_field('activity_address_name');
+// 				$activity_address_town = get_sub_field('activity_address_town');
+// 				$activity_address_zip = get_sub_field('activity_address_postcode');
+// 				$contact_map = get_sub_field('map_address');
+// 				$map_key = get_field('api_key', 'option');
+//
+// 				if($activity_description) {
+// 					echo '<p>' . $activity_description . '</p>';
+// 				}
+//
+// 				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . __( $group_details['label'], 'ocn' )  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
+//
+// 				echo '<div class="col s12 l6">
+// 								<span class="label-resources white-text">' . __( 'Days', 'ocn' ) . '</span><span class="block">';
+//
+//
+//
+//
+// 				if($activity_frequency->slug == "monthly") {
+//
+// 					echo __( 'This is held on ', 'ocn' );
+// 					if(count($activity_frequency_month) == 1) {
+// 						echo __( 'the ', 'ocn' ) . __( $activity_frequency_month[0]['label'], 'ocn' ) . ' ';
+// 						$oftValNew = $activity_frequency_month[0]['value'];
+// 					} else {
+// 						$oft = [];
+// 						$oftVal = [];
+// 						foreach($activity_frequency_month as $int) {
+// 							$oft[] = $int['label'];
+// 							$oftVal[] = $int['value'];
+// 							$oftNew = implode(" and ", $oft);
+// 							$oftValNew = implode(',', $oftVal);
+// 						}
+// 						echo __( 'the ', 'ocn' ) . __( $oftNew, 'ocn' ) . ' ';
+// 					}
+//
+// 					if(count($activity_day) < 5) {
+// 				//	echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
+//
+// 						foreach($activity_day as $day) {
+// 							$intervalNew[] = $day->name;
+// 							$interval[] = $day->slug;
+// 						}
+// 						echo implode(" and ", $intervalNew);
+// 						$frequency_interval = implode(",", $interval);
+// 						echo __( ' of the month', 'ocn' );
+// 					}
+//
+// 				} elseif($activity_frequency->slug == "weekly") {
+// 					$interval = [];
+// 					$intervalNew = [];
+// 					if(count($activity_day) < 5) {
+// 					echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
+//
+// 						foreach($activity_day as $day) {
+// 						//	echo __( $day->name, 'ocn' ) . ' ';
+// 							$interval[] = $day->slug;
+// 							$intervalNew[] = $day->name;
+// 						}
+//
+// 						echo implode(", ", $intervalNew);
+//
+// 						$frequency_interval = implode(",", $interval);
+//
+// 					} else {
+// 						echo __('This is held every weekday', 'ocn' );
+// 						$frequency_interval = 'MO,TU,WE,TH,FR';
+// 					}
+// 				}
+//
+//
+//
+//
+//
+// 				echo '</span>';
+// 				if($time_start) {
+// 					echo '<span class="label-resources white-text">' . __( 'Time', 'ocn' ) . '</span><span class="block">' .  __( 'This activity runs from ', 'ocn' ) . $time_start;
+// 					if($time_end) {
+// 						echo __( ' to ', 'ocn' ) . $time_end ;
+// 					}
+// 					echo '</span>';
+// 				}
+//
+//
+//
+// 				if($activity_organiser) {
+// 					echo '<span class="label-resources white-text">' .  __( 'Organiser', 'ocn' ) . '</span><a class="block" href="' . get_permalink($activity_organiser[0]) . '">' . __( get_the_title($activity_organiser[0]), 'ocn' ) . '</a>';
+// 				} elseif ($activity_organised_by) {
+// 					echo '<span class="label-resources white-text">' .  __( 'Organiser', 'ocn' ) . '</span><span class="block">' . $activity_organised_by . '</span>';
+// 				}
+//
+//
+//
+// 				echo '<span class="label-resources white-text">' . __( 'Contact', 'ocn' ) . '</span>';
+//
+// 				if($activity_contact) {
+// 					echo '<span class="block">' . $activity_contact . '</span>';
+// 				}
+//
+// 				if($activity_email) {
+// 					echo '<span class="block">' .  __( 'Email: ', 'ocn' ) . '<a href="mailto:' . $activity_email . '">' . $activity_email . '</a></span>';
+// 				}
+//
+// 				if($activity_phone) {
+// 					echo '<span class="block">' .  __( 'Phone: ', 'ocn' ) . '<a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
+// 				}
+//
+//
+//
+//
+//
+// 				echo '</div>';
+//
+// 				if ($contact_map):
+// 					$address = explode(",", $contact_map['address']);
+// 					$address_constructor = 'https://maps.google.com/?q=';
+//
+// 					foreach ($address as $value) {
+// 						$value = $value . "%2C";
+// 						$value = implode("%2C",$address);
+// 						$newadd = explode(" ",$value);
+// 					}
+//
+// 					$map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
+// 					&markers=color:0x01a89e%7Csize:mid%7C' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&key=' . $map_key;
+// 					echo '<div class="col s12 l6"><span class="label-resources white-text">' .  __( 'Address', 'ocn' ) . '</span><span class="block">';
+// 					echo $activity_address_name . '<br />';
+// 					echo $activity_address_street . '<br />';
+// 					echo $activity_address_town . ' ' . $activity_address_zip . '</span>';
+// 					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><span class="block">' . __( 'Click image to view on Google Maps', 'ocn' ) . '
+// 					</span><a href="' . $address_constructor . implode("+",$newadd) . '" target="_blank"><img alt="Map showing location of ' . $activity_address_name . ' " class="responsive-img map" src="' . $map_image . '"></a>	';
+// 					echo '</div>';
+// 				endif;
+//
+// 				echo '<div id="atc" class="col s12 center"><div title="Add to Calendar" class="addeventatc white">
+//     Add to Calendar
+//     <span class="start">' . $activity_start . ' ' .  $time_start . '</span>
+//     <span class="end">' . $activity_end  . ' ' .  $time_end .  '</span>
+//     <span class="timezone">Europe/London</span>
+//     <span class="title">' . get_the_title() . '</span>
+//     <span class="description">' . $activity_name . '</span>
+//     <span class="location">' . $contact_map['address'] . '</span>
+// 		<span class="organizer">' . $activity_contact . '</span>
+// 		<span class="organizer_email">' . $activity_email . '</span>
+// 		<span class="alarm_reminder">60</span>
+// 		<span class="recurring">FREQ=' . strtoupper($activity_frequency->slug) . ';';
+// 		if($oftValNew) {
+// 			echo 'BYSETPOS=' . $oftValNew . ';';
+// 		}
+// 		echo 'BYDAY=' . strtoupper($frequency_interval) . strtoupper($activity_day->slug) . ';INTERVAL=1;</span>
+// 		</div></div>';
+//
+//     endwhile;
+//
+// else :
+//
+//     // no rows found
+//
+// endif;
+// echo '</div></div>';
+//
+//
+//  endif;
 
 
 
@@ -913,68 +885,330 @@ endif;
 
 	 ?>
 
+	<?php
+
+// New activities fields moved out from flexible content
+
+// check if the group field has rows of data
+
+
+
+
+// $activity = get_field('activity_group_details');
+// //echo $activity['activity_description'];
+// $activity_contact = $activity['group_contact'];
+// if($activity_contact):
+//
+// echo '<div class="row activities">';
+// // loop through the rows of data
+// 			$activity_start = $activity['activity_start'];
+// 			$time_start = $activity['activity_start_time'];
+// 			$activity_end = $activity['activity_end'];
+// 			$time_end = $activity['activity_end_time'];
+// 			$activity_description = $activity['activity_description'];
+// 			$activity_frequency = $activity['activity_frequency_select'];
+// 			$activity_frequency_month = $activity['activity_frequency_month'];
+// 			$activity_day = $activity['activity_day_select'];
+// 			$activity_organiser = get_field('organiser');
+//
+// 			$activity_email = $activity['group_email'];
+// 			$activity_phone = $activity['group_phone'];
+// 			$formatted_phone = explode(" ", $activity_phone);
+// 			$formatted_phone = implode("-", $formatted_phone);
+// 			$activity_address_street = $activity['activity_address_street'];
+// 			$activity_address_name = $activity['activity_address_name'];
+// 			$activity_address_town = $activity['activity_address_town'];
+// 			$activity_address_zip = $activity['activity_address_postcode'];
+// 			$contact_map = $activity['map_address'];
+// 			$map_key = get_field('api_key', 'option');
+//
+// 			if($activity_description) {
+// 				echo '<p>' . $activity_description . '</p>';
+// 			}
+//
+// 			echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">event_note</i><strong>' . __( 'Activity Details', 'ocn' )  . '</strong></div> <div  class="col s12 note-content grey lighten-4">';
+//
+// 			echo '<div class="col s12 l6">
+// 							<span class="label-resources white-text">' . __( 'Days', 'ocn' ) . '</span><span class="block">';
+//
+//
+//
+//
+// 			if($activity_frequency->slug == "monthly") {
+// 				//$activity_frequency_month = get_sub_field('activity_frequency_month');
+// 				echo __( 'This is held on ', 'ocn' );
+// 				if($activity_frequency_month) {
+// 				if(count($activity_frequency_month) == 1) {
+// 					echo __( 'the ', 'ocn' ) . __( $activity_frequency_month[0]['label'], 'ocn' ) . ' ';
+// 					$oftValNew = $activity_frequency_month[0]['value'];
+// 				} else {
+// 					$oft = [];
+// 					$oftVal = [];
+// 					foreach($activity_frequency_month as $int) {
+// 						$oft[] = $int['label'];
+// 						$oftVal[] = $int['value'];
+// 						$oftNew = implode(" and ", $oft);
+// 						$oftValNew = implode(',', $oftVal);
+// 					}
+// 					echo __( 'the ', 'ocn' ) . __( $oftNew, 'ocn' ) . ' ';
+// 				}
+//
+// 				if(count($activity_day) < 5) {
+// 			//	echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
+//
+// 					foreach($activity_day as $day) {
+// 						$intervalNew[] = $day->name;
+// 						$interval[] = $day->slug;
+// 					}
+// 					echo implode(" and ", $intervalNew);
+// 					$frequency_interval = implode(",", $interval);
+// 					echo __( ' of the month', 'ocn' );
+// 				}
+// 			}
+// 			} elseif($activity_frequency->slug == "weekly") {
+// 				$interval = [];
+// 				$intervalNew = [];
+// 				if(count($activity_day) < 5) {
+// 				echo __( 'This is held ', 'ocn' ) . __( $activity_frequency->slug, 'ocn' ) . __( ' on ', 'ocn' );
+//
+// 					foreach($activity_day as $day) {
+// 					//	echo __( $day->name, 'ocn' ) . ' ';
+// 						$interval[] = $day->slug;
+// 						$intervalNew[] = $day->name;
+// 					}
+//
+// 					echo implode(", ", $intervalNew);
+//
+// 					$frequency_interval = implode(",", $interval);
+//
+// 				} else {
+// 					echo __('This is held every weekday', 'ocn' );
+// 					$frequency_interval = 'MO,TU,WE,TH,FR';
+// 				}
+// 			}
+//
+//
+//
+//
+//
+// 			echo '</span>';
+// 			if($time_start) {
+// 				echo '<span class="label-resources white-text">' . __( 'Time', 'ocn' ) . '</span><span class="block">' .  __( 'This activity runs from ', 'ocn' ) . $time_start;
+// 				if($time_end) {
+// 					echo __( ' to ', 'ocn' ) . $time_end ;
+// 				}
+// 				echo '</span>';
+// 			}
+//
+// 			if($activity_organiser) {
+// 				echo '<span class="label-resources white-text">' .  __( 'Organiser', 'ocn' ) . '</span><a class="block" href="' . get_permalink($activity_organiser[0]) . '">' . __( get_the_title($activity_organiser[0]), 'ocn' ) . '</a>';
+// 			}
+//
+// 			echo '<span class="label-resources white-text">' . __( 'Contact', 'ocn' ) . '</span>';
+//
+// 			if($activity_contact) {
+// 				echo '<span class="block">' . $activity_contact . '</span>';
+// 			}
+//
+// 			if($activity_email) {
+// 				echo '<span class="block">' .  __( 'Email: ', 'ocn' ) . '<a href="mailto:' . $activity_email . '">' . $activity_email . '</a></span>';
+// 			}
+//
+// 			if($activity_phone) {
+// 				echo '<span class="block">' .  __( 'Phone: ', 'ocn' ) . '<a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
+// 			}
+//
+//
+//
+//
+//
+// 			echo '</div>';
+//
+// 			if ($contact_map):
+// 				$address = explode(",", $contact_map['address']);
+// 				$address_constructor = 'https://maps.google.com/?q=';
+//
+// 				foreach ($address as $value) {
+// 					$value = $value . "%2C";
+// 					$value = implode("%2C",$address);
+// 					$newadd = explode(" ",$value);
+// 				}
+//
+// 				$map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
+// 				&markers=color:0x01a89e%7Csize:mid%7C' . $contact_map['lat'] . ',' . $contact_map['lng'] . '&key=' . $map_key;
+// 				echo '<div class="col s12 l6"><span class="label-resources white-text">' .  __( 'Address', 'ocn' ) . '</span><span class="block">';
+// 				echo $activity_address_name . '<br />';
+// 				echo $activity_address_street . '<br />';
+// 				echo $activity_address_town . ' ' . $activity_address_zip . '</span>';
+// 				echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><span class="block">' . __( 'Click image to view on Google Maps', 'ocn' ) . '
+// 				</span><a href="' . $address_constructor . implode("+",$newadd) . '" target="_blank"><img alt="Map showing location of ' . $activity_address_name . ' " class="responsive-img map" src="' . $map_image . '"></a>	';
+// 				echo '</div>';
+// 			endif;
+//
+// 			echo '<div id="atc" class="col s12 center"><div title="Add to Calendar" class="addeventatc white">
+// 	Add to Calendar
+// 	<span class="start">' . $activity_start . ' ' .  $time_start . '</span>
+// 	<span class="end">' . $activity_end  . ' ' .  $time_end .  '</span>
+// 	<span class="timezone">Europe/London</span>
+// 	<span class="title">' . get_the_title() . '</span>
+// 	<span class="description">' . $activity_description . '</span>';
+// 	if($contact_map) {
+// 		echo '<span class="location">' . $contact_map['address'] . '</span>';
+// 	}
+// 	echo '<span class="organizer">' . $activity_contact . '</span>
+// 	<span class="organizer_email">' . $activity_email . '</span>
+// 	<span class="alarm_reminder">60</span>
+// 	<span class="recurring">FREQ=' . strtoupper($activity_frequency->slug) . ';';
+// 	if($oftValNew) {
+// 		echo 'BYSETPOS=' . $oftValNew . ';';
+// 	}
+// 	echo 'BYDAY=' . strtoupper($frequency_interval) . strtoupper($activity_day->slug) . ';INTERVAL=1;</span>
+// 	</div></div>';
+//
+//
+//
+// 	// no rows found
+//
+//
+// echo '</div></div>';
+// endif;
+// New organisation fields moved out from flexible content
+
+	 // check if the group field has rows of data
+	 //if( have_rows('group_details') ):
+
+		$details = get_field('group_details');
+
+		$group_contact = $details['group_contact'];
+
+		if($group_contact):
+
+	 	echo '<div class="row activities">';
+	  	// loop through the rows of data
+
+			//	echo '<h2 class="h5">' . __( $details['label'], 'ocn' ) . '</h2>';
+
+
+	    // while ( have_rows('group_details') ) : the_row();
+
+
+	        $group_description = $details['group_description'];
+					$group_activities = $details['group_activities'];
+	 				$group_contact = $details['group_contact'];
+	 				$group_email = $details['group_email'];
+	 				$group_phone = $details['group_phone'];
+	 				$formatted_phone = explode(" ", $group_phone);
+	 				$formatted_phone = implode("-", $formatted_phone);
+	 				$group_address_street = $details['group_address_street'];
+	 				$group_address_second = $details['group_address_second'];
+	 				$group_address_town = $details['group_address_town'];
+	 				$group_address_zip = $details['group_address_postcode'];
+	 				$group_website = $details['group_website'];
+	 				$group_twitter = $details['group_twitter'];
+	 				$group_facebook = $details['group_facebook'];
+	 				$group_map = $details['map_address'];
+	 				$map_key = get_field('api_key', 'option');
+	 				$group_name = get_the_title();
+
+
+	 				if($group_description) {
+	 					echo '<p>' . __( $group_description, 'ocn' ) . '</p>';
+	 				}
+
+	 				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">info</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div  class="col s12 note-content grey lighten-4">';
+
+	 				echo '<div class="col s12 l6">';
+
+
+
+	 				if($group_contact) {
+						echo '<span class="label-resources white-text">' . __( 'Main Contact', 'ocn' ) . '</span>';
+	 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-account"></i>' . $group_contact . '</span>';
+	 				}
+
+	 				if($group_email) {
+	 					echo '<a class="block" href="mailto:' . $group_email . '"><i aria-hidden="true" class="mdi mdi-email"></i>' . __( 'Email ', 'ocn' ) . $group_name . '</a>';
+	 				}
+
+	 				if($group_phone) {
+	 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>' . __( 'Phone: ', 'ocn' ) . '<a href="tel:' . $formatted_phone . '">' . $group_phone . '</a></span>';
+	 				}
+
+
+	 					if($group_website) {
+	 						echo '<a class="block" href="' . $group_website . '"><i aria-hidden="true" class="mdi mdi-web"></i>' . $group_name . __( ' website', 'ocn' ) . '</a>';
+	 					}
+
+	 					if($group_twitter) {
+	 						echo '<a class="block" href="' . $group_twitter . '"><i aria-hidden="true" class="mdi mdi-twitter"></i>' . $group_name . __( ' on Twitter', 'ocn' ) . '</a>';
+	 					}
+
+	 					if($group_facebook) {
+	 						echo '<a class="block" href="' . $group_facebook . '"><i aria-hidden="true" class="mdi mdi-facebook"></i>' . $group_name . __( ' on Facebook', 'ocn' ) . '</a>';
+	 					}
+
+
+	 				echo '</div>';
+
+	 				if ($group_map):
+	 					$group_map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $group_map['lat'] . ',' . $group_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
+	 					&markers=color:0x01a89e%7Csize:mid%7C' . $group_map['lat'] . ',' . $group_map['lng'] . '&key=' . $map_key;
+	 					echo '<div class="col s12 l6">
+	 					<span class="label-resources white-text">' . __( 'Address', 'ocn' ) . '</span><span class="block">' . $group_address_street . '<br />';
+	 					if($group_address_second) {
+	 						echo $group_address_second . '<br />';
+	 					}
+	 					echo  $group_address_town . ' ' . $group_address_zip . '</span>';
+	 					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><img class="responsive-img map" src="' . $group_map_image . '">';
+	 					echo '</div>';
+	 				endif;
+
+	     //endwhile;
+
+	 //else :
+
+	     // no rows found
+
+	// endif;
+
+
+	 echo '</div></div>';?>
+
+	 <script type="application/ld+json">
+	 { "@context" : "http://schema.org",
+	   "@type" : "Organization",
+	 	"name": "<?php echo $group_name;?>",
+	 	"address": {
+	     "@type": "PostalAddress",
+	     "addressLocality": "<?php echo $group_address_town;?>, UK",
+	     "postalCode": "<?php echo $group_address_zip;?>",
+	     "streetAddress": "<?php echo $group_address_street;?>"
+	   },
+	   "email": "<?php echo $group_email;?>",
+	   "url" : "<?php echo $group_website;?>",
+	   "contactPoint" : [
+	     { "@type" : "ContactPoint",
+	       "telephone" : "+44-<?php echo $formatted_phone;?>",
+	       "contactType" : "office",
+	       "areaServed" : "UK"
+	     } ] }
+	 </script>
+<?php endif;?>
+
 
 </section>
 
 
-
-<?php
-if( has_term( 'support-organisations', 'resources_category' ) ):
-$relatedActivities = get_posts(array(
-							'post_type' => 'resources',
-							'posts_per_page' => -1,
-							'order'          => 'ASC',
-							'orderby'        => 'title',
-							'meta_query' => array(
-								array(
-									'key' => 'organiser', // name of custom field
-									'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
-									'compare' => 'LIKE'
-								)
-							)
-));
-
-
- if( $relatedActivities ):?>
-
-
-
- <div class=" related-activities">
-
-<h2 class="h5 col s12"><?php the_title();?> Activities</h2>
-
-
-		 <?php foreach( $relatedActivities as $post ): ?>
-			 <?php
-
-			 setup_postdata( $post );
-			 get_template_part( 'parts/loop', 'resources' );
-			 ?>
-
-
-			 <!-- <li class="col s12 m6 center">
-
-				 <div class="card-link">
-					 <h3 class="h6"><?php echo get_the_title( $relatedActivity->ID ); ?></h3>
-					 <a class="btn-large z-depth-0 waves-effect" href="<?php echo get_permalink( $relatedActivity->ID ); ?>">
-						 View Details on this Activity
-					 </a>
-				 </div>
-
-			 </li> -->
-
-
-		 <?php endforeach;
-		 wp_reset_postdata();
-		 ?>
-
-	</div>
-						<?php endif;
-
-wp_reset_postdata();
-
-endif;
-?>
+<?php if($group_activities) {
+	$title = get_the_title();
+	echo '<div class="col s12 related-activities"><h2 class="h5 col s12">' . __( ' Activities', 'ocn' ) . '</h2>';
+	echo '<div class="col s12">';
+	echo '<p>' . __( 'Upcoming activities organised by ', 'ocn' ) . $title . __( ' can be viewed below. ', 'ocn' ) . '</p>';
+	echo do_shortcode( ' [tockify component="mini" calendar="ocnstirling" tags="' . $group_activities . '"] ' );
+	echo '<button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $group_activities . '">' . __( 'View Full Calendar for ', 'ocn' ) . $title . '</button>';
+	echo '</div>';
+	echo '</div>';
+}?>
 
 </div>
 <?php
@@ -982,4 +1216,12 @@ if (comments_open()){
 	comments_template();
 }
 ?>
+
+<script>
+function openFullOcn() {
+let org = document.getElementById("fullCalendar").getAttribute('data-organisation');
+
+_tkf.openFullScreen({path:'/ocnstirling?tags=' +org});
+}
+</script>
 </article>

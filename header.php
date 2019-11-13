@@ -102,22 +102,3 @@
 
 
 	</header> <!-- end .header -->
-
-
-
-  <!--[if IE 8]>
-<div style="padding: 10%; font-size: 2em; font-family: Helvetica; background: tomato; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 10000; height: 100%;">
-This website does not work in versions of Internet Explorer less than IE9.  As IE8 and below are no longer supported by Microsoft, we strongly recommend you update your browser to a more secure and modern alternative such as Google Chrome or Mozilla Firefox. Not only will this make your experience of using the Internet a faster and more pleasurable experience, it will also expose you to significantly fewer risks than continuing to use IE8.
-
-
-</div>
-
-    <![endif]-->
-    <!--[if IE 7]>
-  <div style="padding: 10%; font-size: 2em; font-family: Helvetica; background: tomato; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 10000; height: 100%;">
-  This website does not work in versions of Internet Explorer less than IE9.  As IE8 and below are no longer supported by Microsoft, we strongly recommend you update your browser to a more secure and modern alternative such as Google Chrome or Mozilla Firefox. Not only will this make your experience of using the Internet a faster and more pleasurable experience, it will also expose you to significantly fewer risks than continuing to use IE8.
-
-
-  </div>
-
-      <![endif]-->

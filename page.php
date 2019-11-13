@@ -8,8 +8,6 @@ get_header(); ?>
 
 			get_template_part( 'parts/loop', 'page' );
 
-			
-
 			endwhile; endif;
 
 		?>

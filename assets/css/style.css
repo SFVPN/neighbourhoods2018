@@ -4495,6 +4495,9 @@ small {
     .btn, .btn-large, .btn-flat, .searchandfilter li input[type="submit"] {
       padding: 0 1rem; } }
 
+#fullCalendar {
+  margin-top: 2rem; }
+
 .searchandfilter li input[type="submit"] {
   margin: 2rem 0;
   background: #43A047;
@@ -12641,10 +12644,12 @@ a.chip {
     #intro-text {
       padding: 1rem; } }
 
-#home-intro h1 {
-  margin-bottom: 0; }
-#home-intro img {
-  padding: 1rem 0; }
+#home-intro {
+  padding-bottom: 1rem; }
+  #home-intro h1 {
+    margin-bottom: 0; }
+  #home-intro img {
+    padding: 1rem 0; }
 
 #team_members .mdi {
   padding-right: .5rem; }
@@ -12704,8 +12709,7 @@ a.chip {
   margin-bottom: 0px; }
   #callouts .calendar {
     background: #37474f;
-    color: #f5f5f5;
-    text-align: center; }
+    color: #f5f5f5; }
     #callouts .calendar a {
       color: #fff;
       border-color: #fff; }
@@ -12899,15 +12903,18 @@ CONTACT PAGE
 .no-pad {
   padding: 0 !important; }
 
-#contact_options {
+#contact_options p, #home_contact_options p {
+  line-height: 1.5rem;
+  font-size: 1rem; }
+#contact_options .mdi, #home_contact_options .mdi {
+  padding-right: 5px; }
+#contact_options img, #home_contact_options img {
   border-radius: 3px; }
-  #contact_options p {
-    line-height: 1.5rem;
-    font-size: 1rem; }
-  #contact_options .mdi {
-    padding-right: 5px; }
-  #contact_options img {
-    border-radius: 3px; }
+
+#contact_options {
+  padding: 1rem;
+  border-radius: 3px;
+  border: 1px solid #eee; }
 
 #contact_form {
   padding: 2rem;
@@ -13056,8 +13063,10 @@ a.current.chip {
     display: flex;
     align-items: center; } }
 
-.related-activities article {
-  margin-top: 2rem; }
+.related-activities {
+  padding: 2rem 0 0 0 !important; }
+  .related-activities article {
+    margin-top: 2rem; }
 
 .row.activities p {
   margin: 2rem 0; }
@@ -13066,7 +13075,8 @@ a.current.chip {
   margin: 1rem 0;
   padding: 1rem 0; }
   .row.tip .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.warning .note-heading, .row.info .note-heading, .row.required .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
-    padding: 0.5rem 1rem; }
+    padding: 0.5rem 1rem;
+    border-radius: 3px 3px 0 0; }
   .row.tip .label-resources, .row.link .label-resources, .row.recommendation .label-resources, .row.activities .label-resources, .row.warning .label-resources, .row.info .label-resources, .row.required .label-resources, .row.steps_block .label-resources, .content_block .label-resources {
     padding: 0rem .5rem;
     margin: 1rem 0 .5rem 0;
@@ -13074,7 +13084,8 @@ a.current.chip {
     background: #424242;
     display: inline-block; }
   .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
-    padding: 2rem 1rem; }
+    padding: 2rem 1rem;
+    border-radius: 0 0 3px 3px; }
     @media only screen and (max-width: 600px) {
       .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
         padding: .5rem 0; } }
@@ -13591,19 +13602,19 @@ footer .padding-bottom {
 
 .page-footer {
   font-weight: 300; }
-  .page-footer #contact_options li {
+  .page-footer #contact_options li, .page-footer #home_contact_options li {
     display: inline-block;
     width: 20%;
     font-size: 1rem; }
     @media only screen and (max-width: 600px) {
-      .page-footer #contact_options li {
+      .page-footer #contact_options li, .page-footer #home_contact_options li {
         width: 100%;
         padding: 5px 0; } }
-    .page-footer #contact_options li a {
+    .page-footer #contact_options li a, .page-footer #home_contact_options li a {
       color: white; }
-      .page-footer #contact_options li a .mdi {
+      .page-footer #contact_options li a .mdi, .page-footer #home_contact_options li a .mdi {
         padding: 0 5px; }
-      .page-footer #contact_options li a:hover, .page-footer #contact_options li a :focus {
+      .page-footer #contact_options li a:hover, .page-footer #contact_options li a :focus, .page-footer #home_contact_options li a:hover, .page-footer #home_contact_options li a :focus {
         text-decoration: underline; }
   .page-footer .row {
     margin-bottom: 0; }

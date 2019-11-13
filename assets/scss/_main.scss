@@ -1231,6 +1231,7 @@ a.chip {
   img {
     padding: 1rem 0;
   }
+  padding-bottom: 1rem;
 }
 
 
@@ -1306,7 +1307,6 @@ a.chip {
   .calendar {
     background: color("blue-grey", "darken-3");
     color: color("grey", "lighten-4");
-    text-align: center;
     a {
       color: #fff;
       border-color: #fff;
@@ -1586,8 +1586,7 @@ CONTACT PAGE
   padding: 0 !important;
 }
 
-#contact_options {
-  border-radius: 3px;
+#contact_options, #home_contact_options {
   p {
     line-height: 1.5rem;
     font-size: 1rem;
@@ -1598,6 +1597,12 @@ CONTACT PAGE
   img {
     border-radius: 3px;
   }
+}
+
+#contact_options {
+  padding: 1rem;
+  border-radius: 3px;
+  border: 1px solid #eee;
 }
 
 #contact_form {
@@ -1796,6 +1801,7 @@ a.current.chip {
 }
 
 .related-activities {
+  padding: 2rem 0 0 0 !important;
   article {
     margin-top: 2rem;
   }
@@ -1812,6 +1818,7 @@ a.current.chip {
   padding: 1rem 0;
   .note-heading {
     padding: 0.5rem 1rem;
+    border-radius: 3px 3px 0 0;
   }
   .label-resources {
     padding: 0rem .5rem;
@@ -1822,6 +1829,7 @@ a.current.chip {
   }
   .note-content {
     padding: 2rem 1rem;
+    border-radius: 0 0 3px 3px;
     @media #{$small-and-down} {
     	padding: .5rem 0;
     }
@@ -2625,7 +2633,7 @@ footer .padding-bottom {
 .page-footer {
   font-weight: 300;
 
-  #contact_options {
+  #contact_options, #home_contact_options {
     li {
       display: inline-block;
       width: 20%;

@@ -39,7 +39,7 @@
 
 		<div class="row purple darken-1">
 
-				<nav id="contact_options" class=" col s12">
+				<nav id="home_contact_options" class=" col s12">
 					<ul class="col s12">
 
 			<?php

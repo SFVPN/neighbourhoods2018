@@ -21,7 +21,7 @@
 
 						<?php
 
-					
+
 
 						// loop through rows (sub repeater)
 						while( have_rows('blocks') ): the_row();
@@ -121,7 +121,27 @@
 
 						endwhile; ?>
 
-					<?php endif; //if( get_sub_field('blocks') ): ?>
+					<?php endif; //if( get_sub_field('blocks') ):
+
+						if( have_rows('group_details') ):
+
+							while( have_rows('group_details') ): the_row();
+							$email = get_sub_field('group_email');
+							$activity_phone = get_sub_field('group_phone');
+							$formatted_phone = explode(" ", $activity_phone);
+							$formatted_phone = implode("-", $formatted_phone);
+
+							echo '<span class="block"><strong>Location</strong> ' . get_sub_field('group_address_town') . '</span>';
+							echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
+							if($email) {
+								echo '<span class="block"><strong>Email</strong> <a href="mailto:' . $email . '">' . $email . '</a></span>';
+							}
+
+							endwhile;
+
+						endif;
+
+						?>
 
 
 			<?php endwhile; // while( has_sub_field('to-do_lists') ):
