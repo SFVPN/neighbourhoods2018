@@ -203,3 +203,22 @@ $(".login-remember").html('<p><input name="rememberme" class="filled-in" type="c
 function printFunction() {
 		window.print();
 }
+
+
+
+const btns = document.querySelectorAll('button[id^=btn]')
+
+btns.forEach(btn => {
+
+   btn.addEventListener('click', event => {
+     var btnId = event.target.id;
+     var lastChar = btnId[btnId.length -1];
+        //instance.open(lastChar + 1)
+
+        var id = parseInt(lastChar) + 1;
+        var scrollelmnt = document.getElementById('section-'+ id );
+scrollelmnt.classList.add("active");
+     scrollelmnt.scrollIntoView({behavior: "smooth"});
+   });
+
+});

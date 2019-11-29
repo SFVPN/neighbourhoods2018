@@ -756,9 +756,54 @@
                         "layout_5b914de4ab022": {
                             "key": "layout_5b914de4ab022",
                             "name": "note_block",
-                            "label": "Information Callout",
+                            "label": "Information Box",
                             "display": "block",
                             "sub_fields": [
+                                {
+                                    "key": "field_5ba0b653f5552",
+                                    "label": "Note Type",
+                                    "name": "note_type",
+                                    "type": "button_group",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "choices": {
+                                        "info": "General Information",
+                                        "contact_phone": "Contact\/Booking",
+                                        "link": "Links and downloads",
+                                        "check": "Required",
+                                        "thumb_up": "Tip",
+                                        "warning": "Warning"
+                                    },
+                                    "allow_null": 0,
+                                    "default_value": "",
+                                    "layout": "horizontal",
+                                    "return_format": "array"
+                                },
+                                {
+                                    "key": "field_5de133a7de93c",
+                                    "label": "Note Heading",
+                                    "name": "note_heading",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
                                 {
                                     "key": "field_5b914de4ab023",
                                     "label": "Note Text",
@@ -779,46 +824,13 @@
                                     "delay": 0
                                 },
                                 {
-                                    "key": "field_5ba0b653f5552",
-                                    "label": "Note Type",
-                                    "name": "note_type",
-                                    "type": "button_group",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "info": "Info",
-                                        "link": "Links and downloads",
-                                        "required": "Required",
-                                        "tip": "Tip",
-                                        "warning": "Annoying"
-                                    },
-                                    "allow_null": 0,
-                                    "default_value": "",
-                                    "layout": "horizontal",
-                                    "return_format": "array"
-                                },
-                                {
                                     "key": "field_5c9b9a1c2479f",
                                     "label": "Note Upload",
                                     "name": "note_upload",
                                     "type": "repeater",
                                     "instructions": "If you are uploading resource files, please do so here. You can upload a maximum of 4 files.",
                                     "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_5ba0b653f5552",
-                                                "operator": "==",
-                                                "value": "link"
-                                            }
-                                        ]
-                                    ],
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -858,15 +870,7 @@
                                     "type": "repeater",
                                     "instructions": "If you are adding links, please do so here. You can a maximum of 4 links",
                                     "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_5ba0b653f5552",
-                                                "operator": "==",
-                                                "value": "link"
-                                            }
-                                        ]
-                                    ],
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -1910,5 +1914,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1573636638
+    "modified": 1575042029
 }

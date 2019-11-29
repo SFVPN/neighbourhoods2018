@@ -58,6 +58,10 @@ to display none.
     max-width: 100% !important;
   }
 
+    @page:first {
+      margin: 0.25cm .25cm .5cm .25cm;
+    }
+
     @page {
       margin: 0.5cm;
     }
@@ -78,9 +82,18 @@ to display none.
     }
 
     #print_logo {
-      position: absolute;
-      right: 0rem !important;
-      top: 0rem !important;
+      height: 7cm;
+      display: block;
+      margin-top: -4rem !important;
+      img {
+        height: 7cm;
+        object-fit: cover;
+        display: block;
+    }
+    }
+
+    .link, .tip, .warning, .info {
+        page-break-inside:avoid;
     }
 
     .h4 {
@@ -104,7 +117,9 @@ to display none.
     .simcal-calendar-head,
     .simcal-event-details .btn-flat a,
     .event_location a,
-    nav {
+    nav,
+    footer .fixed-action-btn,
+    details {
       display: none !important;
     }
 

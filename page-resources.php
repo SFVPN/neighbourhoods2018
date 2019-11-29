@@ -10,7 +10,7 @@ $parent_page = url_to_postid(wp_get_referer()); // and then use $parent_page to 
 get_header();
 
 ?>
-<main id="maincontent" class="container" style="margin-top: 3rem;">
+<main id="maincontent" class="container">
 	<div class="row">
 
 		<?php
@@ -26,7 +26,7 @@ get_header();
 			$children_array[] = $child->ID;
 		}?>
 
-		<div class="grey lighten-3 col s12 no-print">
+		<div class="grey lighten-3 no-print" style="margin-top: 3rem; padding: 1rem;">
 			<p>
 				This is an automatically generated printable version of the full <strong><?php echo get_the_title($parent_page);?></strong> guide. This page is only generated when you click on the "Print Full Guide" button that is found on the introduction page of a resources with multiple pages.</p>
 
@@ -41,6 +41,7 @@ get_header();
 
 		</div>
 
+
 		<div class="fixed-action-btn no-print">
 			<button class="btn-floating hide-on-large-only" onclick="printFunction()"><i class="material-icons">print</i></button>
 			<button class="btn hide-on-med-and-down" onclick="printFunction()">Print page</button>
@@ -53,11 +54,11 @@ get_header();
 		}
 		</script>
 
-<div id="print_logo" class="center row">
-	<?php the_post_thumbnail('full');?>
+<div id="print_logo" class="center row responsive-img">
+	<?php echo get_the_post_thumbnail($parent_page, 'full');?>
 </div>
 
-<?php	echo '<h1 class="h2 grey-text text-darken-2">' . get_the_title($parent_page) . '</h1>';
+<?php	echo '<h1 class="h4">' . get_the_title($parent_page) . '</h1>';
 	  // check if the repeater field has rows of data
 	  if( have_rows('section', $parent_page) ):
 
@@ -96,7 +97,7 @@ get_header();
 	 				$note_url = get_sub_field('note_url', $parent_page);
 
 	 				if($note_type['value'] === 'tip') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 					echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 					if($note_url) {
 	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 					}
@@ -104,7 +105,7 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'warning') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 					echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 					if($note_url) {
 	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 					}
@@ -112,7 +113,7 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'recommendation') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 					echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 					if($note_url) {
 	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 					}
@@ -120,7 +121,7 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'link') {
-	 						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 						if($note_url) {
 	 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 						}
@@ -146,7 +147,7 @@ get_header();
 	 				}
 
 	 				if($note_type['value'] === 'info') {
-	 						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+	 						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
 	 						if($note_url) {
 	 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 	 						}
@@ -205,7 +206,7 @@ get_header();
 				// check if the repeater field has rows of data
 				if( have_rows('product_add') ):
 
-					echo '<div class="row recommendation"><div class="col s12 note-heading purple darken-1 white-text"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div id="note-content" class="col center s12 note-content grey lighten-4">';
+					echo '<div class="row recommendation"><div class="col s12 note-heading purple darken-1 white-text"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div class="note-content" class="col center s12 note-content grey lighten-4">';
 				 	// loop through the rows of data
 				    while ( have_rows('product_add') ) : the_row();
 
@@ -320,7 +321,7 @@ endif;
 
 	 endif;
 
-	 echo '<div style="page-break-after: always;"></div>'; // adds a div after the intro page of the guide to create a page break when printing
+	 echo '<div style=""></div>'; // adds a div after the intro page of the guide to create a page break when printing
 
 	 		 endwhile;
 
@@ -339,7 +340,7 @@ endif;
 		foreach($children_array as $child)
 		{
 
-			echo '<h1 class="h2 grey-text text-darken-2">' . get_the_title($child) . '</h1>';
+			echo '<h1 class="h4">' . get_the_title($child) . '</h1>';
 
 		if( have_rows('section', $child) ):
 
@@ -377,7 +378,7 @@ endif;
 					$note_url = get_sub_field('note_url', $child);
 
 					if($note_type['value'] === 'tip') {
-						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 yellow lighten-1"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
 						if($note_url) {
 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 						}
@@ -385,7 +386,7 @@ endif;
 					}
 
 					if($note_type['value'] === 'warning') {
-						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 red lighten-1 white-text"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
 						if($note_url) {
 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 						}
@@ -393,7 +394,7 @@ endif;
 					}
 
 					if($note_type['value'] === 'recommendation') {
-						echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 green lighten-1 white-text"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
 						if($note_url) {
 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 						}
@@ -401,7 +402,7 @@ endif;
 					}
 
 					if($note_type['value'] === 'link') {
-							echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 blue lighten-1 white-text"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+							echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
 							if($note_url) {
 								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 							}
@@ -409,7 +410,7 @@ endif;
 					}
 
 					if($note_type['value'] === 'info') {
-							echo '<div class="row ' . $note_type['value'] . '"><div id="note-heading" class="col s12 grey darken-2 white-text"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div id="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
+							echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
 							if($note_url) {
 								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 							}
@@ -435,7 +436,7 @@ endif;
 
 		endif;
 
-		echo '<div style="page-break-after: always;"></div>'; // adds a div after each page of the guide to create a page break when printing
+		echo '<div style=""></div>'; // adds a div after each page of the guide to create a page break when printing
 
 			 endwhile;
 
@@ -456,6 +457,11 @@ endif;
 }
 		?>
 
+		<footer class="grey lighten-4" style="text-align: center; padding: 1rem;">
+			This resource is produced by <strong>Our Connected Neighbourhoods</strong><br />
+			For more information please visit <a href="<?php echo get_home_url(); ?>"><?php echo get_home_url(); ?></a><br />
+			Date printed: <?php echo date("d F, Y");?>
+		</footer>
 
 
 	</div>

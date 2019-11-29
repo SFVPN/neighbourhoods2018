@@ -2880,7 +2880,7 @@ ul {
 .z-depth-0, .commentlist li.depth-2, .commentlist li.depth-3, .commentlist li.depth-4, .commentlist li.depth-5 {
   box-shadow: none !important; }
 
-.z-depth-1, nav#main-nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .side-nav, .inside {
+.z-depth-1, nav#main-nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav, .inside {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
 .z-depth-1-half, .btn:hover, .btn-large:hover, .btn:focus, .btn-large:focus, .btn-floating:hover {
@@ -4852,6 +4852,136 @@ a.waves-effect .waves-ripple {
   height: 100%;
   border-radius: 0;
   will-change: bottom, opacity; }
+
+.collapsible {
+  margin: 0.83333rem 0 1.66667rem 0; }
+
+.key {
+  padding: .5rem 1rem;
+  color: white;
+  width: auto;
+  display: inline-block;
+  border-radius: 3px; }
+
+.key li:first-of-type {
+  font-weight: bolder;
+  text-transform: uppercase; }
+
+.next {
+  display: block;
+  margin: 3rem 1rem 1rem 1rem;
+  background: whitesmoke;
+  color: #dedede; }
+
+.active .next {
+  background: teal;
+  color: white; }
+
+.collapsible-body i.left {
+  margin-right: 0; }
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  padding: 1rem;
+  text-align: center; }
+
+.actions button, .actions a {
+  color: #dedede;
+  border: 1px solid #dedede;
+  border-radius: 3px; }
+  .actions button:hover, .actions button:focus, .actions a:hover, .actions a:focus {
+    background: #eee; }
+
+.active .actions button, .actions a {
+  color: #222;
+  border: 1px solid #bbb; }
+
+.collapsible-header {
+  display: block;
+  align-items: center;
+  font-size: 1.5rem;
+  min-height: 3rem;
+  line-height: 3rem;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  color: #dedede;
+  padding: 6rem 0 2rem 0; }
+  .collapsible-header i {
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    background: #dedede;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    line-height: 3rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 1rem; }
+
+.collapsible-body {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  color: #dedede;
+  padding: 2rem; }
+  .collapsible-body:before {
+    content: '';
+    position: absolute;
+    top: 3em;
+    border-radius: 30px;
+    bottom: 3em;
+    left: 0;
+    height: 0;
+    width: 4px;
+    background: whitesmoke;
+    transition: 2s;
+    overflow: hidden; }
+  .collapsible-body p {
+    margin: 0;
+    padding: 1rem; }
+
+.active .collapsible-header, .active .collapsible-body {
+  color: black; }
+
+.active .collapsible-body:before {
+  background: teal;
+  transition: 2s;
+  height: calc(100% - 6rem); }
+
+.side-nav .collapsible {
+  border: none;
+  box-shadow: none; }
+  .side-nav .collapsible li {
+    padding: 0; }
+.side-nav .collapsible-header {
+  background-color: transparent;
+  border: none;
+  line-height: inherit;
+  height: inherit;
+  margin: 0 1rem; }
+  .side-nav .collapsible-header i {
+    line-height: inherit; }
+.side-nav .collapsible-body {
+  border: 0;
+  background-color: #fff; }
+  .side-nav .collapsible-body li a {
+    margin: 0 1rem 0 2rem; }
+
+.collapsible.popout {
+  border: none;
+  box-shadow: none; }
+  .collapsible.popout > li {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin: 0 24px;
+    transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  .collapsible.popout > li.active {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    margin: 16px 0; }
 
 .chip {
   display: inline-block;
@@ -13058,6 +13188,9 @@ a.current.chip {
 .parent-page {
   margin-top: 2rem; }
 
+#print_logo img {
+  display: none; }
+
 @media only screen and (min-width: 993px) {
   .row.steps_block {
     display: flex;
@@ -13071,41 +13204,57 @@ a.current.chip {
 .row.activities p {
   margin: 2rem 0; }
 
-.row.tip, .row.link, .row.recommendation, .row.activities, .row.warning, .row.info, .row.required, .row.steps_block, .content_block {
+.row.thumb_up .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
+  background: #0D47A1;
+  color: white; }
+.row.thumb_up .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
+  background: #f5f5f5; }
+
+.row.warning {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  background: #EF5350;
+  color: white; }
+  .row.warning .note-heading {
+    border-radius: 3px 3px 0 0; }
+  .row.warning .note-content {
+    border-radius: 0 0 3px 3px; }
+
+.row.thumb_up, .row.link, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0; }
-  .row.tip .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.warning .note-heading, .row.info .note-heading, .row.required .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
+  .row.thumb_up .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
     padding: 0.5rem 1rem;
     border-radius: 3px 3px 0 0; }
-  .row.tip .label-resources, .row.link .label-resources, .row.recommendation .label-resources, .row.activities .label-resources, .row.warning .label-resources, .row.info .label-resources, .row.required .label-resources, .row.steps_block .label-resources, .content_block .label-resources {
+  .row.thumb_up .label-resources, .row.link .label-resources, .row.recommendation .label-resources, .row.activities .label-resources, .row.info .label-resources, .row.contact_phone .label-resources, .row.check .label-resources, .row.steps_block .label-resources, .content_block .label-resources {
     padding: 0rem .5rem;
     margin: 1rem 0 .5rem 0;
     border-radius: 1.25rem;
     background: #424242;
     display: inline-block; }
-  .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
-    padding: 2rem 1rem;
+  .row.thumb_up .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
+    padding: 1rem;
     border-radius: 0 0 3px 3px; }
     @media only screen and (max-width: 600px) {
-      .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.warning .note-content, .row.info .note-content, .row.required .note-content, .row.steps_block .note-content, .content_block .note-content {
+      .row.thumb_up .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
         padding: .5rem 0; } }
     @media only screen and (max-width: 600px) {
-      .row.tip .note-content .col.s12, .row.link .note-content .col.s12, .row.recommendation .note-content .col.s12, .row.activities .note-content .col.s12, .row.warning .note-content .col.s12, .row.info .note-content .col.s12, .row.required .note-content .col.s12, .row.steps_block .note-content .col.s12, .content_block .note-content .col.s12 {
+      .row.thumb_up .note-content .col.s12, .row.link .note-content .col.s12, .row.recommendation .note-content .col.s12, .row.activities .note-content .col.s12, .row.info .note-content .col.s12, .row.contact_phone .note-content .col.s12, .row.check .note-content .col.s12, .row.steps_block .note-content .col.s12, .content_block .note-content .col.s12 {
         padding: 0; } }
-    .row.tip .note-content .mdi, .row.link .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.warning .note-content .mdi, .row.info .note-content .mdi, .row.required .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
+    .row.thumb_up .note-content .mdi, .row.link .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.info .note-content .mdi, .row.contact_phone .note-content .mdi, .row.check .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
       background: white;
       padding: .5rem;
       border-radius: 50%;
       margin-right: .5rem; }
-    .row.tip .note-content span.block, .row.link .note-content span.block, .row.recommendation .note-content span.block, .row.activities .note-content span.block, .row.warning .note-content span.block, .row.info .note-content span.block, .row.required .note-content span.block, .row.steps_block .note-content span.block, .content_block .note-content span.block {
+    .row.thumb_up .note-content span.block, .row.link .note-content span.block, .row.recommendation .note-content span.block, .row.activities .note-content span.block, .row.info .note-content span.block, .row.contact_phone .note-content span.block, .row.check .note-content span.block, .row.steps_block .note-content span.block, .content_block .note-content span.block {
       padding: 0.5rem 0; }
-    .row.tip .note-content .product_link, .row.link .note-content .product_link, .row.recommendation .note-content .product_link, .row.activities .note-content .product_link, .row.warning .note-content .product_link, .row.info .note-content .product_link, .row.required .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
+    .row.thumb_up .note-content .product_link, .row.link .note-content .product_link, .row.recommendation .note-content .product_link, .row.activities .note-content .product_link, .row.info .note-content .product_link, .row.contact_phone .note-content .product_link, .row.check .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
       font-size: 1.25rem;
       font-weight: 600;
       padding: 1rem 0;
       transition: 350ms;
       position: relative; }
-      .row.tip .note-content .product_link:hover:after, .row.tip .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.activities .note-content .product_link:hover:after, .row.activities .note-content .product_link:focus:after, .row.warning .note-content .product_link:hover:after, .row.warning .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.required .note-content .product_link:hover:after, .row.required .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
+      .row.thumb_up .note-content .product_link:hover:after, .row.thumb_up .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.activities .note-content .product_link:hover:after, .row.activities .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.contact_phone .note-content .product_link:hover:after, .row.contact_phone .note-content .product_link:focus:after, .row.check .note-content .product_link:hover:after, .row.check .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
         content: attr(data-note);
         position: absolute;
         top: 100%;
@@ -13118,25 +13267,25 @@ a.current.chip {
         display: inline-block;
         border-radius: 3px;
         transition: 350ms; }
-    .row.tip .note-content a, .row.link .note-content a, .row.recommendation .note-content a, .row.activities .note-content a, .row.warning .note-content a, .row.info .note-content a, .row.required .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
+    .row.thumb_up .note-content a, .row.link .note-content a, .row.recommendation .note-content a, .row.activities .note-content a, .row.info .note-content a, .row.contact_phone .note-content a, .row.check .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
       padding: 0.5rem 0;
       font-weight: 600; }
-      .row.tip .note-content a:hover, .row.tip .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.activities .note-content a:hover, .row.activities .note-content a:focus, .row.warning .note-content a:hover, .row.warning .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.required .note-content a:hover, .row.required .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
+      .row.thumb_up .note-content a:hover, .row.thumb_up .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.activities .note-content a:hover, .row.activities .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.contact_phone .note-content a:hover, .row.contact_phone .note-content a:focus, .row.check .note-content a:hover, .row.check .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
         color: #212121; }
-    .row.tip .note-content a.chip, .row.link .note-content a.chip, .row.recommendation .note-content a.chip, .row.activities .note-content a.chip, .row.warning .note-content a.chip, .row.info .note-content a.chip, .row.required .note-content a.chip, .row.steps_block .note-content a.chip, .content_block .note-content a.chip {
+    .row.thumb_up .note-content a.chip, .row.link .note-content a.chip, .row.recommendation .note-content a.chip, .row.activities .note-content a.chip, .row.info .note-content a.chip, .row.contact_phone .note-content a.chip, .row.check .note-content a.chip, .row.steps_block .note-content a.chip, .content_block .note-content a.chip {
       padding-top: 0rem; }
-  .row.tip img.map, .row.link img.map, .row.recommendation img.map, .row.activities img.map, .row.warning img.map, .row.info img.map, .row.required img.map, .row.steps_block img.map, .content_block img.map {
+  .row.thumb_up img.map, .row.link img.map, .row.recommendation img.map, .row.activities img.map, .row.info img.map, .row.contact_phone img.map, .row.check img.map, .row.steps_block img.map, .content_block img.map {
     margin-top: .5rem;
     border: 1px solid #424242;
     border-radius: 3px; }
-  .row.tip .addeventatc, .row.link .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.warning .addeventatc, .row.info .addeventatc, .row.required .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
+  .row.thumb_up .addeventatc, .row.link .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.info .addeventatc, .row.contact_phone .addeventatc, .row.check .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
     visibility: hidden;
     animation: show 3000ms 1; }
-  .row.tip #atc, .row.link #atc, .row.recommendation #atc, .row.activities #atc, .row.warning #atc, .row.info #atc, .row.required #atc, .row.steps_block #atc, .content_block #atc {
+  .row.thumb_up #atc, .row.link #atc, .row.recommendation #atc, .row.activities #atc, .row.info #atc, .row.contact_phone #atc, .row.check #atc, .row.steps_block #atc, .content_block #atc {
     padding: 2rem 0; }
-  .row.tip .platforms, .row.link .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.warning .platforms, .row.info .platforms, .row.required .platforms, .row.steps_block .platforms, .content_block .platforms {
+  .row.thumb_up .platforms, .row.link .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.info .platforms, .row.contact_phone .platforms, .row.check .platforms, .row.steps_block .platforms, .content_block .platforms {
     padding: 1rem; }
-    .row.tip .platforms li, .row.link .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.warning .platforms li, .row.info .platforms li, .row.required .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
+    .row.thumb_up .platforms li, .row.link .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.info .platforms li, .row.contact_phone .platforms li, .row.check .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
       display: inline-block;
       padding: 0 1rem; }
 
@@ -13724,6 +13873,8 @@ to display none.
   img {
     max-width: 100% !important; }
 
+  @page :first {
+    margin: 0.25cm .25cm .5cm .25cm; }
   @page {
     margin: 0.5cm; }
   p, h2, h3 {
@@ -13739,9 +13890,16 @@ to display none.
     border: 0px solid; }
 
   #print_logo {
-    position: absolute;
-    right: 0rem !important;
-    top: 0rem !important; }
+    height: 7cm;
+    display: block;
+    margin-top: -4rem !important; }
+    #print_logo img {
+      height: 7cm;
+      object-fit: cover;
+      display: block; }
+
+  .link, .tip, .warning, .info {
+    page-break-inside: avoid; }
 
   .h4 {
     margin-top: 2.28rem; }
@@ -13762,7 +13920,9 @@ to display none.
   .simcal-calendar-head,
   .simcal-event-details .btn-flat a,
   .event_location a,
-  nav {
+  nav,
+  footer .fixed-action-btn,
+  details {
     display: none !important; }
 
   .simcal-events-list-container .event_wrapper {

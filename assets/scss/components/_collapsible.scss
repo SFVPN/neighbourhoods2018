@@ -1,22 +1,87 @@
 .collapsible {
-  border-top: 1px solid $collapsible-border-color;
-  border-right: 1px solid $collapsible-border-color;
-  border-left: 1px solid $collapsible-border-color;
   margin: $element-top-margin 0 $element-bottom-margin 0;
   @extend .z-depth-1;
 }
 
+#timeline {
+}
+
+.key {
+  padding: .5rem 1rem;
+  color: white;
+  width: auto;
+  display: inline-block;
+  border-radius: 3px;
+}
+
+
+.key li:first-of-type {
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+
+
+.next {
+  display: block;
+  margin: 3rem 1rem 1rem 1rem;
+  background: whitesmoke;
+  color: #dedede;
+}
+
+.active .next {
+  background: teal;
+  color: white;
+}
+
+
+
+.collapsible-body i.left {
+  margin-right: 0;
+}
+
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+.actions button, .actions a {
+  color: #dedede;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  &:hover, &:focus {
+    background: #eee;
+  }
+}
+
+
+.active .actions button, .actions a {
+  color: #222;
+  border: 1px solid #bbb;
+}
+
+
+
 .collapsible-header {
   display: block;
-  cursor: pointer;
+  align-items: center;
+  font-size: 1.5rem;
   min-height: $collapsible-height;
   line-height: $collapsible-height;
-  padding: 0 1rem;
   background-color: $collapsible-header-color;
   border-bottom: 1px solid $collapsible-border-color;
-
+  position: relative;
+  color: #dedede;
+  padding: 6rem 0 2rem 0;
   i {
-    width: 2rem;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    background: #dedede;
+    border-radius: 50%;
     font-size: 1.6rem;
     line-height: $collapsible-height;
     display: block;
@@ -27,15 +92,43 @@
 }
 
 .collapsible-body {
-  display: none;
-  border-bottom: 1px solid $collapsible-border-color;
+  display: block;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  color: #dedede;
+  padding: 2rem;
+  &:before {
+   content: '';
+   position: absolute;
+   top: 3em;
+   border-radius: 30px;
+   bottom: 3em;
+   left: 0;
+   height: 0;
+   width: 4px;
+   background: whitesmoke;
+   transition: 2s;
+   overflow: hidden;
+ }
 
   p {
     margin: 0;
-    padding: 2rem;
+    padding: 1rem;
   }
 }
+
+.active .collapsible-header, .active .collapsible-body {
+  color: black;
+}
+
+
+.active .collapsible-body:before {
+  background: teal;
+  transition: 2s;
+  height: calc(100% - 6rem);
+}
+
 
 // sideNav collapsible styling
 .side-nav {
