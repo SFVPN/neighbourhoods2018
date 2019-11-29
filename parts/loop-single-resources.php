@@ -191,7 +191,7 @@ $pages[] += get_the_ID();
 
 	        if( get_row_layout() == 'heading_block' ):
 
-	        	echo '<li><a class="toc-' . get_sub_field('heading_size') . '" href="#heading-' . get_row_index() . '">' . get_sub_field('note_heading') . '</a></li>';
+	        	echo '<li><a class="toc-' . get_sub_field('heading_size') . '" href="#heading-' . get_row_index() . '">' . get_sub_field('heading') . '</a></li>';
 
 	        endif;
 
@@ -244,7 +244,7 @@ $pages[] += get_the_ID();
     while ( have_rows('blocks') ) : the_row();
         if( get_row_layout() == 'heading_block' ):
 
-							echo '<' . get_sub_field('heading_size') . ' id="heading-' . get_row_index() . '">' . get_sub_field('note_heading') . '</' . get_sub_field('heading_size') . '>';
+							echo '<' . get_sub_field('heading_size') . ' id="heading-' . get_row_index() . '">' . get_sub_field('heading') . '</' . get_sub_field('heading_size') . '>';
 
 
 
