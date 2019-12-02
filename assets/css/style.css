@@ -4871,7 +4871,7 @@ a.waves-effect .waves-ripple {
   display: block;
   margin: 3rem 1rem 1rem 1rem;
   background: whitesmoke;
-  color: #dedede; }
+  color: #bbb; }
 
 .active .next {
   background: teal;
@@ -4888,13 +4888,13 @@ a.waves-effect .waves-ripple {
   text-align: center; }
 
 .actions button, .actions a {
-  color: #dedede;
-  border: 1px solid #dedede;
+  color: #bbb;
+  border: 1px solid #bbb;
   border-radius: 3px; }
   .actions button:hover, .actions button:focus, .actions a:hover, .actions a:focus {
     background: #eee; }
 
-.active .actions button, .actions a {
+.active .actions button, .active .actions a {
   color: #222;
   border: 1px solid #bbb; }
 
@@ -4907,13 +4907,13 @@ a.waves-effect .waves-ripple {
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   position: relative;
-  color: #dedede;
+  color: #bbb;
   padding: 6rem 0 2rem 0; }
   .collapsible-header i {
     width: 3rem;
     height: 3rem;
     line-height: 3rem;
-    background: #dedede;
+    background: #bbb;
     border-radius: 50%;
     font-size: 1.6rem;
     line-height: 3rem;
@@ -4927,7 +4927,7 @@ a.waves-effect .waves-ripple {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  color: #dedede;
+  color: #bbb;
   padding: 2rem; }
   .collapsible-body:before {
     content: '';

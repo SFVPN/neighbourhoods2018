@@ -12,9 +12,9 @@
 	    <?php the_content(); ?>
 
 			<ul class="key fixed-action-btn blue-grey darken-4">
-			<li class="">Key</li>
-			<li class=""><i class="red-text material-icons right">nature_people</i> Small Neighbourhoods</li>
-			<li class=""><i class="red-text material-icons right">location_city</i> Big Neighbourhoods</li>
+			<li class=""><?php _e('Key');?></li>
+			<li class=""><i class="red-text material-icons right">nature_people</i><?php _e('Small Neighbourhoods', 'OCN');?></li>
+			<li class=""><i class="red-text material-icons right">location_city</i><?php _e('Big Neighbourhoods', 'OCN');?></li>
 			</ul>
 
 
@@ -64,22 +64,32 @@ if($buttons)
 
 	foreach($buttons as $button) {
 		if($button['output_resource_type'] == "Blog Post") {
-			echo '<a href="' . $button['output_page_link']['url']  . '" class="btn-flat"><i class="material-icons left">description</i>Blog Post</a>';
+			echo '<a href="' . $button['output_page_link']['url']  . '" class="btn-flat"><i class="material-icons left">description</i>';
+			_e('Blog Post', 'OCN');
+			echo '</a>';
 		}
 
 		if($button['output_resource_type'] == "Briefing") {
 			if($button['output_page_link']) {
-				echo '<a href="' . $button['output_page_link']['url']  . '" class="btn-flat"><i class="material-icons left">timeline</i>Briefing</a>';
+				echo '<a href="' . $button['output_page_link']['url']  . '" class="btn-flat"><i class="material-icons left">timeline</i>';
+				_e('Briefing', 'OCN');
+				echo '</a>';
 			} else {
-				echo '<a href="' . $button['output_file']['url']  . '" class="btn-flat"><i class="material-icons left">timeline</i>Briefing</a>';
+				echo '<a href="' . $button['output_file']['url']  . '" class="btn-flat"><i class="material-icons left">timeline</i>';
+				_e('Briefing', 'OCN');
+				echo '</a>';
 			}
 		}
 
 		if($button['output_resource_type'] == "Resource") {
 				if($button['output_page_link']) {
-					echo '<a href="' . $button['output_page_link']['url']  . '" class="btn-flat"><i class="material-icons left">description</i>Related Resources</a>';
+					echo '<a href="' . $button['output_page_link']['url']  . '" class="btn-flat"><i class="material-icons left">description</i>';
+					_e('Related Resources', 'OCN');
+					echo '</a>';
 				} else {
-					echo '<a href="' . $button['output_file']['url']  . '" class="btn-flat"><i class="material-icons left">description</i>Related Resources</a>';
+					echo '<a href="' . $button['output_file']['url']  . '" class="btn-flat"><i class="material-icons left">description</i>';
+					_e('Related Resources', 'OCN');
+					echo '</a>';
 				}
 
 		}
@@ -88,7 +98,7 @@ if($buttons)
 	echo '</div>';
 }?>
 								<?php if($next_row):?>
-								<button id="btn-<?php echo $index; ?>" class="next btn-flat "><?php echo 'Up Next: ' . $next_row['output_name'];?></button>
+								<button id="btn-<?php echo $index; ?>" class="next btn-flat "><?php _e( 'Next Step: ' . $next_row['output_name'] . '','OCN') . $next_row['output_name'];?></button>
 							<?php endif;?>
 
 					</div>

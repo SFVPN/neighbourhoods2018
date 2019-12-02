@@ -26,7 +26,7 @@
   display: block;
   margin: 3rem 1rem 1rem 1rem;
   background: whitesmoke;
-  color: #dedede;
+  color: #bbb;
 }
 
 .active .next {
@@ -49,8 +49,8 @@
   text-align: center;
 }
 .actions button, .actions a {
-  color: #dedede;
-  border: 1px solid #dedede;
+  color: #bbb;
+  border: 1px solid #bbb;
   border-radius: 3px;
   &:hover, &:focus {
     background: #eee;
@@ -58,7 +58,7 @@
 }
 
 
-.active .actions button, .actions a {
+.active .actions button, .active .actions a {
   color: #222;
   border: 1px solid #bbb;
 }
@@ -74,13 +74,13 @@
   background-color: $collapsible-header-color;
   border-bottom: 1px solid $collapsible-border-color;
   position: relative;
-  color: #dedede;
+  color: #bbb;
   padding: 6rem 0 2rem 0;
   i {
     width: 3rem;
     height: 3rem;
     line-height: 3rem;
-    background: #dedede;
+    background: #bbb;
     border-radius: 50%;
     font-size: 1.6rem;
     line-height: $collapsible-height;
@@ -96,7 +96,7 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  color: #dedede;
+  color: #bbb;
   padding: 2rem;
   &:before {
    content: '';
