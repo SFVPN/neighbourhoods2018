@@ -58,7 +58,7 @@ get_header();
 	<?php echo get_the_post_thumbnail($parent_page, 'full');?>
 </div>
 
-<?php	echo '<h1 class="h4">' . get_the_title($parent_page) . '</h1>';
+<?php	echo '<h1 class="print">' . get_the_title($parent_page) . '</h1>';
 	  // check if the repeater field has rows of data
 	  if( have_rows('section', $parent_page) ):
 
@@ -82,7 +82,7 @@ get_header();
 
 	 			if( get_row_layout() == 'heading_block' ):
 
-	 					echo '<' . get_sub_field('heading_size', $parent_page) . ' id="heading-' . get_row_index() . '" class="h4">' . get_sub_field('heading', $parent_page) . '</' . get_sub_field('heading_size', $parent_page) . '>';
+	 					echo '<' . get_sub_field('heading_size', $parent_page) . ' id="heading-' . get_row_index() . '" class="print">' . get_sub_field('heading', $parent_page) . '</' . get_sub_field('heading_size', $parent_page) . '>';
 
 	 			endif;
 
@@ -96,73 +96,57 @@ get_header();
 	 				$note_type = get_sub_field('note_type', $parent_page);
 	 				$note_url = get_sub_field('note_url', $parent_page);
 
-	 				if($note_type['value'] === 'tip') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
-	 					if($note_url) {
-	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-	 					}
-	 					echo '</div></div>';
-	 				}
+					echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading grey lighten-3 black-text"><i class="material-icons left">' . $note_type['value'] . '</i><strong>' . get_sub_field('note_heading', $parent_page) . '</strong></div> <div  class="col s12 note-content grey lighten-4 black-text ">' . get_sub_field('note', $parent_page);
+					if($note_url) {
+						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
+					}
+					if( have_rows('note_upload') ):
 
-	 				if($note_type['value'] === 'warning') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
-	 					if($note_url) {
-	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-	 					}
-	 					echo '</div></div>';
-	 				}
+						// loop through the rows of data
+							while ( have_rows('note_upload') ) : the_row();
 
-	 				if($note_type['value'] === 'recommendation') {
-	 					echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
-	 					if($note_url) {
-	 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-	 					}
-	 					echo '</div></div>';
-	 				}
+									$file_link = get_sub_field('file_source', $parent_page);
+									$file_type = $file_link['mime_type'];
 
-	 				if($note_type['value'] === 'link') {
-	 						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
-	 						if($note_url) {
-	 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-	 						}
-							if( have_rows('note_upload') ):
-
-							 	// loop through the rows of data
-							    while ( have_rows('note_upload') ) : the_row();
-
-							        $file_link = get_sub_field('file_source');
-											$file_type = $file_link['mime_type'];
-
-											echo '<a class="block" href="' . $file_link['url'] . '"><i class="material-icons left">folder</i>Download ' . $file_link['title'] . '</a>';
+									echo '<a class="block" href="' . $file_link['url'] . '"><i class="material-icons left">folder</i>Download ' . $file_link['title'] . '</a>';
 
 
-							    endwhile;
+							endwhile;
 
-							else :
+					else :
 
-							    // no rows found
+							// no rows found
 
-							endif;
-	 						echo '</div></div>';
-	 				}
+					endif;
 
-	 				if($note_type['value'] === 'info') {
-	 						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading" class="col s12 grey lighten-2"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content" class="col s12 grey lighten-4">' . get_sub_field('note');
-	 						if($note_url) {
-	 							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-	 						}
-	 						echo '</div></div>';
-	 				}
+					if( have_rows('note_link') ):
+
+						// loop through the rows of data
+							while ( have_rows('note_link') ) : the_row();
+
+									echo '<a class="block" href="' . get_sub_field('link_url', $parent_page) . '"><i class="material-icons left">arrow_forward</i>' . get_sub_field('link_text', $parent_page) . '</a>';
+
+
+							endwhile;
+
+					else :
+
+							// no rows found
+
+					endif;
+
+					echo '</div></div>';
+
 
 	 			endif;
 
 				if( get_row_layout() == 'recommendation_block' ):
 
-					$block_title = get_sub_field('block_title');
+					$block_title = get_sub_field('block_title', $parent_page);
 				// check if the repeater field has rows of data
 				if( have_rows('recommendation_add') ):
 
-					echo '<div class="row recommendation"><div class="col s12 note-heading grey lighten-2"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div  class="col center s12 note-content grey lighten-4">';
+					echo '<div class="row recommendation"><div class="col s12 note-heading grey lighten-3"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div  class="col center s12 note-content grey lighten-4">';
 				 	// loop through the rows of data
 				    while ( have_rows('recommendation_add') ) : the_row();
 
@@ -206,7 +190,7 @@ get_header();
 				// check if the repeater field has rows of data
 				if( have_rows('product_add') ):
 
-					echo '<div class="row recommendation"><div class="col s12 note-heading purple darken-1 white-text"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div class="note-content" class="col center s12 note-content grey lighten-4">';
+					echo '<div class="row recommendation"><div class="col s12 note-heading grey lighten-3"><i class="material-icons left">done_all</i><strong>' . $overview_title . '</strong></div> <div class="col center s12 note-content grey lighten-4">';
 				 	// loop through the rows of data
 				    while ( have_rows('product_add') ) : the_row();
 
@@ -340,7 +324,7 @@ endif;
 		foreach($children_array as $child)
 		{
 
-			echo '<h1 class="h4">' . get_the_title($child) . '</h1>';
+			echo '<h1 class="print">' . get_the_title($child) . '</h1>';
 
 		if( have_rows('section', $child) ):
 
@@ -357,13 +341,13 @@ endif;
 					 // display a sub field value
 					 if( have_rows('blocks', $child) ):
 						 $rows = get_field('heading_block', $child);
-						 print_R($rows);
+						 //print_R($rows);
 		 // loop through the rows of data
 		while ( have_rows('blocks', $child) ) : the_row();
 
 				if( get_row_layout() == 'heading_block' ):
 
-						echo '<' . get_sub_field('heading_size', $child) . ' id="heading-' . get_row_index() . '" class="h4">' . get_sub_field('heading', $child) . '</' . get_sub_field('heading_size', $child) . '>';
+						echo '<' . get_sub_field('heading_size', $child) . ' id="heading-' . get_row_index() . '" class="print">' . get_sub_field('heading', $child) . '</' . get_sub_field('heading_size', $child) . '>';
 
 				endif;
 
@@ -377,46 +361,46 @@ endif;
 					$note_type = get_sub_field('note_type', $child);
 					$note_url = get_sub_field('note_url', $child);
 
-					if($note_type['value'] === 'tip') {
-						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">bookmark</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
-						if($note_url) {
-							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-						}
-						echo '</div></div>';
+					echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading grey lighten-3 black-text"><i class="material-icons left">' . $note_type['value'] . '</i><strong>' . get_sub_field('note_heading', $child) . '</strong></div> <div  class="col s12 note-content grey lighten-4 black-text ">' . get_sub_field('note', $child);
+					if($note_url) {
+						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 					}
+					if( have_rows('note_upload') ):
 
-					if($note_type['value'] === 'warning') {
-						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">warning</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
-						if($note_url) {
-							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-						}
-						echo '</div></div>';
-					}
+						// loop through the rows of data
+							while ( have_rows('note_upload') ) : the_row();
 
-					if($note_type['value'] === 'recommendation') {
-						echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">thumb_up</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
-						if($note_url) {
-							echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-						}
-						echo '</div></div>';
-					}
+									$file_link = get_sub_field('file_source', $child);
+									$file_type = $file_link['mime_type'];
 
-					if($note_type['value'] === 'link') {
-							echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">link</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
-							if($note_url) {
-								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-							}
-							echo '</div></div>';
-					}
+									echo '<a class="block" href="' . $file_link['url'] . '"><i class="material-icons left">folder</i>Download ' . $file_link['title'] . '</a>';
 
-					if($note_type['value'] === 'info') {
-							echo '<div class="row ' . $note_type['value'] . '"><div class="note-heading col s12 grey lighten-3"><i class="material-icons left">info</i><strong>' . $note_type['label'] . '</strong></div> <div class="note-content col s12 grey lighten-4">' . get_sub_field('note');
-							if($note_url) {
-								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-							}
-							echo '</div></div>';
-					}
 
+							endwhile;
+
+					else :
+
+							// no rows found
+
+					endif;
+
+					if( have_rows('note_link') ):
+
+						// loop through the rows of data
+							while ( have_rows('note_link') ) : the_row();
+
+									echo '<a class="block" href="' . get_sub_field('link_url', $child) . '"><i class="material-icons left">arrow_forward</i>' . get_sub_field('link_text', $child) . '</a>';
+
+
+							endwhile;
+
+					else :
+
+							// no rows found
+
+					endif;
+
+					echo '</div></div>';
 
 
 				endif;

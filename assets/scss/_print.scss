@@ -71,14 +71,26 @@ to display none.
       widows: 3;
     }
 
+    h1,
     h2,
     h3 {
       page-break-after: avoid;
+      text-decoration: underline;
     }
 
     .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
       padding: 0;
       border: 0px solid;
+    }
+
+    .row.warning {
+      .note-heading {
+        padding: 0.5rem 1rem;
+        border-radius: 3px 3px 0 0;
+      }
+      .note-content {
+        border-radius: 0 0 3px 3px;
+      }
     }
 
     #print_logo {
@@ -92,7 +104,7 @@ to display none.
     }
     }
 
-    .link, .tip, .warning, .info {
+    .link, .tip, .warning, .info, .check {
         page-break-inside:avoid;
     }
 

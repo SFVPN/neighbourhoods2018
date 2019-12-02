@@ -13204,57 +13204,51 @@ a.current.chip {
 .row.activities p {
   margin: 2rem 0; }
 
-.row.thumb_up .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
+.row.thumb_up .note-heading, .row.tip .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
   background: #0D47A1;
   color: white; }
-.row.thumb_up .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
+.row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
   background: #f5f5f5; }
 
-.row.warning {
-  margin: 1rem 0;
-  padding: 1rem 0;
+.row.warning .note-heading {
   background: #EF5350;
   color: white; }
-  .row.warning .note-heading {
-    border-radius: 3px 3px 0 0; }
-  .row.warning .note-content {
-    border-radius: 0 0 3px 3px; }
 
-.row.thumb_up, .row.link, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
+.row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0; }
-  .row.thumb_up .note-heading, .row.link .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
+  .row.thumb_up .note-heading, .row.tip .note-heading, .row.link .note-heading, .row.warning .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
     padding: 0.5rem 1rem;
     border-radius: 3px 3px 0 0; }
-  .row.thumb_up .label-resources, .row.link .label-resources, .row.recommendation .label-resources, .row.activities .label-resources, .row.info .label-resources, .row.contact_phone .label-resources, .row.check .label-resources, .row.steps_block .label-resources, .content_block .label-resources {
+  .row.thumb_up .label-resources, .row.tip .label-resources, .row.link .label-resources, .row.warning .label-resources, .row.recommendation .label-resources, .row.activities .label-resources, .row.info .label-resources, .row.contact_phone .label-resources, .row.check .label-resources, .row.steps_block .label-resources, .content_block .label-resources {
     padding: 0rem .5rem;
     margin: 1rem 0 .5rem 0;
     border-radius: 1.25rem;
     background: #424242;
     display: inline-block; }
-  .row.thumb_up .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
+  .row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
     padding: 1rem;
     border-radius: 0 0 3px 3px; }
     @media only screen and (max-width: 600px) {
-      .row.thumb_up .note-content, .row.link .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
+      .row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
         padding: .5rem 0; } }
     @media only screen and (max-width: 600px) {
-      .row.thumb_up .note-content .col.s12, .row.link .note-content .col.s12, .row.recommendation .note-content .col.s12, .row.activities .note-content .col.s12, .row.info .note-content .col.s12, .row.contact_phone .note-content .col.s12, .row.check .note-content .col.s12, .row.steps_block .note-content .col.s12, .content_block .note-content .col.s12 {
+      .row.thumb_up .note-content .col.s12, .row.tip .note-content .col.s12, .row.link .note-content .col.s12, .row.warning .note-content .col.s12, .row.recommendation .note-content .col.s12, .row.activities .note-content .col.s12, .row.info .note-content .col.s12, .row.contact_phone .note-content .col.s12, .row.check .note-content .col.s12, .row.steps_block .note-content .col.s12, .content_block .note-content .col.s12 {
         padding: 0; } }
-    .row.thumb_up .note-content .mdi, .row.link .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.info .note-content .mdi, .row.contact_phone .note-content .mdi, .row.check .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
+    .row.thumb_up .note-content .mdi, .row.tip .note-content .mdi, .row.link .note-content .mdi, .row.warning .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.info .note-content .mdi, .row.contact_phone .note-content .mdi, .row.check .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
       background: white;
       padding: .5rem;
       border-radius: 50%;
       margin-right: .5rem; }
-    .row.thumb_up .note-content span.block, .row.link .note-content span.block, .row.recommendation .note-content span.block, .row.activities .note-content span.block, .row.info .note-content span.block, .row.contact_phone .note-content span.block, .row.check .note-content span.block, .row.steps_block .note-content span.block, .content_block .note-content span.block {
+    .row.thumb_up .note-content span.block, .row.tip .note-content span.block, .row.link .note-content span.block, .row.warning .note-content span.block, .row.recommendation .note-content span.block, .row.activities .note-content span.block, .row.info .note-content span.block, .row.contact_phone .note-content span.block, .row.check .note-content span.block, .row.steps_block .note-content span.block, .content_block .note-content span.block {
       padding: 0.5rem 0; }
-    .row.thumb_up .note-content .product_link, .row.link .note-content .product_link, .row.recommendation .note-content .product_link, .row.activities .note-content .product_link, .row.info .note-content .product_link, .row.contact_phone .note-content .product_link, .row.check .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
+    .row.thumb_up .note-content .product_link, .row.tip .note-content .product_link, .row.link .note-content .product_link, .row.warning .note-content .product_link, .row.recommendation .note-content .product_link, .row.activities .note-content .product_link, .row.info .note-content .product_link, .row.contact_phone .note-content .product_link, .row.check .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
       font-size: 1.25rem;
       font-weight: 600;
       padding: 1rem 0;
       transition: 350ms;
       position: relative; }
-      .row.thumb_up .note-content .product_link:hover:after, .row.thumb_up .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.activities .note-content .product_link:hover:after, .row.activities .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.contact_phone .note-content .product_link:hover:after, .row.contact_phone .note-content .product_link:focus:after, .row.check .note-content .product_link:hover:after, .row.check .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
+      .row.thumb_up .note-content .product_link:hover:after, .row.thumb_up .note-content .product_link:focus:after, .row.tip .note-content .product_link:hover:after, .row.tip .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.warning .note-content .product_link:hover:after, .row.warning .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.activities .note-content .product_link:hover:after, .row.activities .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.contact_phone .note-content .product_link:hover:after, .row.contact_phone .note-content .product_link:focus:after, .row.check .note-content .product_link:hover:after, .row.check .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
         content: attr(data-note);
         position: absolute;
         top: 100%;
@@ -13267,27 +13261,36 @@ a.current.chip {
         display: inline-block;
         border-radius: 3px;
         transition: 350ms; }
-    .row.thumb_up .note-content a, .row.link .note-content a, .row.recommendation .note-content a, .row.activities .note-content a, .row.info .note-content a, .row.contact_phone .note-content a, .row.check .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
+    .row.thumb_up .note-content a, .row.tip .note-content a, .row.link .note-content a, .row.warning .note-content a, .row.recommendation .note-content a, .row.activities .note-content a, .row.info .note-content a, .row.contact_phone .note-content a, .row.check .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
       padding: 0.5rem 0;
       font-weight: 600; }
-      .row.thumb_up .note-content a:hover, .row.thumb_up .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.activities .note-content a:hover, .row.activities .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.contact_phone .note-content a:hover, .row.contact_phone .note-content a:focus, .row.check .note-content a:hover, .row.check .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
+      .row.thumb_up .note-content a:hover, .row.thumb_up .note-content a:focus, .row.tip .note-content a:hover, .row.tip .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.warning .note-content a:hover, .row.warning .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.activities .note-content a:hover, .row.activities .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.contact_phone .note-content a:hover, .row.contact_phone .note-content a:focus, .row.check .note-content a:hover, .row.check .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
         color: #212121; }
-    .row.thumb_up .note-content a.chip, .row.link .note-content a.chip, .row.recommendation .note-content a.chip, .row.activities .note-content a.chip, .row.info .note-content a.chip, .row.contact_phone .note-content a.chip, .row.check .note-content a.chip, .row.steps_block .note-content a.chip, .content_block .note-content a.chip {
+    .row.thumb_up .note-content a.chip, .row.tip .note-content a.chip, .row.link .note-content a.chip, .row.warning .note-content a.chip, .row.recommendation .note-content a.chip, .row.activities .note-content a.chip, .row.info .note-content a.chip, .row.contact_phone .note-content a.chip, .row.check .note-content a.chip, .row.steps_block .note-content a.chip, .content_block .note-content a.chip {
       padding-top: 0rem; }
-  .row.thumb_up img.map, .row.link img.map, .row.recommendation img.map, .row.activities img.map, .row.info img.map, .row.contact_phone img.map, .row.check img.map, .row.steps_block img.map, .content_block img.map {
+  .row.thumb_up img.map, .row.tip img.map, .row.link img.map, .row.warning img.map, .row.recommendation img.map, .row.activities img.map, .row.info img.map, .row.contact_phone img.map, .row.check img.map, .row.steps_block img.map, .content_block img.map {
     margin-top: .5rem;
     border: 1px solid #424242;
     border-radius: 3px; }
-  .row.thumb_up .addeventatc, .row.link .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.info .addeventatc, .row.contact_phone .addeventatc, .row.check .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
+  .row.thumb_up .addeventatc, .row.tip .addeventatc, .row.link .addeventatc, .row.warning .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.info .addeventatc, .row.contact_phone .addeventatc, .row.check .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
     visibility: hidden;
     animation: show 3000ms 1; }
-  .row.thumb_up #atc, .row.link #atc, .row.recommendation #atc, .row.activities #atc, .row.info #atc, .row.contact_phone #atc, .row.check #atc, .row.steps_block #atc, .content_block #atc {
+  .row.thumb_up #atc, .row.tip #atc, .row.link #atc, .row.warning #atc, .row.recommendation #atc, .row.activities #atc, .row.info #atc, .row.contact_phone #atc, .row.check #atc, .row.steps_block #atc, .content_block #atc {
     padding: 2rem 0; }
-  .row.thumb_up .platforms, .row.link .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.info .platforms, .row.contact_phone .platforms, .row.check .platforms, .row.steps_block .platforms, .content_block .platforms {
+  .row.thumb_up .platforms, .row.tip .platforms, .row.link .platforms, .row.warning .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.info .platforms, .row.contact_phone .platforms, .row.check .platforms, .row.steps_block .platforms, .content_block .platforms {
     padding: 1rem; }
-    .row.thumb_up .platforms li, .row.link .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.info .platforms li, .row.contact_phone .platforms li, .row.check .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
+    .row.thumb_up .platforms li, .row.tip .platforms li, .row.link .platforms li, .row.warning .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.info .platforms li, .row.contact_phone .platforms li, .row.check .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
       display: inline-block;
       padding: 0 1rem; }
+
+h1.print {
+  font-size: 2.92rem; }
+
+h2.print {
+  font-size: 1.64rem; }
+
+h3.print {
+  font-size: 1rem; }
 
 ol.steps {
   list-style: none;
@@ -13881,13 +13884,21 @@ to display none.
     orphans: 3;
     widows: 3; }
 
+  h1,
   h2,
   h3 {
-    page-break-after: avoid; }
+    page-break-after: avoid;
+    text-decoration: underline; }
 
   .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
     padding: 0;
     border: 0px solid; }
+
+  .row.warning .note-heading {
+    padding: 0.5rem 1rem;
+    border-radius: 3px 3px 0 0; }
+  .row.warning .note-content {
+    border-radius: 0 0 3px 3px; }
 
   #print_logo {
     height: 7cm;
@@ -13898,7 +13909,7 @@ to display none.
       object-fit: cover;
       display: block; }
 
-  .link, .tip, .warning, .info {
+  .link, .tip, .warning, .info, .check {
     page-break-inside: avoid; }
 
   .h4 {

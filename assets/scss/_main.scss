@@ -1816,7 +1816,7 @@ a.current.chip {
     margin: 2rem 0;
   }
 }
-.row.thumb_up, .row.link, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
+.row.thumb_up, .row.tip, .row.link, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
   .note-heading {
     background: color("blue", "darken-4");
     color: white;
@@ -1827,19 +1827,13 @@ a.current.chip {
 }
 
 .row.warning {
-  margin: 1rem 0;
-  padding: 1rem 0;
-  background: color("red", "lighten-1");
-  color: white;
   .note-heading {
-    border-radius: 3px 3px 0 0;
-  }
-  .note-content {
-    border-radius: 0 0 3px 3px;
+    background: color("red", "lighten-1");
+    color: white;
   }
 }
 
-.row.thumb_up, .row.link, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
+.row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0;
   .note-heading {
@@ -1931,6 +1925,17 @@ a.current.chip {
   }
 }
 
+h1.print {
+  font-size: $h3-fontsize;
+}
+
+h2.print {
+  font-size: $h5-fontsize;
+}
+
+h3.print {
+  font-size: $h6-fontsize;
+}
 
 ol.steps {
   list-style: none;
