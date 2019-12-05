@@ -13081,32 +13081,42 @@ ul.child-items {
     display: inline-block;
     margin-right: .75rem;
     text-align: center;
-    border-radius: 3px;
-    font-size: .95rem; }
-    @supports (display: flex) {
-      ul.child-items li {
-        display: flex;
-        align-items: center;
-        justify-content: center; } }
-    @supports (display: grid) {
-      ul.child-items li {
-        margin-right: 0; } }
+    position: relative;
+    border-radius: 3px; }
     ul.child-items li a {
       padding: .5rem 1rem;
-      color: white;
-      text-transform: uppercase;
+      font-size: 1.25rem;
+      line-height: 1.25;
       text-decoration: none;
-      display: block; }
+      display: block;
+      color: white;
+      height: 10rem; }
+      @supports (display: flex) {
+        ul.child-items li a {
+          display: flex;
+          align-items: center;
+          justify-content: center; } }
+      @supports (display: grid) {
+        ul.child-items li a {
+          margin-right: 0; } }
       ul.child-items li a:hover, ul.child-items li a:focus {
-        color: yellow; }
-      ul.child-items li a span.count {
-        background: white;
-        color: black;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        margin-left: .5rem; }
+        color: #ffeb3b;
+        background: #6a1b9a; }
+      ul.child-items li a:hover + .count, ul.child-items li a:focus + .count {
+        background: #ffeb3b; }
+    ul.child-items li a.parent-item:hover, ul.child-items li a.parent-item:focus {
+      background: #212121; }
+    ul.child-items li span.count {
+      background: white;
+      color: black;
+      display: block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      font-weight: 600; }
 
 a.current.chip {
   background: #eeeeee;
@@ -13197,7 +13207,14 @@ a.current.chip {
     align-items: center; } }
 
 .related-activities {
-  padding: 2rem 0 0 0 !important; }
+  margin-top: 2rem;
+  padding: 2rem 0 !important;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px; }
+  .related-activities h2 {
+    padding: 0 10px; }
+  .related-activities p {
+    padding: 1rem 10px; }
   .related-activities article {
     margin-top: 2rem; }
 
@@ -13214,18 +13231,24 @@ a.current.chip {
   background: #EF5350;
   color: white; }
 
+.row.activities .social-media-links {
+  border-bottom: 1px solid #bdbdbd;
+  border-top: 1px solid #bdbdbd;
+  padding: 0 0 1rem 0;
+  margin: 1rem 0; }
+.row.activities .label-resources {
+  margin: 1rem 0 0 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: inline-block;
+  color: #000000; }
+
 .row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0; }
   .row.thumb_up .note-heading, .row.tip .note-heading, .row.link .note-heading, .row.warning .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
     padding: 0.5rem 1rem;
     border-radius: 3px 3px 0 0; }
-  .row.thumb_up .label-resources, .row.tip .label-resources, .row.link .label-resources, .row.warning .label-resources, .row.recommendation .label-resources, .row.activities .label-resources, .row.info .label-resources, .row.contact_phone .label-resources, .row.check .label-resources, .row.steps_block .label-resources, .content_block .label-resources {
-    padding: 0rem .5rem;
-    margin: 1rem 0 .5rem 0;
-    border-radius: 1.25rem;
-    background: #424242;
-    display: inline-block; }
   .row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
     padding: 1rem;
     border-radius: 0 0 3px 3px; }
@@ -13852,11 +13875,16 @@ to display none.
 
   a, a:visited {
     color: #444 !important;
-    text-decoration: underline; }
+    text-decoration: none !important; }
     a:after, a:visited:after {
       content: " [LINK: " attr(href) "]"; }
     a abbr[title]:after, a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
+
+  a.phone:after {
+    content: ""; }
+  a.phone abbr[title]:after {
+    content: " (" attr(title) ")"; }
 
   .ir a:after,
   a[href^="javascript:"]:after,
@@ -13870,7 +13898,7 @@ to display none.
   thead {
     display: table-header-group; }
 
-  tr, img {
+  tr, img, .address-box {
     page-break-inside: avoid; }
 
   img {
@@ -13879,7 +13907,8 @@ to display none.
   @page :first {
     margin: 0.25cm .25cm .5cm .25cm; }
   @page {
-    margin: 0.5cm; }
+    margin: .5cm;
+    word-wrap: break-word; }
   p, h2, h3 {
     orphans: 3;
     widows: 3; }
@@ -13887,7 +13916,13 @@ to display none.
   h1,
   h2,
   h3 {
-    page-break-after: avoid;
+    page-break-after: avoid; }
+
+  iframe {
+    page-break-before: avoid; }
+
+  h2,
+  h3 {
     text-decoration: underline; }
 
   .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
@@ -13900,6 +13935,26 @@ to display none.
   .row.warning .note-content {
     border-radius: 0 0 3px 3px; }
 
+  .row.activities .note-heading {
+    background: #eeeeee !important;
+    color: black !important;
+    page-break-inside: avoid; }
+  .row.activities .label-resources {
+    page-break-inside: avoid; }
+  .row.activities .mdi {
+    padding: 0 !important; }
+
+  .single-resources .article-header {
+    padding-bottom: 0 !important;
+    text-align: left; }
+    .single-resources .article-header h1 {
+      font-size: 2.92rem;
+      padding: 0 !important;
+      margin: 0 !important; }
+
+  .single-resources article {
+    margin-top: 0 !important; }
+
   #print_logo {
     height: 7cm;
     display: block;
@@ -13908,6 +13963,18 @@ to display none.
       height: 7cm;
       object-fit: cover;
       display: block; }
+
+  .related-activities {
+    display: none; }
+
+  .row.activities .note-content span.block, .row.activities .note-content a.block {
+    padding: 0; }
+
+  .print-footer {
+    display: block !important;
+    padding: 1rem !important;
+    background: #f5f5f5 !important;
+    text-align: center !important; }
 
   .link, .tip, .warning, .info, .check {
     page-break-inside: avoid; }
@@ -13920,7 +13987,7 @@ to display none.
   .wp-prev-next,
   .respond-form,
   .resources-meta,
-  #inner-footer,
+  footer,
   #share-links,
   .parent-page,
   .no-print,
@@ -13932,8 +13999,9 @@ to display none.
   .simcal-event-details .btn-flat a,
   .event_location a,
   nav,
-  footer .fixed-action-btn,
-  details {
+  #inner-footer .fixed-action-btn,
+  details,
+  #fullCalendar {
     display: none !important; }
 
   .simcal-events-list-container .event_wrapper {

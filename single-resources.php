@@ -101,5 +101,4 @@ echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn hide-on
 };?>
 </div>
 
-
 <?php get_footer(); ?>

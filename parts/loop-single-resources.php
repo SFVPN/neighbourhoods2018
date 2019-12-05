@@ -19,7 +19,7 @@ echo 'itemscope itemtype="http://schema.org/Organization"';
 >
 	<header class="article-header col s12 center">
 
-		<h1 class="h2 resource-title center"
+		<h1 class="h2 resource-title"
 		<?php if( has_term( 'support-organisations', 'resources_category' ) ) {
 		echo 'itemprop="name"';
 		} else {
@@ -1085,14 +1085,12 @@ endif;
 	 					echo '<p>' . __( $group_description, 'ocn' ) . '</p>';
 	 				}
 
-	 				echo '<div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">info</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div  class="col s12 note-content grey lighten-4">';
+	 				echo '<div class="group-contact"><div class="note-heading grey darken-3 white-text"><i class="material-icons left">contact_phone</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div class="note-content grey lighten-4"><span class="label-resources block">' . __( 'Main Contact', 'ocn' ) . '</span>';
 
-	 				echo '<div class="col s12 l6">';
 
 
 
 	 				if($group_contact) {
-						echo '<span class="label-resources white-text">' . __( 'Main Contact', 'ocn' ) . '</span>';
 	 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-account"></i>' . $group_contact . '</span>';
 	 				}
 
@@ -1101,10 +1099,12 @@ endif;
 	 				}
 
 	 				if($group_phone) {
-	 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>' . __( 'Phone: ', 'ocn' ) . '<a href="tel:' . $formatted_phone . '">' . $group_phone . '</a></span>';
+	 					echo '<span class="block"><i aria-hidden="true" class="mdi mdi-phone"></i>' . __( 'Phone: ', 'ocn' ) . '<a class="phone" href="tel:' . $formatted_phone . '">' . $group_phone . '</a></span>';
 	 				}
 
-
+					if($group_website || $group_twitter || $group_facebook) {
+					echo '<div class="social-media-links">
+									<span class="label-resources block">' . __( 'Online Contact Options', 'ocn' ) . '</span>';
 	 					if($group_website) {
 	 						echo '<a class="block" href="' . $group_website . '"><i aria-hidden="true" class="mdi mdi-web"></i>' . $group_name . __( ' website', 'ocn' ) . '</a>';
 	 					}
@@ -1116,23 +1116,26 @@ endif;
 	 					if($group_facebook) {
 	 						echo '<a class="block" href="' . $group_facebook . '"><i aria-hidden="true" class="mdi mdi-facebook"></i>' . $group_name . __( ' on Facebook', 'ocn' ) . '</a>';
 	 					}
+						echo '</div>';
+					}
 
 
-	 				echo '</div>';
 
 	 				if ($group_map):
+						echo '<div class="address-box">';
 	 					$group_map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $group_map['lat'] . ',' . $group_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
 	 					&markers=color:0x01a89e%7Csize:mid%7C' . $group_map['lat'] . ',' . $group_map['lng'] . '&key=' . $map_key;
-	 					echo '<div class="col s12 l6">
-	 					<span class="label-resources white-text">' . __( 'Address', 'ocn' ) . '</span><span class="block">' . $group_address_street . '<br />';
+	 					echo '
+	 					<span class="label-resources block">' . __( 'Address', 'ocn' ) . '</span><span class="block">' . $group_address_street . ', ';
 	 					if($group_address_second) {
-	 						echo $group_address_second . '<br />';
+	 						echo $group_address_second . ', ';
 	 					}
 	 					echo  $group_address_town . ' ' . $group_address_zip . '</span>';
-	 					echo '<span class="label-resources white-text">' . __( 'Map', 'ocn' ) . '</span><img class="responsive-img map" src="' . $group_map_image . '">';
-	 					echo '</div>';
-	 				endif;
+	 					echo '<img class="responsive-img map" src="' . $group_map_image . '">
+						</div>';
 
+	 				endif;
+					echo '</div>';
 	     //endwhile;
 
 	 //else :
@@ -1166,13 +1169,14 @@ endif;
 <?php endif;?>
 
 
-</section>
+
 
 
 <?php if($group_activities) {
 	$title = get_the_title();
-	echo '<div class="col s12 related-activities"><h2 class="h5 col s12">' . __( ' Activities', 'ocn' ) . '</h2>';
+	echo '<div class="col s12 related-activities">';
 	echo '<div class="col s12">';
+	echo '<h2 class="h6">' . __( ' Activities', 'ocn' ) . '</h2>';
 	echo '<p>' . __( 'Upcoming activities organised by ', 'ocn' ) . $title . __( ' can be viewed below. ', 'ocn' ) . '</p>';
 	echo do_shortcode( ' [tockify component="mini" calendar="ocnstirling" tags="' . $group_activities . '"] ' );
 	echo '<button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $group_activities . '">' . __( 'View Full Calendar for ', 'ocn' ) . $title . '</button>';
@@ -1190,8 +1194,16 @@ if (comments_open()){
 <script>
 function openFullOcn() {
 let org = document.getElementById("fullCalendar").getAttribute('data-organisation');
+document.getElementById("maincontent").classList.add('cal-print');
 
 _tkf.openFullScreen({path:'/ocnstirling?tags=' +org});
+
 }
 </script>
+</section>
+<div class="print-footer hide">
+	This resource is produced by <strong>Our Connected Neighbourhoods</strong><br />
+	For more information please visit <a href="<?php echo get_home_url(); ?>"><?php echo get_home_url(); ?></a><br />
+	Date printed: <?php echo date("d F, Y");?>
+</div>
 </article>

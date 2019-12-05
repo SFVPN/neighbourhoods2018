@@ -1,7 +1,26 @@
 {
     "key": "group_5ba205bd26a9f",
-    "title": "Category Icons",
+    "title": "Taxonomy Metadata",
     "fields": [
+        {
+            "key": "field_5de8d0319710d",
+            "label": "Full Description",
+            "name": "full_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "wpautop"
+        },
         {
             "key": "field_5ba205c3e1d11",
             "label": "Material Icon Code",
@@ -39,5 +58,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1537362748
+    "modified": 1575538902
 }

@@ -160,6 +160,7 @@ function remove_plugin_image_sizes() {
 		$obj = get_post_type_object( $post_type );
 		$queried_object = get_queried_object();
 		$icon = get_field('material_icon_code', $queried_object);
+
 		?>
 		<div id="resources_category" class="col s12">
 
@@ -169,15 +170,16 @@ function remove_plugin_image_sizes() {
 				if ($term->parent === 0) {
 				$children = get_term_children( $term->term_id, $taxonomy );
 				if ($queried_object->name === $term->name) {
-					echo '<div class="col s12 green lighten-3"><a href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . '</h2></a></div>';
+					echo '<div class="col s12 green lighten-3"><h2 class="h4">' . $term->name . '</h2></div>';
 				} else {
 				$cat_total[] = $term->count;
 				echo '<div class="term-parent col s12">
 
-				<ul class="parent-item"><li><a  href="' . get_term_link($term->term_id) . '" class="block"><h2 class="h5">' . $term->name . '</h2></a>' . $term->description;
+				<ul class="parent-item"><li><h2 class="h4">' . $term->name . '</h2>' . get_field('full_description', 'term_' . $term->term_id);;
 				if($children) {
 					$child_sorted = array(); //initialize empty array
-					echo '<ul class="child-items">';
+					echo '<ul class="child-items">
+									<li class="grey darken-3"><a class="parent-item" href="' . get_term_link($term->term_id) . '">View all ' . $term->name . ' resources</a><span aria-label="Number of items in this category is ' . $term->count . '" class="count">' . $term->count . '</span></li>';
 					foreach($children as $child) {
 						$child_meta = get_term($child); // get taxonomy meta from taxonomy id
 						$child_sorted[$child] = $child_meta->name; // associate tax id with tax name (so we can sort alphabetically)
@@ -189,8 +191,8 @@ function remove_plugin_image_sizes() {
 					// loop sorted associative array of taxonomy children
 					foreach($child_sorted as $x => $x_value) {
 							$term = get_term($x);
-					    echo '<li class="purple darken-1">
-							<a href="' . get_term_link($x) . '">' . $x_value . '<span aria-label="Number of items in this category is ' . $term->count . '" class="count">' . $term->count . '</span></a>
+					    echo '<li class="purple darken-2">
+							<a href="' . get_term_link($x) . '">' . $x_value . '</a><span aria-label="Number of items in this category is ' . $term->count . '" class="count">' . $term->count . '</span>
 							</li>';
 						}
 				//	print_R($child_sorted);

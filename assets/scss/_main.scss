@@ -1647,35 +1647,51 @@ ul.child-items {
     display: inline-block;
     margin-right: .75rem;
     text-align: center;
+    position: relative;
     border-radius: 3px;
-    font-size: .95rem;
-    @supports (display: flex) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    @supports (display: grid) {
-      margin-right: 0;
-    }
     a {
       padding: .5rem 1rem;
-      color: white;
-      text-transform: uppercase;
+      font-size: 1.25rem;
+      line-height: 1.25;
       text-decoration: none;
       display: block;
+      color: white;
+      height: 10rem;
+      @supports (display: flex) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @supports (display: grid) {
+        margin-right: 0;
+      }
       &:hover, &:focus {
-        color: yellow;
+        color: color("yellow", "base");
+        background: color("purple", "darken-3");
       }
-      span.count {
-        background: white;
-        color: black;
-        display:inline-block;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        margin-left: .5rem;
+
+      &:hover + .count, &:focus + .count {
+        background: color("yellow", "base");
       }
+    }
+    a.parent-item {
+      &:hover, &:focus {
+        background: color("grey", "darken-4");
+      }
+
+    }
+    span.count {
+      background: white;
+      color: black;
+      display:block;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      font-weight: 600;
     }
   }
 }
@@ -1805,7 +1821,16 @@ a.current.chip {
 }
 
 .related-activities {
-  padding: 2rem 0 0 0 !important;
+  margin-top: 2rem;
+  padding: 2rem 0 !important;
+  border: 1px solid color("grey", "lighten-2");
+  border-radius: 3px;
+  h2 {
+    padding: 0 10px;
+  }
+  p {
+    padding: 1rem 10px;
+  }
   article {
     margin-top: 2rem;
   }
@@ -1833,19 +1858,28 @@ a.current.chip {
   }
 }
 
+.row.activities {
+  .social-media-links {
+    border-bottom: 1px solid color("grey", "lighten-1");
+    border-top: 1px solid color("grey", "lighten-1");
+    padding: 0 0 1rem 0;
+    margin: 1rem 0;
+}
+  .label-resources {
+    margin: 1rem 0 0 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: inline-block;
+    color: #000000;
+  }
+}
+
 .row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0;
   .note-heading {
     padding: 0.5rem 1rem;
     border-radius: 3px 3px 0 0;
-  }
-  .label-resources {
-    padding: 0rem .5rem;
-    margin: 1rem 0 .5rem 0;
-    border-radius: 1.25rem;
-    background: color("grey", "darken-3");
-    display: inline-block;
   }
   .note-content {
     padding: 1rem;

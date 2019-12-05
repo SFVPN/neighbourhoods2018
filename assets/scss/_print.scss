@@ -22,11 +22,21 @@ to display none.
 
   a, a:visited {
     color: #444 !important;
-    text-decoration: underline;
-
+    text-decoration: none !important;
     // show links on printed pages
     &:after {
       content: " [LINK: " attr(href) "]";
+    }
+
+    // show title too
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  a.phone {
+    &:after {
+      content: "";
     }
 
     // show title too
@@ -50,7 +60,7 @@ to display none.
     display: table-header-group;
   }
 
-  tr, img {
+  tr, img, .address-box {
     page-break-inside: avoid;
   }
 
@@ -63,8 +73,10 @@ to display none.
     }
 
     @page {
-      margin: 0.5cm;
+      margin: .5cm;
+      word-wrap: break-word;
     }
+
 
     p, h2, h3 {
       orphans: 3;
@@ -75,6 +87,14 @@ to display none.
     h2,
     h3 {
       page-break-after: avoid;
+    }
+
+    iframe {
+      page-break-before: avoid;
+    }
+
+    h2,
+    h3 {
       text-decoration: underline;
     }
 
@@ -93,6 +113,35 @@ to display none.
       }
     }
 
+    .row.activities {
+      .note-heading {
+        background: color("grey", "lighten-3") !important;
+        color: black !important;
+        page-break-inside: avoid;
+      }
+      .label-resources {
+
+        page-break-inside: avoid;
+      }
+      .mdi {
+        padding: 0 !important;
+      }
+    }
+
+    .single-resources .article-header {
+      padding-bottom: 0 !important;
+      text-align: left;
+      h1 {
+        font-size: $h3-fontsize;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    }
+
+    .single-resources article {
+      margin-top: 0 !important;
+    }
+
     #print_logo {
       height: 7cm;
       display: block;
@@ -104,6 +153,22 @@ to display none.
     }
     }
 
+  .related-activities {
+    display: none;
+  }
+
+  .row.activities .note-content span.block, .row.activities .note-content a.block {
+    padding: 0;
+  }
+
+    .print-footer {
+      display: block !important;
+      padding: 1rem !important;
+      background: color("grey", "lighten-4") !important;
+      text-align: center !important;
+    }
+
+
     .link, .tip, .warning, .info, .check {
         page-break-inside:avoid;
     }
@@ -112,13 +177,14 @@ to display none.
       margin-top: 2.28rem;
     }
 
+
     // Hide content people who print don't need to see
     .sidebar,
     .page-navigation,
     .wp-prev-next,
     .respond-form,
     .resources-meta,
-    #inner-footer,
+    footer,
     #share-links,
     .parent-page,
     .no-print,
@@ -130,8 +196,9 @@ to display none.
     .simcal-event-details .btn-flat a,
     .event_location a,
     nav,
-    footer .fixed-action-btn,
-    details {
+    #inner-footer .fixed-action-btn,
+    details,
+    #fullCalendar {
       display: none !important;
     }
 
