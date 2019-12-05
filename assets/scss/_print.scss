@@ -87,6 +87,11 @@ to display none.
     h2,
     h3 {
       page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+
+    h2 {
+      page-break-before: always;
     }
 
     iframe {
@@ -113,16 +118,17 @@ to display none.
       }
     }
 
-    .row.activities {
-      .note-heading {
-        background: color("grey", "lighten-3") !important;
-        color: black !important;
-        page-break-inside: avoid;
-      }
-      .label-resources {
+    .row .note-heading {
+      background: color("grey", "lighten-3") !important;
+      color: black !important;
+      page-break-inside: avoid;
+    }
+    .label-resources {
+      page-break-inside: avoid;
+    }
 
-        page-break-inside: avoid;
-      }
+    .row.activities {
+
       .mdi {
         padding: 0 !important;
       }
@@ -136,6 +142,19 @@ to display none.
         padding: 0 !important;
         margin: 0 !important;
       }
+    }
+
+    .recommendation {
+      .note-content {
+        .col.s12.l3 {
+          float: left !important;
+          width: 24.95%;
+        }
+      }
+    }
+
+    .content_block {
+      padding: 0;
     }
 
     .single-resources article {
@@ -191,6 +210,7 @@ to display none.
     .location_link,
     .calendar_add,
     .calendar_desc,
+    .index-wrapper,
     .post-edit-link,
     .simcal-calendar-head,
     .simcal-event-details .btn-flat a,

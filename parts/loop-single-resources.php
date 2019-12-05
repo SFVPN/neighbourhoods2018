@@ -267,13 +267,9 @@ $pages[] += get_the_ID();
 
 				if( get_row_layout() == 'note_block' ):
 					$note_type = get_sub_field('note_type');
-					$note_url = get_sub_field('note_url');
 
+							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading grey darken-3 white-text"><i class="material-icons left">' . $note_type['value'] . '</i><strong>' . get_sub_field('note_heading') . '</strong></div> <div  class="col s12 note-content grey lighten-4">' . get_sub_field('note');
 
-							echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading"><i class="material-icons left">' . $note_type['value'] . '</i><strong>' . get_sub_field('note_heading') . '</strong></div> <div  class="col s12 note-content">' . get_sub_field('note');
-							if($note_url) {
-								echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
-							}
 							if( have_rows('note_upload') ):
 
 							 	// loop through the rows of data
@@ -401,7 +397,7 @@ if( get_row_layout() == 'recommendation_block' ):
 // check if the repeater field has rows of data
 if( have_rows('recommendation_add') ):
 
-	echo '<div class="row recommendation"><div class="col s12 note-heading blue darken-4 white-text"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div  class="col center s12 note-content grey lighten-4">';
+	echo '<div class="row recommendation"><div class="col s12 note-heading grey darken-3 white-text"><i class="material-icons left">done_all</i><strong>' . $block_title . '</strong></div> <div  class="col center s12 note-content grey lighten-4">';
  	// loop through the rows of data
     while ( have_rows('recommendation_add') ) : the_row();
 

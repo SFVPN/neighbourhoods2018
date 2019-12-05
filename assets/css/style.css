@@ -13230,6 +13230,8 @@ a.current.chip {
 .row.warning .note-heading {
   background: #EF5350;
   color: white; }
+.row.warning .note-content {
+  background: #f5f5f5; }
 
 .row.activities .social-media-links {
   border-bottom: 1px solid #bdbdbd;
@@ -13916,7 +13918,11 @@ to display none.
   h1,
   h2,
   h3 {
-    page-break-after: avoid; }
+    page-break-after: avoid;
+    page-break-inside: avoid; }
+
+  h2 {
+    page-break-before: always; }
 
   iframe {
     page-break-before: avoid; }
@@ -13935,12 +13941,14 @@ to display none.
   .row.warning .note-content {
     border-radius: 0 0 3px 3px; }
 
-  .row.activities .note-heading {
+  .row .note-heading {
     background: #eeeeee !important;
     color: black !important;
     page-break-inside: avoid; }
-  .row.activities .label-resources {
+
+  .label-resources {
     page-break-inside: avoid; }
+
   .row.activities .mdi {
     padding: 0 !important; }
 
@@ -13951,6 +13959,13 @@ to display none.
       font-size: 2.92rem;
       padding: 0 !important;
       margin: 0 !important; }
+
+  .recommendation .note-content .col.s12.l3 {
+    float: left !important;
+    width: 24.95%; }
+
+  .content_block {
+    padding: 0; }
 
   .single-resources article {
     margin-top: 0 !important; }
@@ -13994,6 +14009,7 @@ to display none.
   .location_link,
   .calendar_add,
   .calendar_desc,
+  .index-wrapper,
   .post-edit-link,
   .simcal-calendar-head,
   .simcal-event-details .btn-flat a,

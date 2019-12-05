@@ -868,7 +868,7 @@
                                     "label": "Note Link",
                                     "name": "note_link",
                                     "type": "repeater",
-                                    "instructions": "If you are adding links, please do so here. You can a maximum of 4 links",
+                                    "instructions": "If you are adding links, please do so here.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -878,7 +878,7 @@
                                     },
                                     "collapsed": "",
                                     "min": 0,
-                                    "max": 4,
+                                    "max": 20,
                                     "layout": "row",
                                     "button_label": "Add Link",
                                     "sub_fields": [
@@ -918,30 +918,6 @@
                                             "maxlength": ""
                                         }
                                     ]
-                                },
-                                {
-                                    "key": "field_5ba0cd7806ff2",
-                                    "label": "Note Url",
-                                    "name": "note_url",
-                                    "type": "url",
-                                    "instructions": "If you are linking to an external website or a document to download, please enter the URL here.",
-                                    "required": 0,
-                                    "conditional_logic": [
-                                        [
-                                            {
-                                                "field": "field_5ba0b653f5552",
-                                                "operator": "!=",
-                                                "value": "link"
-                                            }
-                                        ]
-                                    ],
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": ""
                                 }
                             ],
                             "min": "",
@@ -1296,30 +1272,6 @@
                                             "return_format": "g:i a"
                                         },
                                         {
-                                            "key": "field_5d235810142a8",
-                                            "label": "Activity Frequency (OLD)",
-                                            "name": "activity_frequency",
-                                            "type": "radio",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "choices": {
-                                                "WEEKLY": "weekly",
-                                                "MONTHLY": "monthly"
-                                            },
-                                            "allow_null": 0,
-                                            "other_choice": 0,
-                                            "default_value": "",
-                                            "layout": "vertical",
-                                            "return_format": "array",
-                                            "save_other_choice": 0
-                                        },
-                                        {
                                             "key": "field_5d65395ade6db",
                                             "label": "Activity Repeats",
                                             "name": "activity_frequency_select",
@@ -1393,33 +1345,6 @@
                                             "ajax": 0,
                                             "return_format": "array",
                                             "placeholder": ""
-                                        },
-                                        {
-                                            "key": "field_5d235c88142a9",
-                                            "label": "Activity Day (OLD)",
-                                            "name": "activity_day",
-                                            "type": "radio",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "choices": {
-                                                "MO": "Monday",
-                                                "TU": "Tuesday",
-                                                "WE": "Wednesday",
-                                                "TH": "Thursday",
-                                                "FR": "Friday"
-                                            },
-                                            "allow_null": 0,
-                                            "other_choice": 0,
-                                            "default_value": "",
-                                            "layout": "vertical",
-                                            "return_format": "array",
-                                            "save_other_choice": 0
                                         },
                                         {
                                             "key": "field_5d51273dc8535",
@@ -1914,5 +1839,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1575042029
+    "modified": 1575575496
 }
