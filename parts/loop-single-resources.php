@@ -567,19 +567,27 @@ endif;
 		$activity_des = $activity['activity_description'];
 
 		if($activity_des):
-			$contact = $activity['activity_contact'];
+			$contacts = $activity['activity_contact'];
 
 			echo $activity_des;
 
-			if($contact) {
-				$contact_details = get_field('group_details', $contact[0]);
-				$title = get_the_title($contact[0]);
-				echo '<div id="contact-box" class="col s12 l6 grey lighten-3">';
+			if($contacts) {
+				//$contact_details = get_field('group_details', $contacts[0]);
+				//$title = get_the_title($contact[0]);
+				echo '<div id="contact-box" class="grey lighten-3">';
 				echo '<h2 class="h5">Contact</h2>';
-				echo '<span class="block contact-title">' . $title . '</span>';
+
+				foreach($contacts as $contact) {
+				$contact_details = get_field('group_details', $contact);
+				$title = get_the_title($contact);
+
+				echo '<div class="cb-grid"><span class="block contact-title">' . $title . '</span>';
 				echo '<span class="block"><i class="material-icons tiny left">phone</i>' . $contact_details['group_phone'] . '</span>';
 				echo '<span class="block"><i class="material-icons tiny left">mail</i><a href="mailto:' . $contact_details['group_email'] . '">Email ' . $title . '</a></span>';
-				echo '<span class="block"><i class="material-icons tiny left">launch</i><a href="' . $contact_details['group_website'] . '">Visit Website</a></span>';
+				echo '<span class="block"><i class="material-icons tiny left">launch</i><a href="' . $contact_details['group_website'] . '">Visit Website</a></span>
+				</div>';
+
+				}
 				//echo '<span class="block"><i class="material-icons left">info</i>' . $contact_details['map_address']['address'] . '</span>';
 				//echo '<a href="' . get_the_permalink($contact[0]) . '" class="btn profile-link">View ' . $title . ' Profile</a>';
 				echo '</div>';

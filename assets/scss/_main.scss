@@ -1879,9 +1879,13 @@ a.current.chip {
 }
 
 #contact-box {
-  padding-bottom: 1rem;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem 1rem 2rem 1rem;
   border-radius: 3px;
+  grid-gap: 1rem;
   h2 {
+    grid-column: 1 / -1;
     font-size: 1.64rem;
     text-decoration: none;
   }
