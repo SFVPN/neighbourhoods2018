@@ -12359,7 +12359,8 @@ thead {
     .simcal-events-list-container .simcal-event-details .event_time:before {
       content: '\e192';
       font-family: "Material Icons";
-      padding: 0 5px 0 0; }
+      padding: 0 5px 0 0;
+      font-size: .8rem; }
   .simcal-events-list-container .event_desc {
     padding-top: 1rem; }
     .simcal-events-list-container .event_desc p {
@@ -13245,6 +13246,22 @@ a.current.chip {
   display: inline-block;
   color: #000000; }
 
+#contact-box {
+  padding-bottom: 1rem;
+  border-radius: 3px; }
+  #contact-box h2 {
+    font-size: 1.64rem;
+    text-decoration: none; }
+  #contact-box .contact-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 2; }
+  #contact-box i {
+    line-height: 1.5; }
+  #contact-box .profile-link {
+    background: #7b1fa2;
+    margin-top: 2rem; }
+
 .row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
   margin: 1rem 0;
   padding: 1rem 0; }
@@ -13883,10 +13900,25 @@ to display none.
     a abbr[title]:after, a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
 
-  a.phone:after {
+  a.phone:after, .simcal-calendar a:after {
     content: ""; }
-  a.phone abbr[title]:after {
+  a.phone abbr[title]:after, .simcal-calendar a abbr[title]:after {
     content: " (" attr(title) ")"; }
+
+  .single-calendar {
+    position: relative; }
+    .single-calendar .article-header {
+      display: none; }
+
+  .weekly-calendar .article-header {
+    display: none; }
+
+  .calendar_desc img, .print-image {
+    position: absolute;
+    display: block !important;
+    top: 5px;
+    left: 5px;
+    right: 5px; }
 
   .ir a:after,
   a[href^="javascript:"]:after,
@@ -13990,6 +14022,8 @@ to display none.
     padding: 1rem !important;
     background: #f5f5f5 !important;
     text-align: center !important; }
+    .print-footer a:after {
+      content: ""; }
 
   .link, .tip, .warning, .info, .check {
     page-break-inside: avoid; }
@@ -14008,7 +14042,6 @@ to display none.
   .no-print,
   .location_link,
   .calendar_add,
-  .calendar_desc,
   .index-wrapper,
   .post-edit-link,
   .simcal-calendar-head,
@@ -14023,23 +14056,31 @@ to display none.
   .simcal-events-list-container .event_wrapper {
     padding: 0 !important; }
 
+  .calendar_desc {
+    padding: 0 !important; }
+
+  .simcal-calendar {
+    width: 100% !important;
+    margin-top: 13rem; }
+
   .simcal-events-list-container {
     display: block; }
 
   .simcal-events-list-container .simcal-day {
     border: 0px; }
 
-  .simcal-day {
-    page-break-after: always; }
-
-  .simcal-date-format {
-    font-size: 2.5rem;
-    font-weight: bolder; }
+  .simcal-day-label {
+    text-align: left; }
+    .simcal-day-label .simcal-date-format {
+      font-size: 1.75rem;
+      font-weight: bolder; }
 
   .simcal-event-title {
     font-size: 1.5rem !important; }
 
   .simcal-events-list-container .simcal-event-details {
-    margin-bottom: 2rem !important; } }
+    margin-bottom: 1rem !important;
+    padding-bottom: 0;
+    page-break-inside: avoid; } }
 
 /*# sourceMappingURL=style.css.map */

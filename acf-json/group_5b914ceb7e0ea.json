@@ -39,7 +39,8 @@
             },
             "choices": {
                 "An Organisation": "An Organisation",
-                "A Guide \/ Written Resource": "A Guide \/ Written Resource"
+                "A Guide \/ Written Resource": "A Guide \/ Written Resource",
+                "Activity": "Activity"
             },
             "allow_null": 1,
             "default_value": "",
@@ -315,6 +316,77 @@
                     "center_lng": "",
                     "zoom": "",
                     "height": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5dea36e76c2d8",
+            "label": "Activity",
+            "name": "activity",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d8d299567ff4",
+                        "operator": "==",
+                        "value": "Activity"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_5dea37016c2d9",
+                    "label": "Activity Description",
+                    "name": "activity_description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_5dea37176c2da",
+                    "label": "Activity Contact",
+                    "name": "activity_contact",
+                    "type": "relationship",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "resources"
+                    ],
+                    "taxonomy": [
+                        "resources_category:support-organisations"
+                    ],
+                    "filters": [
+                        "search"
+                    ],
+                    "elements": "",
+                    "min": "",
+                    "max": "",
+                    "return_format": "id"
                 }
             ]
         },
@@ -1839,5 +1911,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1575575496
+    "modified": 1575631660
 }

@@ -642,6 +642,7 @@ SIMPLE CALENDAR OVERRIDES
     content: '\e192';
     font-family: "Material Icons";
     padding: 0 5px 0 0;
+    font-size: .8rem;
   }
 }
 
@@ -1874,6 +1875,27 @@ a.current.chip {
     font-weight: 600;
     display: inline-block;
     color: #000000;
+  }
+}
+
+#contact-box {
+  padding-bottom: 1rem;
+  border-radius: 3px;
+  h2 {
+    font-size: 1.64rem;
+    text-decoration: none;
+  }
+  .contact-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 2;
+  }
+  i {
+    line-height: 1.5;
+  }
+  .profile-link {
+    background: color('purple', 'darken-2');
+    margin-top: 2rem;
   }
 }
 

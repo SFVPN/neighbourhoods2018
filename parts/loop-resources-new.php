@@ -98,7 +98,16 @@
 							// 	}
 							//
 							// endif;
+							$activity = get_field('activity');
 
+
+							if($activity):
+								$activity_des = $activity['activity_description'];
+
+								echo '<p>' . wp_trim_words( $activity_des, 25, ' ... ') .
+								'<em>' . __( 'Click on the title to view more details', 'ocn' ) . '</em></p>';
+
+							endif;
 
 						$details = get_field('group_details');
 						//print_R($details);
@@ -113,7 +122,7 @@
 							$formatted_phone = implode("-", $formatted_phone);
 
 							echo '<span class="block"><strong>Location</strong> ' . $town . '</span>';
-							
+
 							if($activity_phone) {
 								echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
 							}

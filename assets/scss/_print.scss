@@ -34,7 +34,7 @@ to display none.
     }
   }
 
-  a.phone {
+  a.phone, .simcal-calendar a {
     &:after {
       content: "";
     }
@@ -43,6 +43,30 @@ to display none.
     abbr[title]:after {
       content: " (" attr(title) ")";
     }
+  }
+
+  .single-calendar {
+    position: relative;
+    .article-header {
+      display: none;
+    }
+    .single-article {
+
+    }
+  }
+
+  .weekly-calendar {
+    .article-header {
+      display: none;
+    }
+  }
+
+  .calendar_desc img, .print-image {
+    position: absolute;
+    display: block !important;
+    top: 5px;
+    left: 5px;
+    right: 5px;
   }
 
   .ir a:after,
@@ -185,6 +209,11 @@ to display none.
       padding: 1rem !important;
       background: color("grey", "lighten-4") !important;
       text-align: center !important;
+      a {
+        &:after {
+          content: "";
+        }
+      }
     }
 
 
@@ -209,7 +238,6 @@ to display none.
     .no-print,
     .location_link,
     .calendar_add,
-    .calendar_desc,
     .index-wrapper,
     .post-edit-link,
     .simcal-calendar-head,
@@ -226,6 +254,15 @@ to display none.
       padding: 0 !important;
     }
 
+    .calendar_desc {
+      padding: 0 !important;
+    }
+
+    .simcal-calendar {
+      width: 100% !important;
+      margin-top: 13rem;
+    }
+
     .simcal-events-list-container {
       display: block;
     }
@@ -235,13 +272,19 @@ to display none.
     }
 
     .simcal-day {
-      page-break-after: always;
+      //page-break-after: always;
     }
 
-    .simcal-date-format {
-      font-size: 2.5rem;
-      font-weight: bolder;
+    .simcal-day-label {
+      text-align: left;
+      .simcal-date-format {
+        font-size: 1.75rem;
+        font-weight: bolder;
+      }
+
     }
+
+
 
     .simcal-event-title {
       font-size: 1.5rem !important;
@@ -249,8 +292,11 @@ to display none.
 
     .simcal-events-list-container .simcal-event-details {
 
-      margin-bottom: 2rem !important;
+      margin-bottom: 1rem !important;
+      padding-bottom: 0;
+      page-break-inside: avoid;
     }
+
 
 
 } // End of media query
