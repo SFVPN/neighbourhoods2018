@@ -324,23 +324,51 @@ details {
   border: 1px solid color("grey", "lighten-1");
   border-radius: 3px;
   font-weight: 600;
+  width: 100%;
   cursor: pointer;
   margin: 2rem 0;
+  transition: 350ms;
+  @media #{$small-and-down} {
+    width: 90%;
+    margin:2rem 5%;
+  }
   summary {
     text-transform: uppercase;
     padding: 1rem;
-    color: color("grey", "darken-2");
+    position: relative;
     transition: 350ms;
     text-align: center;
     border-bottom: 1px solid transparent;
     &:focus {
       outline: none;
     }
+    &:before {
+      position: absolute;
+  content: '\e315';
+    font-family: 'Material Icons';
+    font-size: 2rem;
+    font-weight: 600;
+    left: 0%;
+    @media #{$small-and-down} {
+      left: -5%;
+    }
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    top: calc(50% - 15px);
+    transition: 350ms;
+    }
   }
   &[open] {
+    background: color("grey", "lighten-4");
+    transition: 350ms;
     summary {
-      color: $link-color;
-      transition: 350ms;
+      &:before {
+        transform: rotate(90deg);
+        transition: 350ms;
+      }
+
     }
   }
 }
@@ -1786,6 +1814,19 @@ a.current.chip {
 
 .index-wrapper {
   margin-bottom: 3rem;
+  width: 100%;
+  @media #{$small-and-down} {
+    width: 90%;
+    margin:2rem 5%;
+  }
+}
+
+.guide-wrapper {
+  width: 100%;
+  @media #{$small-and-down} {
+    width: 90%;
+    margin:2rem 5%;
+  }
 }
 
 .single-resources .entry-content ul {
@@ -1879,7 +1920,7 @@ a.current.chip {
 }
 
 #contact-box {
-  display: inline-grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 1rem 1rem 2rem 1rem;
   border-radius: 3px;
@@ -1914,13 +1955,9 @@ a.current.chip {
     padding: 1rem;
     border-radius: 0 0 3px 3px;
     @media #{$small-and-down} {
-    	padding: .5rem 0;
+    	padding: .5rem;
     }
-    .col.s12 {
-      @media #{$small-and-down} {
-      	padding:0;
-      }
-    }
+
     .mdi {
       background: white;
       padding: .5rem;

@@ -4496,7 +4496,7 @@ small {
       padding: 0 1rem; } }
 
 #fullCalendar {
-  margin-top: 2rem; }
+  margin: 2rem 0 1rem 0; }
 
 .searchandfilter li input[type="submit"] {
   margin: 2rem 0;
@@ -12128,20 +12128,45 @@ details {
   border: 1px solid #bdbdbd;
   border-radius: 3px;
   font-weight: 600;
+  width: 100%;
   cursor: pointer;
-  margin: 2rem 0; }
+  margin: 2rem 0;
+  transition: 350ms; }
+  @media only screen and (max-width: 600px) {
+    details {
+      width: 90%;
+      margin: 2rem 5%; } }
   details summary {
     text-transform: uppercase;
     padding: 1rem;
-    color: #616161;
+    position: relative;
     transition: 350ms;
     text-align: center;
     border-bottom: 1px solid transparent; }
     details summary:focus {
       outline: none; }
-  details[open] summary {
-    color: #283593;
+    details summary:before {
+      position: absolute;
+      content: '\e315';
+      font-family: 'Material Icons';
+      font-size: 2rem;
+      font-weight: 600;
+      left: 0%;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      line-height: 30px;
+      top: calc(50% - 15px);
+      transition: 350ms; }
+      @media only screen and (max-width: 600px) {
+        details summary:before {
+          left: -5%; } }
+  details[open] {
+    background: #f5f5f5;
     transition: 350ms; }
+    details[open] summary:before {
+      transform: rotate(90deg);
+      transition: 350ms; }
 
 .control.btns {
   padding: 0rem 2rem 2rem 2rem; }
@@ -13181,7 +13206,19 @@ a.current.chip {
     padding-right: .75rem; }
 
 .index-wrapper {
-  margin-bottom: 3rem; }
+  margin-bottom: 3rem;
+  width: 100%; }
+  @media only screen and (max-width: 600px) {
+    .index-wrapper {
+      width: 90%;
+      margin: 2rem 5%; } }
+
+.guide-wrapper {
+  width: 100%; }
+  @media only screen and (max-width: 600px) {
+    .guide-wrapper {
+      width: 90%;
+      margin: 2rem 5%; } }
 
 .single-resources .entry-content ul {
   padding-left: 2rem;
@@ -13247,7 +13284,7 @@ a.current.chip {
   color: #000000; }
 
 #contact-box {
-  display: inline-grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 1rem 1rem 2rem 1rem;
   border-radius: 3px;
@@ -13277,10 +13314,7 @@ a.current.chip {
     border-radius: 0 0 3px 3px; }
     @media only screen and (max-width: 600px) {
       .row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
-        padding: .5rem 0; } }
-    @media only screen and (max-width: 600px) {
-      .row.thumb_up .note-content .col.s12, .row.tip .note-content .col.s12, .row.link .note-content .col.s12, .row.warning .note-content .col.s12, .row.recommendation .note-content .col.s12, .row.activities .note-content .col.s12, .row.info .note-content .col.s12, .row.contact_phone .note-content .col.s12, .row.check .note-content .col.s12, .row.steps_block .note-content .col.s12, .content_block .note-content .col.s12 {
-        padding: 0; } }
+        padding: .5rem; } }
     .row.thumb_up .note-content .mdi, .row.tip .note-content .mdi, .row.link .note-content .mdi, .row.warning .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.info .note-content .mdi, .row.contact_phone .note-content .mdi, .row.check .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
       background: white;
       padding: .5rem;

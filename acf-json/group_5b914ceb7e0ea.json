@@ -40,12 +40,63 @@
             "choices": {
                 "An Organisation": "An Organisation",
                 "A Guide \/ Written Resource": "A Guide \/ Written Resource",
-                "Activity": "Activity"
+                "Activity or Pathway Content": "Activity or Pathway Content"
             },
             "allow_null": 1,
             "default_value": "",
             "layout": "horizontal",
             "return_format": "value"
+        },
+        {
+            "key": "field_5dcad2f354967",
+            "label": "Show Related Calendar Information",
+            "name": "group_activities",
+            "type": "select",
+            "instructions": "Select a keyword from the list below to show related information from the <strong>OCN Activities Calendar<\/strong>",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5d8d299567ff4",
+                        "operator": "==",
+                        "value": "An Organisation"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5d8d299567ff4",
+                        "operator": "==",
+                        "value": "Activity or Pathway Content"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Active-Stirling": "Active Stirling",
+                "Alzheimer-Scotland": "Alzheimer Scotland",
+                "Arts": "Arts",
+                "CST": "Cognitive Stimulation Therapy",
+                "Macrobert": "Macrobert",
+                "Music": "Music",
+                "Reminiscence": "Reminiscence",
+                "Sports": "Sports",
+                "Stirling-County-Rugby": "Stirling County Rugby",
+                "Stirling-Libraries": "Stirling Libraries",
+                "Teas-Company": "Teas Company",
+                "Town-Break": "Town Break",
+                "Walking": "Walking"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
         },
         {
             "key": "field_5d8d28aa7ab33",
@@ -88,36 +139,6 @@
                     "maxlength": "",
                     "rows": "",
                     "new_lines": "br"
-                },
-                {
-                    "key": "field_5dcad2f354967",
-                    "label": "Group Activities",
-                    "name": "group_activities",
-                    "type": "select",
-                    "instructions": "To show a calendar of this organisation's activities (taken from the main OCN activities calendar), choose the name from the list.",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "Active-Stirling": "Active Stirling",
-                        "Alzheimer-Scotland": "Alzheimer Scotland",
-                        "Macrobert": "Macrobert",
-                        "Stirling-County-Rugby": "Stirling County Rugby",
-                        "Stirling-Libraries": "Stirling Libraries",
-                        "Teas-Company": "Teas Company",
-                        "Town-Break": "Town Break"
-                    },
-                    "default_value": [],
-                    "allow_null": 1,
-                    "multiple": 0,
-                    "ui": 1,
-                    "ajax": 0,
-                    "return_format": "value",
-                    "placeholder": ""
                 },
                 {
                     "key": "field_5d8d28aa7ab35",
@@ -321,7 +342,7 @@
         },
         {
             "key": "field_5dea36e76c2d8",
-            "label": "Activity",
+            "label": "Activity or Pathway Content",
             "name": "activity",
             "type": "group",
             "instructions": "",
@@ -331,7 +352,7 @@
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": "Activity"
+                        "value": "Activity or Pathway Content"
                     }
                 ]
             ],
@@ -344,7 +365,7 @@
             "sub_fields": [
                 {
                     "key": "field_5dea37016c2d9",
-                    "label": "Activity Description",
+                    "label": "Description",
                     "name": "activity_description",
                     "type": "textarea",
                     "instructions": "",
@@ -363,7 +384,7 @@
                 },
                 {
                     "key": "field_5dea37176c2da",
-                    "label": "Activity Contact",
+                    "label": "Contact",
                     "name": "activity_contact",
                     "type": "relationship",
                     "instructions": "",
@@ -1911,5 +1932,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1575631660
+    "modified": 1575912627
 }

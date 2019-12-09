@@ -87,7 +87,7 @@ if ( $post->post_parent === 0 ) {
 	$pages = array($post->ID );
 		?>
 
-		<div class="col s12 grey lighten-4">
+		<div class="col guide-wrapper grey lighten-4">
 
 			<ol id="guide-contents">
 				<li id="parent-<?php the_ID(); ?>" class="parent">
@@ -130,7 +130,7 @@ $pages[] += get_the_ID();
 		if ( $parent->have_posts() ) :
 		$queried_object = get_queried_object();
 		$ID = $queried_object->ID;?>
-				<details class="col s12">
+				<details class="col">
 					<summary>
 						<?php echo __( 'Click to view full contents of the ', 'ocn' ) . get_the_title($post->post_parent) . __( ' guide', 'ocn' );?>
 					</summary>
@@ -184,7 +184,7 @@ $pages[] += get_the_ID();
 
 		         // display a sub field 'value'
 						 if( have_rows('blocks') ):
-						echo '<div class="col s12 m12 grey lighten-4 index-wrapper"><ol id="toc">
+						echo '<div class="col grey lighten-4 index-wrapper"><ol id="toc">
 						<li class="block label black-text">' . __( 'What\'s on this page?', 'ocn' ) . '</li>';
 	     // loop through the rows of data
 	    while ( have_rows('blocks') ) : the_row();
@@ -568,6 +568,7 @@ endif;
 
 		if($activity_des):
 			$contacts = $activity['activity_contact'];
+			$calendar = get_field('group_activities');
 
 			echo $activity_des;
 
@@ -594,6 +595,11 @@ endif;
 
 			}
 
+			if($calendar) {
+				$title = get_the_title();
+				echo '<div class="activity-calendar"><button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $calendar . '">' . __( 'View The ', 'ocn' ) . $calendar . __( ' Activities Calendar', 'ocn' ) . '</button></div>';
+			}
+
 		endif;
 
 		$details = get_field('group_details');
@@ -612,7 +618,7 @@ endif;
 
 
 	        $group_description = $details['group_description'];
-					$group_activities = $details['group_activities'];
+					$group_activities = get_field('group_activities');
 	 				$group_contact = $details['group_contact'];
 	 				$group_email = $details['group_email'];
 	 				$group_phone = $details['group_phone'];
@@ -634,7 +640,9 @@ endif;
 	 					echo '<p>' . __( $group_description, 'ocn' ) . '</p>';
 	 				}
 
-	 				echo '<div class="group-contact"><div class="note-heading grey darken-3 white-text"><i class="material-icons left">contact_phone</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div class="note-content grey lighten-4"><span class="label-resources block">' . __( 'Main Contact', 'ocn' ) . '</span>';
+
+
+	 				echo '<div class="group-contact col s12 no-pad"><div class="note-heading grey darken-3 white-text"><i class="material-icons left">contact_phone</i><strong>' . __( 'Contact Information', 'ocn' ) .'</strong></div> <div class="note-content grey lighten-4"><span class="label-resources block">' . __( 'Main Contact', 'ocn' ) . '</span>';
 
 
 
@@ -668,8 +676,6 @@ endif;
 						echo '</div>';
 					}
 
-
-
 	 				if ($group_map):
 						echo '<div class="address-box">';
 	 					$group_map_image = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $group_map['lat'] . ',' . $group_map['lng'] . '&zoom=16&size=640x385&maptype=terrain&format=png&visual_refresh=true
@@ -682,6 +688,11 @@ endif;
 	 					echo  $group_address_town . ' ' . $group_address_zip . '</span>';
 	 					echo '<img class="responsive-img map" src="' . $group_map_image . '">
 						</div>';
+
+						if($group_activities) {
+							$title = get_the_title();
+							echo '<div class="group-calendar"><button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $group_activities . '">' . __( 'View The ', 'ocn' ) . $title . __( ' Activities Calendar', 'ocn' ) . '</button></div>';
+						}
 
 	 				endif;
 					echo '</div>';
@@ -717,21 +728,6 @@ endif;
 	 </script>
 <?php endif;?>
 
-
-
-
-
-<?php if($group_activities) {
-	$title = get_the_title();
-	echo '<div class="col s12 related-activities">';
-	echo '<div class="col s12">';
-	echo '<h2 class="h6">' . __( ' Activities', 'ocn' ) . '</h2>';
-	echo '<p>' . __( 'Upcoming activities organised by ', 'ocn' ) . $title . __( ' can be viewed below. ', 'ocn' ) . '</p>';
-	echo do_shortcode( ' [tockify component="mini" calendar="ocnstirling" tags="' . $group_activities . '"] ' );
-	echo '<button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $group_activities . '">' . __( 'View Full Calendar for ', 'ocn' ) . $title . '</button>';
-	echo '</div>';
-	echo '</div>';
-}?>
 
 </div>
 <?php
