@@ -597,7 +597,7 @@ endif;
 
 			if($calendar) {
 				$title = get_the_title();
-				echo '<div class="activity-calendar"><button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $calendar . '">' . __( 'View The ', 'ocn' ) . $calendar . __( ' Activities Calendar', 'ocn' ) . '</button></div>';
+				echo '<div class="activity-calendar"><button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . implode(",",$calendar) . '">' . __( 'View The ', 'ocn' ) . implode(" + ",$calendar) . __( ' Activities Calendar', 'ocn' ) . '</button></div>';
 			}
 
 		endif;
@@ -691,7 +691,7 @@ endif;
 
 						if($group_activities) {
 							$title = get_the_title();
-							echo '<div class="group-calendar"><button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $group_activities . '">' . __( 'View The ', 'ocn' ) . $title . __( ' Activities Calendar', 'ocn' ) . '</button></div>';
+							echo '<div class="group-calendar"><button onclick="openFullOcn()" class="btn purple darken-1" id="fullCalendar" data-organisation="' . $group_activities[0] . '">' . __( 'View The ', 'ocn' ) . $title . __( ' Activities Calendar', 'ocn' ) . '</button></div>';
 						}
 
 	 				endif;

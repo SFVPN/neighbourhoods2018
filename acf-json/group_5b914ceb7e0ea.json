@@ -52,7 +52,7 @@
             "label": "Show Related Calendar Information",
             "name": "group_activities",
             "type": "select",
-            "instructions": "Select a keyword from the list below to show related information from the <strong>OCN Activities Calendar<\/strong>",
+            "instructions": "Select a keyword(s) from the list below to show related information from the <strong>OCN Activities Calendar<\/strong>",
             "required": 0,
             "conditional_logic": [
                 [
@@ -92,7 +92,7 @@
             },
             "default_value": [],
             "allow_null": 1,
-            "multiple": 0,
+            "multiple": 1,
             "ui": 1,
             "ajax": 0,
             "return_format": "value",
@@ -1932,5 +1932,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1575912627
+    "modified": 1575914107
 }
