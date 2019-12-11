@@ -38,7 +38,7 @@
     			<?php endif;?>
         </div>
         <div class="card-action white">
-          <a href="<?php the_permalink($partner_page);?>"><?php echo 'Visit partner website';?></a>
+          <a href="<?php echo $partner_page;?>"><?php echo 'Visit partner website';?></a>
         </div>
       </div>
       </div>

@@ -59,14 +59,14 @@
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": ""
+                        "value": "organisation"
                     }
                 ],
                 [
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": ""
+                        "value": "activity"
                     }
                 ]
             ],
@@ -428,7 +428,7 @@
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": "A Guide \/ Written Resource"
+                        "value": "guide"
                     }
                 ]
             ],
@@ -455,7 +455,7 @@
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": "A Guide \/ Written Resource"
+                        "value": "guide"
                     }
                 ]
             ],
@@ -1937,5 +1937,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1576000386
+    "modified": 1576058777
 }
