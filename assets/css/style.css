@@ -4496,7 +4496,12 @@ small {
       padding: 0 1rem; } }
 
 #fullCalendar {
-  margin: 2rem 0 1rem 0; }
+  margin: 2rem 0 1rem 0;
+  overflow: hidden; }
+  @media only screen and (max-width: 600px) {
+    #fullCalendar {
+      font-size: 0.9rem;
+      padding: 0 0.5rem; } }
 
 .searchandfilter li input[type="submit"] {
   margin: 2rem 0;
@@ -12145,28 +12150,9 @@ details {
     border-bottom: 1px solid transparent; }
     details summary:focus {
       outline: none; }
-    details summary:before {
-      position: absolute;
-      content: '\e315';
-      font-family: 'Material Icons';
-      font-size: 2rem;
-      font-weight: 600;
-      left: 0%;
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      line-height: 30px;
-      top: calc(50% - 15px);
-      transition: 350ms; }
-      @media only screen and (max-width: 600px) {
-        details summary:before {
-          left: -5%; } }
   details[open] {
     background: #f5f5f5;
     transition: 350ms; }
-    details[open] summary:before {
-      transform: rotate(90deg);
-      transition: 350ms; }
 
 .control.btns {
   padding: 0rem 2rem 2rem 2rem; }
@@ -13533,6 +13519,10 @@ figure.card {
     text-decoration: none;
     margin-top: 2rem;
     border-radius: 3px; }
+    @media only screen and (max-width: 600px) {
+      #page-nav a.left:hover:before, #page-nav a.left:focus:before {
+        content: '';
+        background: transparent; } }
 
 .no-print {
   margin-bottom: 2rem; }
@@ -14011,7 +14001,7 @@ to display none.
   .row.warning .note-content {
     border-radius: 0 0 3px 3px; }
 
-  .row .note-heading {
+  .row .note-heading, .note-heading {
     background: #eeeeee !important;
     color: black !important;
     page-break-inside: avoid; }

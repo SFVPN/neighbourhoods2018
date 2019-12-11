@@ -38,9 +38,9 @@
                 "id": ""
             },
             "choices": {
-                "An Organisation": "An Organisation",
-                "A Guide \/ Written Resource": "A Guide \/ Written Resource",
-                "Activity or Pathway Content": "Activity or Pathway Content"
+                "organisation": "An Organisation",
+                "guide": "A Guide \/ Written Resource",
+                "activity": "Activity or Pathway Content"
             },
             "allow_null": 1,
             "default_value": "",
@@ -59,14 +59,14 @@
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": "An Organisation"
+                        "value": ""
                     }
                 ],
                 [
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": "Activity or Pathway Content"
+                        "value": ""
                     }
                 ]
             ],
@@ -78,11 +78,16 @@
             "choices": {
                 "Active-Stirling": "Active Stirling",
                 "Alzheimer-Scotland": "Alzheimer Scotland",
-                "Arts": "Arts",
+                "Arts": "Arts and Theatre",
                 "CST": "Cognitive Stimulation Therapy",
+                "Day-Club": "Day Club",
+                "Dementia-Cafe": "Dementia Café",
+                "Drop-in": "Drop-in Support",
+                "Friendship-Group": "Friendship Group",
                 "Macrobert": "Macrobert",
                 "Music": "Music",
                 "Reminiscence": "Reminiscence",
+                "Self-Management": "Self Management",
                 "Sports": "Sports",
                 "Stirling-County-Rugby": "Stirling County Rugby",
                 "Stirling-Libraries": "Stirling Libraries",
@@ -95,7 +100,7 @@
             "multiple": 1,
             "ui": 1,
             "ajax": 0,
-            "return_format": "value",
+            "return_format": "array",
             "placeholder": ""
         },
         {
@@ -110,7 +115,7 @@
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": "An Organisation"
+                        "value": "organisation"
                     }
                 ]
             ],
@@ -352,7 +357,7 @@
                     {
                         "field": "field_5d8d299567ff4",
                         "operator": "==",
-                        "value": "Activity or Pathway Content"
+                        "value": "activity"
                     }
                 ]
             ],
@@ -1932,5 +1937,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1575914107
+    "modified": 1576000386
 }

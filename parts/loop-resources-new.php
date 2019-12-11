@@ -28,7 +28,7 @@
 
 							// display each item as a list - with a class of completed ( if completed )
 							if( get_row_layout() == 'text_block' ):
-								echo '<p>' .  wp_trim_words( get_sub_field('content'), 25, ' ... ') . '<em>' . __( 'Click on the title to view more details', 'ocn' ) . '</em></p>';
+								echo '<p>' .  wp_trim_words( get_sub_field('content'), 25, ' ... ') . '<em class="block">' . __( 'Click on the title to view more details', 'ocn' ) . '</em></p>';
 								break;
 
 	        		endif;
@@ -98,14 +98,14 @@
 							// 	}
 							//
 							// endif;
-							$activity = get_field('activity');
+							$type = get_field('content_type');
 
-
-							if($activity):
+							if($type == 'activity'):
+								$activity = get_field('activity');
 								$activity_des = $activity['activity_description'];
 
 								echo '<p>' . wp_trim_words( $activity_des, 25, ' ... ') .
-								'<em>' . __( 'Click on the title to view more details', 'ocn' ) . '</em></p>';
+								'<em class="block">' . __( 'Click on the title to view more details', 'ocn' ) . '</em></p>';
 
 							endif;
 
