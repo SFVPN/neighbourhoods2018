@@ -215,3 +215,16 @@ function svpn_audits_vars() {
     wp_localize_script( "scripts", "audit_vars", $array );
 }
 add_action( "wp_enqueue_scripts", "svpn_audits_vars" );
+
+
+function my_taxonomy_wp_list_categories( $args, $field ) {
+    // modify args
+    $args['orderby'] = 'count';
+    $args['order'] = 'ASC';
+    $args['include'] = '21, 25, 44, 45, 31, 32'; // list of terms to include
+		$choices = $args['include'];
+    // return
+    return $args;
+
+}
+add_filter('acf/fields/taxonomy/wp_list_categories/key=field_5e4ad49949cbe', 'my_taxonomy_wp_list_categories', 10, 2);

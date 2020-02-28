@@ -23,6 +23,10 @@ MEDIA QUERIES
 *********************/
 
 
+:root {
+  --report-cover-background: #{color("pink", "base")};
+}
+
 body {
   display: flex;
   min-height: 100vh;

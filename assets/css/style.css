@@ -11909,6 +11909,9 @@ MEDIA QUERIES
 	// styles for large screens and up
 }
 *********************/
+:root {
+  --report-cover-background: #e91e63; }
+
 body {
   display: flex;
   min-height: 100vh;
@@ -13914,14 +13917,12 @@ to display none.
 ******************************************************************/
 @media print {
   * {
-    background: transparent !important;
-    color: black !important;
     text-shadow: none !important;
     filter: none !important;
     -ms-filter: none !important; }
 
   a, a:visited {
-    color: #444 !important;
+    color: #000 !important;
     text-decoration: none !important; }
     a:after, a:visited:after {
       content: " [LINK: " attr(href) "]"; }
@@ -13986,10 +13987,6 @@ to display none.
 
   iframe {
     page-break-before: avoid; }
-
-  h2,
-  h3 {
-    text-decoration: underline; }
 
   .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
     padding: 0;

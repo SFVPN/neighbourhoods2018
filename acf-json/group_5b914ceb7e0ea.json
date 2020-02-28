@@ -80,6 +80,7 @@
                 "Alzheimer-Scotland": "Alzheimer Scotland",
                 "Arts": "Arts and Theatre",
                 "CST": "Cognitive Stimulation Therapy",
+                "Day-Care": "Day Care",
                 "Day-Club": "Day Club",
                 "Dementia-Cafe": "Dementia Café",
                 "Drop-in": "Drop-in Support",
@@ -403,11 +404,9 @@
                     "post_type": [
                         "resources"
                     ],
-                    "taxonomy": [
-                        "resources_category:support-organisations"
-                    ],
+                    "taxonomy": "",
                     "filters": [
-                        "search"
+                        "taxonomy"
                     ],
                     "elements": "",
                     "min": "",
@@ -1161,34 +1160,6 @@
                             "display": "block",
                             "sub_fields": [
                                 {
-                                    "key": "field_5c3c6d173e5b7",
-                                    "label": "Available on",
-                                    "name": "product_platforms",
-                                    "type": "select",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "choices": {
-                                        "web": "Web App",
-                                        "android": "Android App",
-                                        "ios": "iOS App",
-                                        "desktop": "Desktop App",
-                                        "honorable": "Honorable Mention"
-                                    },
-                                    "default_value": [],
-                                    "allow_null": 1,
-                                    "multiple": 1,
-                                    "ui": 1,
-                                    "ajax": 0,
-                                    "return_format": "array",
-                                    "placeholder": ""
-                                },
-                                {
                                     "key": "field_5d1f75057ed64",
                                     "label": "Available Platform text",
                                     "name": "platform_text",
@@ -1206,22 +1177,6 @@
                                     "prepend": "",
                                     "append": "",
                                     "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5c3c6d173e5b8",
-                                    "label": "Platform Link",
-                                    "name": "platform_link",
-                                    "type": "url",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": ""
                                 },
                                 {
                                     "key": "field_5d1f74aa7ed63",
@@ -1937,5 +1892,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1576058777
+    "modified": 1582024466
 }

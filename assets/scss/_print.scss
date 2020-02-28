@@ -12,8 +12,6 @@ to display none.
 @media print {
 
   * {
-    background: transparent !important;
-    color: black !important;
     text-shadow: none !important;
     filter:none !important;
     -ms-filter: none !important;
@@ -21,7 +19,7 @@ to display none.
 
 
   a, a:visited {
-    color: #444 !important;
+    color: #000 !important;
     text-decoration: none !important;
     // show links on printed pages
     &:after {
@@ -122,10 +120,10 @@ to display none.
       page-break-before: avoid;
     }
 
-    h2,
-    h3 {
-      text-decoration: underline;
-    }
+    // h2,
+    // h3 {
+    //   text-decoration: underline;
+    // }
 
     .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
       padding: 0;
