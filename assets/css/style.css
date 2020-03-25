@@ -12019,6 +12019,9 @@ a:link, a:visited:link {
 a:visited {
   color: #8e24aa; }
 
+@media only screen and (max-width: 600px) {
+  #share-links {
+    margin-top: 1rem; } }
 #share-links a.chip {
   margin: 1rem 1rem .5rem 1rem; }
   @media only screen and (max-width: 600px) {
@@ -13236,9 +13239,6 @@ a.current.chip {
   padding-right: 1rem;
   border-radius: 3px; }
 
-#guide-contents {
-  background: #fafafa; }
-
 #toc {
   margin-bottom: 2rem; }
   #toc li {
@@ -13256,7 +13256,7 @@ a.current.chip {
     padding: 0 2.5rem; }
 
 .guide-wrapper {
-  background: #eeeeee;
+  background: #fafafa;
   position: sticky;
   top: 8rem; }
 
@@ -13264,13 +13264,9 @@ a.current.chip {
   padding-right: .75rem; }
 
 .index-wrapper {
-  margin-bottom: 3rem;
+  margin: 1rem 0 3rem 0;
   width: 100%;
   grid-column: 1 / -1; }
-  @media only screen and (max-width: 600px) {
-    .index-wrapper {
-      width: 90%;
-      margin: 2rem 5%; } }
 
 .guide-wrapper {
   width: 100%; }
@@ -13409,10 +13405,14 @@ a.current.chip {
       .info.note-content .note-title {
         font-size: 1.15rem;
         text-transform: none;
-        justify-content: center; } }
+        justify-content: center;
+        font-weight: 600; } }
   .info.note-content .note-intro {
     font-size: 1.25rem;
     padding-top: 1rem; }
+    @media only screen and (max-width: 600px) {
+      .info.note-content .note-intro {
+        font-size: 1.15rem; } }
   .info.note-content p, .info.note-content li {
     font-size: 1.25rem;
     line-height: 1.5; }
@@ -13940,6 +13940,9 @@ li.comment {
 
 div#respond {
   padding: 2rem 4rem; }
+  @media only screen and (max-width: 600px) {
+    div#respond {
+      padding: 0; } }
   div#respond .acf-fields {
     display: none; }
 

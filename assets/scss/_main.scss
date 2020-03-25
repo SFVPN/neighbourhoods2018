@@ -164,6 +164,10 @@ a:visited {
 
 #share-links {
 
+  @media #{$small-and-down} {
+    margin-top: 1rem;
+  }
+
   a.chip {
     //color: $link-color;
     margin: 1rem 1rem .5rem 1rem;
@@ -1863,7 +1867,7 @@ a.current.chip {
 }
 
 #guide-contents {
-	background: color("grey", "lighten-5");
+
 }
 
 #toc {
@@ -1888,7 +1892,7 @@ a.current.chip {
 }
 
 .guide-wrapper {
-	background: color("grey", "lighten-3");
+	background: color("grey", "lighten-5");
 	position: sticky;
 	top: 8rem;
 }
@@ -1907,12 +1911,10 @@ a.current.chip {
 // }
 
 .index-wrapper {
-  margin-bottom: 3rem;
+  margin: 1rem 0 3rem 0;
   width: 100%;
   grid-column: 1 / -1;
   @media #{$small-and-down} {
-    width: 90%;
-    margin:2rem 5%;
   }
 }
 
@@ -2097,11 +2099,15 @@ a.current.chip {
       font-size: 1.15rem;
       text-transform: none;
       justify-content: center;
+      font-weight: 600;
     }
   }
   .note-intro {
   font-size: 1.25rem;
   padding-top: 1rem;
+  @media #{$small-and-down} {
+    font-size: 1.15rem;
+  }
   }
    p, li {
     font-size:1.25rem;
@@ -2893,6 +2899,9 @@ li.comment {
 
 div#respond {
   padding: 2rem 4rem;
+  @media #{$small-and-down} {
+    padding: 0;
+  }
   .acf-fields {
     display: none;
 }

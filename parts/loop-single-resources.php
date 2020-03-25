@@ -56,56 +56,6 @@ get_template_part( 'parts/content', 'share' );
 
 <?php
 
-$show_toc = get_field('show_toc');
-		if ($show_toc):
-		//	echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
-		//check if the repeater field has rows of data
-		 if( have_rows('section') ):
-
-
-			//  foreach($rows as $row)
-			// {
-			// 	echo '<h2 class="green">' . $row['heading'] . '</h2>';
-			// }
-
-
-		  	// loop through the rows of data
-		     while ( have_rows('section') ) : the_row();
-
-		         // display a sub field 'value'
-						 if( have_rows('blocks') ):
-						echo '<div class="col s12 grey lighten-5 index-wrapper"><ol id="toc">
-						<li class="block label black-text">' . __( 'What\'s on this page?', 'ocn' ) . '</li>';
-	     // loop through the rows of data
-	    while ( have_rows('blocks') ) : the_row();
-
-	        if( get_row_layout() == 'heading_block' ):
-
-	        	echo '<li><a class="toc-' . get_sub_field('heading_size') . '" href="#heading-' . get_row_index() . '">' . get_sub_field('heading') . '</a></li>';
-
-	        endif;
-
-
-
-	    endwhile;
-			echo '</ol></div>';
-	else :
-
-	    // no layouts found
-
-	endif;
-
-		     endwhile;
-
-		 else :
-
-		     // no rows found
-
-		 endif;
-	//	 echo '</div>';
-		endif;
-
-
 
 if ( $post->post_parent === 0 ) {
 
@@ -247,6 +197,58 @@ $featImage = get_the_post_thumbnail_url(get_the_ID(),'full');
 	if($featImage) {
 		echo '<img class="print-image hide" src="' . $featImage . '" />';
 	}
+?>
+
+<?php
+
+$show_toc = get_field('show_toc');
+		if ($show_toc):
+		//	echo '<div class="col s12 m12 grey lighten-4 index-wrapper">';
+		//check if the repeater field has rows of data
+		 if( have_rows('section') ):
+
+
+			//  foreach($rows as $row)
+			// {
+			// 	echo '<h2 class="green">' . $row['heading'] . '</h2>';
+			// }
+
+
+		  	// loop through the rows of data
+		     while ( have_rows('section') ) : the_row();
+
+		         // display a sub field 'value'
+						 if( have_rows('blocks') ):
+						echo '<div class="col s12 grey lighten-5 index-wrapper"><ol id="toc">
+						<li class="block label black-text">' . __( 'What\'s on this page?', 'ocn' ) . '</li>';
+	     // loop through the rows of data
+	    while ( have_rows('blocks') ) : the_row();
+
+	        if( get_row_layout() == 'heading_block' ):
+
+	        	echo '<li><a class="toc-' . get_sub_field('heading_size') . '" href="#heading-' . get_row_index() . '">' . get_sub_field('heading') . '</a></li>';
+
+	        endif;
+
+
+
+	    endwhile;
+			echo '</ol></div>';
+	else :
+
+	    // no layouts found
+
+	endif;
+
+		     endwhile;
+
+		 else :
+
+		     // no rows found
+
+		 endif;
+	//	 echo '</div>';
+		endif;
 ?>
 	 <!-- flexible content -->
 <?php

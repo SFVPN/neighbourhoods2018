@@ -17,7 +17,7 @@
 
 				<?php terms_child_list('resources_category', 'covid-19');?>
 
-				<?php terms_list('resources_category', 'support-pathways');?>
+				<?php //terms_list('resources_category', 'support-pathways');?>
 
 				<?php terms_child_list('resources_category', 'ocn-resources');?>
 
