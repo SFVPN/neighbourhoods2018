@@ -93,10 +93,10 @@ get_header();
 	 			endif;
 
 	 			if( get_row_layout() == 'note_block' ):
-	 				$note_type = get_sub_field('note_type', $parent_page);
+
 	 				$note_url = get_sub_field('note_url', $parent_page);
 
-					echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading grey lighten-3 black-text"><i class="material-icons left">' . $note_type['value'] . '</i><strong>' . get_sub_field('note_heading', $parent_page) . '</strong></div> <div  class="col s12 note-content grey lighten-4 black-text ">' . get_sub_field('note', $parent_page);
+					echo '<div class="row"><div class="col s12 note-heading grey lighten-3 black-text">' . get_sub_field('note_heading', $parent_page) . '</strong></div> <div  class="col s12 note-content grey lighten-4 black-text ">' . get_sub_field('note', $parent_page);
 					if($note_url) {
 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 					}
@@ -316,9 +316,7 @@ endif;
 	  endif;
 
 	  ?>
-
-
-
+		
 		<?php
 
 		foreach($children_array as $child)
@@ -327,13 +325,6 @@ endif;
 			echo '<h1 class="print">' . get_the_title($child) . '</h1>';
 
 		if( have_rows('section', $child) ):
-
-
-		//  foreach($rows as $row)
-		// {
-		// 	echo '<h2 class="green">' . $row['heading'] . '</h2>';
-		// }
-
 
 			// loop through the rows of data
 			 while ( have_rows('section', $child) ) : the_row();
@@ -358,10 +349,10 @@ endif;
 				endif;
 
 				if( get_row_layout() == 'note_block' ):
-					$note_type = get_sub_field('note_type', $child);
+
 					$note_url = get_sub_field('note_url', $child);
 
-					echo '<div class="row ' . $note_type['value'] . '"><div class="col s12 note-heading grey lighten-3 black-text"><i class="material-icons left">' . $note_type['value'] . '</i><strong>' . get_sub_field('note_heading', $child) . '</strong></div> <div  class="col s12 note-content grey lighten-4 black-text ">' . get_sub_field('note', $child);
+					echo '<div class="row "><div class="col s12 note-heading grey lighten-3 black-text">' . get_sub_field('note_heading', $child) . '</strong></div> <div  class="col s12 note-content grey lighten-4 black-text ">' . get_sub_field('note', $child);
 					if($note_url) {
 						echo '<a class="block" href="' . $note_url . '"><i class="material-icons left">arrow_forward</i>Click on this link for more information</a>';
 					}

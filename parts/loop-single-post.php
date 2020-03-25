@@ -3,140 +3,17 @@
 //$parent_title = get_the_title($parent_id;
  // storing this so we have it available in the other loops
 ?>
-<article id="post-<?php the_ID(); ?>" class="<?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
+<article id="post-<?php the_ID(); ?>" class="container <?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
 	<header class="article-header col s12 center">
-		<h1 class="resource-title h2" itemprop="headline"><?php the_title();?></h1>
+		<h1 class="resource-title h4" itemprop="headline"><?php the_title();?></h1>
 		<?php
-
-		$parentID = wp_get_post_parent_id( get_the_ID() );
-		$uncompleted = [];
-		if(is_user_logged_in() && is_singular('lesson')) {
-		if($parentID) {
-			if (in_array($ID , $uncompleted)  ) {
-				acf_form(array(
-						 'id' => 'completed',
-						 'post_id'	=> $ID,
-						 'post_title'	=> false,
-						 'fields' => array('0'),
-						 'submit_value'	=> 'Mark it as complete'
-					 ));
-			} else {
-				 echo '<div class="center" style="margin-bottom: 3rem;">
-				 <div class="btn-flat disabled teal darken-3 white-text" role="alert"><i class="material-icons left" aria-hidden="true">done</i>
- 			  Well done! You Have Completed This Task
- 			 	</div>
-				</div>';
-
-			 }
-		}
-	}
-
 
 		get_template_part( 'parts/content', 'byline' );
 		get_template_part( 'parts/content', 'share' );
 
 		 ?>
-		 <nav role="navigation" aria-label="Navigate between lessons" id="lesson-nav" class="col s12 grey lighten-3">
-
-		 	<?php
-
-			$next_post = get_next_post();
-		 	$prev_post = get_previous_post();
-			if(is_singular('lesson')):
-			if($parentID):?>
-			<div class="col s6">
-			<?php if($prev_post->ID === $parentID):?>
-				<a class="btn-flat large teal-text text-darken-3" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'View Lesson Page: ' . $prev_post->post_title; ?>
-		 		</a>
-			<?php endif;
-		 	if ($prev_post->ID != $parentID):
-		 		?>
-
-		 	  <a class="btn-flat large teal-text text-darken-3" href="<?php echo $prev_post->guid ?>"><i class="material-icons left" aria-hidden="true">keyboard_arrow_left</i><?php echo 'Previous Class: ' . $prev_post->post_title; ?>
-		 		</a>
-		 	<?php endif;
-		?>
-		</div>
-			<?php  endif;
-			?>
-
-
-		 	<?php
-
-			if($parentID && !empty( $next_post )):?>
-			 <div class="col s6">
-			<?php if($next_post->ID === $parentID): ?>
-
-				<a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
-		 		</a>
-			<?php endif;
-			if ($next_post->ID != $parentID):
-		 		?>
-
-		 	  <a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
-		 		</a>
-		 	<?php endif; ?>
-			 </div>
-		<?php endif;
-
-		if(!$parentID && !empty( $next_post )):?>
-		 <div class="col s6 offset-s6">
-		<?php if($next_post->ID === $parentID): ?>
-
-			<a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
-			</a>
-		<?php endif;
-		if ($next_post->ID != $parentID):
-			?>
-
-			<a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Class: ' . $next_post->post_title; ?>
-			</a>
-		<?php endif; ?>
-		 </div>
-	<?php endif;
-endif;
-		?>
-		<?php if(is_singular('audits')):
-			if(empty( $prev_post ) && !empty( $next_post )):?>
-
-			<div class="col s6 offset-s6">
-
-
-			 <a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Audit: ' . $next_post->post_title; ?>
-			 </a>
-			</div>
-
-		<?php endif;
-		if(!empty( $prev_post )):?>
-
-		<div class="col s6">
-
-
-		 <a class="btn-flat large teal-text text-darken-3" href="<?php echo $prev_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Previous Audit: ' . $prev_post->post_title; ?>
-		 </a>
-		</div>
-
-	<?php endif;
-
-		if(!empty( $prev_post ) && !empty( $next_post )):?>
-
-		<div class="col s6">
-
-
-		 <a class="btn-flat large teal-text text-darken-3 right" href="<?php echo $next_post->guid ?>"><i class="material-icons right" aria-hidden="true">keyboard_arrow_right</i><?php echo 'Next Audit: ' . $next_post->post_title; ?>
-		 </a>
-		</div>
-
-	<?php endif;
-
-		endif;
-				?>
-	</nav>
 
 	</header> <!-- end article header -->
-
-
-
 
 <section class="entry-content white col s12" itemprop="articleBody">
  <div class="ainer">

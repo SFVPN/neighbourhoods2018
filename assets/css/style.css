@@ -2912,9 +2912,9 @@ ul {
   background-color: #e0e0e0; }
 
 blockquote {
-  margin: 20px 0;
+  margin: 3rem 0;
   padding-left: 1.5rem;
-  border-left: 5px solid #ee6e73; }
+  border-left: 10px solid #ee6e73; }
 
 i {
   line-height: inherit; }
@@ -3454,7 +3454,7 @@ nav ul a span.badge {
 
 @media only screen and (min-width: 601px) {
   .single-resources .container {
-    width: 75%; } }
+    width: 70%; } }
 .section {
   padding-top: 1rem;
   padding-bottom: 1rem; }
@@ -12016,6 +12016,9 @@ LINK STYLES
 a:link, a:visited:link {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
+a:visited {
+  color: #8e24aa; }
+
 #share-links a.chip {
   margin: 1rem 1rem .5rem 1rem; }
   @media only screen and (max-width: 600px) {
@@ -12133,7 +12136,6 @@ i.mdi.mdi-menu {
     height: 64px; } }
 
 details {
-  border: 1px solid #bdbdbd;
   border-radius: 3px;
   font-weight: 600;
   width: 100%;
@@ -12157,15 +12159,41 @@ details {
     background: #f5f5f5;
     transition: 350ms; }
 
-.control.btns {
-  padding: 0rem 2rem 2rem 2rem; }
-  .control.btns a:not(:first-of-type) {
-    margin-right: .25rem; }
-  .control.btns a.current {
-    background: #283593;
-    color: #ffffff; }
-    .control.btns a.current:focus, .control.btns a.current:hover {
-      background-color: #212121; }
+.terms-list, .terms-child-list {
+  padding: 2rem; }
+  .terms-list ol, .terms-child-list ol {
+    list-style-position: inside;
+    padding-left: 0;
+    columns: 2; }
+  .terms-list ul, .terms-child-list ul {
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem; }
+  .terms-list li a, .terms-child-list li a {
+    display: block;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border: 1px solid #777;
+    border-radius: 3px;
+    text-decoration: none; }
+  .terms-list .term-description, .terms-child-list .term-description {
+    color: #212121;
+    line-height: 1.25;
+    padding: .5rem 0; }
+  .terms-list .count, .terms-child-list .count {
+    color: #888; }
+
+.control.btns li {
+  padding: 1rem;
+  margin-bottom: 1rem; }
+.control.btns a:not(:first-of-type) {
+  margin-right: .25rem; }
+.control.btns a.current {
+  background: #283593;
+  color: #ffffff; }
+  .control.btns a.current:focus, .control.btns a.current:hover {
+    background-color: #212121; }
 
 a {
   transition: 250ms; }
@@ -13183,20 +13211,62 @@ a.current.chip {
     .single article, .archive .article-header {
       margin-top: 0; } }
 
-.single-resources .article-header {
+.single-resources .article-header, .single-organisations .article-header, .single-activities .article-header, .single-post .article-header {
   padding-bottom: 3rem; }
   @media only screen and (max-width: 600px) {
-    .single-resources .article-header {
+    .single-resources .article-header, .single-organisations .article-header, .single-activities .article-header, .single-post .article-header {
       padding: 0; } }
 
-.resources-meta {
+.single-resources article.support-pathway {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 0 4rem;
+  width: 90%;
+  margin-left: 5%; }
+  @media only screen and (max-width: 600px) {
+    .single-resources article.support-pathway {
+      grid-template-columns: 1fr; } }
+
+.single-resources .article-header {
+  grid-column: 1 / -1; }
+
+#guide-contents, #toc {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-right: 1rem;
+  border-radius: 3px; }
+
+#guide-contents {
+  background: #fafafa; }
+
+#toc {
   margin-bottom: 2rem; }
-  .resources-meta .mdi-information {
-    padding-right: .75rem; }
+  #toc li {
+    font-size: 1rem; }
+
+.active-page:after {
+  content: ' \2605'; }
+
+.page-actions {
+  padding: 0 1rem 1rem 1rem; }
+  .page-actions .btn-flat {
+    background: #212121;
+    color: white;
+    width: 100%;
+    padding: 0 2.5rem; }
+
+.guide-wrapper {
+  background: #eeeeee;
+  position: sticky;
+  top: 8rem; }
+
+.resources-meta .mdi-information {
+  padding-right: .75rem; }
 
 .index-wrapper {
   margin-bottom: 3rem;
-  width: 100%; }
+  width: 100%;
+  grid-column: 1 / -1; }
   @media only screen and (max-width: 600px) {
     .index-wrapper {
       width: 90%;
@@ -13206,18 +13276,13 @@ a.current.chip {
   width: 100%; }
   @media only screen and (max-width: 600px) {
     .guide-wrapper {
-      width: 90%;
-      margin: 2rem 5%; } }
+      margin: 2rem 0; } }
 
 .single-resources .entry-content ul {
-  padding-left: 2rem;
-  font-size: 1.25rem; }
+  padding-left: 2rem; }
 
 .single-resources .platforms ul {
   padding-left: 0rem; }
-
-.single-resources .entry-content ul li {
-  list-style-type: disc; }
 
 .single-resources h2 {
   text-decoration: underline; }
@@ -13272,85 +13337,195 @@ a.current.chip {
   display: inline-block;
   color: #000000; }
 
+/* Activities Archives */
+.activities-content {
+  padding: .5rem 0; }
+  .activities-content .schedule-content {
+    border-top: 1px solid rgba(160, 160, 160, 0.2); }
+
+.activity-chip {
+  display: inline-block;
+  height: 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 24px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: cyan;
+  margin: 1rem 1rem 1rem 0; }
+
+.contact-archive {
+  padding-bottom: 1rem; }
+  .contact-archive ul {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-gap: 0 2rem; }
+    .contact-archive ul li:first-child {
+      grid-column: 1 / -1; }
+
 #contact-box {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem 1rem 2rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  padding: 1rem;
   border-radius: 3px;
-  grid-gap: 1rem; }
+  border: 1px solid #616161;
+  margin-top: 2rem; }
   #contact-box h2 {
-    grid-column: 1 / -1;
     font-size: 1.64rem;
     text-decoration: none; }
   #contact-box .contact-title {
     font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 2; }
-  #contact-box i {
-    line-height: 1.5; }
+    font-size: 1.64rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem; }
+  #contact-box .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0; }
+  #contact-box ul.contact {
+    margin: 0;
+    padding: 0; }
+  #contact-box img {
+    border-radius: 3px; }
   #contact-box .profile-link {
     background: #7b1fa2;
     margin-top: 2rem; }
 
-.row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
+.info.note-content {
+  padding: 2rem;
   margin: 1rem 0;
-  padding: 1rem 0; }
-  .row.thumb_up .note-heading, .row.tip .note-heading, .row.link .note-heading, .row.warning .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
-    padding: 0.5rem 1rem;
-    border-radius: 3px 3px 0 0; }
-  .row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
-    padding: 1rem;
-    border-radius: 0 0 3px 3px; }
+  display: flex;
+  flex-direction: column; }
+  .info.note-content .note-title {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 400; }
     @media only screen and (max-width: 600px) {
-      .row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
-        padding: .5rem; } }
-    .row.thumb_up .note-content .mdi, .row.tip .note-content .mdi, .row.link .note-content .mdi, .row.warning .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.info .note-content .mdi, .row.contact_phone .note-content .mdi, .row.check .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
-      background: white;
-      padding: .5rem;
-      border-radius: 50%;
-      margin-right: .5rem; }
-    .row.thumb_up .note-content span.block, .row.tip .note-content span.block, .row.link .note-content span.block, .row.warning .note-content span.block, .row.recommendation .note-content span.block, .row.activities .note-content span.block, .row.info .note-content span.block, .row.contact_phone .note-content span.block, .row.check .note-content span.block, .row.steps_block .note-content span.block, .content_block .note-content span.block {
-      padding: 0.5rem 0; }
-    .row.thumb_up .note-content .product_link, .row.tip .note-content .product_link, .row.link .note-content .product_link, .row.warning .note-content .product_link, .row.recommendation .note-content .product_link, .row.activities .note-content .product_link, .row.info .note-content .product_link, .row.contact_phone .note-content .product_link, .row.check .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
-      font-size: 1.25rem;
-      font-weight: 600;
-      padding: 1rem 0;
-      transition: 350ms;
-      position: relative; }
-      .row.thumb_up .note-content .product_link:hover:after, .row.thumb_up .note-content .product_link:focus:after, .row.tip .note-content .product_link:hover:after, .row.tip .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.warning .note-content .product_link:hover:after, .row.warning .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.activities .note-content .product_link:hover:after, .row.activities .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.contact_phone .note-content .product_link:hover:after, .row.contact_phone .note-content .product_link:focus:after, .row.check .note-content .product_link:hover:after, .row.check .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
-        content: attr(data-note);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background: #333;
-        color: white;
-        font-weight: 300;
-        font-size: 1rem;
-        padding: 0 5px;
-        display: inline-block;
-        border-radius: 3px;
-        transition: 350ms; }
-    .row.thumb_up .note-content a, .row.tip .note-content a, .row.link .note-content a, .row.warning .note-content a, .row.recommendation .note-content a, .row.activities .note-content a, .row.info .note-content a, .row.contact_phone .note-content a, .row.check .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
-      padding: 0.5rem 0;
-      font-weight: 600; }
-      .row.thumb_up .note-content a:hover, .row.thumb_up .note-content a:focus, .row.tip .note-content a:hover, .row.tip .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.warning .note-content a:hover, .row.warning .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.activities .note-content a:hover, .row.activities .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.contact_phone .note-content a:hover, .row.contact_phone .note-content a:focus, .row.check .note-content a:hover, .row.check .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
-        color: #212121; }
-    .row.thumb_up .note-content a.chip, .row.tip .note-content a.chip, .row.link .note-content a.chip, .row.warning .note-content a.chip, .row.recommendation .note-content a.chip, .row.activities .note-content a.chip, .row.info .note-content a.chip, .row.contact_phone .note-content a.chip, .row.check .note-content a.chip, .row.steps_block .note-content a.chip, .content_block .note-content a.chip {
-      padding-top: 0rem; }
-  .row.thumb_up img.map, .row.tip img.map, .row.link img.map, .row.warning img.map, .row.recommendation img.map, .row.activities img.map, .row.info img.map, .row.contact_phone img.map, .row.check img.map, .row.steps_block img.map, .content_block img.map {
-    margin-top: .5rem;
-    border: 1px solid #424242;
-    border-radius: 3px; }
-  .row.thumb_up .addeventatc, .row.tip .addeventatc, .row.link .addeventatc, .row.warning .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.info .addeventatc, .row.contact_phone .addeventatc, .row.check .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
-    visibility: hidden;
-    animation: show 3000ms 1; }
-  .row.thumb_up #atc, .row.tip #atc, .row.link #atc, .row.warning #atc, .row.recommendation #atc, .row.activities #atc, .row.info #atc, .row.contact_phone #atc, .row.check #atc, .row.steps_block #atc, .content_block #atc {
-    padding: 2rem 0; }
-  .row.thumb_up .platforms, .row.tip .platforms, .row.link .platforms, .row.warning .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.info .platforms, .row.contact_phone .platforms, .row.check .platforms, .row.steps_block .platforms, .content_block .platforms {
-    padding: 1rem; }
-    .row.thumb_up .platforms li, .row.tip .platforms li, .row.link .platforms li, .row.warning .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.info .platforms li, .row.contact_phone .platforms li, .row.check .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
+      .info.note-content .note-title {
+        font-size: 1.15rem;
+        text-transform: none;
+        justify-content: center; } }
+  .info.note-content .note-intro {
+    font-size: 1.25rem;
+    padding-top: 1rem; }
+  .info.note-content p, .info.note-content li {
+    font-size: 1.25rem;
+    line-height: 1.5; }
+  .info.note-content ol li {
+    padding-left: .5rem; }
+  .info.note-content ul.note_unordered {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0; }
+    .info.note-content ul.note_unordered li {
+      list-style-type: none; }
+    .info.note-content ul.note_unordered li a {
       display: inline-block;
       padding: 0 1rem; }
+  @media only screen and (max-width: 600px) {
+    .info.note-content {
+      padding: 1rem; } }
+  .info.note-content .mdi {
+    background: white;
+    padding: .5rem;
+    border-radius: 50%;
+    margin-right: .5rem; }
+  .info.note-content span.block {
+    padding: 0.5rem 0; }
+  .info.note-content .product img {
+    width: 30px;
+    margin-right: 1rem; }
+  .info.note-content .product_link {
+    font-size: 1.25rem;
+    padding: 1rem 0;
+    transition: 350ms;
+    position: relative; }
+    .info.note-content .product_link:hover:after, .info.note-content .product_link:focus:after {
+      content: attr(data-note);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #333;
+      color: white;
+      font-weight: 300;
+      font-size: 1rem;
+      padding: 0 5px;
+      display: inline-block;
+      border-radius: 3px;
+      transition: 350ms; }
+  .info.note-content a {
+    font-weight: 600; }
+    .info.note-content a:hover, .info.note-content a:focus {
+      color: #212121; }
+  .info.note-content a.chip {
+    padding-top: 0rem; }
+
+.row.thumb_up .note-heading, .row.tip .note-heading, .row.link .note-heading, .row.warning .note-heading, .row.recommendation .note-heading, .row.activities .note-heading, .row.info .note-heading, .row.contact_phone .note-heading, .row.check .note-heading, .row.steps_block .note-heading, .content_block .note-heading {
+  padding: 0.5rem 1rem;
+  border-radius: 3px 3px 0 0; }
+.row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
+  padding: 1rem;
+  border-radius: 3px;
+  border: 3px solid; }
+  .row.thumb_up .note-content .note-title, .row.tip .note-content .note-title, .row.link .note-content .note-title, .row.warning .note-content .note-title, .row.recommendation .note-content .note-title, .row.activities .note-content .note-title, .row.info .note-content .note-title, .row.contact_phone .note-content .note-title, .row.check .note-content .note-title, .row.steps_block .note-content .note-title, .content_block .note-content .note-title {
+    font-size: 1.25rem; }
+  .row.thumb_up .note-content p, .row.tip .note-content p, .row.link .note-content p, .row.warning .note-content p, .row.recommendation .note-content p, .row.activities .note-content p, .row.info .note-content p, .row.contact_phone .note-content p, .row.check .note-content p, .row.steps_block .note-content p, .content_block .note-content p {
+    line-height: 1.5; }
+  @media only screen and (max-width: 600px) {
+    .row.thumb_up .note-content, .row.tip .note-content, .row.link .note-content, .row.warning .note-content, .row.recommendation .note-content, .row.activities .note-content, .row.info .note-content, .row.contact_phone .note-content, .row.check .note-content, .row.steps_block .note-content, .content_block .note-content {
+      padding: .5rem; } }
+  .row.thumb_up .note-content .mdi, .row.tip .note-content .mdi, .row.link .note-content .mdi, .row.warning .note-content .mdi, .row.recommendation .note-content .mdi, .row.activities .note-content .mdi, .row.info .note-content .mdi, .row.contact_phone .note-content .mdi, .row.check .note-content .mdi, .row.steps_block .note-content .mdi, .content_block .note-content .mdi {
+    background: white;
+    padding: .5rem;
+    border-radius: 50%;
+    margin-right: .5rem; }
+  .row.thumb_up .note-content span.block, .row.tip .note-content span.block, .row.link .note-content span.block, .row.warning .note-content span.block, .row.recommendation .note-content span.block, .row.activities .note-content span.block, .row.info .note-content span.block, .row.contact_phone .note-content span.block, .row.check .note-content span.block, .row.steps_block .note-content span.block, .content_block .note-content span.block {
+    padding: 0.5rem 0; }
+  .row.thumb_up .note-content .product_link, .row.tip .note-content .product_link, .row.link .note-content .product_link, .row.warning .note-content .product_link, .row.recommendation .note-content .product_link, .row.activities .note-content .product_link, .row.info .note-content .product_link, .row.contact_phone .note-content .product_link, .row.check .note-content .product_link, .row.steps_block .note-content .product_link, .content_block .note-content .product_link {
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 1rem 0;
+    transition: 350ms;
+    position: relative; }
+    .row.thumb_up .note-content .product_link:hover:after, .row.thumb_up .note-content .product_link:focus:after, .row.tip .note-content .product_link:hover:after, .row.tip .note-content .product_link:focus:after, .row.link .note-content .product_link:hover:after, .row.link .note-content .product_link:focus:after, .row.warning .note-content .product_link:hover:after, .row.warning .note-content .product_link:focus:after, .row.recommendation .note-content .product_link:hover:after, .row.recommendation .note-content .product_link:focus:after, .row.activities .note-content .product_link:hover:after, .row.activities .note-content .product_link:focus:after, .row.info .note-content .product_link:hover:after, .row.info .note-content .product_link:focus:after, .row.contact_phone .note-content .product_link:hover:after, .row.contact_phone .note-content .product_link:focus:after, .row.check .note-content .product_link:hover:after, .row.check .note-content .product_link:focus:after, .row.steps_block .note-content .product_link:hover:after, .row.steps_block .note-content .product_link:focus:after, .content_block .note-content .product_link:hover:after, .content_block .note-content .product_link:focus:after {
+      content: attr(data-note);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #333;
+      color: white;
+      font-weight: 300;
+      font-size: 1rem;
+      padding: 0 5px;
+      display: inline-block;
+      border-radius: 3px;
+      transition: 350ms; }
+  .row.thumb_up .note-content a, .row.tip .note-content a, .row.link .note-content a, .row.warning .note-content a, .row.recommendation .note-content a, .row.activities .note-content a, .row.info .note-content a, .row.contact_phone .note-content a, .row.check .note-content a, .row.steps_block .note-content a, .content_block .note-content a {
+    padding: 0.5rem 0;
+    font-weight: 600; }
+    .row.thumb_up .note-content a:hover, .row.thumb_up .note-content a:focus, .row.tip .note-content a:hover, .row.tip .note-content a:focus, .row.link .note-content a:hover, .row.link .note-content a:focus, .row.warning .note-content a:hover, .row.warning .note-content a:focus, .row.recommendation .note-content a:hover, .row.recommendation .note-content a:focus, .row.activities .note-content a:hover, .row.activities .note-content a:focus, .row.info .note-content a:hover, .row.info .note-content a:focus, .row.contact_phone .note-content a:hover, .row.contact_phone .note-content a:focus, .row.check .note-content a:hover, .row.check .note-content a:focus, .row.steps_block .note-content a:hover, .row.steps_block .note-content a:focus, .content_block .note-content a:hover, .content_block .note-content a:focus {
+      color: #212121; }
+  .row.thumb_up .note-content a.chip, .row.tip .note-content a.chip, .row.link .note-content a.chip, .row.warning .note-content a.chip, .row.recommendation .note-content a.chip, .row.activities .note-content a.chip, .row.info .note-content a.chip, .row.contact_phone .note-content a.chip, .row.check .note-content a.chip, .row.steps_block .note-content a.chip, .content_block .note-content a.chip {
+    padding-top: 0rem; }
+.row.thumb_up img.map, .row.tip img.map, .row.link img.map, .row.warning img.map, .row.recommendation img.map, .row.activities img.map, .row.info img.map, .row.contact_phone img.map, .row.check img.map, .row.steps_block img.map, .content_block img.map {
+  margin-top: .5rem;
+  border: 1px solid #424242;
+  border-radius: 3px; }
+.row.thumb_up .addeventatc, .row.tip .addeventatc, .row.link .addeventatc, .row.warning .addeventatc, .row.recommendation .addeventatc, .row.activities .addeventatc, .row.info .addeventatc, .row.contact_phone .addeventatc, .row.check .addeventatc, .row.steps_block .addeventatc, .content_block .addeventatc {
+  visibility: hidden;
+  animation: show 3000ms 1; }
+.row.thumb_up #atc, .row.tip #atc, .row.link #atc, .row.warning #atc, .row.recommendation #atc, .row.activities #atc, .row.info #atc, .row.contact_phone #atc, .row.check #atc, .row.steps_block #atc, .content_block #atc {
+  padding: 2rem 0; }
+.row.thumb_up .platforms, .row.tip .platforms, .row.link .platforms, .row.warning .platforms, .row.recommendation .platforms, .row.activities .platforms, .row.info .platforms, .row.contact_phone .platforms, .row.check .platforms, .row.steps_block .platforms, .content_block .platforms {
+  padding: 1rem; }
+  .row.thumb_up .platforms li, .row.tip .platforms li, .row.link .platforms li, .row.warning .platforms li, .row.recommendation .platforms li, .row.activities .platforms li, .row.info .platforms li, .row.contact_phone .platforms li, .row.check .platforms li, .row.steps_block .platforms li, .content_block .platforms li {
+    display: inline-block;
+    padding: 0 1rem; }
 
 h1.print {
   font-size: 2.92rem; }
@@ -13361,32 +13536,49 @@ h2.print {
 h3.print {
   font-size: 1rem; }
 
+.available_platforms {
+  padding: 1rem 0; }
+  .available_platforms ul li {
+    display: inline-block;
+    padding-right: 1rem; }
+    .available_platforms ul li a {
+      text-decoration: none;
+      color: black; }
+      .available_platforms ul li a .mdi {
+        background: #FFCDD2;
+        margin-right: .5rem;
+        padding: 5px;
+        border-radius: 50%; }
+      .available_platforms ul li a:hover .mdi, .available_platforms ul li a:focus .mdi {
+        background: #ffff00; }
+
 ol.steps {
   list-style: none;
   counter-reset: steps-counter;
-  padding-left: 0rem; }
+  padding: 0; }
   ol.steps li {
     counter-increment: steps-counter;
     position: relative;
-    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.15rem;
     padding: 0rem 0 1rem 2rem; }
     @media only screen and (min-width: 993px) {
       ol.steps li {
         font-size: 1.25rem;
-        padding: 0rem 0 2rem 4rem; } }
+        padding: 1rem 0 1rem 4rem; } }
     ol.steps li p {
       display: inline-block; }
   ol.steps li::before {
     content: counter(steps-counter) " ";
-    color: #8e24aa;
     position: absolute;
     left: 0;
     font-weight: bold;
     font-size: 1rem;
     width: 20px;
     height: 20px;
-    background: #f5f5f5;
-    margin: 0 1rem 1rem 0;
+    background: #fafafa;
+    margin: 0 1rem 0 0;
     text-align: center;
     border-radius: 50%; }
     @media only screen and (min-width: 993px) {
@@ -13396,6 +13588,41 @@ ol.steps {
         width: 50px;
         height: 50px;
         justify-content: center; } }
+
+.covid-19 .info.note-content .note_unordered {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 1rem;
+  padding: 1rem 0 0 0; }
+  @media only screen and (min-width: 601px) {
+    .covid-19 .info.note-content .note_unordered {
+      grid-template-columns: repeat(2, 1fr); } }
+  @media only screen and (min-width: 993px) {
+    .covid-19 .info.note-content .note_unordered {
+      grid-template-columns: repeat(3, 1fr); } }
+  @supports not (display: grid) {
+    .covid-19 .info.note-content .note_unordered li {
+      padding: .5rem;
+      display: inline-block; }
+      .covid-19 .info.note-content .note_unordered li a {
+        width: inherit; } }
+  .covid-19 .info.note-content .note_unordered li a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 3px;
+    background: #263238;
+    color: white;
+    border-bottom: 5px solid #FFCDD2;
+    font-weight: 300;
+    font-size: 1.15rem;
+    transition: border-color .25s; }
+    .covid-19 .info.note-content .note_unordered li a:hover, .covid-19 .info.note-content .note_unordered li a:focus {
+      border-bottom: 5px solid #ffff00; }
+  .covid-19 .info.note-content .note_unordered li i {
+    display: none; }
 
 .markers {
   background: #F44336; }
@@ -13468,12 +13695,6 @@ figure.card {
   figure.card figcaption {
     padding: .5rem; }
 
-#toc, #guide-contents {
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
-  #toc .toc-h3, #guide-contents .toc-h3 {
-    padding-left: 1rem; }
-
 #toc li.label {
   padding-bottom: 1rem;
   font-size: 1.25rem;
@@ -13481,8 +13702,6 @@ figure.card {
 
 #guide-contents li {
   padding-left: 0.5rem; }
-  #guide-contents li.parent span.active-page:after {
-    content: ' (Introduction)'; }
   #guide-contents li.label {
     padding-bottom: 1rem;
     font-size: 1.25rem;
@@ -13504,31 +13723,18 @@ figure.card {
     font-weight: 300;
     display: inline-block;
     text-decoration: none;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     border-radius: 3px; }
 
-#page-nav a.left {
-  position: fixed;
-  left: 0;
-  bottom: calc(50% - 118px); }
-  #page-nav a.left:hover:before, #page-nav a.left:focus:before {
-    content: attr(data-title);
-    background: #333;
-    color: white;
-    padding: 0 5px;
-    font-size: 1rem;
-    font-weight: 300;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 2rem;
-    border-radius: 3px; }
-    @media only screen and (max-width: 600px) {
-      #page-nav a.left:hover:before, #page-nav a.left:focus:before {
-        content: '';
-        background: transparent; } }
-
-.no-print {
-  margin-bottom: 2rem; }
+#page-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 4rem;
+  margin-top: 3rem; }
+  #page-nav a.prev-page {
+    text-align: left; }
+  #page-nav a.next-page {
+    text-align: right; }
 
 .page-template-page-resources #maincontent ul {
   padding-left: 2rem;
@@ -13641,8 +13847,33 @@ COMMENT STYLES
     display: none; } }
 
 #suggestion-trigger {
-  padding: 1rem 1rem 2rem 1rem;
-  margin: 5rem 0; }
+  padding: 2rem;
+  width: 90%;
+  margin: 2rem 5%; }
+  @media only screen and (max-width: 600px) {
+    #suggestion-trigger {
+      background: #f5f5f5; } }
+  #suggestion-trigger h2 {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center; }
+  #suggestion-trigger i {
+    background: #ea454b;
+    color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%; }
+    @media only screen and (max-width: 600px) {
+      #suggestion-trigger i {
+        display: none; } }
+
+details#suggestion-trigger[open] summary i {
+  transition: 350ms;
+  background: #66BB6A; }
+
+summary, details {
+  transition: 350ms; }
 
 /*********************
 COMMENT FORM STYLES
@@ -13664,7 +13895,7 @@ COMMENT FORM STYLES
     .respond-form form input[type=url],
     .respond-form form textarea {
       padding: 3px 6px;
-      background: #efefef;
+      background: #fff;
       border: 2px solid #cecece;
       line-height: 1.5em; }
       .respond-form form input[type=text]:focus,
@@ -13708,7 +13939,7 @@ li.comment {
   border-radius: 3px; }
 
 div#respond {
-  padding: 4rem; }
+  padding: 2rem 4rem; }
   div#respond .acf-fields {
     display: none; }
 
@@ -13723,7 +13954,8 @@ textarea#comment {
   padding: 1em;
   border-radius: 4px;
   border: 2px solid whitesmoke;
-  width: calc(100% - 2em); }
+  width: calc(100% - 2em);
+  background: white; }
 
 textarea#comment:focus {
   outline-color: #144a45; }

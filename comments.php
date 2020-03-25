@@ -4,26 +4,27 @@
 	}
 ?>
 
-<div id="suggestion-trigger" class="col s12 grey lighten-3 center no-print">
-<p>
-	Do you have any suggestions to improve this resource?
-</p>
-<button data-target="suggestion" class="btn grey darken-4 waves-effect waves-light modal-trigger">Send us your thoughts</button>
-</div>
-	<!-- Modal Structure -->
-   <div id="suggestion" class="modal bottom-sheet no-print">
-     <div class="modal-content">
-			 <a href="#" class="modal-close waves-effect waves-light btn-flat grey lighten-2">Close</a>
+<aside>
+<details id="suggestion-trigger" class="col s12 center no-print">
+<summary><h2 class="h6"><i class="material-icons left">feedback</i>
+Click here if you have any suggestions to improve this resource?</h2>
+</summary>
 
-       	<?php comment_form(array('class_submit'=>'btn', 'title_reply' => __( '<h5>How can we improve this resource?</h5>' ), 'label_submit'      => __( 'Post Your Suggestion' ), 'cancel_reply_before' => __( '<span class="waves-effect waves-light">' ), 'cancel_reply_after' => __( '</span>' ), 'comment_field' => '<p class="comment-form-comment"><label class="screen-reader-text" for="comment">' . _x( 'Leave Your Suggestion Here', 'noun' ) . '</label><textarea id="comment" placeholder="Leave Your Suggestion Here..." class="textarea" name="comment" cols="45" rows="4" aria-required="true"></textarea></p>',  'comment_notes_before' => '<p class="gdpr-notice yellow comment-notes"><span class="block title">Privacy Notice</span>' .
+
+	<!-- Modal Structure -->
+
+     <div class="moal-content">
+
+
+       	<?php comment_form(array('class_submit'=>'btn-flat purple darken-1 thin white-text', 'title_reply' => __( '' ), 'label_submit'      => __( 'Post Your Suggestion' ), 'cancel_reply_before' => __( '<span class="waves-effect waves-light">' ), 'cancel_reply_after' => __( '</span>' ), 'comment_field' => '<p class="comment-form-comment"><label class="screen-reader-text" for="comment">' . _x( 'Leave Your Suggestion Here', 'noun' ) . '</label><textarea id="comment" placeholder="Leave Your Suggestion Here..." class="textarea" name="comment" cols="45" rows="4" aria-required="true"></textarea></p>',  'comment_notes_before' => '<p class="gdpr-notice yellow comment-notes"><span class="block title">Privacy Notice</span>' .
     __( 'You do not need to include your email address to submit a suggestion. However, if you do, OCN may contact you regarding this submission. We will not use your email for any other purposes.' ) . ( $req ? $required_text : '' ) .
     '</p>',)); ?>
      </div>
 
 
 
-   </div>
-
+   </details>
+</aside>
 	<?php // You can start editing here ?>
 
 	<?php if ( have_comments() ) : ?>

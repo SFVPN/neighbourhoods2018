@@ -41,6 +41,14 @@ require_once(get_template_directory().'/assets/translation/translation.php');
 // Use this as a template for custom post types
 require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
+require_once(get_template_directory() . '/assets/functions/organisations-cpt.php');
+
+require_once(get_template_directory() . '/assets/functions/contacts-cpt.php');
+
+require_once(get_template_directory() . '/assets/functions/activities-cpt.php');
+
+require_once(get_template_directory() . '/assets/functions/pathway-cpt.php');
+
 // Customize the WordPress login menu
 require_once(get_template_directory().'/assets/functions/login.php');
 
@@ -48,6 +56,8 @@ require_once(get_template_directory().'/assets/functions/login.php');
 require_once(get_template_directory().'/assets/functions/admin.php');
 
 require_once(get_template_directory().'/assets/functions/rss.php');
+
+require_once(get_template_directory().'/assets/functions/components.php');
 
 function gioga_add_async_defer_attribute($tag, $handle) {
 	if ( 'maps-js' !== $handle )
@@ -217,14 +227,93 @@ function svpn_audits_vars() {
 add_action( "wp_enqueue_scripts", "svpn_audits_vars" );
 
 
-function my_taxonomy_wp_list_categories( $args, $field ) {
-    // modify args
-    $args['orderby'] = 'count';
-    $args['order'] = 'ASC';
-    $args['include'] = '21, 25, 44, 45, 31, 32'; // list of terms to include
-		$choices = $args['include'];
-    // return
-    return $args;
+// function my_taxonomy_wp_list_categories( $args, $field ) {
+//     // modify args
+//     $args['orderby'] = 'count';
+//     $args['order'] = 'ASC';
+//     $args['include'] = '21, 25, 44, 45, 31, 32'; // list of terms to include
+// 		$choices = $args['include'];
+//     // return
+//     return $args;
+//
+// }
+// add_filter('acf/fields/taxonomy/wp_list_categories/key=field_5e4ad49949cbe', 'my_taxonomy_wp_list_categories', 10, 2);
+
+function organisation_post_order( $query ) {
+    if ( $query->is_post_type_archive('organisations') && $query->is_main_query() ) {
+    $query->set( 'orderby', 'title' );
+    $query->set( 'order', 'ASC' );
+    }
+}
+add_action( 'pre_get_posts', 'organisation_post_order' );
+
+
+function add_acf_sub_form() {
+	global $post;
+	$subs = get_field('allow_submission');
+	$postType = get_field('post_type_add');
+
+	if($postType) {
+
+
+		// check if the repeater field has rows of data
+if( have_rows('group_field') ):
+ $fields = array();
+ 	// loop through the rows of data
+    while ( have_rows('group_field') ) : the_row();
+
+        // display a sub field value
+        $fields[] = get_sub_field('number_field');
+
+    endwhile;
+
+else :
+
+    // no rows found
+
+endif;
+
+if($postType['value'] == 'pathway') {
+	acf_form(array(
+
+			'post_id'       => 'new_post',
+			'field_groups' => $fields,
+			'new_post'      => array(
+					'post_type'     => $postType['value'],
+					'post_status'   => 'publish',
+					'post_title' => time()
+			),
+			'return' => '%post_url%',
+			'submit_value'  => 'Create new ' . $postType['label']
+	));
+
+	} else {
+		acf_form(array(
+
+				'post_title' => true,
+        'post_id'       => 'new_post',
+				'field_groups' => $fields,
+        'new_post'      => array(
+            'post_type'     => $postType['value'],
+            'post_status'   => 'publish'
+        ),
+				'updated_message' => __("Thanks for submitting  your <span>" . $postType['label'] . "</span>. We will be in touch shortly once it has been published to the site." , 'acf'),
+        'submit_value'  => 'Create new ' . $postType['label']
+    ));
+	}
+
+
+	}
 
 }
-add_filter('acf/fields/taxonomy/wp_list_categories/key=field_5e4ad49949cbe', 'my_taxonomy_wp_list_categories', 10, 2);
+
+// Modify ACF Form Label for Post Title Field
+function wd_post_title_acf_name( $field ) {
+    $postType = get_field('post_type_add');
+
+		$field['label'] = $postType['label'] . ' Name';
+
+    return $field;
+}
+
+add_filter('acf/load_field/name=_post_title', 'wd_post_title_acf_name');

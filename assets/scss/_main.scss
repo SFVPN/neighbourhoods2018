@@ -152,11 +152,14 @@ LINK STYLES
 
 a, a:visited {
 
-	// Mobile tap color
 	&:link {
 		//Highlight links on iOS, Similar to :hover for mobile devices.
 		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
 	}
+}
+
+a:visited {
+  color: color("purple", "darken-1");
 }
 
 #share-links {
@@ -325,7 +328,6 @@ i.mdi.mdi-menu {
 
 
 details {
-  border: 1px solid color("grey", "lighten-1");
   border-radius: 3px;
   font-weight: 600;
   width: 100%;
@@ -377,8 +379,42 @@ details {
   }
 }
 
+.terms-list, .terms-child-list {
+  padding: 2rem;
+  ol {
+    list-style-position: inside;
+    padding-left: 0;
+    columns: 2;
+  }
+  ul {
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+  }
+  li a {
+    display: block;
+    padding: 2rem;
+    margin-bottom: 1rem;
+    border: 1px solid #777;
+    border-radius: 3px;
+    text-decoration: none;
+  }
+  .term-description {
+    color:#212121;
+    line-height: 1.25;
+    padding: .5rem 0;
+  }
+  .count {
+    color: #888;
+  }
+}
+
 .control.btns {
-  padding: 0rem 2rem 2rem 2rem;
+  li {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  }
   a:not(:first-of-type) {
     margin-right: .25rem;
   }
@@ -389,7 +425,6 @@ details {
     background-color: $chip-bg-hover;
   }
   }
-
 }
 
 a {transition: 250ms;}
@@ -1795,15 +1830,70 @@ a.current.chip {
  }
 }
 
-.single-resources .article-header {
+.single-resources .article-header, .single-organisations .article-header, .single-activities .article-header, .single-post .article-header {
   padding-bottom: 3rem;
   @media #{$small-and-down} {
     padding: 0;
   }
 }
 
+.single-resources article.support-pathway {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  @media #{$small-and-down} {
+    grid-template-columns: 1fr;
+  }
+  grid-gap: 0 4rem;
+  width: 90%;
+  margin-left: 5%;
+
+}
+
+.single-resources .article-header {
+  grid-column: 1 / -1;
+}
+
+
+
+#guide-contents, #toc {
+	padding-bottom: 1rem;
+	padding-top: 1rem;
+	padding-right: 1rem;
+	border-radius: 3px;
+}
+
+#guide-contents {
+	background: color("grey", "lighten-5");
+}
+
+#toc {
+	margin-bottom: 2rem;
+  li {
+  	font-size: 1rem;
+  }
+}
+
+.active-page:after {
+  content: ' \2605';
+}
+
+.page-actions {
+	padding: 0 1rem 1rem 1rem;
+  .btn-flat {
+  	background: #212121;
+  	color: white;
+  	width: 100%;
+  	padding: 0 2.5rem;
+  }
+}
+
+.guide-wrapper {
+	background: color("grey", "lighten-3");
+	position: sticky;
+	top: 8rem;
+}
+
 .resources-meta {
-  margin-bottom: 2rem;
   .mdi-information {
     padding-right: .75rem;
   }
@@ -1819,6 +1909,7 @@ a.current.chip {
 .index-wrapper {
   margin-bottom: 3rem;
   width: 100%;
+  grid-column: 1 / -1;
   @media #{$small-and-down} {
     width: 90%;
     margin:2rem 5%;
@@ -1828,24 +1919,18 @@ a.current.chip {
 .guide-wrapper {
   width: 100%;
   @media #{$small-and-down} {
-    width: 90%;
-    margin:2rem 5%;
+    margin:2rem 0;
   }
 }
 
 .single-resources .entry-content ul {
     padding-left: 2rem;
-    font-size: 1.25rem;
 }
 
 .single-resources .platforms ul {
     padding-left: 0rem;
 }
 
-
-.single-resources .entry-content ul li {
-    list-style-type: disc;
-}
 
 .single-resources h2 {
   text-decoration: underline;
@@ -1923,41 +2008,187 @@ a.current.chip {
   }
 }
 
+/* Activities Archives */
+
+.activities-content {
+    padding: .5rem 0;
+    .schedule-content {
+      border-top: 1px solid rgba(160,160,160,.2);
+    }
+}
+
+.activity-chip {
+  display: inline-block;
+  height: 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(0,0,0,.85);
+  line-height: 24px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: cyan;
+  margin: 1rem 1rem 1rem 0;
+
+}
+
+.contact-archive {
+  padding-bottom: 1rem;
+  ul {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-gap: 0 2rem;
+    li:first-child {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
+
 #contact-box {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem 1rem 2rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  padding: 1rem;
   border-radius: 3px;
-  grid-gap: 1rem;
+  border: 1px solid color("grey", "darken-2");
+  margin-top: 2rem;
   h2 {
-    grid-column: 1 / -1;
     font-size: 1.64rem;
     text-decoration: none;
   }
   .contact-title {
     font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 2;
+    font-size: $h5-fontsize;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
   }
-  i {
-    line-height: 1.5;
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0; // this provides padding on fallback to browsers that don't support grid
   }
+  ul.contact {
+    margin: 0;
+    padding: 0;
+  }
+  img {
+    border-radius: 3px;
+  }
+
   .profile-link {
     background: color('purple', 'darken-2');
     margin-top: 2rem;
   }
 }
 
-.row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
+.info.note-content {
+  padding: 2rem;
   margin: 1rem 0;
-  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  .note-title {
+    font-size:1.25rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    @media #{$small-and-down} {
+      font-size: 1.15rem;
+      text-transform: none;
+      justify-content: center;
+    }
+  }
+  .note-intro {
+  font-size: 1.25rem;
+  padding-top: 1rem;
+  }
+   p, li {
+    font-size:1.25rem;
+    line-height: 1.5;
+  }
+  ol li {
+    padding-left: .5rem;
+
+  }
+  ul.note_unordered {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    li {
+      list-style-type: none;
+    }
+    li a {
+      display: inline-block;
+      padding: 0 1rem;
+    }
+  }
+  @media #{$small-and-down} {
+    padding: 1rem;
+  }
+
+  .mdi {
+    background: white;
+    padding: .5rem;
+    border-radius: 50%;
+    margin-right: .5rem;
+  }
+  span.block {
+    padding: 0.5rem 0;
+  }
+  .product img {
+    width: 30px;
+    margin-right: 1rem;
+  }
+  .product_link {
+    font-size: 1.25rem;
+    padding: 1rem 0;
+    transition: 350ms;
+    position: relative;
+    &:hover:after, &:focus:after {
+      content: attr(data-note);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #333;
+      color: white;
+      font-weight: 300;
+      font-size: 1rem;
+      padding: 0 5px;
+      display: inline-block;
+      border-radius: 3px;
+      transition: 350ms;
+    }
+  }
+  a {
+      font-weight: 600;
+      &:hover, &:focus {
+        color: $hover-color;
+      }
+
+  }
+  a.chip {
+    padding-top: 0rem;
+  }
+}
+
+
+.row.thumb_up, .row.tip, .row.link, .row.warning, .row.recommendation, .row.activities, .row.info, .row.contact_phone, .row.check, .row.steps_block, .content_block {
+
   .note-heading {
     padding: 0.5rem 1rem;
     border-radius: 3px 3px 0 0;
   }
   .note-content {
     padding: 1rem;
-    border-radius: 0 0 3px 3px;
+    border-radius: 3px;
+    border: 3px solid;
+    .note-title {
+    	font-size:1.25rem;
+    }
+     p {
+    	line-height: 1.5;
+    }
     @media #{$small-and-down} {
     	padding: .5rem;
     }
@@ -2041,18 +2272,43 @@ h3.print {
   font-size: $h6-fontsize;
 }
 
+.available_platforms {
+  padding: 1rem 0;
+  ul li {
+    display: inline-block;
+    padding-right: 1rem;
+    a {
+      text-decoration: none;
+      color:black;
+      .mdi {
+          background: color("red", "lighten-4");
+          margin-right: .5rem;
+          padding: 5px;
+          border-radius: 50%;
+        }
+        &:hover, &:focus {
+          .mdi {
+            background: color("yellow", "accent-2");
+          }
+        }
+    }
+  }
+}
+
 ol.steps {
   list-style: none;
   counter-reset: steps-counter;
-  padding-left: 0rem;
+  padding: 0;
 li {
   counter-increment: steps-counter;
   position: relative;
+  display: flex;
+  align-items: center;
   @media #{$large-and-up} {
     font-size: 1.25rem;
-    padding: 0rem 0 2rem 4rem;
+    padding: 1rem 0 1rem 4rem;
   }
-  font-size: 1rem;
+  font-size: 1.15rem;
   padding: 0rem 0 1rem 2rem;
   p {
     display: inline-block;
@@ -2060,7 +2316,6 @@ li {
 }
 li::before {
   content: counter(steps-counter) " ";
-  color: color("purple", "darken-1");
   position: absolute;
   left: 0;
   font-weight: bold;
@@ -2074,12 +2329,57 @@ li::before {
   font-size: 1rem;
   width: 20px;
   height: 20px;
-  background: color("grey", "lighten-4");
-  margin: 0 1rem 1rem 0;
+  background: color("grey", "lighten-5");
+  margin: 0 1rem 0 0;
   text-align: center;
   border-radius: 50%;
 }
 }
+
+.covid-19 .info.note-content .note_unordered {
+  display: grid;
+  @media #{$medium-and-up} {
+  grid-template-columns: repeat(2, 1fr);
+  }
+  @media #{$large-and-up} {
+  grid-template-columns: repeat(3, 1fr);
+  }
+
+  grid-template-columns: auto;
+  grid-gap: 1rem;
+  @supports not (display: grid) {
+    li {
+      padding: .5rem;
+      display: inline-block;
+      a {
+        width: inherit;
+      }
+    }
+  }
+  padding: 1rem 0 0 0;
+  li a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 3px;
+    background: color("blue-grey", "darken-4");
+    color: white;
+    border-bottom: 5px solid color("red", "lighten-4");
+    font-weight: 300;
+    font-size: 1.15rem;
+    transition: border-color .25s;
+    &:hover, &:focus {
+      border-bottom: 5px solid color("yellow", "accent-2");
+    }
+  }
+  li i {
+    display: none;
+  }
+}
+
+
 
 .markers {
   background: color("red", "base");
@@ -2168,13 +2468,6 @@ figure.card {
   }
 }
 
-#toc, #guide-contents {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  .toc-h3 {
-    padding-left: 1rem;
-  }
-}
 
 #toc li {
     &.label {
@@ -2187,9 +2480,7 @@ figure.card {
 #guide-contents {
   li {
     padding-left: 0.5rem;
-    &.parent span.active-page:after {
-      content: ' (Introduction)';
-    }
+
     &.label {
       padding-bottom: 1rem;
       font-size: 1.25rem;
@@ -2217,35 +2508,22 @@ figure.card {
     font-weight: 300;
     display: inline-block;
     text-decoration: none;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     border-radius: 3px;
   }
 }
 
-#page-nav a.left {
-  position: fixed;
-  left: 0;
-  bottom: calc(50% - 118px);
-  &:hover:before, &:focus:before {
-    content: attr(data-title);
-    background: #333;
-    color: white;
-    padding: 0 5px;
-    font-size: 1rem;
-    font-weight: 300;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 2rem;
-    border-radius: 3px;
-    @media #{$small-and-down} {
-    	content: '';
-      background: transparent;
-    }
+#page-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0 4rem;
+  margin-top: 3rem;
+  a.prev-page {
+    text-align: left;
   }
-}
-
-.no-print {
-  margin-bottom: 2rem;
+  a.next-page {
+    text-align: right;
+  }
 }
 
 .page-template-page-resources #maincontent ul {
@@ -2499,8 +2777,37 @@ COMMENT STYLES
 } // end .commentlist
 
 #suggestion-trigger {
-  padding: 1rem 1rem 2rem 1rem;
-  margin: 5rem 0;
+  padding: 2rem;
+  width: 90%;
+  margin: 2rem 5%;
+  @media #{$small-and-down} {
+    background: color("grey", "lighten-4");
+  }
+  h2 {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+  }
+  i {
+    background: color("materialize-red", "lighten-1");
+    color: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    @media #{$small-and-down} {
+      display: none;
+    }
+  }
+}
+
+details#suggestion-trigger[open] summary i {
+  transition: 350ms;
+  background: color("green", "lighten-1");
+}
+
+summary, details {
+  transition: 350ms;
 }
 /*********************
 COMMENT FORM STYLES
@@ -2528,9 +2835,10 @@ COMMENT FORM STYLES
 		input[type=url],
 		textarea {
 			padding: 3px 6px;
-			background: #efefef;
+			background: #fff;
 			border: 2px solid #cecece;
 			line-height: 1.5em;
+
 
 			&:focus {
 				background: #fff;
@@ -2584,7 +2892,7 @@ li.comment {
 }
 
 div#respond {
-  padding: 4rem;
+  padding: 2rem 4rem;
   .acf-fields {
     display: none;
 }
@@ -2603,6 +2911,7 @@ textarea#comment {
   border-radius: 4px;
   border: 2px solid whitesmoke;
   width: calc(100% - 2em);
+  background: white;
 }
 
 textarea#comment:focus {

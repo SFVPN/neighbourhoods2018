@@ -13,8 +13,6 @@
 
 			<div class="container">
 
-				<?php archive_terms('category', 'post', 'Filter News');?>
-
 				<ul class="collection">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

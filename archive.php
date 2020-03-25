@@ -15,11 +15,11 @@
 			<div >
 
 
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<?php if (have_posts()) : while (have_posts()) : the_post();
 
-				<?php get_template_part( 'parts/loop', 'activities' ); ?>
+				get_template_part( 'parts/loop', get_post_type() );
 
-				<?php endwhile; ?>
+				endwhile; ?>
 
 				<?php joints_page_navi(); ?>
 

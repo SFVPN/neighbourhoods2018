@@ -1,0 +1,69 @@
+{
+    "key": "group_5e4e60e5e882b",
+    "title": "Description",
+    "fields": [
+        {
+            "key": "field_5e4e60f64e4ff",
+            "label": "Introduction",
+            "name": "introduction",
+            "type": "textarea",
+            "instructions": "Use this text area to give a snapshot of your entry. It is restricted to 300 characters in length.  Use the <strong>Optional Description<\/strong> field below for more in depth information.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 300,
+            "rows": 4,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5e4e61194e500",
+            "label": "Optional Information",
+            "name": "optional_description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "organisations"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "activities"
+            }
+        ]
+    ],
+    "menu_order": 4,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1583252042
+}

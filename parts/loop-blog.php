@@ -38,7 +38,7 @@ if(is_tax()) {
     </p>
     <?php if ( ! empty( $post_terms ) ) {
         foreach ($post_terms as $term) {?>
-          <span class="chip grey darken-3 white-text" aria-label="This content is categorized as <?php echo esc_html( $term->name );?>"><?php echo esc_html( $term->name );?></span>
+          <span class="activity-chip" aria-label="This content is categorized as <?php echo esc_html( $term->name );?>"><?php echo esc_html( $term->name );?></span>
       <?php  }
       ?>
     <?php }?>

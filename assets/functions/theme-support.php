@@ -55,13 +55,86 @@ function remove_plugin_image_sizes() {
 <?php }
 }
 
+function terms_list($taxonomy, $term) {
+	//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
+
+	$args = array(
+		'post_type' => 'resources',
+		'numberposts' => -1,
+		'post_parent' => 0,
+		'orderby' => 'title',
+		'order' => 'ASC',
+    'tax_query' => array(
+        array(
+            'taxonomy' => $taxonomy,
+            'field'    => 'slug',
+            'terms'    => $term
+        )
+    )
+);
+$resources = get_posts( $args );
+
+$term_object = get_term_by('slug', $term, $taxonomy);
+$icon = get_field('material_icon_code', 'resources_category_' . $term_object->term_id);
+$desc = get_field('full_description', 'resources_category_' . $term_object->term_id);
+
+	?>
+
+
+<div class="terms-list">
+
+		<h2 class="h4"><?php echo $term_object->name;?></h2>
+		<?php echo $desc;?>
+		<ul>
+		<?php foreach($resources as $resource) {
+
+
+			echo '<li>
+			<a href="' . get_the_permalink($resource->ID) . '" class="control">' . $resource->post_title . '</a>
+			</li>';
+
+	}?>
+
+</ul>
+</div>
+<?php }
+
+function terms_child_list($taxonomy, $term) {
+	$term_object = get_term_by('slug', $term, $taxonomy);
+	$icon = get_field('material_icon_code', 'resources_category_' . $term_object->term_id);
+	$desc = get_field('full_description', 'resources_category_' . $term_object->term_id);
+	$terms = get_terms(array(
+			'taxonomy' => $taxonomy,
+			'hide_empty' => true,
+			'parent' => $term_object->term_id
+	) );
+
+	?>
+	<div class="terms-child-list">
+		<h2 class="h4"><?php echo $term_object->name;?></h2>
+		<?php echo $desc;?>
+		<ul>
+		<?php foreach($terms as $term) {
+
+
+			echo '<li>
+			<a href="' . get_term_link($term->term_id) . '" class="control">' . $term->name . '<span class="block term-description">' . $term->description . '</span><span class="count">Number of Resources - ' . $term->count . '</span></a>
+			</li>';
+
+	}?>
+
+</ul>
+</div>
+	<?php
+}
+
 	function archive_terms($taxonomy, $post_type, $title) {
 		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
 		$queried_object = get_queried_object();
 		$terms = get_terms(array(
         'taxonomy' => $taxonomy,
 				'hide_empty' => false,
-        'parent' => $queried_object->term_id
+        'parent' => 0
     ) );
 		$archive = get_post_type_archive_link( $post_type );
 		$obj = get_post_type_object( $post_type );
@@ -232,18 +305,21 @@ function my_add_excerpts_to_pages() {
 
 
 
-function searchfilter($query) {
-    if ($query->is_search && !is_admin() ) {
-        if(isset($_GET['post_type'])) {
-            $type = $_GET['post_type'];
-                if($type == 'resources') {
-                    $query->set('post_type',array('resources'));
-                }
-        }
-    }
-return $query;
-}
-add_filter('pre_get_posts','searchfilter');
+// function searchfilter($query) {
+//     if ($query->is_search && !is_admin() ) {
+//       //  if(isset($_GET['post_type'])) {
+//             $type = $_GET['post_type'];
+//                 // if($type == 'resources') {
+//                 //     $query->set('post_type',array('resources'));
+//                 // }
+// 							//	if($type == 'organisations') {
+//                     $query->set('post_type',array('organisations'));
+//               //  }
+//     //    }
+//     }
+// return $query;
+// }
+// add_filter('pre_get_posts','searchfilter');
 
 add_action( 'pre_get_posts', function ( $query ) {
     if ( is_tax('resources_category') && $query->is_main_query() ) {
@@ -251,17 +327,90 @@ add_action( 'pre_get_posts', function ( $query ) {
         $query->set( 'order', 'ASC' );
     }
 } );
-// limits search to locations custom post type
-//
-// function searchfilter($query) {
-//
-//     if ($query->is_search && !is_admin() ) {
-//         $query->set('post_type',array('locations'));
-//     }
-//
-// return $query;
-// }
-//
-// add_filter('pre_get_posts','searchfilter');
-//
+
+function resources_page_nav() {
+
+	echo '<nav id="page-nav" class="col s12 no-pad">';
+	$queried_object = get_queried_object();
+	$ID = $queried_object->ID;
+	$parent_ID = wp_get_post_parent_id( $ID );
+	$pages = array();
+	$next;
+	$prev;
+	if ($parent_ID === 0 ) {
+
+		$pages = array($ID);
+		$args = array(
+			'post_parent' => $ID,
+			'post_type'   => 'resources',
+			'numberposts' => -1,
+			'orderby'     => 'menu_order',
+	    'order'       => 'ASC'
+		);
+		$children = get_children( $args );
+
+
+	if($children) {
+		foreach ($children as $child) {
+			$pages[] += $child->ID;
+		}
+	}
+
+		$current = array_search($ID, $pages);
+
+			$next = $pages[$current+1]; // returns previous element's key: 34
+			$prev = $pages[$current-1]; // returns previous element's key: 34
+
+
+
+		if($prev) {
+				echo '<a class="prev-page" data-title="Previous page - ' . get_the_title($prev) . '" href="' . get_permalink( $prev ) . '"><i class="material-icons left">chevron_left</i>Previous page - ' . get_the_title($prev) . '</a>';
+			} else {
+				echo '<span></span>';
+			}
+
+		if($next) {
+			echo '<a class="next-page" data-title="Next page - ' . get_the_title($next) . '" href="' . get_permalink( $next ) . '"><i class="material-icons right">chevron_right</i>Next page - ' . get_the_title($next) . '</a>';
+		} else {
+			echo '<span></span>';
+		}
+
+		//print_R($pages);
+	} else {
+		$pages = array($parent_ID);
+		$args = array(
+			'post_parent' => $parent_ID,
+			'post_type'   => 'resources',
+			'numberposts' => -1,
+			'orderby'     => 'menu_order',
+	    'order'       => 'ASC'
+		);
+		$children = get_children( $args );
+
+	if($children) {
+		foreach ($children as $child) {
+			$pages[] += $child->ID;
+		}
+	}
+		$current = array_search($ID, $pages);
+		$next = $pages[$current+1]; // returns previous element's key: 34
+		$prev = $pages[$current-1]; // returns previous element's key: 34
+		//echo 'Previous page id is ' . $prev . ' and next page id is ' . $next;
+		if($prev) {
+				echo '<a class="prev-page" data-title="Previous page - ' . get_the_title($prev) . '" href="' . get_permalink( $prev ) . '"><i class="material-icons left">chevron_left</i>Previous page - ' . get_the_title($prev) . '</a>';
+		} else {
+			echo '<span></span>';
+		}
+
+		if($next) {
+			echo '<a class="next-page" data-title="Next page - ' . get_the_title($next) . '" href="' . get_permalink( $next ) . '"><i class="material-icons right">chevron_right</i>Next page - ' . get_the_title($next) . '</a>';
+		} else {
+			echo '<span></span>';
+		}
+
+	}
+	echo '</nav>';
+}
+
+
 }

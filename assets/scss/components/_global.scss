@@ -116,9 +116,9 @@ ul {
 //  Blockquote
 
 blockquote {
-  margin: 20px 0;
+  margin: 3rem 0;
   padding-left: 1.5rem;
-  border-left: 5px solid color('materialize-red', 'lighten-2');
+  border-left: 10px solid color('materialize-red', 'lighten-2');
 }
 
 // Icon Styles
@@ -528,7 +528,7 @@ td, th{
       object-fit: cover;
       margin-bottom: 1rem;
     }
-    
+
     // Avatar Collection
     &.avatar {
       min-height: 84px;

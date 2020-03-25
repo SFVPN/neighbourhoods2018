@@ -5,16 +5,18 @@
 ?>
 <article id="post-<?php the_ID(); ?>" class="<?php echo $post->post_name;?>" role="article" itemscope itemtype="http://schema.org/WebPage">
 	<header class="article-header col s12 center">
-		<h1 id="pathway-report" class="resource-title h2" itemprop="headline">The Stirling Pathway</h1>
+		<h1 class="resource-title h2" itemprop="headline"><?php the_title();?></h1>
 	</header> <!-- end article header -->
+
 <style>
 
 .article-header {
-
+	display: none;
 }
 
 #acf-form {
-	width: 100%;
+	width: 70%;
+	margin-left: 15%;
 }
 
 form#acf-form .acf-field .acf-label {
@@ -41,11 +43,53 @@ form#acf-form .acf-field .acf-label {
 }
 
 
-h3.h6 {
-	font-size: 1rem;
-margin: .5rem 0 1.5rem 0;
+.acf-checkbox-list.acf-hl {
+  display: grid;
+  grid-template-columns: 1fr;
+	grid-gap: 1rem;
 }
 
+
+.acf-checkbox-list.acf-hl li label.selected {
+  background: cyan;
+}
+
+.acf-hl::before, .acf-hl::after, .acf-bl::before, .acf-bl::after, .acf-cf::before, .acf-cf::after {
+    content: "";
+    display: none;
+    line-height: 0;
+}
+
+
+.categorychecklist-holder input + span {
+  background: cyan;
+  margin: 1rem 0;
+  padding: .75rem 1rem;
+}
+
+
+.categorychecklist-holder input:checked + span {
+  background: tomato;
+  margin: 1rem 0;
+  padding: .75rem 1rem;
+}
+
+.acf-taxonomy-field .acf-checkbox-list ul.children {
+    padding-left: 0px;
+}
+
+form#acf-form [type="checkbox"] + span::before { display: none; }
+
+form#acf-form [type="checkbox"] + span {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    height: auto;
+    line-height: auto;
+		padding: 1rem;
+		color: black;
+		text-transform: uppercase;
+}
 
 .acf-taxonomy-field .categorychecklist-holder {
     max-height: 100%;
@@ -60,21 +104,21 @@ body {
   counter-reset: my-sec-counter;
 }
 
+h2::before {
+  /* Increment "my-sec-counter" by 1 */
 
+  //content: "Section " counter(my-sec-counter) ". ";
+}
 
 .print-page footer {
 	line-height: 1cm;
-	height: 1cm;
 	padding: 0;
 	font-size: 1rem;
 }
 
 .print-page header {
 	line-height: 1cm;
-	height: 1cm;
 	padding: 0;
-	display: flex;
-	align-items: center;
 
 }
 
@@ -92,31 +136,7 @@ body {
 	top: 0;
 	bottom: 0;
 	text-align: center;
-}
 
-.print-page ul {
-  list-style-type: none;
-  margin-left: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
-
-}
-
-.print-page ul li {
-  display: inline-flex;
-  padding: 1rem;
-  margin-left: 0;
-
-  border-radius: 3px;
-}
-
-.not-chosen {
-  background: whitesmoke;
-}
-
-.chosen {
-  background: lightgreen;
 }
 
 span#back-page-footer {
@@ -160,7 +180,6 @@ div#logo-grid {
   padding: 2.54cm;
   margin: 1rem auto;
   position: relative;
-	background: white;
 	width: 210mm;
   height: 297mm;
 	box-shadow: 0 1px 1px rgba(0,0,0,0.12),
@@ -191,7 +210,6 @@ div#logo-grid {
 	font-size: 12pt !important;
   border: 1px solid transparent;
 	border-radius: 3px;
-	line-height: 1.35;
 }
 
 .activity p, .organisation p {
@@ -221,7 +239,7 @@ div#logo-grid {
 	background: lightgray;
 }
 
-.support_organisation span.cat {
+.music span.cat, .support_organisation span.cat {
 	background: cyan;
 }
 
@@ -229,37 +247,21 @@ div#logo-grid {
 .options {
 	position: fixed;
 	background: white;
-	left: 0rem;
-	bottom: 0rem;
-	right: 0;
-	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	left: 1rem;
+	bottom: 1rem;
   border: 1px solid lightgray;
 	border-radius: 3px;
 	z-index: 1000;
-
-	grid-gap: 2rem;
-	text-align: center;
-	padding: 1rem;
+	padding: .5rem;
 }
-
 
 .options .btn-flat {
-
-	border-radius: 3px;
-	text-transform: uppercase;
-	font-weight: 600;
-	text-decoration: none;
-	border: 2px solid transparent;
-	padding: 0 0.5rem;
+	margin: .5rem;
+	padding: 0 2rem;
+	display: block;
 }
 
-.options label.btn-flat {
-	position: relative;
-	text-transform: uppercase;
-	border: 2px solid var(--report-cover-background);
-	cursor: pointer;
-}
+label#cover-color-label {position: relative;}
 
 /* label#cover-color-label:after {
     content: '';
@@ -274,6 +276,9 @@ div#logo-grid {
     border-radius: 50%;
 } */
 
+#cover-color-label i {
+	color: var(--report-cover-background);
+}
 
 
 .arts span.cat {
@@ -331,7 +336,6 @@ div#logo-grid {
 	left: 0;
 	right: 0;
 	padding: 2rem;
-	background: white;
 }
 
 .cover-title span {
@@ -341,7 +345,6 @@ div#logo-grid {
 }
 
 #zoom {
-	position: relative;
 }
 .zoom {
 	transform: scale(.4, .4) !important;
@@ -351,167 +354,8 @@ div#logo-grid {
 	grid-gap: 2rem;
 }
 
-
 #funder-logos {
 	display: none;
-}
-
-.acf-field-group, .acf-field-taxonomy {
-
-  min-height: 100vh;
-	margin: 4em 0;
-}
-
-.acf-form-submit {
-	display: flex;
-align-items: center;
-justify-content: center;
-}
-
-section {
-	padding: 0;
-}
-
-
-.acf-fields.-border {
-	border-color: transparent;
-	background: transparent;
-}
-
-.acf-fields > .acf-field {
-	border-top: none;
-}
-
-.acf-taxonomy-field .categorychecklist-holder {
-	border: none;
-}
-
-
-.acf-checkbox-list.acf-bl input {
-  display: none;
-}
-
-
-#acf-form-wrapper {
-	padding: 4em 15%;
-}
-
-#acf-form-intro {
-	padding: 3em 0;
-}
-
-
-#demo1, #demo2 {
-  margin: 0 0 1em 0;
-	border: 1px solid #777;
-	border-radius: 3px;
-}
-
-
-#demo1 {
-
-}
-
-#pathway-report {
-	padding: 5rem 0 ;
-	text-align: center;
-}
-
-#demo1 label, #demo2 label {
-  font-size: 2.25rem;
-  padding: 1em 0.25em;
-  text-transform: uppercase
-}
-
-#demo1 .acf-input label, #demo2 .acf-input label {
-  font-size: 1em;
-  padding: 0;
-  text-transform: none;
-}
-
-#demo2 span {
-	font-size: 1.5em;
-}
-
-input[type="checkbox"] {
-  display: none;
-}
-
-
-/* .acf-button {
-  border-radius: 50%;
-  width: 300px;
-  height: 300px;
-  font-size: 1.25em;
-} */
-
-
-#site-content {
-	overflow: visible;
-}
-
-
-#site-content {
-
-}
-
-.scroll-buttons a {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-	line-height: 35px;
-	text-align: center;
-	text-decoration: none;
-	color: white;
-  border-radius: 50%;
-  background: tomato;
-}
-
-.scroll-buttons li {
-  display: flex;
-  align-items: center;
-}
-
-.scroll-buttons {
-  list-style-type: none;
-}
-
-.profile-buttons {
-  margin: 0 auto;
-  width: 48em;
-  list-style-type: none;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-
-}
-
-.profile-buttons li {
-background: white;
-  border-radius: 3px;
-  border: 1px solid #777;
-  font-size: 3rem;
-  padding: 3rem 0;
-  text-align: center;
-}
-
-#profile-cover {
-	display:flex;
-
-	align-items: center;
-	height: calc(100vh - 100px);
-}
-
-article#post-1 {
-	padding: 0;
-}
-
-#message {
-	position: fixed;
-	bottom: 6em;
-	right: 2em;
-	background: lightgreen;
-	padding: 1em 1em 0 1em;
-	border-radius: 3px;
 }
 
 
@@ -526,16 +370,14 @@ article#post-1 {
     width: 210mm;
     height: 297mm;
     margin: 0;
-		font-family: 'Arial';
   }
 
-	.options, .move, #pathway-report, #acf-form-wrapper, #site-footer {
+	.options, .move {
 		display: none;
 	}
 
 	.zoom {
-		transform: scale(1) !important;
-		display: block;
+		transform: scale(1);
 	}
 
 	.row {
@@ -561,47 +403,36 @@ article#post-1 {
 	}
 
 	a:after {
-		content: ""!important;
+		content: "";
 	}
 }
 
 </style>
 
+<div class="options">
+	<input id="cover-color" type="color" value="#E91E63" oninput="reportbgChange(this.value)" /><label id="cover-color-label" class="btn-flat grey lighten-4" for="cover-color" ><i class="material-icons left">album</i>Cover Colour</label>
+	<button id="print_it" class="btn-flat grey lighten-4" onclick="printThis()"><i class="material-icons left">print</i>Print</button>
 
+	<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()"><i class="material-icons left">visibility</i>Show Cover</button>
+
+	<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()"><i class="material-icons left">zoom_out</i>Zoom to fit</button>
+</div>
 
 
 <section itemprop="articleBody">
+ <div>
 
-<div>
-	<?php
-  $date = date('F d, Y');
-  ?>
 
-	<div class="options">
+	 <?php
+	 $date = date('F d, Y');
+	 the_content();?>
 
- 	<input id="cover-color" type="color" value="#E91E63" oninput="reportbgChange(this.value)" /><label id="cover-color-label" class="btn-flat grey lighten-4" for="cover-color" >Cover Colour</label>
- 	<button id="print_it" class="btn-flat grey lighten-4" onclick="printThis()">Print</button>
-
- 	<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()">Show Cover</button>
-
- 	<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()">Zoom to fit</button>
-	<a id="settings" href="#your-settings" class="btn-flat grey lighten-4">Update Settings</a>
-	<a id="to-top" href="#pathway-report" class="btn-flat grey lighten-4">Back to top</a>
- </div>
 
 
    <div id="zoom" >
 
 
 		 <script>
-
-				// var element = document.body.querySelector('[data-name="preferences"]');
-				// var element2 = document.body.querySelector('[data-name="interests"]');
-				// console.log(element);
-				// element.setAttribute("id", "demo1");
-				// element2.setAttribute("id", "demo2");
-
-
 		 		function printThis() {
 					window.print();
 				}
@@ -610,10 +441,10 @@ article#post-1 {
 					let cover = document.getElementById('cover');
 					let button = document.getElementById('hide_it');
 					cover.classList.toggle("move");
-					if(button.outerHTML === '<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()">Hide Cover</button>') {
-						button.outerHTML = '<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()">Show Cover</button>';
+					if(button.outerHTML === '<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()"><i class="material-icons left">visibility_off</i>Hide Cover</button>') {
+						button.outerHTML = '<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()"><i class="material-icons left">visibility</i>Show Cover</button>';
 					} else {
-						button.outerHTML = '<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()">Hide Cover</button>';
+						button.outerHTML = '<button id="hide_it" class="btn-flat grey lighten-4" onclick="hideThis()"><i class="material-icons left">visibility_off</i>Hide Cover</button>';
 					}
 				}
 
@@ -622,10 +453,10 @@ article#post-1 {
 					let button = document.getElementById('zoom_it');
 					zoom.classList.toggle("zoom");
 
-					if(button.outerHTML === '<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()">Zoom to fit</button>') {
-						button.outerHTML = '<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()">Fit to screen</button>';
+					if(button.outerHTML === '<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()"><i class="material-icons left">zoom_out</i>Zoom to fit</button>') {
+						button.outerHTML = '<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()"><i class="material-icons left">zoom_in</i>Fit to screen</button>';
 					} else {
-						button.outerHTML = '<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()">Zoom to fit</button>';
+						button.outerHTML = '<button id="zoom_it" class="btn-flat grey lighten-4" onclick="zoomThis()"><i class="material-icons left">zoom_out</i>Zoom to fit</button>';
 					}
 
 				}
@@ -637,11 +468,7 @@ article#post-1 {
 }
 
 		 </script>
-
-
-
 	<div id="cover" class="move print-page">
-
 		<div class="cover-title white">
 			<h1 class="h3" contenteditable="true">The Stirling Pathway</h1>
 			<?php echo '<span>' . $date . '</span>';?>
@@ -649,40 +476,28 @@ article#post-1 {
 
 
 	</div>
-
-
 <?php
 
-
-//print_R($categories);
+$categories = get_field( 'interests' );
 		 function wpshout_fetch_posts_in_category_taxonomy() {
 		 	// Fetch posts that have a value for the 'category' taxonomy
-$user = wp_get_current_user();
-$categories = get_field( 'interests');
-//print_R($user);
-if(!$categories) {
-	$args = array (
-		'posts_per_page' => -1,
-		'post_type' => 'activities',
-		'orderby' => 'title',
-		'order' => 'ASC'
-	);
-} else {
-	$args = array (
-		'posts_per_page' => -1,
-		'post_type' => 'activities',
-		'orderby' => 'title',
-		'order' => 'ASC',
+$categories = get_field( 'interests' );
 
-		'tax_query' => array (
-			array(
-			'taxonomy' => 'interests',
-				'field' => 'term_id',
-				'terms' => $categories,
-			)
-		)
-	);
-}
+ 		 $args = array (
+ 			 'posts_per_page' => -1,
+ 			 'post_type' => 'resources',
+			 'orderby' => 'title',
+			 'order' => 'ASC',
+
+ 			 'tax_query' => array (
+ 				 array(
+ 				 'taxonomy' => 'resources_category',
+ 					 'field' => 'term_id',
+ 					 'terms' => $categories,
+ 				 )
+ 			 )
+ 		 );
+
 		 	// Return fetched posts
 		 	return get_posts( $args );
 		 }
@@ -692,7 +507,7 @@ if(!$categories) {
 		 function wpshout_add_category_term_objects_to_posts( $posts ) {
 		 	foreach( $posts as $post_index => $current_post ) :
 		 		// Get array of WP_Term category terms for the current post
-		 		$terms = get_the_terms( $current_post, 'interests' );
+		 		$terms = get_the_terms( $current_post, 'resources_category' );
 		 		// Save the first WP_Term object to the WP_Post object
 		 		$current_post->category = $terms[0];
 		 		// Update the $posts array with the modified WP_Post object
@@ -739,7 +554,7 @@ if(!$categories) {
 		 		// Set up "environment" for template tags
 		 		setup_postdata( $post );
 				$info = get_field('activity');
-				$contacts = get_field('activity_contact');
+				$contacts = ($info['activity_contact']);
 
 				//print_R($post);
 		 		// Use template tags normally
@@ -750,69 +565,38 @@ if(!$categories) {
 					echo '<div class="print-page"><header><h2 class="start">Activities</h2></header><div class="activity ' . $post->category->slug . '"><h3 class="h6"><a href="' . get_the_permalink() . '">';
 			 			the_title();
 			 		echo '</a></h3>';
-					the_field('introduction');
+					echo $info['activity_description'];
 					if($contacts) {
 						echo '<div class="contact">';
 						foreach($contacts as $contact) {
-							$name = get_field('contact_name', $contact);
-							$email = get_field('contact_email', $contact);
-							$landline = get_field('contact_landline', $contact);
-							$website = get_field('contact_website', $contact);
-							//$details = get_field('group_details', $contact);
+							$details = get_field('group_details', $contact);
 
-							if($name):
-							echo '<span class="person">' . $name . '</span>';
-							endif;
+							echo '<span class="person">' . $details['group_contact'] . '</span>';
+							echo '<span class="email"><strong>Email</strong> ' . $details['group_email'] . '</span>';
+							echo '<span class="phone"><strong>Telephone</strong> ' . $details['group_phone'] . '</span>';
+							echo '<span class="website"><strong>Website</strong> <a href="' . $details['group_website'] . '">' . $details['group_website'] . '</a></span>';
 
-							if($email):
-							echo '<span class="email"><strong>Email</strong> ' . $email . '</span>';
-							endif;
-
-							if($landline):
-							echo '<span class="phone"><strong>Telephone</strong> ' . $landline . '</span>';
-							endif;
-
-							if($website):
-							echo '<span class="website"><strong>Website</strong> <a href="' . $website . '">' . $website . '</a></span>';
-							endif;
 						}
 						echo '</div>';
 					}
 					echo '<span class="cat">' . $post->category->name . '</span></div>';
-					if(count($posts) == $i) {
-					echo 	'<footer class="page-end"></footer></div>';
-					}
 
 
 				} else if(($i % 3 != 0) && count($posts) != $i) {
 					echo '<div class="activity ' . $post->category->slug . '"><h3 class="h6"><a href="' . get_the_permalink() . '">';
 			 			the_title();
 			 		echo '</a></h3>';
-					the_field('introduction');
+					echo $info['activity_description'];
 					if($contacts) {
 						echo '<div class="contact">';
 						foreach($contacts as $contact) {
-							$name = get_field('contact_name', $contact);
-							$email = get_field('contact_email', $contact);
-							$landline = get_field('contact_landline', $contact);
-							$website = get_field('contact_website', $contact);
-							//$details = get_field('group_details', $contact);
+							$details = get_field('group_details', $contact);
 
-							if($name):
-							echo '<span class="person">' . $name . '</span>';
-							endif;
+							echo '<span class="person">' . $details['group_contact'] . '</span>';
+							echo '<span class="email"><strong>Email</strong> ' . $details['group_email'] . '</span>';
+							echo '<span class="phone"><strong>Telephone</strong> ' . $details['group_phone'] . '</span>';
+							echo '<span class="website"><strong>Website</strong> <a href="' . $details['group_website'] . '">' . $details['group_website'] . '</a></span>';
 
-							if($email):
-							echo '<span class="email"><strong>Email</strong> ' . $email . '</span>';
-							endif;
-
-							if($landline):
-							echo '<span class="phone"><strong>Telephone</strong> ' . $landline . '</span>';
-							endif;
-
-							if($website):
-							echo '<span class="website"><strong>Website</strong> <a href="' . $website . '">' . $website . '</a></span>';
-							endif;
 						}
 						echo '</div>';
 					}
@@ -822,31 +606,17 @@ if(!$categories) {
 					echo '<div class="activity ' . $post->category->slug . '"><h3 class="h6"><a href="' . get_the_permalink() . '">';
 			 			the_title();
 			 		echo '</a></h3>';
-					the_field('introduction');
+					echo $info['activity_description'];
 					if($contacts) {
 						echo '<div class="contact">';
 						foreach($contacts as $contact) {
-							$name = get_field('contact_name', $contact);
-							$email = get_field('contact_email', $contact);
-							$landline = get_field('contact_landline', $contact);
-							$website = get_field('contact_website', $contact);
-							//$details = get_field('group_details', $contact);
+							$details = get_field('group_details', $contact);
 
-							if($name):
-							echo '<span class="person">' . $name . '</span>';
-							endif;
+							echo '<span class="person">' . $details['group_contact'] . '</span>';
+							echo '<span class="email"><strong>Email</strong> ' . $details['group_email'] . '</span>';
+							echo '<span class="phone"><strong>Telephone</strong> ' . $details['group_phone'] . '</span>';
+							echo '<span class="website"><strong>Website</strong> <a href="' . $details['group_website'] . '">' . $details['group_website'] . '</a></span>';
 
-							if($email):
-							echo '<span class="email"><strong>Email</strong> ' . $email . '</span>';
-							endif;
-
-							if($landline):
-							echo '<span class="phone"><strong>Telephone</strong> ' . $landline . '</span>';
-							endif;
-
-							if($website):
-							echo '<span class="website"><strong>Website</strong> <a href="' . $website . '">' . $website . '</a></span>';
-							endif;
 						}
 						echo '</div>';
 					}
@@ -858,31 +628,17 @@ if(!$categories) {
 			 			the_title();
 			 		echo '</a></h3>';
 
-					the_field('introduction');
+					echo $info['activity_description'];
 					if($contacts) {
 						echo '<div class="contact">';
 						foreach($contacts as $contact) {
-							$name = get_field('contact_name', $contact);
-							$email = get_field('contact_email', $contact);
-							$landline = get_field('contact_landline', $contact);
-							$website = get_field('contact_website', $contact);
-							//$details = get_field('group_details', $contact);
+							$details = get_field('group_details', $contact);
 
-							if($name):
-							echo '<span class="person">' . $name . '</span>';
-							endif;
+							echo '<span class="person">' . $details['group_contact'] . '</span>';
+							echo '<span class="email"><strong>Email</strong> ' . $details['group_email'] . '</span>';
+							echo '<span class="phone"><strong>Telephone</strong> ' . $details['group_phone'] . '</span>';
+							echo '<span class="website"><strong>Website</strong> <a href="' . $details['group_website'] . '">' . $details['group_website'] . '</a></span>';
 
-							if($email):
-							echo '<span class="email"><strong>Email</strong> ' . $email . '</span>';
-							endif;
-
-							if($landline):
-							echo '<span class="phone"><strong>Telephone</strong> ' . $landline . '</span>';
-							endif;
-
-							if($website):
-							echo '<span class="website"><strong>Website</strong> <a href="' . $website . '">' . $website . '</a></span>';
-							endif;
 						}
 						echo '</div>';
 					}
@@ -905,17 +661,17 @@ if(!$categories) {
 
 			 $args = array (
    			 'posts_per_page' => -1,
-   			 'post_type' => 'organisations',
+   			 'post_type' => 'resources',
   			 'orderby' => 'title',
   			 'order' => 'ASC',
 
-   			 // 'tax_query' => array (
-   				//  array(
-   				//  'taxonomy' => 'interests',
-   				// 	 'field' => 'term_id',
-   				// 	 'terms' =>'',
-   				//  )
-   			 // )
+   			 'tax_query' => array (
+   				 array(
+   				 'taxonomy' => 'resources_category',
+   					 'field' => 'term_id',
+   					 'terms' => 46,
+   				 )
+   			 )
    		 );
 
   		 	// Return fetched posts
@@ -937,12 +693,7 @@ if(!$categories) {
 				$post = $current_post;
 				// Set up "environment" for template tags
 				setup_postdata( $post );
-
-				$name = get_field('contact_name');
-				$email = get_field('contact_email');
-				$landline = get_field('contact_landline');
-				$website = get_field('contact_website');
-
+				$info = get_field('group_details');
 
 				//print_R($post);
 				// Use template tags normally
@@ -951,25 +702,24 @@ if(!$categories) {
 					echo '<div class="print-page"><header><h2 class="start">Organisations</h2></header><div class="organisation support_organisation"><h3 class="h6"><a href="' . get_the_permalink() . '">';
 						the_title();
 					echo '</a></h3>';
-
-					echo '<p>' . 	get_field('introduction') . '</p>';
+					echo '<p>' . $info['group_description'] . '</p>';
 
 					echo '<div class="contact">';
 
-						if($name):
-						echo '<span class="person">' . $name . '</span>';
+						if($info['group_contact']):
+						echo '<span class="person">' . $info['group_contact'] . '</span>';
 						endif;
 
-						if($email):
-						echo '<span class="email"><strong>Email</strong>' . $email . '</span>';
+						if($info['group_email']):
+						echo '<span class="email"><strong>Email</strong>' . $info['group_email'] . '</span>';
 						endif;
 
-						if($landline):
-						echo '<span class="phone"><strong>Telephone</strong>' . $landline . '</span>';
+						if($info['group_phone']):
+						echo '<span class="phone"><strong>Telephone</strong>' . $info['group_phone'] . '</span>';
 						endif;
 
-						if($website):
-						echo '<span class="website"><strong>Website</strong><a href="' . $website . '">' . $website . '</a></span>';
+						if($info['group_website']):
+						echo '<span class="website"><strong>Website</strong><a href="' . $info['group_website'] . '">' . $info['group_website'] . '</a></span>';
 						endif;
 
 					echo '</div>';
@@ -980,25 +730,24 @@ if(!$categories) {
 					echo '<div class="organisation support_organisation"><h3 class="h6"><a href="' . get_the_permalink() . '">';
 						the_title();
 					echo '</a></h3>';
-
-					echo '<p>' . 	get_field('introduction') . '</p>';
+					echo '<p>' . $info['group_description'] . '</p>';
 
 					echo '<div class="contact">';
 
-						if($name):
-						echo '<span class="person">' . $name . '</span>';
+						if($info['group_contact']):
+						echo '<span class="person">' . $info['group_contact'] . '</span>';
 						endif;
 
-						if($email):
-						echo '<span class="email"><strong>Email</strong>' . $email . '</span>';
+						if($info['group_email']):
+						echo '<span class="email"><strong>Email</strong>' . $info['group_email'] . '</span>';
 						endif;
 
-						if($landline):
-						echo '<span class="phone"><strong>Telephone</strong>' . $landline . '</span>';
+						if($info['group_phone']):
+						echo '<span class="phone"><strong>Telephone</strong>' . $info['group_phone'] . '</span>';
 						endif;
 
-						if($website):
-						echo '<span class="website"><strong>Website</strong><a href="' . $website . '">' . $website . '</a></span>';
+						if($info['group_website']):
+						echo '<span class="website"><strong>Website</strong><a href="' . $info['group_website'] . '">' . $info['group_website'] . '</a></span>';
 						endif;
 
 					echo '</div>';
@@ -1009,25 +758,24 @@ if(!$categories) {
 					echo '<div class="organisation support_organisation"><h3 class="h6"><a href="' . get_the_permalink() . '">';
 						the_title();
 					echo '</a></h3>';
-
-					echo '<p>' . 	get_field('introduction') . '</p>';
+					echo '<p>' . $info['group_description'] . '</p>';
 
 					echo '<div class="contact">';
 
-						if($name):
-						echo '<span class="person">' . $name . '</span>';
+						if($info['group_contact']):
+						echo '<span class="person">' . $info['group_contact'] . '</span>';
 						endif;
 
-						if($email):
-						echo '<span class="email"><strong>Email</strong>' . $email . '</span>';
+						if($info['group_email']):
+						echo '<span class="email"><strong>Email</strong>' . $info['group_email'] . '</span>';
 						endif;
 
-						if($landline):
-						echo '<span class="phone"><strong>Telephone</strong>' . $landline . '</span>';
+						if($info['group_phone']):
+						echo '<span class="phone"><strong>Telephone</strong>' . $info['group_phone'] . '</span>';
 						endif;
 
-						if($website):
-						echo '<span class="website"><strong>Website</strong><a href="' . $website . '">' . $website . '</a></span>';
+						if($info['group_website']):
+						echo '<span class="website"><strong>Website</strong><a href="' . $info['group_website'] . '">' . $info['group_website'] . '</a></span>';
 						endif;
 
 					echo '</div>';
@@ -1040,24 +788,24 @@ if(!$categories) {
 						the_title();
 					echo '</a></h3>';
 
-					echo '<p>' . 	get_field('introduction') . '</p>';
+					echo '<p>' . $info['group_description'] . '</p>';
 
 					echo '<div class="contact">';
 
-						if($name):
-						echo '<span class="person">' . $name . '</span>';
+						if($info['group_contact']):
+						echo '<span class="person">' . $info['group_contact'] . '</span>';
 						endif;
 
-						if($email):
-						echo '<span class="email"><strong>Email</strong>' . $email . '</span>';
+						if($info['group_email']):
+						echo '<span class="email"><strong>Email</strong>' . $info['group_email'] . '</span>';
 						endif;
 
-						if($landline):
-						echo '<span class="phone"><strong>Telephone</strong>' . $landline . '</span>';
+						if($info['group_phone']):
+						echo '<span class="phone"><strong>Telephone</strong>' . $info['group_phone'] . '</span>';
 						endif;
 
-						if($website):
-						echo '<span class="website"><strong>Website</strong><a href="' . $website . '">' . $website . '</a></span>';
+						if($info['group_website']):
+						echo '<span class="website"><strong>Website</strong><a href="' . $info['group_website'] . '">' . $info['group_website'] . '</a></span>';
 						endif;
 
 					echo '</div>';
@@ -1074,8 +822,36 @@ if(!$categories) {
 
 		 organisation_posts ();
 			 ?>
+			 <div class="print-page">
+				 <p>
+					 These pages have been genereated based on the interests you chose in the Pathway Form. These are listed below.
+				 </p>
+<?php
+				 $field = get_field_object('field_5e4ad49949cbe', $wp_query->posts[0]->ID);
+$choices = [21, 25, 44, 45, 31, 32];
+$interest = get_field('interests');
 
-<!-- <div class="print-page">
+$result=array_diff($choices,$interest);
+
+$i = 0;
+echo '<ul>';
+foreach($choices as $choice) {
+		$term = get_term( $choice , 'resources_category' );
+	if($choice === $result[$i]) {
+		echo '<li class="block btn-flat"><i class="material-icons left">clear</i>' . $term->name . '</li>';
+	} else {
+		echo '<li class="block btn-flat "><i class="material-icons left">done</i>' . $term->name . '</li>';
+	}
+	$i++;
+}
+echo '</ul>';
+?>
+
+<p>
+	You can change your choices by editing the form and saving this page to refresh the relevant information.
+</p>
+</div>
+<div class="print-page">
  				  <?php if( have_rows('partner_member', 'option') ): ?>
 
  				  <div id="partner_members" class="row">
@@ -1107,28 +883,13 @@ if(!$categories) {
 
  				<?php endif; ?>
 				<span id="back-page-footer">EH10 Made</span>
-			 </div> -->
+			 </div>
 
 
 
    </div>
 
-	 <div id="acf-form-wrapper">
 
-		 <h2 style="padding-top: 5rem; text-align: center;" id="your-settings">Your Settings</h2>
-		 <p id="acf-form-intro">
-			 This report have been generated based on the interests you chose in the Pathway Form. If you want to change your choices, simply untick or tick the relevant boxes in the form below and then click on the 'Update' button. This will create a new report for you.
-		 </p>
-		 <?php acf_form(array(
-			'field_groups' => array('group_5e4aa58a0a884'),
-			'updated_message' => __("Settings updated", 'acf'),
-	)); ?>
-
-
-
-
-		 </div>
-</div>
 <?php
 
  if(is_user_logged_in()) {

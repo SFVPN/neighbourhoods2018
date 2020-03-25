@@ -1,0 +1,146 @@
+{
+    "key": "group_5e4e64761b0d3",
+    "title": "Schedule",
+    "fields": [
+        {
+            "key": "field_5e4e64d5ce049",
+            "label": "Is this activity weekly or monthly?",
+            "name": "activity_schedule_main",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "weekly": "Weekly",
+                "monthly": "Monthly"
+            },
+            "allow_null": 1,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "array"
+        },
+        {
+            "key": "field_5e4e647dce048",
+            "label": "On what days is this activity held?",
+            "name": "activity_schedule",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e4e64d5ce049",
+                        "operator": "==",
+                        "value": "weekly"
+                    }
+                ],
+                [
+                    {
+                        "field": "field_5e4e64d5ce049",
+                        "operator": "==",
+                        "value": "monthly"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Schedule",
+            "sub_fields": [
+                {
+                    "key": "field_5e4e661340247",
+                    "label": "When in month?",
+                    "name": "activity_schedule_month_day",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5e4e64d5ce049",
+                                "operator": "==",
+                                "value": "monthly"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "1": "1st",
+                        "2": "2nd",
+                        "3": "3rd",
+                        "4": "4th",
+                        "5": "5th"
+                    },
+                    "allow_null": 1,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "array",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_5e4e65bbce04a",
+                    "label": "Day(s)",
+                    "name": "activity_schedule_day",
+                    "type": "taxonomy",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5e4e64d5ce049",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "taxonomy": "activities_day",
+                    "field_type": "multi_select",
+                    "allow_null": 0,
+                    "add_term": 0,
+                    "save_terms": 1,
+                    "load_terms": 0,
+                    "return_format": "object",
+                    "multiple": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "activities"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1583252041
+}

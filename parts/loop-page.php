@@ -128,12 +128,6 @@
 
 			endif;
 
-			$show_contact = get_field('show_contact');
-
-			if ($show_contact):
-			get_template_part( 'parts/content', 'contact' );
-			endif;
-
 			wp_link_pages();?>
 
 		</section> <!-- end article section -->

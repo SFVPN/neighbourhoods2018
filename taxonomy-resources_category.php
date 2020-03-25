@@ -22,13 +22,13 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 			<div class="container">
 				<?php
 
-				if($queried_object->parent === 0 ) {
-
-					archive_terms('resources_category', 'resources', 'Filter Resources');
-				} else {
-
-					archive_terms_child('resources_category', 'resources', 'Filter Resources');
-				}
+				// if($queried_object->parent === 0 ) {
+				//
+				// 	archive_terms('resources_category', 'resources', 'Filter Resources');
+				// } else {
+				//
+				// 	archive_terms_child('resources_category', 'resources', 'Filter Resources');
+				// }
 
 				if($term_description) {
 					echo $term_description;
@@ -41,7 +41,7 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 
-				<?php get_template_part( 'parts/loop', 'resources-new' ); ?>
+				<?php get_template_part( 'parts/loop', 'resources' ); ?>
 
 				<?php endwhile; ?>
 

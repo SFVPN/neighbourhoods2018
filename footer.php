@@ -1,7 +1,7 @@
 <?php $toolbar_pos = get_field('access_bar_position', 'option');?>
 <footer id="contact" class="page-footer white black-text center" role="contentinfo">
 
-<?php if(is_user_logged_in()):?>
+<!-- <?php if(is_user_logged_in()):?>
 	<?php if( current_user_can('editor') || current_user_can('administrator') ) {  ?>
 		<div class="fixed-action-btn left hide-on-med-and-down">
 				<span>
@@ -14,7 +14,7 @@
 
 		</div>
 	<?php } ?>
-<?php endif;?>
+<?php endif;?> -->
 
 	<div id="inner-footer" class="padding-<?php echo $toolbar_pos;?>">
 

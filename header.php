@@ -46,6 +46,18 @@
 
 			<?php endif;?>
 
+			<?php if(is_singular('resources')):?>
+
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@<?php echo get_theme_mod( 'tcx_twitter_handle' );?>" />
+			<meta name="twitter:creator" content="@<?php echo get_theme_mod( 'tcx_twitter_handle' );?>" />
+			<meta property="og:url" content="<?php the_permalink();?>" />
+			<meta property="og:title" content="<?php the_title();?>" />
+			<meta property="og:description" content="Resources for connecting communities" />
+			<meta property="og:image" content="<?php echo get_template_directory_uri(); ?>/assets/images/resources.png"/>
+
+			<?php endif;?>
+
 			<?php
 
 			$path = get_page_by_path( 'events' );
