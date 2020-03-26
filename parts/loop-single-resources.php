@@ -53,7 +53,6 @@ get_template_part( 'parts/content', 'share' );
 		 ?>
 
 	</header> <!-- end article header -->
-
 <?php
 
 
@@ -79,7 +78,7 @@ if ( $post->post_parent === 0 ) {
 	<div class="guide-wrapper">
 
 			<ol id="guide-contents">
-				<li class="block label black-text"><?php echo get_the_title()  . __( '', 'ocn' );?></li>
+				<li class="block label black-text"><?php echo __( 'Guide Index', 'ocn' );?></li>
 				<li id="parent-<?php the_ID(); ?>" data-read="ocn-<?php the_ID(); ?>" class="parent">
 
 						<?php echo '<span class="active-page">' . __( 'Introduction', 'ocn' ) . '</span>'; ?>
@@ -140,8 +139,8 @@ $pages[] += get_the_ID();
 		$queried_object = get_queried_object();
 		$ID = $queried_object->ID;?>
 
-					<ol id="guide-contents">
-			<li class="block label black-text"><?php echo get_the_title($post->post_parent)  . __( '', 'ocn' );?></li>
+		<ol id="guide-contents">
+			<li class="block label black-text"><?php echo __( 'Guide Index', 'ocn' );?></li>
 				<li class="parent" data-read="ocn-<?php echo $post->post_parent; ?>">
 					<a href="<?php the_permalink($post->post_parent); ?>" title="<?php echo get_the_title($post->post_parent); ?> - Introduction"><?php echo __( 'Introduction', 'ocn' );?></a>
 				</li>
@@ -182,6 +181,7 @@ $pages[] += get_the_ID();
 			</div>
 		</div>
 	</div>
+
 <?php }
 
 

@@ -394,6 +394,9 @@ details {
     padding-left: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media #{$small-and-down} {
+      grid-template-columns: auto;
+    }
     grid-gap: 1rem;
   }
   li a {
@@ -2119,14 +2122,13 @@ a.current.chip {
   }
   ul.note_unordered {
     list-style-type: none;
-    padding-left: 0;
+    padding: 1rem 0 0 0;
     margin: 0;
     li {
       list-style-type: none;
     }
     li a {
       display: inline-block;
-      padding: 0 1rem;
     }
   }
   @media #{$small-and-down} {

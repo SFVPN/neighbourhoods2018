@@ -12173,6 +12173,9 @@ details {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem; }
+    @media only screen and (max-width: 600px) {
+      .terms-list ul, .terms-child-list ul {
+        grid-template-columns: auto; } }
   .terms-list li a, .terms-child-list li a {
     display: block;
     padding: 2rem;
@@ -13420,13 +13423,12 @@ a.current.chip {
     padding-left: .5rem; }
   .info.note-content ul.note_unordered {
     list-style-type: none;
-    padding-left: 0;
+    padding: 1rem 0 0 0;
     margin: 0; }
     .info.note-content ul.note_unordered li {
       list-style-type: none; }
     .info.note-content ul.note_unordered li a {
-      display: inline-block;
-      padding: 0 1rem; }
+      display: inline-block; }
   @media only screen and (max-width: 600px) {
     .info.note-content {
       padding: 1rem; } }
