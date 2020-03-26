@@ -31,7 +31,7 @@
 		echo $description;
 	}
 
-	contact_card_OCN(2405, 'contact_address');
+	contact_card_OCN(2521, 'contact_address');
 ?>
 
 	</section>
