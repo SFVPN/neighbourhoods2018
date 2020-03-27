@@ -1,8 +1,8 @@
 
 
-<div data-target="modal1" class="fixed-action-btn modal-trigger hide-on-med-and-down">
-	 <a class="btn-floating btn teal">
-		 <i class="material-icons">mode_edit</i>
+<div data-target="modal1" class="modal-trigger hide-on-med-and-down">
+	 <a class="btn-flat">
+		 Edit Page
 	 </a>
  </div>
 

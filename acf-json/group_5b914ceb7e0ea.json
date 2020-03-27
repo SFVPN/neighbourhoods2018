@@ -302,6 +302,25 @@
                                     "mime_types": ""
                                 },
                                 {
+                                    "key": "field_5e7e0948690e3",
+                                    "label": "Introductory text",
+                                    "name": "steps_intro",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 3,
+                                    "new_lines": ""
+                                },
+                                {
                                     "key": "field_5c3c57b27d246",
                                     "label": "Step",
                                     "name": "step",
@@ -1892,5 +1911,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1585158432
+    "modified": 1585318407
 }

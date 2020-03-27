@@ -1,0 +1,283 @@
+/******************************************************************
+
+Stylesheet: Print Stylesheet
+
+This is the print stylesheet. There's probably not a lot
+of reasons to edit this stylesheet.
+
+Remember to add things that won't make sense to print at
+the bottom. Things like nav, ads, and forms shouldbe set
+to display none.
+******************************************************************/
+@media print {
+
+  * {
+    text-shadow: none !important;
+    filter:none !important;
+    -ms-filter: none !important;
+    overflow: visible !important;
+    float: none !important;
+    line-height: 1.15;
+  }
+
+
+  a, a:visited {
+    color: #000 !important;
+    text-decoration: none !important;
+    // show links on printed pages
+    &:after {
+      content: " [LINK: " attr(href) "]";
+      color: $link-color;
+    }
+
+    // show title too
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  a.phone, .simcal-calendar a {
+    &:after {
+      content: "";
+    }
+
+    // show title too
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+  }
+
+  @page:first {
+    background: pink;
+  }
+
+  blockquote {
+     margin: 1rem 0 !important;
+  }
+
+  .single article {
+    margin-top: 1rem;
+    page-break-before: always;
+    .article-header {
+      padding-bottom: 0;
+    }
+    h1 {
+      padding: 0;
+    }
+  }
+
+  p, li, span {
+    font-size: 1.25rem !important;
+    line-height: 1.25;
+  }
+
+
+
+  ol.steps li {
+    page-break-inside: avoid !important;
+  }
+
+  .apps li {
+    display: inline-block !important;
+    .mdi {
+      background: transparent !important;
+    }
+  }
+
+  .info.note-content.grey.lighten-5 {
+    background: transparent !important;
+    i {
+      margin-bottom: 2px !important;
+    }
+  }
+
+  .single-calendar {
+    position: relative;
+    .article-header {
+      display: none;
+    }
+    .single-article {
+
+    }
+  }
+
+  .weekly-calendar {
+    .article-header {
+      display: none;
+    }
+  }
+
+  .calendar_desc img, .print-image {
+    position: absolute;
+    display: block !important;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+  }
+
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  pre, blockquote {
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr, img, .address-box {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  .print-header {
+    display: block !important;
+
+    h1 {
+      margin-top: 50%;
+      width: 80%;
+      padding: 0;
+      margin-left: 10%;
+      text-align: left;
+      font-size: 50px;
+      color: #414141;
+      text-transform: uppercase;
+      position: relative;
+      &:after, &:before {
+        content: '';
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 1px solid;
+        position: absolute;
+        bottom: 10px;
+      }
+      &:after {
+        right: 0;
+        background: yellow;
+      }
+      &:before {
+        right: 30px;
+        background: cyan;
+      }
+    }
+    a {
+      &:after {
+        content: "";
+      }
+    }
+  }
+
+  .note_unordered li {
+    padding: 0 !important;
+    a {
+      background: transparent !important;
+      border-bottom: 0px solid !important;
+      padding: 0 !important;
+      text-align: left !important;
+    }
+  }
+
+  .print-footer {
+    background: color("grey", "lighten-4");
+    width: 90%;
+    margin-left: 5%;
+    page-break-inside: avoid;
+    display: block !important;
+    padding: 2rem !important;
+    text-align: center !important;
+    font-size: 1.15rem !important;
+    .print-logo {
+      margin-top: 2rem;
+    }
+    a {
+      &:after {
+        content: "";
+      }
+    }
+  }
+
+    // Hide content people who print don't need to see
+    .sidebar,
+    .page-navigation,
+    .wp-prev-next,
+    .respond-form,
+    .resources-meta,
+    footer,
+    #share-links,
+    #share-links-bottom,
+    .parent-page,
+    .no-print,
+    .location_link,
+    .calendar_add,
+    .index-wrapper,
+    .modal-trigger,
+    .post-edit-link,
+    .simcal-calendar-head,
+    .simcal-event-details .btn-flat a,
+    .event_location a,
+    nav,
+    #inner-footer .fixed-action-btn,
+    details,
+    #fullCalendar {
+      display: none !important;
+    }
+
+    .simcal-events-list-container .event_wrapper {
+      padding: 0 !important;
+    }
+
+    .calendar_desc {
+      padding: 0 !important;
+    }
+
+    .simcal-calendar {
+      width: 100% !important;
+      margin-top: 13rem;
+    }
+
+    .simcal-events-list-container {
+      display: block;
+    }
+
+    .simcal-events-list-container .simcal-day {
+      border: 0px;
+    }
+
+    .simcal-day {
+      //page-break-after: always;
+    }
+
+    .simcal-day-label {
+      text-align: left;
+      .simcal-date-format {
+        font-size: 1.75rem;
+        font-weight: bolder;
+      }
+
+    }
+
+
+
+    .simcal-event-title {
+      font-size: 1.5rem !important;
+    }
+
+    .simcal-events-list-container .simcal-event-details {
+
+      margin-bottom: 1rem !important;
+      padding-bottom: 0;
+      page-break-inside: avoid;
+    }
+
+
+
+} // End of media query

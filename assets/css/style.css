@@ -4997,14 +4997,13 @@ a.waves-effect .waves-ripple {
   line-height: 24px;
   padding: 0 12px;
   border-radius: 16px;
-  background-color: #eeeeee;
+  background-color: #f5f5f5;
   margin-bottom: 5px;
   margin-right: 5px;
   margin-top: 15px; }
   .chip:focus, .chip:hover {
     outline: none;
-    background-color: #212121;
-    color: #ffffff; }
+    background-color: #e0e0e0; }
   .chip > img {
     float: left;
     margin: 0 8px 0 -12px;
@@ -12016,17 +12015,34 @@ LINK STYLES
 a:link, a:visited:link {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3); }
 
-a:visited {
+.guide-wrapper a:visited, .index-wrapper a:visited {
   color: #8e24aa; }
 
 @media only screen and (max-width: 600px) {
   #share-links {
     margin-top: 1rem; } }
-#share-links a.chip {
-  margin: 1rem 1rem .5rem 1rem; }
+#share-links a.chip, #share-links button {
+  margin: 1rem 1rem .5rem 1rem;
+  border: none; }
   @media only screen and (max-width: 600px) {
-    #share-links a.chip {
+    #share-links a.chip, #share-links button {
       margin: 0; } }
+
+#share-links-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 1001;
+  padding: .5rem;
+  border-top: 1px solid #e0e0e0; }
+  #share-links-bottom a {
+    text-decoration: none; }
+    #share-links-bottom a:hover, #share-links-bottom a:focus {
+      background: #f5f5f5; }
+  #share-links-bottom button:hover, #share-links-bottom button:focus {
+    background: #f5f5f5; }
 
 /*********************
 H1, H2, H3, H4, H5 P STYLES
@@ -12201,7 +12217,7 @@ details {
   background: #283593;
   color: #ffffff; }
   .control.btns a.current:focus, .control.btns a.current:hover {
-    background-color: #212121; }
+    background-color: #e0e0e0; }
 
 a {
   transition: 250ms; }
@@ -13049,7 +13065,7 @@ article#content-not-found {
 
 @media only screen and (max-width: 600px) {
   header.article-header.col.s12 {
-    padding: 0; } }
+    padding: 0 0 3rem 0; } }
 
 img.hide-on-med-and-up {
   width: 100%; }
@@ -13111,6 +13127,13 @@ div#resources_category .l4 .s12 {
   @media only screen and (max-width: 600px) {
     div#resources_category .l4 .s12 {
       margin-bottom: 2rem; } }
+
+.modal-trigger {
+  padding-top: 1rem; }
+  .modal-trigger a {
+    background: #f5f5f5; }
+    .modal-trigger a:hover, .modal-trigger a:focus {
+      background: #e0e0e0; }
 
 #cat-icon {
   padding: 1rem;
@@ -14164,7 +14187,9 @@ to display none.
     text-shadow: none !important;
     filter: none !important;
     -ms-filter: none !important;
-    overflow: visible !important; }
+    overflow: visible !important;
+    float: none !important;
+    line-height: 1.15; }
 
   a, a:visited {
     color: #000 !important;
@@ -14179,6 +14204,36 @@ to display none.
     content: ""; }
   a.phone abbr[title]:after, .simcal-calendar a abbr[title]:after {
     content: " (" attr(title) ")"; }
+
+  @page :first {
+    background: pink; }
+  blockquote {
+    margin: 1rem 0 !important; }
+
+  .single article {
+    margin-top: 1rem;
+    page-break-before: always; }
+    .single article .article-header {
+      padding-bottom: 0; }
+    .single article h1 {
+      padding: 0; }
+
+  p, li, span {
+    font-size: 1.25rem !important;
+    line-height: 1.25; }
+
+  ol.steps li {
+    page-break-inside: avoid !important; }
+
+  .apps li {
+    display: inline-block !important; }
+    .apps li .mdi {
+      background: transparent !important; }
+
+  .info.note-content.grey.lighten-5 {
+    background: transparent !important; }
+    .info.note-content.grey.lighten-5 i {
+      margin-bottom: 2px !important; }
 
   .single-calendar {
     position: relative; }
@@ -14201,7 +14256,6 @@ to display none.
     content: ""; }
 
   pre, blockquote {
-    border: 1px solid #999;
     page-break-inside: avoid; }
 
   thead {
@@ -14213,71 +14267,6 @@ to display none.
   img {
     max-width: 100% !important; }
 
-  @page :first {
-    margin: 0cm; }
-  @page {
-    margin: 1cm 0cm;
-    width: 210mm;
-    height: 297mm;
-    word-wrap: break-word; }
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-    page-break-inside: avoid; }
-
-  iframe {
-    page-break-before: avoid; }
-
-  .row.tip, .row.link, .row.recommendation, .row.warning, .row.info, .row.required {
-    padding: 0;
-    border: 0px solid; }
-
-  .row.warning .note-heading {
-    padding: 0.5rem 1rem;
-    border-radius: 3px 3px 0 0; }
-  .row.warning .note-content {
-    border-radius: 0 0 3px 3px; }
-
-  .row .note-heading, .note-heading {
-    background: #eeeeee !important;
-    color: black !important;
-    page-break-inside: avoid; }
-
-  .label-resources {
-    page-break-inside: avoid; }
-
-  .row.activities .mdi {
-    padding: 0 !important; }
-
-  .single-resources .article-header {
-    padding-bottom: 0 !important;
-    text-align: left;
-    padding: 0; }
-    .single-resources .article-header h1 {
-      font-size: 2.92rem;
-      padding: 0 !important;
-      margin: 0 !important; }
-
-  .recommendation .note-content .col.s12.l3 {
-    float: left !important;
-    width: 24.95%; }
-
-  .content_block {
-    padding: 0; }
-
-  .single-resources article {
-    margin-top: 0 !important;
-    page-break-before: always !important; }
-
-  .single-resources .entry-content {
-    grid-column: 1 / -1;
-    width: 100%;
-    max-width: 100%; }
-
   .print-header {
     display: block !important; }
     .print-header h1 {
@@ -14286,7 +14275,7 @@ to display none.
       padding: 0;
       margin-left: 10%;
       text-align: left;
-      font-size: 58px;
+      font-size: 50px;
       color: #414141;
       text-transform: uppercase;
       position: relative; }
@@ -14308,35 +14297,27 @@ to display none.
     .print-header a:after {
       content: ""; }
 
-  #print_logo {
-    height: 7cm;
-    display: block;
-    margin-top: -4rem !important; }
-    #print_logo img {
-      height: 7cm;
-      object-fit: cover;
-      display: block; }
-
-  .related-activities {
-    display: none; }
-
-  .row.activities .note-content span.block, .row.activities .note-content a.block {
-    padding: 0; }
+  .note_unordered li {
+    padding: 0 !important; }
+    .note_unordered li a {
+      background: transparent !important;
+      border-bottom: 0px solid !important;
+      padding: 0 !important;
+      text-align: left !important; }
 
   .print-footer {
+    background: #f5f5f5;
+    width: 90%;
+    margin-left: 5%;
+    page-break-inside: avoid;
     display: block !important;
-    padding-top: 2rem !important;
-    text-align: center !important; }
+    padding: 2rem !important;
+    text-align: center !important;
+    font-size: 1.15rem !important; }
     .print-footer .print-logo {
       margin-top: 2rem; }
     .print-footer a:after {
       content: ""; }
-
-  .link, .tip, .warning, .info, .check {
-    page-break-inside: avoid; }
-
-  .h4 {
-    margin-top: 2.28rem; }
 
   .sidebar,
   .page-navigation,
@@ -14345,11 +14326,13 @@ to display none.
   .resources-meta,
   footer,
   #share-links,
+  #share-links-bottom,
   .parent-page,
   .no-print,
   .location_link,
   .calendar_add,
   .index-wrapper,
+  .modal-trigger,
   .post-edit-link,
   .simcal-calendar-head,
   .simcal-event-details .btn-flat a,

@@ -39,12 +39,6 @@ if($queried_object->post_parent != 0 ) {
 		<?php the_title();?></h1>
 		<?php
 
-		if(is_user_logged_in()) {
-			get_template_part( 'parts/content', 'edit' );
-		}
-		?>
-		<?php
-
 		echo '<div class="resources-meta">';
 
 		if($terms) {
@@ -64,8 +58,14 @@ if($queried_object->post_parent != 0 ) {
 				echo '<br /><i class="mdi mdi-information"></i><span>' . __( ' This page is part of the ', 'ocn' ) . '<strong>' . $guide . '</strong>' . __( ' guide and was last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span></div>';
 		}
 
-get_template_part( 'parts/content', 'share' );
 		 ?>
+
+		 <?php
+
+ 		if(is_user_logged_in()) {
+ 			get_template_part( 'parts/content', 'edit' );
+ 		}
+ 		?>
 
 	</header> <!-- end article header -->
 <?php
@@ -350,11 +350,16 @@ $show_toc = get_field('show_toc');
 					endif; // end note block
 
 					if( get_row_layout() == 'steps_block' ): //start steps block
+						$step_intro = get_sub_field('steps_intro');
+						echo '<div class="steps_block">';
+						if($step_intro):
+							echo '<p>' . $step_intro . '</p>';
+						endif;
 
 							if( have_rows('step') ): // check if the step repeater field has rows of data
 
 								echo
-								'<div class="steps_block">
+								'
 									<ol class="steps">';
 				 	// loop through the rows of data
 							    while ( have_rows('step') ) : the_row();
@@ -364,15 +369,14 @@ $show_toc = get_field('show_toc');
 							    endwhile;
 
 									echo
-										'</ol>
-									</div>';
+										'</ol>';
 
 								else :
 
 				    // no rows found
 
 						endif; // end step repeater
-
+							echo '</div>';
 						endif; // end steps block
 
 						if( get_row_layout() == 'available_platforms' ): //start available_platforms block
@@ -546,6 +550,9 @@ endif; // end section repeater
 <?php
 
 resources_page_nav();
+
+
+get_template_part( 'parts/content', 'share-footer' );
 ?>
 
 
@@ -575,7 +582,7 @@ _tkf.openFullScreen({path:'/ocnstirling?tags=' +org});
 			echo '<span>' . __( 'This resource is part of the ', 'ocn' ) . '<strong>' . $guide . '</strong>' . __( ' guide and was last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span><br />';
 	}
 	 ?>
-	The online version is available at:<br /><?php echo get_the_permalink(); ?>
+	<br />The online version is available at:<br /><?php echo get_the_permalink(); ?>
 	<div class="print-logo center">
 		<img width="100"
 		<?php $logo_image = get_theme_mod( 'tcx_logo_image' );

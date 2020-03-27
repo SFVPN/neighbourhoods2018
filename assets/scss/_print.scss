@@ -16,6 +16,8 @@ to display none.
     filter:none !important;
     -ms-filter: none !important;
     overflow: visible !important;
+    float: none !important;
+    line-height: 1.15;
   }
 
 
@@ -97,22 +99,21 @@ to display none.
     }
 
     @page {
-      margin: 1cm 0cm;
-      width: 210mm;
-      height: 297mm;
+      margin: 5mm 0;
       word-wrap: break-word;
     }
 
+    p {
+  orphans: 2;
+  widows: 2;
+  font-weight: 300;
+}
 
-    p, h2, h3 {
-      orphans: 3;
-      widows: 3;
-    }
 
     h2,
     h3 {
-      page-break-after: avoid;
       page-break-inside: avoid;
+      page-break-after: avoid !important;
     }
 
     h2 {
@@ -165,7 +166,7 @@ to display none.
       padding: 0;
       h1 {
         font-size: $h3-fontsize;
-        padding: 0 !important;
+        padding: 0 0 1rem 0 !important;
         margin: 0 !important;
       }
     }
@@ -198,14 +199,14 @@ to display none.
 
     .print-header {
       display: block !important;
-      
+
       h1 {
         margin-top: 50%;
         width: 80%;
         padding: 0;
         margin-left: 10%;
         text-align: left;
-        font-size: 58px;
+        font-size: 50px;
         color: #414141;
         text-transform: uppercase;
         position: relative;
@@ -255,6 +256,14 @@ to display none.
     padding: 0;
   }
 
+  .note_unordered li a {
+    background: transparent !important;
+    border-bottom: 0px solid !important;
+    padding: 0 !important;
+    text-align: left !important;
+
+  }
+
     .print-footer {
       display: block !important;
       padding-top: 2rem !important;
@@ -270,7 +279,7 @@ to display none.
     }
 
 
-    .link, .tip, .warning, .info, .check {
+    .link, .tip, .warning, .info, .check, .steps_block {
         page-break-inside:avoid;
     }
 
@@ -292,6 +301,7 @@ to display none.
     .location_link,
     .calendar_add,
     .index-wrapper,
+    .modal-trigger,
     .post-edit-link,
     .simcal-calendar-head,
     .simcal-event-details .btn-flat a,
