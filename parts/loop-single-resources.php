@@ -10,10 +10,25 @@ if($queried_object->post_parent != 0 ) {
 
  // storing this so we have it available in the other loops
 ?>
+<div class="print-header hide">
+	<div class="print-logo center">
+		<!-- <img
+
+		src="<?php echo get_template_directory_uri(); ?>/assets/images/resources-cover.png" alt=""
+		/> -->
+		<h1>Tools for a Connected Neighbourhood</h1>
+		<div class="print-logo center">
+
+		</div>
+
+	</div>
+</div>
 
 <?php if( has_term( 'support-pathways', 'resources_category' ) ) {
 	echo '<article id="post-' . get_the_ID() . '" class="support-pathway" role="article" itemscope itemtype="http://schema.org/WebPage">';
 } else {?>
+
+
 
 	<article id="post-<?php echo get_the_ID();?>" class="container <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?>" role="article" itemscope itemtype="http://schema.org/WebPage">
 <?php }?>
@@ -75,7 +90,7 @@ if ( $post->post_parent === 0 ) {
 		?>
 
 <div>
-	<div class="guide-wrapper">
+	<div class="guide-wrapper no-print">
 
 			<ol id="guide-contents">
 				<li class="block label black-text"><?php echo __( 'Guide Index', 'ocn' );?></li>
@@ -123,7 +138,7 @@ $pages[] += get_the_ID();
 <?php endif; wp_reset_postdata();?>
 <?php } else {
 	echo '<div>
-					<div class="guide-wrapper">';
+					<div class="guide-wrapper no-print">';
 		$args = array(
 				'post_type'      => 'resources',
 				'posts_per_page' => -1,
@@ -219,7 +234,7 @@ $show_toc = get_field('show_toc');
 
 		         // display a sub field 'value'
 						 if( have_rows('blocks') ):
-						echo '<div class="col s12 grey lighten-5 index-wrapper"><ol id="toc">
+						echo '<div class="col s12 grey lighten-5 index-wrapper no-print"><ol id="toc">
 						<li class="block label black-text">' . __( 'What\'s on this page?', 'ocn' ) . '</li>';
 	     // loop through the rows of data
 	    while ( have_rows('blocks') ) : the_row();
@@ -320,7 +335,7 @@ $show_toc = get_field('show_toc');
 							 	// loop through the rows of data
 							    while ( have_rows('note_link') ) : the_row();
 
-										echo '<li><a href="' . get_sub_field('link_url') . '"><i class="material-icons left">link</i>' . get_sub_field('link_text') . '</a></li>';
+										echo '<li><a href="' . get_sub_field('link_url') . '"><i class="material-icons left">check_circle_outline</i>' . get_sub_field('link_text') . '</a></li>';
 
 							    endwhile;
 
@@ -448,56 +463,6 @@ $show_toc = get_field('show_toc');
 						endif; // end recommendation block
 
 
-						if( get_row_layout() == 'available_platforms' ): //start available_platforms block
-
-							$overview_title = get_sub_field('overview_title');
-							$link = get_sub_field('platform_link');
-							$link_text = get_sub_field('platform_link_text');
-							$platforms = get_sub_field('product_platforms');
-							$platform_text = get_sub_field('platform_text');
-
-							echo '<div class="content_block">';
-
-
-								if($platforms) {
-										echo '<div class="grey lighten-5 platforms"><ul>';
-
-										foreach ($platforms as $platform) {
-											if($platform['value'] === 'web') {
-												echo '<li>
-												<span class="mdi mdi-web"></span> Web
-												</li>';
-											}
-											if($platform['value'] === 'android') {
-												echo '<li>
-												<span class="mdi mdi-android"></span> Android
-												</li>';
-											}
-											if($platform['value'] === 'ios') {
-												echo '<li>
-												<span class="mdi mdi-apple-ios"></span> iOS
-												</li>';
-											}
-											if($platform['value'] === 'desktop') {
-												echo '<li>
-												<span class="mdi mdi-desktop-mac"></span> Desktop
-												</li>';
-											}
-										}
-
-										echo '</ul>';
-
-										if($link) {
-											echo '<a class="block center product_link" href="' . $link . '" data-note="This link takes you to an external website">' . $link_text . '</a>';
-										}
-								echo '</div>';
-								}
-
-
-							echo '</div>';
-						endif; // end available_platforms block
-
-
 				if( get_row_layout() == 'image_block' ): //start image_block
 					$markers_desc = [];
 					$emptyArray = [[]];
@@ -603,8 +568,24 @@ _tkf.openFullScreen({path:'/ocnstirling?tags=' +org});
 </script>
 </section>
 <div class="print-footer hide">
-	This resource is produced by <strong>Our Connected Neighbourhoods</strong><br />
-	For more information please visit <a href="<?php echo get_home_url(); ?>"><?php echo get_home_url(); ?></a><br />
-	Date printed: <?php echo date("d F, Y");?>
+	<?php
+	if($queried_object->post_parent === 0 ) {
+			echo '<span>' . __( 'This resource was last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span><br />';
+	} else {
+			echo '<span>' . __( 'This resource is part of the ', 'ocn' ) . '<strong>' . $guide . '</strong>' . __( ' guide and was last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span><br />';
+	}
+	 ?>
+	The online version is available at:<br /><?php echo get_the_permalink(); ?>
+	<div class="print-logo center">
+		<img width="100"
+		<?php $logo_image = get_theme_mod( 'tcx_logo_image' );
+		if ($logo_image){?>
+		src="<?php echo $logo_image;?>" alt=""
+		<?php
+		} else {?>
+		src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
+		<?php }?>
+		/>
+	</div>
 </div>
 </article>
