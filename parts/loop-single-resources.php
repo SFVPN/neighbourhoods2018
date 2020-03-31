@@ -292,8 +292,10 @@ $show_toc = get_field('show_toc');
 
 					if( get_row_layout() == 'video_block' ): //start video block
 
-					echo '<div class="video-container">' . get_sub_field('video_url') . '</div>
-					<div class="content_block center grey lighten-5">' . get_sub_field('video_caption') . '</div>';
+					echo '<div class="video_block">
+									<div class="video-container">' . get_sub_field('video_url') . '</div>
+									<div class="content_block center grey lighten-5">' . get_sub_field('video_caption') . '</div>
+								</div>';
 
 					endif; //end video block
 
