@@ -22,22 +22,34 @@ to display none.
 
 h1, h2, h3, h4, h5, h6, p, span, a, ul, ol, li {
   font-family: Helvetica, Arial, sans-serif !important;
+  color: #000 !important;
 }
 
   a, a:visited {
-    color: #000 !important;
     text-decoration: none !important;
     // show links on printed pages
     &:after {
       content: attr(href);
       color: $link-color;
-      display: block;
       font-size: 1rem;
     }
 
     // show title too
     abbr[title]:after {
       content: " (" attr(title) ")";
+    }
+  }
+
+  .single-resources a {
+    &:after {
+      display: block;
+    }
+  }
+
+  a[href^="mailto:"] {
+    &:after {
+      content: '';
+      display: inline-block;
     }
   }
 

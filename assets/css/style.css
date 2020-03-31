@@ -14192,18 +14192,24 @@ to display none.
     line-height: 1.15; }
 
   h1, h2, h3, h4, h5, h6, p, span, a, ul, ol, li {
-    font-family: Helvetica, Arial, sans-serif !important; }
+    font-family: Helvetica, Arial, sans-serif !important;
+    color: #000 !important; }
 
   a, a:visited {
-    color: #000 !important;
     text-decoration: none !important; }
     a:after, a:visited:after {
       content: attr(href);
       color: #283593;
-      display: block;
       font-size: 1rem; }
     a abbr[title]:after, a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
+
+  .single-resources a:after {
+    display: block; }
+
+  a[href^="mailto:"]:after {
+    content: '';
+    display: inline-block; }
 
   a.phone:after, .simcal-calendar a:after {
     content: ""; }
