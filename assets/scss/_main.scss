@@ -1559,13 +1559,8 @@ h1.archive-title {
   }
 
   h3 {
-    font-size: $h5-fontsize;
-    @media #{$medium-and-down} {
+    font-size: 1.25rem;
 
-    }
-    @media #{$small-and-down} {
-      font-size: 1.5rem;
-    }
   }
 
 	.alignleft, img.alignleft {
@@ -1912,8 +1907,12 @@ a.current.chip {
 
 #toc {
 	margin-bottom: 2rem;
+  list-style-type: none;
   li {
   	font-size: 1rem;
+    .toc-h3 {
+      padding-left: .75rem;
+    }
   }
 }
 

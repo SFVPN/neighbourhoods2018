@@ -13012,10 +13012,7 @@ h1.archive-title {
     .entry-content h2 {
       font-size: 1.75rem; } }
 .entry-content h3 {
-  font-size: 1.64rem; }
-  @media only screen and (max-width: 600px) {
-    .entry-content h3 {
-      font-size: 1.5rem; } }
+  font-size: 1.25rem; }
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
   display: inline;
@@ -13268,9 +13265,12 @@ a.current.chip {
   border-radius: 3px; }
 
 #toc {
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  list-style-type: none; }
   #toc li {
     font-size: 1rem; }
+    #toc li .toc-h3 {
+      padding-left: .75rem; }
 
 .active-page:after {
   content: ' \2605'; }
@@ -14191,12 +14191,17 @@ to display none.
     float: none !important;
     line-height: 1.15; }
 
+  h1, h2, h3, h4, h5, h6, p, span, a, ul, ol, li {
+    font-family: Helvetica, Arial, sans-serif !important; }
+
   a, a:visited {
     color: #000 !important;
     text-decoration: none !important; }
     a:after, a:visited:after {
-      content: " [LINK: " attr(href) "]";
-      color: #283593; }
+      content: attr(href);
+      color: #283593;
+      display: block;
+      font-size: 1rem; }
     a abbr[title]:after, a:visited abbr[title]:after {
       content: " (" attr(title) ")"; }
 
@@ -14218,9 +14223,14 @@ to display none.
     .single article h1 {
       padding: 0; }
 
+  .single-resources .entry-content {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%; }
+
   p, li, span {
     font-size: 1.25rem !important;
-    line-height: 1.25; }
+    font-weight: 300; }
 
   ol.steps li {
     page-break-inside: avoid !important; }
@@ -14232,6 +14242,8 @@ to display none.
 
   .info.note-content.grey.lighten-5 {
     background: transparent !important; }
+    .info.note-content.grey.lighten-5 span.note-title {
+      font-weight: 600 !important; }
     .info.note-content.grey.lighten-5 i {
       margin-bottom: 2px !important; }
 

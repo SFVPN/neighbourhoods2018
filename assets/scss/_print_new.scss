@@ -20,14 +20,19 @@ to display none.
     line-height: 1.15;
   }
 
+h1, h2, h3, h4, h5, h6, p, span, a, ul, ol, li {
+  font-family: Helvetica, Arial, sans-serif !important;
+}
 
   a, a:visited {
     color: #000 !important;
     text-decoration: none !important;
     // show links on printed pages
     &:after {
-      content: " [LINK: " attr(href) "]";
+      content: attr(href);
       color: $link-color;
+      display: block;
+      font-size: 1rem;
     }
 
     // show title too
@@ -66,9 +71,15 @@ to display none.
     }
   }
 
+  .single-resources .entry-content {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%;
+  }
+
   p, li, span {
     font-size: 1.25rem !important;
-    line-height: 1.25;
+    font-weight: 300;
   }
 
 
@@ -86,6 +97,9 @@ to display none.
 
   .info.note-content.grey.lighten-5 {
     background: transparent !important;
+    span.note-title {
+      font-weight: 600 !important;
+    }
     i {
       margin-bottom: 2px !important;
     }
