@@ -14189,11 +14189,14 @@ to display none.
     -ms-filter: none !important;
     overflow: visible !important;
     float: none !important;
-    line-height: 1.15; }
+    line-height: 1.15 !important; }
 
   h1, h2, h3, h4, h5, h6, p, span, a, ul, ol, li {
     font-family: Helvetica, Arial, sans-serif !important;
     color: #000 !important; }
+
+  strong {
+    font-weight: 600; }
 
   a, a:visited {
     text-decoration: none !important; }
@@ -14246,8 +14249,12 @@ to display none.
     .apps li .mdi {
       background: transparent !important; }
 
+  .steps_block, img {
+    break-inside: avoid; }
+
   .info.note-content.grey.lighten-5 {
-    background: transparent !important; }
+    background: transparent !important;
+    break-inside: avoid !important; }
     .info.note-content.grey.lighten-5 span.note-title {
       font-weight: 600 !important; }
     .info.note-content.grey.lighten-5 i {
@@ -14342,6 +14349,7 @@ to display none.
   .wp-prev-next,
   .respond-form,
   .resources-meta,
+  .video_block,
   footer,
   #share-links,
   #share-links-bottom,
