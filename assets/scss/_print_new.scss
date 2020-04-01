@@ -20,7 +20,12 @@ to display none.
     line-height: 1.15 !important;
   }
 
-h1, h2, h3, h4, h5, h6, p, span, a, ul, ol, li {
+h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, .note-content {
+  font-family: Helvetica, Arial, sans-serif !important;
+  color: #000 !important;
+}
+
+span:not(.mdi) {
   font-family: Helvetica, Arial, sans-serif !important;
   color: #000 !important;
 }
@@ -69,7 +74,6 @@ strong {
   }
 
   @page:first {
-    background: pink;
   }
 
   blockquote {
@@ -99,15 +103,19 @@ strong {
   }
 
 
-
   ol.steps li {
     page-break-inside: avoid !important;
   }
 
-  .apps li {
-    display: inline-block !important;
-    .mdi {
-      background: transparent !important;
+  .apps {
+    page-break-inside: avoid !important;
+    margin: 0;
+    li {
+      display: inline !important;
+      padding-right: 0 !important;
+      .mdi {
+        background: transparent !important;
+      }
     }
   }
 
@@ -151,10 +159,18 @@ strong {
   }
 
   .ir a:after,
+  .links-off a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
+
+  .links-off {
+    .info.note-content, .available_platforms {
+      display: none !important;
+    }
+  }
+
 
   pre, blockquote {
     page-break-inside: avoid;
@@ -172,42 +188,38 @@ strong {
     max-width: 100% !important;
   }
 
+  @page:first {
+    background: pink !important;
+    position: relative;
+  }
+
   .print-header {
     display: block !important;
-
-    h1 {
-      margin-top: 50%;
-      width: 80%;
-      padding: 0;
-      margin-left: 10%;
-      text-align: left;
-      font-size: 50px;
-      color: #414141;
-      text-transform: uppercase;
-      position: relative;
-      &:after, &:before {
-        content: '';
-        display: inline-block;
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        border: 1px solid;
+    width: 100%;
+    .print-title {
+      position: absolute;
+      padding: 45% 0 0 10%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: color("cyan", "lighten-4");
+      .print-logo {
         position: absolute;
+        right: 10px;
         bottom: 10px;
       }
-      &:after {
-        right: 0;
-        background: yellow;
-      }
-      &:before {
-        right: 30px;
-        background: cyan;
-      }
     }
-    a {
-      &:after {
-        content: "";
-      }
+    h1 {
+      width: 80%;
+      padding: 0;
+      text-align: left;
+      font-size: 50px;
+      text-transform: uppercase;
+      color: #000000 !important;
+    }
+    p {
+      color: #000000 !important;
     }
   }
 
@@ -222,14 +234,15 @@ strong {
   }
 
   .print-footer {
-    background: color("grey", "lighten-4");
-    width: 90%;
-    margin-left: 5%;
-    page-break-inside: avoid;
     display: block !important;
     padding: 2rem !important;
     text-align: center !important;
     font-size: 1.15rem !important;
+    width: 90%;
+    margin-left: 5%;
+    border: 1px solid color("grey", "lighten-2");
+    border-radius: 3px;
+    page-break-inside: avoid;
     .print-logo {
       margin-top: 2rem;
     }

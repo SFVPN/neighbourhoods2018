@@ -6,5 +6,28 @@
 
   <a class="btn-flat" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo wp_get_shortlink() ?>" aria-label="Share this content on Facebook"><span class="hide-on-small-and-down">Share on Facebook </span><i aria-hidden="true" class="mdi mdi-facebook left"></i></a>
 
-  <button class="btn-flat" aria-label="Print this content" onclick="printFunction()"><span class="hide-on-small-and-down">Print Page </span><i aria-hidden="true" class="mdi mdi-printer left"></i></button>
+  <button class="btn-flat" aria-label="Print this content" onclick="printFunction()"><span class="hide-on-small-and-down">Print Page (Chrome)</span><i aria-hidden="true" class="mdi mdi-printer left"></i></button>
+  <?php
+  if(is_user_logged_in()):
+  ?>
+  <span class="btn-flat">
+    <input type="checkbox" oninput="hideLinks()" class="link-check screen-reader-text" id="links_off" name="links_off">
+  <label for="links_off">Hide Links (Print)</label></span>
+  <?php
+  endif;
+  ?>
 </div>
+
+<?php
+if(is_user_logged_in()):
+?>
+<script>
+function hideLinks() {
+  let article = document.getElementById('resources_article');
+  let checkbox = document.getElementById('links_off');
+  article.classList.toggle('links-off');
+}
+</script>
+<?php
+endif;
+?>

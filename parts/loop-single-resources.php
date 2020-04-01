@@ -11,14 +11,18 @@ if($queried_object->post_parent != 0 ) {
  // storing this so we have it available in the other loops
 ?>
 <div class="print-header hide">
-	<div class="print-logo center">
+	<div class="print-title">
 		<!-- <img
 
 		src="<?php echo get_template_directory_uri(); ?>/assets/images/resources-cover.png" alt=""
 		/> -->
 		<h1>Tools for a Connected Neighbourhood</h1>
-		<div class="print-logo center">
+		<p>
+			<?php the_title();?>
+		</p>
 
+		<div class="print-logo">
+			<img width="100" src="<?php echo get_template_directory_uri(); ?>/assets/images/resources-logo.png" alt=""/>
 		</div>
 
 	</div>
@@ -30,7 +34,7 @@ if($queried_object->post_parent != 0 ) {
 
 
 
-	<article id="post-<?php echo get_the_ID();?>" class="container <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?>" role="article" itemscope itemtype="http://schema.org/WebPage">
+	<article id="resources_article" class="container <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?>" role="article" itemscope itemtype="http://schema.org/WebPage">
 <?php }?>
 	<header class="article-header col s12 center">
 
@@ -585,16 +589,5 @@ _tkf.openFullScreen({path:'/ocnstirling?tags=' +org});
 	}
 	 ?>
 	<br />The online version is available at:<br /><?php echo get_the_permalink(); ?>
-	<div class="print-logo center">
-		<img width="100"
-		<?php $logo_image = get_theme_mod( 'tcx_logo_image' );
-		if ($logo_image){?>
-		src="<?php echo $logo_image;?>" alt=""
-		<?php
-		} else {?>
-		src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
-		<?php }?>
-		/>
-	</div>
 </div>
 </article>
