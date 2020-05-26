@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_5ca4e6c784568",
-            "label": "Public Transport",
+            "label": "How comfortable is this place?",
             "name": "public_transport",
             "type": "group",
             "instructions": "",
@@ -18,27 +18,10 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5ca5baf1ccc9a",
-                    "label": "Does public transport meet my needs?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
                     "key": "field_5ca5bb39ccc9b",
-                    "label": "Select a face to rate your place",
+                    "label": "Click on a face to give a rating",
                     "name": "transport_rating",
-                    "type": "button_group",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -52,20 +35,20 @@
                         "2": "2",
                         "3": "3",
                         "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
+                        "5": "5"
                     },
                     "allow_null": 1,
+                    "other_choice": 0,
                     "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 }
             ]
         },
         {
             "key": "field_5ca5ca6fcd661",
-            "label": "Traffic and Parking",
+            "label": "Can you find information at this place easily?",
             "name": "traffic_parking",
             "type": "group",
             "instructions": "",
@@ -79,27 +62,10 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5ca5ca6fcd662",
-                    "label": "Do traffic and parking arrangements meet the community's needs and let people move around safely?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
                     "key": "field_5ca5ca6fcd663",
-                    "label": "Select a face to rate your place",
+                    "label": "Click on a face to give a rating",
                     "name": "traffic_rating",
-                    "type": "button_group",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -113,20 +79,20 @@
                         "2": "2",
                         "3": "3",
                         "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
+                        "5": "5"
                     },
                     "allow_null": 1,
+                    "other_choice": 0,
                     "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 }
             ]
         },
         {
             "key": "field_5ca5cc4dc93d2",
-            "label": "Streets and Spaces",
+            "label": "Do you feel relaxed or anxious in this place?",
             "name": "streets_spaces",
             "type": "group",
             "instructions": "",
@@ -140,27 +106,10 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5ca5cc4dc93d3",
-                    "label": "Do buildings, streets and public spaces create an attractive place that is easy to get around?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
                     "key": "field_5ca5cc4dc93d4",
-                    "label": "Select a face to rate your place",
+                    "label": "Click on a face to give a rating",
                     "name": "street_rating",
-                    "type": "button_group",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -174,20 +123,20 @@
                         "2": "2",
                         "3": "3",
                         "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
+                        "5": "5"
                     },
                     "allow_null": 1,
+                    "other_choice": 0,
                     "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 }
             ]
         },
         {
             "key": "field_5ca5ccf5f011f",
-            "label": "Natural Space",
+            "label": "Do you find this place welcoming?",
             "name": "natural_space",
             "type": "group",
             "instructions": "",
@@ -201,27 +150,10 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5ca5ccf5f0120",
-                    "label": "Can I regularly experience good quality natural space?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
                     "key": "field_5ca5ccf5f0121",
-                    "label": "Select a face to rate your place",
+                    "label": "Click on a face to give a rating",
                     "name": "nature_rating",
-                    "type": "button_group",
+                    "type": "radio",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -235,563 +167,14 @@
                         "2": "2",
                         "3": "3",
                         "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
+                        "5": "5"
                     },
                     "allow_null": 1,
+                    "other_choice": 0,
                     "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5cd23fc87e",
-            "label": "Play and Recreation",
-            "name": "recreation_space",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5cd23fc87f",
-                    "label": "Do I have access to a range of space and opportunities for play and recreation?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5cd23fc880",
-                    "label": "Select a face to rate your place",
-                    "name": "recreation_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5cd8d1eccb",
-            "label": "Facilities and Amenities",
-            "name": "facilities",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5cd8d1eccc",
-                    "label": "Do facilities and amenities meet my needs?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5cd8d1eccd",
-                    "label": "Select a face to rate your place",
-                    "name": "facilities_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5cdb88b3f1",
-            "label": "Work and Local Economy",
-            "name": "local_economy",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5cdb88b3f2",
-                    "label": "It there an active local economy and the opportunity to access good quality work?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5cdb88b3f3",
-                    "label": "Select a face to rate your place",
-                    "name": "economy_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5ce15e859d",
-            "label": "Housing and Community",
-            "name": "housing_community",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5ce15e859e",
-                    "label": "Does housing support the needs of the community and contribute to a positive environment?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5ce15e859f",
-                    "label": "Select a face to rate your place",
-                    "name": "housing_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5ce649d039",
-            "label": "Social Interaction",
-            "name": "social_interaction",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5ce649d03a",
-                    "label": "Is there a range of spaces and opportunities to meet people?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5ce649d03b",
-                    "label": "Select a face to rate your place",
-                    "name": "social_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5ce9d3e0e5",
-            "label": "Identity and Belonging",
-            "name": "identity_belonging",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5ce9d3e0e6",
-                    "label": "Does this place have a positive identity and do I feel I belong?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5ce9d3e0e7",
-                    "label": "Select a face to rate your place",
-                    "name": "identity_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5cecab4688",
-            "label": "Feeling Safe",
-            "name": "feeling_safe",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5cecab4689",
-                    "label": "Do I feel safe?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5cecab468a",
-                    "label": "Select a face to rate your place",
-                    "name": "safe_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5cef2f89b2",
-            "label": "Care and Maintenance",
-            "name": "care_maintenance",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5cef2f89b3",
-                    "label": "Are buildings and spaces well cared for?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5cef2f89b4",
-                    "label": "Select a face to rate your place",
-                    "name": "maintenance_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
-                }
-            ]
-        },
-        {
-            "key": "field_5ca5cf189778b",
-            "label": "Influence and Sense of Control",
-            "name": "influence_control",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5ca5cf189778c",
-                    "label": "Do I feel able to participate in decision and help change things for the better?",
-                    "name": "",
-                    "type": "message",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "message": "",
-                    "new_lines": "wpautop",
-                    "esc_html": 0
-                },
-                {
-                    "key": "field_5ca5cf189778d",
-                    "label": "Select a face to rate your place",
-                    "name": "influence_rating",
-                    "type": "button_group",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "choices",
-                        "id": ""
-                    },
-                    "choices": {
-                        "1": "1",
-                        "2": "2",
-                        "3": "3",
-                        "4": "4",
-                        "5": "5",
-                        "6": "6",
-                        "7": "7"
-                    },
-                    "allow_null": 1,
-                    "default_value": "",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
                 }
             ]
         }
@@ -813,5 +196,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1554370356
+    "modified": 1590158708
 }

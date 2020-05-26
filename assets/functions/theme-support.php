@@ -304,7 +304,6 @@ function my_add_excerpts_to_pages() {
 }
 
 
-
 // function searchfilter($query) {
 //     if ($query->is_search && !is_admin() ) {
 //       //  if(isset($_GET['post_type'])) {

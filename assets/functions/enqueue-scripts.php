@@ -12,7 +12,7 @@ function site_scripts() {
     //wp_enqueue_script( 'what-input', get_template_directory_uri() . '/vendor/what-input/what-input.min.js', array(), '', true );
 
     // Adding Materialize scripts file in the footer
-  wp_enqueue_script( 'materialize-js', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js', array( 'jquery' ), '', true );
+  wp_enqueue_script( 'materialize-js', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js', array( 'jquery' ), '', true );
 
   // Adding Cookie Consent scripts file in the footer
   $cookies = get_field('information_collected', 'option');
@@ -47,6 +47,15 @@ wp_enqueue_script( 'chart-js', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/
 wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=' . $api_key . '&libraries=places', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'map-js', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery',  'maps-js' ), '', true );
 }
+
+function ocn_acf_init() {
+    if(is_admin()):
+        return;
+    endif;
+    acf_update_setting('enqueue_google_maps', false);
+}
+
+add_action('acf/init', 'ocn_acf_init');
 
 if(is_singular(array( 'resources' ))){
   wp_enqueue_script( 'addevent-js', 'https://addevent.com/libs/atc/1.6.1/atc.min.js', array(), '', true );
@@ -111,11 +120,11 @@ add_action( 'admin_enqueue_scripts', 'my_enqueue');
 
 function add_defer_attribute($tag, $handle) {
    // add script handles to the array below
-   $scripts_to_defer = array('image-marker-js');
+   $scripts_to_defer = array('image-marker-js', 'maps-js');
 
    foreach($scripts_to_defer as $defer_script) {
       if ($defer_script === $handle) {
-         return str_replace(' src', ' async="async" src', $tag);
+         return str_replace(' src', ' async="async" defer="defer" src', $tag);
       }
    }
    return $tag;

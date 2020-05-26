@@ -1876,6 +1876,14 @@ a.current.chip {
   }
 }
 
+.single-resources article h3 {
+  background: color("grey", "lighten-2");
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  margin-bottom: 0;
+  border-radius: 3px;
+}
+
 .single-resources article.support-pathway {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -1939,7 +1947,7 @@ a.current.chip {
 	top: 8rem;
 }
 
-.info.note-content.grey.lighten-5, .guide-wrapper, .index-wrapper {
+.info.note-content, .guide-wrapper, .index-wrapper {
   border: 1px solid color("grey", "lighten-2");
   border-radius: 3px;
   a {
@@ -2132,12 +2140,8 @@ a.current.chip {
 .info.note-content {
   padding: 2rem;
   margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
   .note-title {
     font-size:1.25rem;
-    display: flex;
-    align-items: center;
     font-weight: 500;
     @media #{$small-and-down} {
       font-size: 1.15rem;
@@ -2158,11 +2162,10 @@ a.current.chip {
   }
   ol li {
     padding-left: .5rem;
-
   }
   ul.note_unordered {
     list-style-type: none;
-    padding: 1rem 0 0 0;
+    padding: 0;
     margin: 0;
     li {
       list-style-type: none;
@@ -2330,9 +2333,9 @@ h3.print {
     padding-right: 1rem;
     a {
       text-decoration: none;
-      color:black;
+
       .mdi {
-          background: color("red", "lighten-4");
+          background: color("grey", "lighten-2");
           margin-right: .5rem;
           padding: 5px;
           border-radius: 50%;
@@ -2380,49 +2383,53 @@ li::before {
   font-size: 1rem;
   width: 20px;
   height: 20px;
-  background: color("grey", "lighten-5");
+  background: color("grey", "lighten-2");
   margin: 0 1rem 0 0;
   text-align: center;
   border-radius: 50%;
 }
 }
 
-.covid-19 .info.note-content .note_unordered {
-  display: grid;
-  @media #{$medium-and-up} {
-  grid-template-columns: repeat(2, 1fr);
+.single-resources .entry-content .page_object_block {
+  margin: 4rem 0;
+  padding: 2rem;
+  border: 2px dashed;
+  border-radius: 3px;
+  .title {
+    font-size: 1.25rem;
+    font-weight: 500;
   }
-  @media #{$large-and-up} {
-  grid-template-columns: repeat(3, 1fr);
-  }
-
-  grid-template-columns: auto;
-  grid-gap: 1rem;
-  @supports not (display: grid) {
+  ul {
+    margin: 0;
+    padding: 0;
     li {
-      padding: .5rem;
-      display: inline-block;
+      padding: 1rem 0 0 0;
       a {
-        width: inherit;
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1.25rem;
+        border-bottom: 3px solid;
+        line-height: 1;
+      }
+      span {
+        padding: .5rem 0;
       }
     }
   }
-  padding: 1rem 0 0 0;
+}
+
+.info.note-content .note_unordered {
+  padding: 0;
   li a {
     text-decoration: none;
-    height: 100%;
-    width: 100%;
-    padding: 1rem;
     text-align: center;
-    border-radius: 3px;
-    background: color("blue-grey", "darken-4");
-    color: white;
-    border-bottom: 5px solid color("red", "lighten-4");
-    font-weight: 300;
+    padding: 1rem 0 0 0;
+    line-height: 1;
+    border-bottom: 3px solid color("grey", "lighten-2");
     font-size: 1.15rem;
     transition: border-color .25s;
     &:hover, &:focus {
-      border-bottom: 5px solid color("yellow", "accent-2");
+      border-bottom: 3px solid color("yellow", "accent-2");
     }
   }
   li i {

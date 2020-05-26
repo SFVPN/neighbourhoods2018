@@ -103,19 +103,6 @@
 
 			</div>
 
-			<?php
-			$images = get_field('audit_gallery');
-			if( $images ):
-				?>
-				<h4 class="center">Photos</h4>
-			<div class="main-carousel"  data-flickity-options='{ "contain": true }'>
-			 <?php foreach( $images as $image ): ?>
-			 <div class="carousel-cell" style="width: 100%;"><img class="responsive-img" src="<?php echo $image['url']; ?>"/>
-				 <p><?php echo $image['caption']; ?></p>
-			 </div>
-			 <?php endforeach; ?>
-			</div>
-			<?php endif;?>
 
 	<?php
 
@@ -140,10 +127,26 @@ endwhile; ?>
 	</ul>
 </div>
 <?php
+$images = get_field('audit_gallery');
+if( $images ):
+	?>
+<div class="col s12">
+	<h3 class="center h4">Photos</h3>
+<div class="main-carousel"  data-flickity-options='{ "contain": true }'>
+ <?php foreach( $images as $image ): ?>
+ <div class="carousel-cell" style="width: 100%;"><img class="responsive-img" src="<?php echo $image['url']; ?>"/>
+	 <p><?php echo $image['caption']; ?></p>
+ </div>
+ <?php endforeach; ?>
+</div>
+</div>
+<?php endif;?>
+<?php
 $location = get_field('location_map');
 if( !empty($location) ):
 ?>
 <div class="col s12">
+	<h3 class="center h4">Map</h3>
 	<div class="acf-map" style="height: 400px; margin-bottom: 1rem;">
 
 		<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">

@@ -169,7 +169,7 @@ if(!$completed) {
 
 if(count($uncompleted) == 1) {
 
-  badgeos_award_achievement_to_user( $parentID, $user );
+  //badgeos_award_achievement_to_user( $parentID, $user );
 } else {
   //badgeos_award_achievement_to_user( $post_id, $user );
 }

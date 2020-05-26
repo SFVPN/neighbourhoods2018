@@ -1,4 +1,8 @@
-<?php get_header();
+<?php
+
+acf_form_head();
+get_header();
+
 ?>
 
 <main  id="maincontent">
@@ -17,7 +21,7 @@
 
 		 <section class="section">
 
-			 <div class="container">
+			 <div class="row">
 
 				 <form class="col s12">
 	 			 <ul id="kml_layers" class="map-filters_kml">
@@ -51,17 +55,14 @@
 
 				 	</ul>
 
-					<input style="background: white;" id="pac-input" class="controls" type="text" placeholder="Search Box">
-
 				 </form>
 
-<hr />
+				 <?php get_search_form();?>
+
 				<?php //archive_terms('audit_category', 'audits');?>
-				<ul class="collapsible" data-collapsible="accordion">
-<li class="col s12">
-	<div class="collapsible-header active center"><button class="btn-flat grey lighten-3">Hide Audit List</button></div>
-	<div class="collapsible-body">
-				<ul class="collection col s12" style="border: none;">
+	<div class="col s12">
+
+				<ul class="collection col s6">
 <?php
 
 if(is_post_type_archive('audits')) {
@@ -104,13 +105,10 @@ $dfAttr = get_field('submission_details');
 wp_reset_postdata();?>
 
 </ul>
-</div>
 
-</li>
-</ul>
 
 				<!-- <ul class="collection"> -->
-<div id="map-wrapper">
+<div class="col s6" id="map-wrapper">
 					<div id="map" class="acf-map col s12" style="height: 500px; margin: 1rem 0; ">
 			  <?php if (have_posts()) : while (have_posts()) : the_post();
 				$post_terms = get_the_terms($post->ID, 'audit_category');
@@ -138,6 +136,8 @@ wp_reset_postdata();?>
 				<?php endif; ?>
 			</div>
 </div>
+
+</div>
 			<div id="infowindow-content">
 
 		<h6 id="place-name"  class="title"></h6>
@@ -147,11 +147,23 @@ wp_reset_postdata();?>
 
 </ul>
 
+
 			</div>
 
 		</section>
 
 	</div> <!-- end #main -->
+
+  <!-- Modal Structure -->
+
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <?php get_template_part( 'parts/form', 'location' ); ?>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-flat grey lighten-3 modal-close">Close</button>
+    </div>
+  </div>
 
 </main> <!-- end main -->
 

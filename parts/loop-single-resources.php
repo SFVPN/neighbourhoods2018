@@ -294,6 +294,31 @@ $show_toc = get_field('show_toc');
 
         	endif; // end text block
 
+					if( get_row_layout() == 'related_pages' ): // start text block
+						$post_objects = get_sub_field('page_object');
+						if( $post_objects ): ?>
+						<div class="row page_object_block yellow accent-2">
+						<div class="title"><?php echo __( 'Further Reading', 'ocn' );?></div>
+				    <ul>
+				    <?php foreach( $post_objects as $post_object):
+							$excerpt = get_the_excerpt();
+						?>
+				        <li>
+				            <a href="<?php echo get_permalink($post_object->ID); ?>"><?php echo get_the_title($post_object->ID); ?></a>
+										<?php if($excerpt):
+											echo '<span class="block">' . $excerpt . '</span>';
+										endif;
+										?>
+
+				        </li>
+				    <?php endforeach; ?>
+				    </ul>
+					</div>
+					<?php endif;
+
+
+        	endif; // end text block
+
 					if( get_row_layout() == 'video_block' ): //start video block
 
 					echo '<div class="video_block">
@@ -309,7 +334,7 @@ $show_toc = get_field('show_toc');
 						$note = get_sub_field('note', false, false);
 
 						if($note_heading):
-						echo '<div class="info note-content grey lighten-5"><span class="note-title"><i class="hide-on-small-and-down material-icons left red-text lighten-4">live_help</i>' . $note_heading . '</span>';
+						echo '<div class="info row note-content"><span class="block note-title"><i class="hide-on-small-and-down material-icons left red-text lighten-4">live_help</i>' . $note_heading . '</span>';
 						endif;
 
 						if($note):
@@ -437,7 +462,7 @@ $show_toc = get_field('show_toc');
 
 							if( have_rows('recommendation_add') ): // check if the recommendation_add repeater field has rows of data
 
-								echo '<div class="info note-content grey lighten-5"><strong class="note-title">' . $block_title . '</strong>';
+								echo '<div class="info row note-content grey lighten-5"><strong class="note-title">' . $block_title . '</strong>';
 							 	// loop through the rows of data
 							    while ( have_rows('recommendation_add') ) : the_row();
 

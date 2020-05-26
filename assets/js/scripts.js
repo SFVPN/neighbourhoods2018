@@ -22,15 +22,7 @@ $(".collapsible-header button").click(function () {
 
 
     $('.materialboxed').materialbox();
-    $('.modal').modal({
-     dismissible: true, // Modal can be dismissed by clicking outside of the modal
-     opacity: .8, // Opacity of modal background
-     inDuration: 300, // Transition in duration
-     outDuration: 200, // Transition out duration
-     startingTop: '0%', // Starting top style attribute
-     endingTop: '15%', // Ending top style attribute
-   }
- );
+  $('.modal').modal();
  //$('.modal-close').modal('close');
 
 

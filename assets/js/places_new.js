@@ -1,3 +1,4 @@
+
 var $markers = $( ".acf-map" ).find('.marker');
 var markers = [];
 var leisureMarkers = [];
@@ -70,6 +71,7 @@ function initMap() {
     $marker = $(this);
     sidebar++;
     var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+
 		var infowindow = new google.maps.InfoWindow({
 
 	});
@@ -83,33 +85,33 @@ function initMap() {
       fillColor = '#FFBF00';
 			strokeColor = '#FFBF00';
     } if(auditType === 'retail') {
-      fillColor = '#008CFF';
-			strokeColor = '#008CFF';
+      fillColor = '#191a1f';
+			strokeColor = '#191a1f';
     } if (df === "Yes") {
 			fillColor = '#8E24AA';
 		}
 
-
+		//var icon = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
     var icon = {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
+            path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+            scale: 6,
             fillColor: fillColor,
             fillOpacity: 1,
             strokeColor: strokeColor,
             strokeOpacity: 1,
-						strokeWeight: 8,
+						strokeWeight: 4,
             anchor: new google.maps.Point(0, 0)
           };
 
     var iconHover = {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
+            path: google.maps.SymbolPath.BACKWARD_CLOSED_ARROW,
+            scale: 6,
             fillColor: fillColor,
             fillOpacity: 1,
             strokeColor: strokeColor,
-            strokeOpacity: .85,
-						strokeWeight: 8,
+            strokeOpacity: .75,
+						strokeWeight: 4,
             anchor: new google.maps.Point(0, 0)
           };
 
@@ -131,6 +133,7 @@ function initMap() {
   activeInfoWindow&&activeInfoWindow.close();
   infowindow.open(map, marker);
   activeInfoWindow = infowindow;
+
 });
 
 
@@ -186,6 +189,7 @@ function initMap() {
 
 
 
+
     		google.maps.event.addListener(infowindow,'closeclick', function() {
     			marker.setIcon(icon);
 
@@ -205,9 +209,9 @@ function initMap() {
 
 
 
-retailCluster = new MarkerClusterer(map, retailMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m'});
+retailCluster = new MarkerClusterer(map, retailMarkers, {imagePath: 'http://neighbourhoods-clone.local/wp-content/themes/ocn/assets/icons/m'});
 
-leisureCluster = new MarkerClusterer(map, leisureMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m2'});
+leisureCluster = new MarkerClusterer(map, leisureMarkers, {imagePath: 'http://neighbourhoods-clone.local/wp-content/themes/ocn/assets/icons/m2'});
 
 
 center_map( map );
@@ -256,12 +260,12 @@ google.maps.event.addDomListener(el, 'click', function() {
 			    if(filter.is(':checked')) {
 
 						if(filterValue === 'retail') {
-							 retailCluster = new MarkerClusterer(map, retailMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m'});
+							 retailCluster = new MarkerClusterer(map, retailMarkers, {imagePath: 'http://neighbourhoods-clone.local/wp-content/themes/ocn/assets/icons/m'});
 							 //console.log(retailCluster.markers_.length);
 						}
 
 						if(filterValue === 'leisure') {
-							 leisureCluster = new MarkerClusterer(map, leisureMarkers, {imagePath: 'https://neighbourhoods.dev/wp-content/themes/neighbourhoods2018/assets/icons/m2'});
+							 leisureCluster = new MarkerClusterer(map, leisureMarkers, {imagePath: 'http://neighbourhoods-clone.local/wp-content/themes/ocn/assets/icons/m2'});
 							 //console.log(leisureCluster.markers_.length);
 						}
 
@@ -608,11 +612,24 @@ ClickEventHandler.prototype.getPlaceInformation = function(placeId) {
             me.infowindowContent.children['place-name'].textContent = place.name;
             //me.infowindowContent.children['place-id'].textContent = place.place_id;
             me.infowindowContent.children['place-address'].innerHTML =
-                place.formatted_address + '<br><div class="center"><a class="chip purple darken-1 white-text" href="https://neighbourhoods.dev/form/submit-location-audit/?placename=' + place.name + '&placeaddress=' + place.formatted_address + '&ID=' + placeId + '">Submit an Audit</a></div>';
+                place.formatted_address + '<br><div class="center"><button data-target="modal1" onclick="triggerSearch()" class="chip purple darken-1 white-text" data-href="http://neighbourhoods-clone.local/form/submit-location-audit/?placename=' + place.name + '&placeaddress=' + place.formatted_address + '&ID=' + placeId + '">Submit an Audit</button></div>';
             me.infowindow.open(me.map);
+
+						var search = $(".search");
+
+					  $("#acf-_post_title").val(place.name);
+					  $("#acf-field_5aaa97f9057dd").val();
+					  search.val(place.name + ' ' + place.formatted_address);
+
+
+					  //$("#acf-_post_title").focus();
+					  if(place.name){
+					    $(".entry-content").prepend("<div class='yellow center' style='padding: 1em;'><i class='material-icons left'>info</i>This is an audit for <strong>" + place.name + "</strong>. Please check all of the details are correct before submitting</div>");
+					  }
           }
 
   });
+
 };
 
 // map.markers = [];
@@ -656,7 +673,5 @@ function center_map( map ) {
 	}
 
 }
-
-
 
 // get reference to input elements in toppings container element

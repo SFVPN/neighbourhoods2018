@@ -28,11 +28,11 @@ function sfvpn_audits() {
       'menu_position' => 6, /* this is what order you want it to appear in on the left hand side menu */
       'menu_icon' => 'dashicons-location-alt', /* the icon for the custom post type menu */
       'has_archive' => true, /* you can rename the slug here */
-      'rewrite'     => ['slug' => 'audits-environmental'],
+      'rewrite'     => ['slug' => 'audits'],
       'capability_type' => 'post',
       'hierarchical' => false,
       /* the next one is important, it tells what's enabled in the post editor */
-      'supports' => array( 'title')
+      'supports' => array( 'title', 'comments')
     ) /* end of options */
   ); /* end of register post type */
 
@@ -94,7 +94,7 @@ function sfvpn_resources() {
       'capability_type' => 'page',
       'hierarchical' => true,
       /* the next one is important, it tells what's enabled in the post editor */
-      'supports' => array( 'title', 'page-attributes', 'comments', 'thumbnail' )
+      'supports' => array( 'title', 'page-attributes', 'excerpt', 'comments', 'thumbnail' )
     ) /* end of options */
   ); /* end of register post type */
 
@@ -153,7 +153,7 @@ function ocn_survey() {
       'menu_position' => 6, /* this is what order you want it to appear in on the left hand side menu */
       'menu_icon' => 'dashicons-location-alt', /* the icon for the custom post type menu */
       'has_archive' => true, /* you can rename the slug here */
-      'rewrite'     => ['slug' => 'audits'],
+      'rewrite'     => ['slug' => 'survey-audits'],
       'capability_type' => 'post',
       'hierarchical' => false,
       /* the next one is important, it tells what's enabled in the post editor */

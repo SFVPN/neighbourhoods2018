@@ -134,6 +134,12 @@ strong {
     }
   }
 
+  .page_object_block {
+    a {
+      border-bottom: 0px solid transparent !important;
+    }
+  }
+
   .single-calendar {
     position: relative;
     .article-header {
