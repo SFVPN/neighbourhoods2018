@@ -866,6 +866,14 @@ POSTS & CONTENT STYLES
   }
 }
 
+.image_block {
+  figure {
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 100%;
+  }
+}
+
 .documents.col {
   padding: 1.25rem;
   margin-bottom: 2rem;
@@ -890,6 +898,12 @@ POSTS & CONTENT STYLES
     position: absolute;
     right: 5px;
     top: calc(50% - 24px);
+  }
+}
+
+.joints-related-posts {
+  .card-content a {
+    font-size: 1.25rem;
   }
 }
 

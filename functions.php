@@ -36,7 +36,7 @@ require_once(get_template_directory().'/assets/translation/translation.php');
 //require_once(get_template_directory().'/assets/functions/editor-styles.php');
 
 // Related post function - no need to rely on plugins
-// require_once(get_template_directory().'/assets/functions/related-posts.php');
+require_once(get_template_directory().'/assets/functions/related-posts.php');
 
 // Use this as a template for custom post types
 require_once(get_template_directory().'/assets/functions/custom-post-type.php');

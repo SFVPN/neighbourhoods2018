@@ -96,9 +96,12 @@ if( have_rows('content') ):
         if( get_row_layout() == 'single_image' ):
 
         	$file = get_sub_field('image');
-					echo '<div class="col s12 center">
-					<img class="responsive-img" src="' . $file['url']. '" alt="' . get_sub_field('caption') . '" />
-					<label class="block">' . get_sub_field('caption') . '</label>
+					$caption = get_sub_field('caption');
+					echo '<div class="col s12 center image_block">
+					<figure class="image grey lighten-5">
+						<img src="' . $file['url'] . '"/>
+      			<figcaption>' . $caption . '</figcaption>
+    			</figure>
 					</div>';
 
         endif;
@@ -141,9 +144,11 @@ else :
 
 endif;
 
+joints_related_posts();
 ?>
 
-	 <?php the_content();
+	 <?php
+	 the_content();
 	if('is_user_logged_in' && is_singular('lesson')) {
 	$ID = get_the_id();
 
