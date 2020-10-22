@@ -29,7 +29,7 @@ if($queried_object->post_parent != 0 ) {
 </div>
 
 <?php if( has_term( 'support-pathways', 'resources_category' ) ) {
-	echo '<article id="post-' . get_the_ID() . '" class="support-pathway" role="article" itemscope itemtype="http://schema.org/WebPage">';
+	echo '<article id="post-' . get_the_ID() . '" class="support-pathway container" role="article" itemscope itemtype="http://schema.org/WebPage">';
 } else {?>
 
 
@@ -64,14 +64,6 @@ if($queried_object->post_parent != 0 ) {
 
 		 ?>
 
-		 <?php
-
- 		if(is_user_logged_in()) {
- 			get_template_part( 'parts/content', 'edit' );
- 		}
- 		?>
-
-	</header> <!-- end article header -->
 <?php
 
 
@@ -93,11 +85,14 @@ if ( $post->post_parent === 0 ) {
 	$pages = array($post->ID );
 		?>
 
-<div>
-	<div class="guide-wrapper no-print">
+		<details class="guide-index row">
+						<summary class="btn-flat">
+							<i class="mdi mdi-chevron-right left"></i>
+							<?php echo $guide . __( 'Guide Index', 'ocn' );?> '
+						</summary>
+	<div class="guidewrapper no-print">
 
 			<ol id="guide-contents">
-				<li class="block label black-text"><?php echo __( 'Guide Index', 'ocn' );?></li>
 				<li id="parent-<?php the_ID(); ?>" data-read="ocn-<?php the_ID(); ?>" class="parent">
 
 						<?php echo '<span class="active-page">' . __( 'Introduction', 'ocn' ) . '</span>'; ?>
@@ -121,28 +116,15 @@ $pages[] += get_the_ID();
 		 </ol>
 
 
-	<div class="page-actions no-print">
-
-	<?php if(($parent_ID === 0) && $children){
-	echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn-flat purple darken-1"><i class="mdi mdi-printer left"></i>Print full guide</a>';
-	} else {
-	 echo '<button class="btn-flat purple darken-1 " onclick="printFunction()"><i class="mdi mdi-printer left"></i>Print this page</button>';
-	};
-	?>
-
-		<!-- <a href="https://twitter.com/intent/tweet?url=<?php echo get_permalink(); ?>&via=<?php echo get_theme_mod( 'tcx_twitter_handle' );?>&text=<?php the_title(); ?>" aria-label="Share this content on Twitter"><i aria-hidden="true" class="mdi mdi-twitter left"></i><span class="hide-on-small-and-down">Share on Twitter </span></a>
-
-	 <a  href="mailto:?subject=I wanted to share this post with you from <?php bloginfo('name'); ?>&body=<?php the_title('','',true); ?>&#32;&#32;<?php echo wp_get_shortlink() ?>" aria-label="Email this content to a friend or colleague"><i aria-hidden="true" class="mdi mdi-email left"></i><span class="hide-on-small-and-down">Share by email </span></a>
-
-		<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo wp_get_shortlink() ?>" aria-label="Share this content on Facebook"><i aria-hidden="true" class="mdi mdi-facebook left"></i><span class="hide-on-small-and-down">Share on Facebook</span></a> -->
-
-		</div>
 	</div>
-</div>
+</details>
 <?php endif; wp_reset_postdata();?>
 <?php } else {
-	echo '<div>
-					<div class="guide-wrapper no-print">';
+	echo '<details class="guide-index row">
+					<summary class="btn-flat"><i class="mdi mdi-chevron-right left"></i>' . $guide . '
+					Guide Index
+					</summary>
+					<div class="guidewrapper no-print">';
 		$args = array(
 				'post_type'      => 'resources',
 				'posts_per_page' => -1,
@@ -159,7 +141,6 @@ $pages[] += get_the_ID();
 		$ID = $queried_object->ID;?>
 
 		<ol id="guide-contents">
-			<li class="block label black-text"><?php echo __( 'Guide Index', 'ocn' );?></li>
 				<li class="parent" data-read="ocn-<?php echo $post->post_parent; ?>">
 					<a href="<?php the_permalink($post->post_parent); ?>" title="<?php echo get_the_title($post->post_parent); ?> - Introduction"><?php echo __( 'Introduction', 'ocn' );?></a>
 				</li>
@@ -188,25 +169,22 @@ $pages[] += get_the_ID();
 
 		<?php endif; wp_reset_postdata();?>
 
-		<div class="page-actions no-print">
 
-		<?php if(($parent_ID === 0) && $children){
-		echo	'<a href="' . get_field('print_page_url', 'option') . '" class="btn-flat purple darken-1 "><i class="mdi mdi-printer left"></i>Print full guide</a>';
-		} else {
-		 echo '<button class="btn-flat purple darken-1 " onclick="printFunction()"><i class="mdi mdi-printer left"></i>Print this page</button>';
-		};
-		?>
-
-			</div>
 		</div>
-	</div>
+	</details>
 
 <?php }
 
-
 		 ?>
 
+		 <?php
 
+			if(is_user_logged_in()) {
+				get_template_part( 'parts/content', 'edit' );
+			}
+			?>
+
+</header> <!-- end article header -->
 <section class="entry-content" itemprop="articleBody">
 
 <?php
@@ -382,16 +360,20 @@ $show_toc = get_field('show_toc');
 
 					if( get_row_layout() == 'steps_block' ): //start steps block
 						$step_intro = get_sub_field('steps_intro');
-						echo '<div class="steps_block">';
-						if($step_intro):
-							echo '<p>' . $step_intro . '</p>';
-						endif;
+						$step_image = get_sub_field('steps_image');
+
 
 							if( have_rows('step') ): // check if the step repeater field has rows of data
+								if($step_image) {
+									echo '<div class="steps_block w-image">';
+									if($step_intro):
+										echo '<p>' . $step_intro . '</p>';
+									endif;
 
-								echo
-								'
-									<ol class="steps">';
+									echo '<div class="row">
+
+									<ol class="steps col s12 m6 l4">';
+
 				 	// loop through the rows of data
 							    while ( have_rows('step') ) : the_row();
 
@@ -400,7 +382,23 @@ $show_toc = get_field('show_toc');
 							    endwhile;
 
 									echo
-										'</ol>';
+										'</ol>
+									<img class="col s12 m6 l8" src="' . $step_image['url'] . '" alt="' . $step_image['alt'] . '"></div>';
+									} else {
+										echo '<div class="steps_block">';
+										if($step_intro):
+											echo '<p>' . $step_intro . '</p>';
+										endif;
+										echo '<ol class="steps">';
+										while ( have_rows('step') ) : the_row();
+
+											echo '<li>' . get_sub_field('step_description') .  '</li>';
+
+								    endwhile;
+
+										echo
+											'</ol>';
+									}
 
 								else :
 
