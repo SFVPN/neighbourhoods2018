@@ -53,31 +53,31 @@
 
 							endif;
 
-						$details = get_field('group_details');
-						//print_R($details);
-						$town = $details['group_address_town'];
-
-						if( $town ):
-
-							//$email = get_sub_field('group_email');
-							$activity_phone = $details['group_phone'];
-							$email = $details['group_email'];
-							$formatted_phone = explode(" ", $activity_phone);
-							$formatted_phone = implode("-", $formatted_phone);
-
-							echo '<span class="block"><strong>Location</strong> ' . $town . '</span>';
-
-							if($activity_phone) {
-								echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
-							}
-
-							if($email) {
-								echo '<span class="block"><strong>Email</strong> <a href="mailto:' . $email . '">' . $email . '</a></span>';
-							}
-
-						endif;
-
-						?>
+						// $details = get_field('group_details');
+						// //print_R($details);
+						// $town = $details['group_address_town'];
+						//
+						// if( $town ):
+						//
+						// 	//$email = get_sub_field('group_email');
+						// 	$activity_phone = $details['group_phone'];
+						// 	$email = $details['group_email'];
+						// 	$formatted_phone = explode(" ", $activity_phone);
+						// 	$formatted_phone = implode("-", $formatted_phone);
+						//
+						// 	echo '<span class="block"><strong>Location</strong> ' . $town . '</span>';
+						//
+						// 	if($activity_phone) {
+						// 		echo '<span class="block"><strong>Phone</strong> <a href="tel:' . $formatted_phone . '">' . $activity_phone . '</a></span>';
+						// 	}
+						//
+						// 	if($email) {
+						// 		echo '<span class="block"><strong>Email</strong> <a href="mailto:' . $email . '">' . $email . '</a></span>';
+						// 	}
+						//
+						// endif;
+						//
+						 ?>
 
 
 			<?php  // while( has_sub_field('to-do_lists') ):
