@@ -88,7 +88,7 @@ if ( $post->post_parent === 0 ) {
 		<details class="guide-index row">
 						<summary class="btn-flat">
 							<i class="mdi mdi-chevron-right left"></i>
-							<?php echo $guide . __( 'Guide Index', 'ocn' );?> '
+							<?php echo $guide . __( 'Guide Index', 'ocn' );?>
 						</summary>
 	<div class="guidewrapper no-print">
 
@@ -271,6 +271,12 @@ $show_toc = get_field('show_toc');
         		echo '<div class="content_block">' . get_sub_field('content') . '</div>';
 
         	endif; // end text block
+
+					if( get_row_layout() == 'embed_slides' ): // start text block
+
+        		echo '<div class="iframe-wrapper">' . get_sub_field('embed_code') . '</div>';
+
+        	endif; // end embed_slides
 
 					if( get_row_layout() == 'related_pages' ): // start text block
 						$post_objects = get_sub_field('page_object');

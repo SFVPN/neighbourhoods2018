@@ -173,40 +173,6 @@
                             "min": "",
                             "max": ""
                         },
-                        "layout_5ec6924e740af": {
-                            "key": "layout_5ec6924e740af",
-                            "name": "related_pages",
-                            "label": "Related page",
-                            "display": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_5ec6924e740b1",
-                                    "label": "Choose Page",
-                                    "name": "page_object",
-                                    "type": "post_object",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "post",
-                                        "page",
-                                        "resources"
-                                    ],
-                                    "taxonomy": "",
-                                    "allow_null": 1,
-                                    "multiple": 1,
-                                    "return_format": "object",
-                                    "ui": 1
-                                }
-                            ],
-                            "min": "",
-                            "max": ""
-                        },
                         "layout_5b914d79ab01f": {
                             "key": "layout_5b914d79ab01f",
                             "name": "image_block",
@@ -542,6 +508,35 @@
                             "min": "",
                             "max": ""
                         },
+                        "layout_5f92a821491aa": {
+                            "key": "layout_5f92a821491aa",
+                            "name": "embed_slides",
+                            "label": "Embed slides",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5f92a844491ab",
+                                    "label": "Embed code",
+                                    "name": "embed_code",
+                                    "type": "textarea",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": "",
+                                    "new_lines": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
                         "layout_5c00448d5517e": {
                             "key": "layout_5c00448d5517e",
                             "name": "recommendation_block",
@@ -761,6 +756,40 @@
                                             "placeholder": ""
                                         }
                                     ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5ec6924e740af": {
+                            "key": "layout_5ec6924e740af",
+                            "name": "related_pages",
+                            "label": "Related page",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ec6924e740b1",
+                                    "label": "Choose Page",
+                                    "name": "page_object",
+                                    "type": "post_object",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": [
+                                        "post",
+                                        "page",
+                                        "resources"
+                                    ],
+                                    "taxonomy": "",
+                                    "allow_null": 1,
+                                    "multiple": 1,
+                                    "return_format": "object",
+                                    "ui": 1
                                 }
                             ],
                             "min": "",
@@ -1493,5 +1522,5 @@
     ],
     "active": true,
     "description": "",
-    "modified": 1603362713
+    "modified": 1603446889
 }
