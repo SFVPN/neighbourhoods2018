@@ -584,10 +584,10 @@ endif; // end section repeater
 
 <?php
 
+get_template_part( 'parts/content', 'share-footer' );
+
 resources_page_nav();
 
-
-get_template_part( 'parts/content', 'share-footer' );
 ?>
 
 
@@ -599,7 +599,7 @@ if (comments_open()){
 }
 ?>
 
-<script>
+<!-- <script>
 function openFullOcn() {
 let org = document.getElementById("fullCalendar").getAttribute('data-organisation');
 document.getElementById("maincontent").classList.add('cal-print');
@@ -607,7 +607,7 @@ document.getElementById("maincontent").classList.add('cal-print');
 _tkf.openFullScreen({path:'/ocnstirling?tags=' +org});
 
 }
-</script>
+</script> -->
 </section>
 <div class="print-footer hide">
 	<?php

@@ -247,6 +247,15 @@ function organisation_post_order( $query ) {
 }
 add_action( 'pre_get_posts', 'organisation_post_order' );
 
+    //pre_get_posts filter is called before WordPress gets posts
+
+
+	function wpse_286405_parents_only( $query ) {
+		    if ( ! is_admin() && $query->is_tax( 'resources_category' ) ) {
+		        $query->set( 'post_parent', 0 );
+		    }
+		}
+	add_action( 'pre_get_posts', 'wpse_286405_parents_only' );
 
 function add_acf_sub_form() {
 	global $post;
