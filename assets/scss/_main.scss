@@ -2789,12 +2789,18 @@ ol.tips {
 }
 
 .single-resources .entry-content .page_object_block {
-  margin: 2rem 0;
+  margin: 1rem 0 2rem 0;
   padding: 2rem;
   border-radius: 3px;
+  border: 1px solid color('grey', 'lighten-2');
   .title {
     font-size: 1.25rem;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    I {
+      margin-right: 0.5rem;
+    }
   }
   ul {
     margin: 0;
@@ -2806,10 +2812,6 @@ ol.tips {
         text-decoration-thickness: 2px;
         line-height: 1;
         font-size: 1.15rem;
-        &:hover,
-        &:focus {
-          color: white !important;
-        }
       }
       span {
         padding: 0.5rem 0;

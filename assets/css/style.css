@@ -14409,12 +14409,17 @@ ol.tips {
       border-radius: 50%; }
 
 .single-resources .entry-content .page_object_block {
-  margin: 2rem 0;
+  margin: 1rem 0 2rem 0;
   padding: 2rem;
-  border-radius: 3px; }
+  border-radius: 3px;
+  border: 1px solid #e0e0e0; }
   .single-resources .entry-content .page_object_block .title {
     font-size: 1.25rem;
-    font-weight: 500; }
+    font-weight: 500;
+    display: flex;
+    align-items: center; }
+    .single-resources .entry-content .page_object_block .title I {
+      margin-right: 0.5rem; }
   .single-resources .entry-content .page_object_block ul {
     margin: 0;
     padding: 0; }
@@ -14425,8 +14430,6 @@ ol.tips {
         text-decoration-thickness: 2px;
         line-height: 1;
         font-size: 1.15rem; }
-        .single-resources .entry-content .page_object_block ul li a:hover, .single-resources .entry-content .page_object_block ul li a:focus {
-          color: white !important; }
       .single-resources .entry-content .page_object_block ul li span {
         padding: 0.5rem 0; }
 

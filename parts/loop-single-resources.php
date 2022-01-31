@@ -336,14 +336,14 @@ $show_toc = get_field('show_toc');
 					if( get_row_layout() == 'related_pages' ): // start text block
 						$post_objects = get_sub_field('page_object');
 						if( $post_objects ): ?>
-						<div class="row page_object_block blue-grey darken-4 white-text z-depth-1">
-						<div class="title"><?php echo __( 'Further Reading', 'ocn' );?></div>
+						<div class="row page_object_block grey lighten-5">
+						<div class="title"><i class="material-icons">info</i><?php echo __( 'Further Reading', 'ocn' );?></div>
 				    <ul>
 				    <?php foreach( $post_objects as $post_object):
 							$excerpt = get_the_excerpt($post_object->ID);
 						?>
 				        <li>
-				            <a class="yellow-text" href="<?php echo get_permalink($post_object->ID); ?>"><?php echo get_the_title($post_object->ID); ?></a>
+				            <a href="<?php echo get_permalink($post_object->ID); ?>"><?php echo get_the_title($post_object->ID); ?></a>
 										<?php if($excerpt):
 											echo '<span class="block">' . $excerpt . '</span>';
 										endif;
