@@ -1,7 +1,13 @@
 <?php get_header();
 $queried_object = get_queried_object();
 $icon = get_field('material_icon_code', $queried_object);
-$term_description = term_description( $queried_object, 'resources_category' ) ?>
+$term_description = term_description( $queried_object, 'resources_category' );
+$tax_image = get_field('taxonomy_image', $queried_object);
+ ?>
+
+<style>
+
+</style>
 
 <main id="maincontent">
 
@@ -9,12 +15,7 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 
 		<header class="article-header center">
 			<h1 class="resources-title h3 center" style="" itemprop="headline"><?php archive_title('');?></h1>
-			<!-- <?php if ($icon) {
-				echo '<i id="cat-icon" class="medium purple darken-1 white-text material-icons">' . $icon . '</i>';
-			} else {
-				echo '<i id="cat-icon" class="medium purple darken-1 white-text material-icons">format_list_numbered</i>';
-			}?> -->
-
+		
 		</header> <!-- end article header -->
 
 		<section class="section">
@@ -30,7 +31,10 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 				// 	archive_terms_child('resources_category', 'resources', 'Filter Resources');
 				// }
 
-				//terms_child_list('resources_category', $queried_object->slug);
+				if($tax_image) {
+					
+					echo '<img style="display: block; margin: auto;" src=" ' . $tax_image['sizes']['medium'] . ' " alt="' . $tax_image['alt'] . '"/>';
+				}
 
 				if($term_description) {
 					echo $term_description;
@@ -38,27 +42,9 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 				?>
 
 
-				<div class="row <?php echo $queried_object->slug;?>">
+			<div class="row">
 
-				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-
-
-				<?php
-
-
-				get_template_part( 'parts/loop', 'resources' );
-
-				?>
-
-				<?php endwhile; ?>
-
-				<?php joints_page_navi(); ?>
-
-				<?php else : ?>
-
-				<?php get_template_part( 'parts/content', 'missing' ); ?>
-
-				<?php endif; ?>
+				<?php terms_child_list_compass('resources_category', $queried_object->slug);?>
 
 			</div>
 

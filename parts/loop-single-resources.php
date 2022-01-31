@@ -10,6 +10,7 @@ if($queried_object->post_parent != 0 ) {
 
  // storing this so we have it available in the other loops
 ?>
+
 <div class="print-header hide">
 	<div class="print-title">
 		<!-- <img
@@ -36,7 +37,7 @@ if($queried_object->post_parent != 0 ) {
 
 	<article id="resources_article" class="container <?php foreach( $terms as $term ) echo ' ' . $term->slug; ?>" role="article" itemscope itemtype="http://schema.org/WebPage">
 <?php }?>
-	<header class="article-header col s12 center">
+	<header class="article-header no-pad center">
 
 		<h1 class="h4 resource-title"
 		<?php echo 'itemprop="headline"';?>>
@@ -45,8 +46,13 @@ if($queried_object->post_parent != 0 ) {
 
 		echo '<div class="resources-meta">';
 
+		if(is_user_logged_in()) {
+			get_template_part( 'parts/content', 'edit' );
+		}
+	
+
 		if($terms) {
-			echo '<i class="mdi mdi-tag-multiple"></i> ';
+			echo '<div class="tags hide-on-small-and-down"><i class="mdi mdi-tag-multiple" aria-hidden="true"></i> ';
 			foreach ($terms as $term) {
 				if ($term->parent === 0) {
 						echo '<a href="' . get_term_link($term->term_id) . '" class="chip">' . $term->name . '</a>';
@@ -54,18 +60,63 @@ if($queried_object->post_parent != 0 ) {
 					echo '<a href="' . get_term_link($term->term_id) . '" class="chip">' . $term->name . '</a>';
 				}
 			}
+			echo '<br /></div>';
 		}
 
 		if($queried_object->post_parent === 0 ) {
-				echo '<br /><i class="mdi mdi-information"></i><span>' . __( 'Last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span></div>';
+				echo '<i class="mdi mdi-information" aria-hidden="true"></i><span>' . __( 'Last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span></div>';
 		} else {
-				echo '<br /><i class="mdi mdi-information"></i><span>' . __( ' This page is part of the ', 'ocn' ) . '<strong>' . $guide . '</strong>' . __( ' guide and was last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span></div>';
+				echo '<i class="mdi mdi-information" aria-hidden="true"></i><span>' . __( ' This page is part of the ', 'ocn' ) . '<strong>' . $guide . '</strong>' . __( ' guide and was last updated on ', 'ocn' ) . get_the_modified_time('F j, Y') . '</span></div>';
 		}
 
 		 ?>
 
+
 <?php
 
+// previous_post_link( '%link', '%title', true, ' ', 'resources_category' ); 
+// next_post_link( '%link', '%title', true, ' ', 'resources_category' ); 
+$compass_posts = [];
+$show_index = get_field('show_compass_index');
+		if ($show_index):
+
+if($terms[1]->slug === 'neighbourhood-compass' && $terms[0]->slug !== 'key-concepts') {;?>
+	<details id="compass-guide" class="guide-index row">
+		<summary class="btn-flat">
+			<i class="mdi mdi-chevron-right left"></i>
+			<?php echo $terms[0]->name . __( ' Index', 'ocn' );?>
+		</summary>
+		<nav aria-label="<?php echo $terms[0]->name . __( ' navigation', 'ocn' );?>" class="guidewrapper no-print">
+			<ol id="guide-contents">
+				<?php 
+					$compass_posts = get_posts( array(
+					'posts_per_page' => 8,
+					'orderby'          => 'date',
+						'order'            => 'ASC',
+					'post_type'      => 'resources',
+					'resources_category' => $terms[0]->name,
+					'post_status'    => 'publish'
+				) );
+
+				$i = 1;
+				foreach($compass_posts as $compass_post) {
+					if($compass_post->ID === $queried_object->ID) {
+						echo '<li id="current">' . $compass_post->post_title . '</li>';
+						$index = $i;
+					} else {
+						echo '<li><a href="' . get_the_permalink($compass_post->ID) . '">' . $compass_post->post_title . '</a></li>';
+					}
+					$i++;
+				}
+
+		echo '</ol>
+			
+			</nav>
+			<progress max="' . count($compass_posts) . '" value="' . $index . '"></progress>
+		</details>';
+}
+
+endif;
 
 if ( $post->post_parent === 0 ) {
 
@@ -177,12 +228,6 @@ $pages[] += get_the_ID();
 
 		 ?>
 
-		 <?php
-
-			if(is_user_logged_in()) {
-				get_template_part( 'parts/content', 'edit' );
-			}
-			?>
 
 </header> <!-- end article header -->
 <section class="entry-content" itemprop="articleBody">
@@ -272,6 +317,16 @@ $show_toc = get_field('show_toc');
 
         	endif; // end text block
 
+					if( get_row_layout() == 'case_study_block' ): // start text block
+
+        		echo '<div class="case-study-block">
+						<span class="case-study-title">
+						<i class="material-icons">assignment_turned_in</i>' . get_sub_field('case_study_title') . '</span>
+						<div class="case-study-content">' . get_sub_field('case_study_content') . '</div>
+						</div>';
+
+        	endif; // end text block
+
 					if( get_row_layout() == 'embed_slides' ): // start text block
 
         		echo '<div class="iframe-wrapper">' . get_sub_field('embed_code') . '</div>';
@@ -281,14 +336,14 @@ $show_toc = get_field('show_toc');
 					if( get_row_layout() == 'related_pages' ): // start text block
 						$post_objects = get_sub_field('page_object');
 						if( $post_objects ): ?>
-						<div class="row page_object_block yellow accent-2">
+						<div class="row page_object_block blue-grey darken-4 white-text z-depth-1">
 						<div class="title"><?php echo __( 'Further Reading', 'ocn' );?></div>
 				    <ul>
 				    <?php foreach( $post_objects as $post_object):
-							$excerpt = get_the_excerpt();
+							$excerpt = get_the_excerpt($post_object->ID);
 						?>
 				        <li>
-				            <a href="<?php echo get_permalink($post_object->ID); ?>"><?php echo get_the_title($post_object->ID); ?></a>
+				            <a class="yellow-text" href="<?php echo get_permalink($post_object->ID); ?>"><?php echo get_the_title($post_object->ID); ?></a>
 										<?php if($excerpt):
 											echo '<span class="block">' . $excerpt . '</span>';
 										endif;
@@ -317,8 +372,9 @@ $show_toc = get_field('show_toc');
 						$note_heading = get_sub_field('note_heading');
 						$note = get_sub_field('note', false, false);
 
+						echo '<div class="info row note-content">';
 						if($note_heading):
-						echo '<div class="info row note-content"><span class="block note-title"><i class="hide-on-small-and-down material-icons left red-text lighten-4">live_help</i>' . $note_heading . '</span>';
+						echo '<span class="block note-title"><i class="hide-on-small-and-down material-icons left red-text lighten-4">live_help</i>' . $note_heading . '</span>';
 						endif;
 
 						if($note):
@@ -414,6 +470,35 @@ $show_toc = get_field('show_toc');
 							echo '</div>';
 						endif; // end steps block
 
+						if( get_row_layout() == 'tips_block' ): //start tips block
+							$tips_title = get_sub_field('tips_title');
+	
+								if( have_rows('tip') ): // check if the step repeater field has rows of data
+									 
+											echo '<div class="tips-block">';
+											if($tips_title):
+												echo '<span class="tips-title"><i class="material-icons">gpp_good</i>'
+												 . $tips_title . '</span>';
+											endif;
+											echo '<div class="tips-content"><ol class="tips">';
+											while ( have_rows('tip') ) : the_row();
+	
+												echo '<li>' . get_sub_field('tip_description') .  '</li>';
+	
+											endwhile;
+	
+											echo
+												'</ol></div>';
+										
+	
+									else :
+	
+							// no rows found
+	
+							endif; // end tips repeater
+								echo '</div>';
+							endif; // end tips block
+
 						if( get_row_layout() == 'available_platforms' ): //start available_platforms block
 
 								echo '<div class="available_platforms"><p>' . get_sub_field('platform_text') .  '</p>';
@@ -505,8 +590,8 @@ $show_toc = get_field('show_toc');
 				if( get_row_layout() == 'image_block' ): //start image_block
 					$markers_desc = [];
 					$emptyArray = [[]];
-					echo '<div class="row grey lighten-3 image_guide">';
-					echo '<div class="pink col s6 image_wrapper" style="position: relative;">';
+					echo '<div class="row image_guide">';
+					echo '<div class="col s12 image_wrapper">';
 					echo '<figure class="card"><img src="' . get_sub_field('image') . '" />
 					<figcaption class="grey lighten-5"><i class="material-icons left">camera_alt</i>' . get_sub_field('caption') . '</figcaption></figure>';
 
@@ -563,9 +648,6 @@ endif; // end section repeater
 
 // check if the group field has rows of data
 
-
-
-
 			if($calendar) {
 				$title = get_the_title();
 				$calLabel = array();
@@ -584,9 +666,36 @@ endif; // end section repeater
 
 <?php
 
-get_template_part( 'parts/content', 'share-footer' );
+if(count($compass_posts) > 1):
 
-resources_page_nav();
+	echo '<div id="compass-page-nav">';
+	
+		if($index !== 1):
+		echo '<a class="nav-prev" href="' . get_the_permalink($compass_posts[$index-2]->ID) . '"><i class="material-icons left">arrow_back_ios</i><span class="hide-on-small">' . $compass_posts[$index-2]->post_title . '</span></a>';
+		else:
+		echo '<span class="empty"></span>';
+		endif;
+	
+		echo '<span class="page-number">' . $index . ' of ' . count($compass_posts) . '</span>';
+	
+		if($index < count($compass_posts)):
+			echo '<a class="nav-next" href="' . get_the_permalink($compass_posts[$index]->ID) . '"><span class="hide-on-small">' . $compass_posts[$index]->post_title . '</span><i class="material-icons right">arrow_forward_ios</i></a>';
+		else:
+		echo '<span class="empty"></span>';
+		endif;
+		echo '</div>';
+
+else: 
+
+	resources_page_nav();
+
+endif;
+	
+
+
+
+
+get_template_part( 'parts/content', 'share-footer' );
 
 ?>
 

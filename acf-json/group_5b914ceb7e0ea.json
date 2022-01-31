@@ -7,7 +7,7 @@
             "label": "Choose a category",
             "name": "resource_type",
             "type": "taxonomy",
-            "instructions": "",
+            "instructions": "<div style=\"background: whitesmoke; border-radius: 4px; padding: 1rem; font-weight: bold; \">\r\n<strong >Select the relevent category or categories for your content. Start typing to filter the available options.<\/strong>\r\n<\/div>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,30 +16,63 @@
                 "id": ""
             },
             "taxonomy": "resources_category",
-            "field_type": "checkbox",
+            "field_type": "multi_select",
+            "allow_null": 0,
             "add_term": 0,
             "save_terms": 1,
             "load_terms": 1,
             "return_format": "id",
-            "multiple": 0,
-            "allow_null": 0
+            "multiple": 0
+        },
+        {
+            "key": "field_61f2d340d5df5",
+            "label": "Type of tool",
+            "name": "type_of_tool",
+            "type": "button_group",
+            "instructions": "<div style=\"background: whitesmoke; border-radius: 4px; padding: 1rem; font-weight: bold; \">\r\n<strong >For Neighbourhood Compass content, select the type of tool you are adding.<\/strong>\r\n<\/div>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "red-text",
+                "id": ""
+            },
+            "choices": {
+                "directions": "Online Guide",
+                "build_circle": "Tool"
+            },
+            "allow_null": 1,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "array"
+        },
+        {
+            "key": "field_61f277c225819",
+            "label": "Show compass stage index",
+            "name": "show_compass_index",
+            "type": "true_false",
+            "instructions": "<div style=\"background: whitesmoke; border-radius: 4px; padding: 1rem; font-weight: bold; \">\r\n<strong >This enables an index of pages for a given sub-category of the Neighbourhood Compass. For example, if the sub-category is 'NAP Stage', a list of all pages from this stage will be shown. <\/strong>\r\n<\/div>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "red-text",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_5ba0dc209731b",
             "label": "Show table of contents",
             "name": "show_toc",
             "type": "true_false",
-            "instructions": "<strong >This enables a table of contents on a given resource page..<\/strong>",
+            "instructions": "<div style=\"background: whitesmoke; border-radius: 4px; padding: 1rem; font-weight: bold; \">\r\n<strong >This enables a table of contents on a given resource page. The table is generated from any H2 and H3 level headings used.<\/strong>\r\n<\/div>",
             "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_5d8d299567ff4",
-                        "operator": "==",
-                        "value": "guide"
-                    }
-                ]
-            ],
+            "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "red-text",
@@ -66,9 +99,9 @@
             },
             "collapsed": "",
             "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
+            "max": 1,
+            "layout": "block",
+            "button_label": "Click to launch content builder",
             "sub_fields": [
                 {
                     "key": "field_5b914d30ab01d",
@@ -173,6 +206,54 @@
                             "min": "",
                             "max": ""
                         },
+                        "layout_61f7bda0a2f2c": {
+                            "key": "layout_61f7bda0a2f2c",
+                            "name": "case_study_block",
+                            "label": "Case study",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_61f7bff9e5f74",
+                                    "label": "Title",
+                                    "name": "case_study_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "Our Experience: Examples of how OCN put this into practice",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_61f7bda0a2f2d",
+                                    "label": "Content",
+                                    "name": "case_study_content",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "col s12",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
                         "layout_5b914d79ab01f": {
                             "key": "layout_5b914d79ab01f",
                             "name": "image_block",
@@ -226,55 +307,10 @@
                             "min": "",
                             "max": ""
                         },
-                        "layout_5ca22594218ee": {
-                            "key": "layout_5ca22594218ee",
-                            "name": "video_block",
-                            "label": "Video",
-                            "display": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_5ca225b3218ef",
-                                    "label": "Video Url",
-                                    "name": "video_url",
-                                    "type": "oembed",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "width": "",
-                                    "height": ""
-                                },
-                                {
-                                    "key": "field_5ca225e5218f0",
-                                    "label": "Video Caption",
-                                    "name": "video_caption",
-                                    "type": "textarea",
-                                    "instructions": "Add a caption to describe the video being added. This is primarily for users with visual impairments",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "maxlength": "",
-                                    "rows": 4,
-                                    "new_lines": ""
-                                }
-                            ],
-                            "min": "",
-                            "max": ""
-                        },
                         "layout_5c3c57b27d245": {
                             "key": "layout_5c3c57b27d245",
                             "name": "steps_block",
-                            "label": "Set-up Steps",
+                            "label": "List block",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -364,10 +400,79 @@
                             "min": "",
                             "max": ""
                         },
+                        "layout_61f7c998f313b": {
+                            "key": "layout_61f7c998f313b",
+                            "name": "tips_block",
+                            "label": "Tips block",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_61f7c998f313d",
+                                    "label": "Title",
+                                    "name": "tips_title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "OCN Tips:  What the OCN team has found useful",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_61f7c998f313e",
+                                    "label": "Tip",
+                                    "name": "tip",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "col s12",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "block",
+                                    "button_label": "Add new step",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_61f7c998f313f",
+                                            "label": "Description",
+                                            "name": "tip_description",
+                                            "type": "textarea",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "maxlength": "",
+                                            "rows": 4,
+                                            "new_lines": ""
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
                         "layout_5b914de4ab022": {
                             "key": "layout_5b914de4ab022",
                             "name": "note_block",
-                            "label": "Information Box",
+                            "label": "Links \/ Uploads Block",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -508,6 +613,85 @@
                             "min": "",
                             "max": ""
                         },
+                        "layout_5ec6924e740af": {
+                            "key": "layout_5ec6924e740af",
+                            "name": "related_pages",
+                            "label": "Related pages",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ec6924e740b1",
+                                    "label": "Choose Page",
+                                    "name": "page_object",
+                                    "type": "post_object",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": [
+                                        "post",
+                                        "page",
+                                        "resources"
+                                    ],
+                                    "taxonomy": "",
+                                    "allow_null": 1,
+                                    "multiple": 1,
+                                    "return_format": "object",
+                                    "ui": 1
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5ca22594218ee": {
+                            "key": "layout_5ca22594218ee",
+                            "name": "video_block",
+                            "label": "Video",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5ca225b3218ef",
+                                    "label": "Video Url",
+                                    "name": "video_url",
+                                    "type": "oembed",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "width": "",
+                                    "height": ""
+                                },
+                                {
+                                    "key": "field_5ca225e5218f0",
+                                    "label": "Video Caption",
+                                    "name": "video_caption",
+                                    "type": "textarea",
+                                    "instructions": "Add a caption to describe the video being added. This is primarily for users with visual impairments",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "maxlength": "",
+                                    "rows": 4,
+                                    "new_lines": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
                         "layout_5f92a821491aa": {
                             "key": "layout_5f92a821491aa",
                             "name": "embed_slides",
@@ -537,10 +721,101 @@
                             "min": "",
                             "max": ""
                         },
+                        "layout_5d1f729818712": {
+                            "key": "layout_5d1f729818712",
+                            "name": "available_platforms",
+                            "label": "Available Platforms",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d1f75057ed64",
+                                    "label": "Available Platform text",
+                                    "name": "platform_text",
+                                    "type": "text",
+                                    "instructions": "You can change the default app platform text here if desired.  The default text should be pre-filled.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "The apps mentioned in this section are available on the following platforms or systems.",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5e7b6038fd7c3",
+                                    "label": "Apps",
+                                    "name": "apps",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "block",
+                                    "button_label": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5e7b6088fd7c4",
+                                            "label": "Platform",
+                                            "name": "app_name",
+                                            "type": "radio",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "amazon": "Amazon Fire",
+                                                "android": "Android",
+                                                "ios": "iOS (iPad \/ iPhone)"
+                                            },
+                                            "allow_null": 0,
+                                            "other_choice": 0,
+                                            "default_value": "",
+                                            "layout": "horizontal",
+                                            "return_format": "array",
+                                            "save_other_choice": 0
+                                        },
+                                        {
+                                            "key": "field_5e7b60a0fd7c5",
+                                            "label": "Link to app",
+                                            "name": "app_link",
+                                            "type": "url",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": ""
+                                        }
+                                    ]
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
                         "layout_5c00448d5517e": {
                             "key": "layout_5c00448d5517e",
                             "name": "recommendation_block",
-                            "label": "Suggested Products",
+                            "label": "ARCHIVED SP",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -670,135 +945,10 @@
                             "min": "",
                             "max": ""
                         },
-                        "layout_5d1f729818712": {
-                            "key": "layout_5d1f729818712",
-                            "name": "available_platforms",
-                            "label": "Available Platforms",
-                            "display": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_5d1f75057ed64",
-                                    "label": "Available Platform text",
-                                    "name": "platform_text",
-                                    "type": "text",
-                                    "instructions": "You can change the default app platform text here if desired.  The default text should be pre-filled.",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "The apps mentioned in this section are available on the following platforms or systems.",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
-                                },
-                                {
-                                    "key": "field_5e7b6038fd7c3",
-                                    "label": "Apps",
-                                    "name": "apps",
-                                    "type": "repeater",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "collapsed": "",
-                                    "min": 0,
-                                    "max": 0,
-                                    "layout": "block",
-                                    "button_label": "",
-                                    "sub_fields": [
-                                        {
-                                            "key": "field_5e7b6088fd7c4",
-                                            "label": "Platform",
-                                            "name": "app_name",
-                                            "type": "radio",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "choices": {
-                                                "amazon": "Amazon Fire",
-                                                "android": "Android",
-                                                "ios": "iOS (iPad \/ iPhone)"
-                                            },
-                                            "allow_null": 0,
-                                            "other_choice": 0,
-                                            "default_value": "",
-                                            "layout": "horizontal",
-                                            "return_format": "array",
-                                            "save_other_choice": 0
-                                        },
-                                        {
-                                            "key": "field_5e7b60a0fd7c5",
-                                            "label": "Link to app",
-                                            "name": "app_link",
-                                            "type": "url",
-                                            "instructions": "",
-                                            "required": 0,
-                                            "conditional_logic": 0,
-                                            "wrapper": {
-                                                "width": "",
-                                                "class": "",
-                                                "id": ""
-                                            },
-                                            "default_value": "",
-                                            "placeholder": ""
-                                        }
-                                    ]
-                                }
-                            ],
-                            "min": "",
-                            "max": ""
-                        },
-                        "layout_5ec6924e740af": {
-                            "key": "layout_5ec6924e740af",
-                            "name": "related_pages",
-                            "label": "Related page",
-                            "display": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_5ec6924e740b1",
-                                    "label": "Choose Page",
-                                    "name": "page_object",
-                                    "type": "post_object",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "post",
-                                        "page",
-                                        "resources"
-                                    ],
-                                    "taxonomy": "",
-                                    "allow_null": 1,
-                                    "multiple": 1,
-                                    "return_format": "object",
-                                    "ui": 1
-                                }
-                            ],
-                            "min": "",
-                            "max": ""
-                        },
                         "layout_5d763c9d01adf": {
                             "key": "layout_5d763c9d01adf",
                             "name": "intro_block",
-                            "label": "Intro Content",
+                            "label": "ARCHIVED IC",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -827,7 +977,7 @@
                         "layout_5d2357a0142a4": {
                             "key": "layout_5d2357a0142a4",
                             "name": "local_group_activities",
-                            "label": "Local Group Activities",
+                            "label": "ARCHIVED LGA",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -1247,7 +1397,7 @@
                         "layout_5d4c61d5d972b": {
                             "key": "layout_5d4c61d5d972b",
                             "name": "support_groups",
-                            "label": "Support Groups",
+                            "label": "ARCHIVED SG",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -1494,6 +1644,63 @@
                     "max": ""
                 }
             ]
+        },
+        {
+            "key": "field_61f27326a0356",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "<div style=\"background: whitesmoke; border-radius: 4px; padding: 1rem; font-size: 1rem; font-weight: bold; text-align: center;\">\r\n-------- The fields below have been archived and are no longer in use --------\r\n<\/div>",
+            "new_lines": "",
+            "esc_html": 0
+        },
+        {
+            "key": "field_609a961dd492a",
+            "label": "Add files for downloading",
+            "name": "resource_files",
+            "type": "repeater",
+            "instructions": "Add document files that can be downloaded by users. Click on 'Add file' to upload a document. You can upload a maximum of 4 files.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "green lighten-2",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 4,
+            "layout": "block",
+            "button_label": "Add file",
+            "sub_fields": [
+                {
+                    "key": "field_609a9661d492b",
+                    "label": "Select your file",
+                    "name": "select_file",
+                    "type": "file",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "library": "all",
+                    "min_size": "",
+                    "max_size": "",
+                    "mime_types": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -1516,11 +1723,10 @@
     "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
-    "instruction_placement": "field",
-    "hide_on_screen": [
-        "categories"
-    ],
+    "instruction_placement": "label",
+    "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1603446889
+    "show_in_rest": 0,
+    "modified": 1643629425
 }

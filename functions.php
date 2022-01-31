@@ -43,11 +43,13 @@ require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
 require_once(get_template_directory() . '/assets/functions/organisations-cpt.php');
 
-require_once(get_template_directory() . '/assets/functions/contacts-cpt.php');
+// require_once(get_template_directory() . '/assets/functions/contacts-cpt.php');
 
-require_once(get_template_directory() . '/assets/functions/activities-cpt.php');
+// require_once(get_template_directory() . '/assets/functions/activities-cpt.php');
 
-require_once(get_template_directory() . '/assets/functions/pathway-cpt.php');
+// require_once(get_template_directory() . '/assets/functions/pathway-cpt.php');
+
+// require_once(get_template_directory() . '/assets/functions/pilot-cpt.php');
 
 // Customize the WordPress login menu
 require_once(get_template_directory().'/assets/functions/login.php');
@@ -58,6 +60,10 @@ require_once(get_template_directory().'/assets/functions/admin.php');
 require_once(get_template_directory().'/assets/functions/rss.php');
 
 require_once(get_template_directory().'/assets/functions/components.php');
+
+// Front-end ajax functions
+
+require_once(get_template_directory().'/assets/functions/ajax.php');
 
 function gioga_add_async_defer_attribute($tag, $handle) {
 	if ( 'maps-js' !== $handle )
@@ -251,7 +257,7 @@ add_action( 'pre_get_posts', 'organisation_post_order' );
 
 
 	function wpse_286405_parents_only( $query ) {
-		    if ( ! is_admin() && $query->is_tax( 'resources_category' ) ) {
+		    if ( ! is_admin() && $query->is_tax( 'resources_category' ) && ! is_singular('pilots') ) {
 		        $query->set( 'post_parent', 0 );
 		    }
 		}

@@ -446,3 +446,47 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
+function update_completed_pilot_stages( $post_id ) {
+  // on update of ACF value (only do it to certain custom fields)
+ 
+      
+      // get the old (saved) value
+
+      
+      $completed = get_field('completed_resources', $post_id);
+
+      if(!$completed) { 
+        $completed = [];
+      }
+      
+      // get the new (posted) value
+      $new_resource_categories = get_field('resource_categories', $post_id);
+
+      $args = array (
+        'posts_per_page' => -1,
+        'post_type' => 'resources',
+         'orderby' => 'title',
+         'order' => 'ASC',
+         'fields' => 'ids',
+         'tax_query' => array(
+          array(
+          'taxonomy' => 'resources_category',
+          'field' => 'term_id',
+          'terms' => $new_resource_categories,
+      ))
+      );
+      
+      $resources = get_posts($args); // get array of resources IDs
+
+      
+      $new_completed = array_intersect($completed, $resources); // check what IDs are in both arrays
+
+
+     update_field('completed_resources', $new_completed, $post_id );  
+     update_field('votes', count($new_completed), $post_id );    
+  
+  
+}
+
+add_action('acf/save_post', 'update_completed_pilot_stages', 30, 1);

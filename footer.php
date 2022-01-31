@@ -29,7 +29,7 @@
 		$image = get_sub_field('image_file');
 		?>
 
-        <div class="col s4"><a href="<?php the_sub_field('link_to'); ?>"><img class="responsive-img" alt="<?php echo $image['alt']; ?>" src="<?php echo $image['url']; ?>"></a></div>
+        <div class="col s4"><a aria-label="<?php the_sub_field('link_text'); ?>" href="<?php the_sub_field('link_to'); ?>"><img class="responsive-img" alt="<?php echo $image['alt']; ?>" src="<?php echo $image['url']; ?>"></a></div>
 
     <?php endwhile; ?>
 			</div>
@@ -39,7 +39,7 @@
 
 		<div class="row purple darken-1">
 
-				<nav id="home_contact_options" class=" col s12">
+				<div id="home_contact_options" class=" col s12">
 					<ul class="col s12">
 
 			<?php
@@ -66,7 +66,7 @@
 			<?php endif; ?>
 
 		</ul>
-	</nav>
+	</div>
 
 	<p class="col s12 source-org copyright">
 		<?php bloginfo('name'); ?> &copy; <?php echo date("Y");?><br />

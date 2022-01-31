@@ -61,6 +61,15 @@ if(is_singular(array( 'resources' ))){
   wp_enqueue_script( 'addevent-js', 'https://addevent.com/libs/atc/1.6.1/atc.min.js', array(), '', true );
 }
 
+if(is_singular(array( 'pilots' ))){
+  wp_register_script( 'ajax-js', get_template_directory_uri() . '/assets/js/ajax.js', array( 'jquery'), '', true );
+  wp_localize_script( 'ajax-js', 'myAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));        
+
+  wp_enqueue_script( 'ajax-js' );
+   
+
+
+}
 
 
 if(is_page_template('page-form_survey.php')) {

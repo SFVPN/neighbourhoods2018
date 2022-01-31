@@ -22,8 +22,11 @@ if ($post->post_parent != 0) {
 	<section class="col s12 grey lighten-5">
 		<h2 class="h5 "><a href="<?php the_permalink() ?>" class="center" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		<div class="search-content">
-
-		<?php // check for rows (parent repeater)
+		<?php $type = get_field('type_of_tool');
+		if($type) {
+							echo '<span class="tool"><i class="material-icons">' . $type['value'] . '</i>' . $type['label'] . '</span>';
+						}
+		// check for rows (parent repeater)
 		$excerpt = get_the_excerpt();
 		if($excerpt) {
 			echo '<p>' . $excerpt . '</p>';
@@ -52,12 +55,18 @@ if ($post->post_parent != 0) {
  	<footer class="card-content">
 		<?php
 
-			$terms = wp_get_post_terms($post->ID, 'resources_category', array("fields" => "all"));
+
+				$terms = get_the_terms($post->ID, 'resources_category');
+			
+			// var_dump($all_terms);
+			
+			$allterms = wp_get_post_terms($post->ID, 'resources_category', array("fields" => "all"));
 			if($terms):
 						echo '<ul>';
+						
 						foreach ($terms as $term) {
 							$icon = get_field('material_icon_code', 'term_' . $term->term_id);
-							echo '<li><i class="material-icons left">' . $icon . '</i>' . $term->name . '</li>';
+							echo '<li><i class="material-icons left">' . $icon . '</i><span class="term">' . $term->name . '</span></li>';
 							// code...
 						}
 

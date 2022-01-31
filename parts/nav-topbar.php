@@ -21,7 +21,7 @@
 			<?php }?>
 			/>
 
-			<a href="<?php bloginfo('url'); ?>" class="hide-on-large-only">
+			<a aria-label="<?php bloginfo('name'); ?> home page" href="<?php bloginfo('url'); ?>" class="hide-on-large-only">
 			<img id="logo-mobile" class="brand-logo center"
 				<?php $logo_image = get_theme_mod( 'tcx_logo_image' );
 				if ($logo_image){?>
@@ -40,8 +40,8 @@
 				<?php joints_top_nav(); ?>
 			</span>
 
-			<ul id="slide-out" class="side-nav hide-on-large-only">
-	 			<li class="center">
+			<div id="slide-out" class="side-nav hide-on-large-only">
+	 			<div class="center">
 	 				<img id="mobilelogo"
 	 				<?php
 	 				$logo_image = get_theme_mod( 'tcx_logo_image' );
@@ -52,36 +52,36 @@
 	 				src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg" alt=""
 	 				<?php }?>
 	 				/>
-	      </li>
+	      </div>
 				<?php
 
 				if ($access){
 
 				?>
-					<li id="access-mob" class="purple darken-1 col s12" aria-label="Accessibility Settings">
+					<div id="access-mob" class="purple darken-1 col s12" aria-label="Accessibility Settings">
 
 						<button id="themeContrast_mob" class="btn-flat waves-effect waves-light white-text" type="button" aria-pressed="false"><?php echo $theme_switcher;?></button>
 
 						<button class="btn-flat waves-effect waves-light white-text" id="plustext_mob"><?php echo $increase_text;?></button>
 					<button class="btn-flat waves-effect waves-light white-text" id="minustext_mob"><?php echo $decrease_text;?></button>
-				</li>
+				</div>
 				<?php }
 				?>
 
 				<?php if(is_front_page()){?>
-				<li class="active">
+				<div class="active">
 					<a href="<?php bloginfo('url'); ?>">Home</a>
-				</li>
+				</div>
 				<?php } else {?>
-				<li>
+				<div>
 					<a href="<?php bloginfo('url'); ?>">Home</a>
-				</li>
+				</div>
 				<?php }?>
 
 	 			<?php joints_top_nav(); ?>
-	   </ul>
+	   </div>
 
-	   <a href="" data-activates="slide-out" class="button-collapse right"><i class="mdi mdi-menu"></i></a>
+	   <button aria-label="Open main menu" data-activates="slide-out" class="button-collapse right hide-on-large-only"><i class="mdi mdi-menu"></i></button>
 	  </div>
 
 	<?php

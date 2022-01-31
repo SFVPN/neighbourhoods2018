@@ -5,5 +5,5 @@
         <input type="search" class="search-field" value="<?php echo get_search_query() ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
         <input type="hidden" name="post_type" value="<?php echo $post_type;?>" />
     </label>
-    <input type="submit" class="search-submit btn white-text green" value="<?php echo esc_attr_x( 'Find matching ' . $post_type, 'submit button' ) ?>" />
+    <input type="submit" class="search-submit btn white-text green darken-4" value="<?php echo esc_attr_x( 'Find matching ' . $post_type, 'submit button' ) ?>" />
 </form>

@@ -143,6 +143,73 @@ function terms_child_list($taxonomy, $term) {
 </div>
 	<?php
 }
+function terms_child_list_compass($taxonomy, $term) {
+	$term_object = get_term_by('slug', $term, $taxonomy);
+	$icon = get_field('material_icon_code', 'resources_category_' . $term_object->term_id);
+	$desc = get_field('full_description', 'resources_category_' . $term_object->term_id);
+	$terms = get_terms(array(
+			'taxonomy' => $taxonomy,
+			'hide_empty' => true,
+			'parent' => $term_object->term_id,
+			'orderby'  => 'id',
+      'order'    => 'ASC'
+	) );
+
+	?>
+	<div class="terms-child-list-compass">
+		
+		<?php echo $desc;?>
+		<ul class="compass-card-wrapper">
+		<?php foreach($terms as $term) {
+			$args = array(
+			'post_parent' => 0,
+			'posts_per_page' => -1,
+			'post_type' => 'resources',
+	    'tax_query' => array(
+	        array(
+	            'taxonomy' => 'resources_category',
+	            'field'    => 'id',
+	            'terms'    => $term->term_id
+	        )
+			   )
+			);
+	$postslist = get_posts( $args ); // this gets top level posts for each term so we can get the count
+
+			if(count($postslist) === 0) { // we won't show terms that don't have top level posts
+
+			} elseif ($term->slug !== 'key-concepts') {
+
+				echo 
+				
+				'<li class="compass-card ' . $term->slug . '">
+					<a href="' . get_term_link($term->term_id) . '" class="control">
+					<div class="card-content"><span class="title">' . $term->name . '</span></div>
+					<div class="card-footer">
+						<span><i class="material-icons left">explore</i></span><span class="count">' . count($postslist) . ' resources</span>
+					</div>
+					</a>
+				</li>';
+				
+			} else {
+				// var_dump($postslist[0]);
+				echo '<li class="' . $term->slug . '">
+				<span class="title h5">' . $postslist[0]->post_title . '</span>';
+
+				if($postslist[0]->post_excerpt):
+				echo '<p>' . $postslist[0]->post_excerpt .'</p>';
+				endif;
+				echo '<div><a class="btn-flat blue-grey darken-4 white-text" href="' . get_permalink($postslist[0]->ID) . '" class="control">
+					Explore ' . $postslist[0]->post_title . '
+				</a></div>
+				</li>';
+			}
+
+	}?>
+
+</ul>
+</div>
+	<?php
+}
 
 	function archive_terms($taxonomy, $post_type, $title) {
 		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type
@@ -341,6 +408,10 @@ add_action( 'pre_get_posts', function ( $query ) {
         $query->set( 'orderby', 'title' );
         $query->set( 'order', 'ASC' );
     }
+		if ( is_tax('resources_category', array('adapt-stage','nap-stage','map-stage','snap-stage')) && $query->is_main_query() ) {
+			$query->set( 'orderby', 'date' );
+			$query->set( 'order', 'ASC' );
+	}
 } );
 
 function resources_page_nav() {
@@ -379,13 +450,13 @@ function resources_page_nav() {
 
 
 		if($prev) {
-				echo '<a class="prev-page" data-title="Previous page - ' . get_the_title($prev) . '" href="' . get_permalink( $prev ) . '"><i class="material-icons left">chevron_left</i>Previous chapter <span class="hide-on-small-only"> - ' . get_the_title($prev) . '</span></a>';
+				echo '<a class="prev-page" data-title="Previous page - ' . get_the_title($prev) . '" href="' . get_permalink( $prev ) . '"><i class="material-icons lft">chevron_left</i>Previous chapter <span class="hide-on-small-only"> - ' . get_the_title($prev) . '</span></a>';
 			} else {
 				echo '<span></span>';
 			}
 
 		if($next) {
-			echo '<a class="next-page" data-title="Next page - ' . get_the_title($next) . '" href="' . get_permalink( $next ) . '"><i class="material-icons right">chevron_right</i>Next chapter <span class="hide-on-small-only"> - ' . get_the_title($next) . '</span></a>';
+			echo '<a class="next-page" data-title="Next page - ' . get_the_title($next) . '" href="' . get_permalink( $next ) . '">Next chapter <span class="hide-on-small-only"> - ' . get_the_title($next) . '</span><i class="material-icons rght">chevron_right</i></a>';
 		} else {
 			echo '<span></span>';
 		}
@@ -412,13 +483,13 @@ function resources_page_nav() {
 		$prev = $pages[$current-1]; // returns previous element's key: 34
 		//echo 'Previous page id is ' . $prev . ' and next page id is ' . $next;
 		if($prev) {
-				echo '<a class="prev-page" data-title="Previous page - ' . get_the_title($prev) . '" href="' . get_permalink( $prev ) . '"><i class="material-icons left">chevron_left</i>Previous chapter <span class="hide-on-small-only"> - ' . get_the_title($prev) . '</span></a>';
+				echo '<a class="prev-page" data-title="Previous page - ' . get_the_title($prev) . '" href="' . get_permalink( $prev ) . '"><i class="material-icons lft">chevron_left</i>Previous chapter <span class="hide-on-small-only"> - ' . get_the_title($prev) . '</span></a>';
 		} else {
 			echo '<span></span>';
 		}
 
 		if($next) {
-			echo '<a class="next-page" data-title="Next page - ' . get_the_title($next) . '" href="' . get_permalink( $next ) . '"><i class="material-icons right">chevron_right</i>Next chapter <span class="hide-on-small-only"> - ' . get_the_title($next) . '</span></a>';
+			echo '<a class="next-page" data-title="Next page - ' . get_the_title($next) . '" href="' . get_permalink( $next ) . '">Next chapter <span class="hide-on-small-only"> - ' . get_the_title($next) . '</span><i class="material-icons right">chevron_right</i></a>';
 		} else {
 			echo '<span></span>';
 		}

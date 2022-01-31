@@ -105,9 +105,11 @@
 	<!-- Uncomment this line if using the Off-Canvas Menu -->
 
   <body <?php body_class('white'); ?>>
-<a class="skip-link btn-large" href="#maincontent">Skip to main content</a>
+
 
   <header class="header navbar-fixed valign-wrapper" role="banner">
+
+  	<a class="skip-link btn-large" href="#maincontent">Skip to main content</a>
 
 		<?php get_template_part( 'parts/nav', 'topbar' ); ?>
 
