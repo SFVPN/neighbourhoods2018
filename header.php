@@ -34,14 +34,19 @@
 	    	<meta name="theme-color" content="#ffffff">
 	    <?php } ?>
 
-			<?php if(is_singular('post')):?>
+			<?php if(is_singular('post')):
+				$desc = get_the_excerpt();
+				if (!$desc) {
+					$desc = get_the_title();
+				}
+			?>
 
 			<meta name="twitter:card" content="summary_large_image" />
 			<meta name="twitter:site" content="@<?php echo get_theme_mod( 'tcx_twitter_handle' );?>" />
 			<meta name="twitter:creator" content="@<?php echo get_theme_mod( 'tcx_twitter_handle' );?>" />
 			<meta property="og:url" content="<?php the_permalink();?>" />
 			<meta property="og:title" content="<?php the_title();?>" />
-			<meta property="og:description" content="<?php echo get_the_excerpt();?>" />
+			<meta property="og:description" content="<?php echo $desc;?>" />
 			<meta property="og:image" content="<?php the_post_thumbnail_url('full');?>" />
 
 			<?php endif;?>

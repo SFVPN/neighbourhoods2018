@@ -144,7 +144,7 @@ else :
 
 endif;
 
-joints_related_posts();
+// joints_related_posts();
 ?>
 
 	 <?php
