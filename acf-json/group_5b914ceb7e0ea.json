@@ -310,12 +310,12 @@
                         "layout_5c3c57b27d245": {
                             "key": "layout_5c3c57b27d245",
                             "name": "steps_block",
-                            "label": "List block",
+                            "label": "Steps block",
                             "display": "block",
                             "sub_fields": [
                                 {
                                     "key": "field_5d4ab6b8dc4a4",
-                                    "label": "Image for these instructions",
+                                    "label": "Image (optional)",
                                     "name": "steps_image",
                                     "type": "image",
                                     "instructions": "",
@@ -339,7 +339,7 @@
                                 },
                                 {
                                     "key": "field_5e7e0948690e3",
-                                    "label": "Introductory text",
+                                    "label": "Description (optional)",
                                     "name": "steps_intro",
                                     "type": "textarea",
                                     "instructions": "",
@@ -358,10 +358,10 @@
                                 },
                                 {
                                     "key": "field_5c3c57b27d246",
-                                    "label": "Step",
+                                    "label": "Steps",
                                     "name": "step",
                                     "type": "repeater",
-                                    "instructions": "",
+                                    "instructions": "Start adding your steps",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -442,7 +442,7 @@
                                     "min": 0,
                                     "max": 0,
                                     "layout": "block",
-                                    "button_label": "Add new step",
+                                    "button_label": "Add new tip",
                                     "sub_fields": [
                                         {
                                             "key": "field_61f7c998f313f",
@@ -477,9 +477,28 @@
                             "sub_fields": [
                                 {
                                     "key": "field_5de133a7de93c",
-                                    "label": "Note Heading",
+                                    "label": "Title",
                                     "name": "note_heading",
                                     "type": "text",
+                                    "instructions": "Add a title for this block.",
+                                    "required": 1,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "This is required",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_61fab2ef90450",
+                                    "label": "Add block description",
+                                    "name": "add_block_description",
+                                    "type": "true_false",
                                     "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -488,20 +507,28 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
                                 },
                                 {
                                     "key": "field_5b914de4ab023",
-                                    "label": "Note Text",
+                                    "label": "Description",
                                     "name": "note",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": 0,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_61fab2ef90450",
+                                                "operator": "==",
+                                                "value": "1"
+                                            }
+                                        ]
+                                    ],
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
@@ -509,9 +536,9 @@
                                     },
                                     "default_value": "",
                                     "tabs": "all",
-                                    "toolbar": "full",
-                                    "media_upload": 1,
-                                    "delay": 0
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 1
                                 },
                                 {
                                     "key": "field_5ca226b471740",
@@ -584,7 +611,7 @@
                                     },
                                     "collapsed": "",
                                     "min": 0,
-                                    "max": 4,
+                                    "max": 8,
                                     "layout": "row",
                                     "button_label": "Add File",
                                     "sub_fields": [
@@ -1728,5 +1755,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1643629425
+    "modified": 1643820244
 }

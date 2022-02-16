@@ -373,8 +373,9 @@ $show_toc = get_field('show_toc');
 						$note = get_sub_field('note', false, false);
 
 						echo '<div class="info row note-content">';
+
 						if($note_heading):
-						echo '<span class="block note-title"><i class="hide-on-small-and-down material-icons left red-text lighten-4">live_help</i>' . $note_heading . '</span>';
+						echo '<span class="block note-title"><i class="hide-on-small-and-down material-icons left red-text grey lighten-4">get_app</i>' . $note_heading . '</span>';
 						endif;
 
 						if($note):
@@ -382,35 +383,36 @@ $show_toc = get_field('show_toc');
 						endif;
 
 						if( have_rows('note_upload') ):
-
+							echo '<div class="files-links"><span class="title">Files to download:</span>';
 							echo '<ul class="note_unordered">';
 							 	// loop through the rows of data
 							  while ( have_rows('note_upload') ) : the_row();
 
 							    $file_link = get_sub_field('file_source');
+									$ext = pathinfo($file_link['url'], PATHINFO_EXTENSION);
 									$file_type = $file_link['mime_type'];
 
-									echo '<li><a href="' . $file_link['url'] . '"><i class="material-icons left">folder</i>Download ' . $file_link['title'] . '</a></li>';
+									echo '<li><a href="' . $file_link['url'] . '">' . $file_link['title'] . ' <span class="extension chip yellow">' . $ext . '</span></a></li>';
 
 							   endwhile;
 
-							echo '</ul>';
+							echo '</ul></div>';
 
-							else :
+						else :
 							    // no rows found
-							endif;
+						endif;
 
 							if( have_rows('note_link') ):
-
+								echo '<div class="files-links"><span class="title">Additional Links:</span>';
 								echo '<ul class="note_unordered">';
 							 	// loop through the rows of data
 							    while ( have_rows('note_link') ) : the_row();
 
-										echo '<li><a href="' . get_sub_field('link_url') . '"><i class="material-icons left">check_circle_outline</i>' . get_sub_field('link_text') . '</a></li>';
+										echo '<li><a href="' . get_sub_field('link_url') . '">' . get_sub_field('link_text') . '</a></li>';
 
 							    endwhile;
 
-							echo '</ul>';
+								echo '</ul></div>';
 
 							else :
 							    // no rows found

@@ -185,7 +185,7 @@ function terms_child_list_compass($taxonomy, $term) {
 					<a href="' . get_term_link($term->term_id) . '" class="control">
 					<div class="card-content"><span class="title">' . $term->name . '</span></div>
 					<div class="card-footer">
-						<span><i class="material-icons left">explore</i></span><span class="count">' . count($postslist) . ' resources</span>
+						<span><i class="material-icons left white-text" aria-hidden="true">explore</i></span><span class="count">' . count($postslist) . ' resources</span>
 					</div>
 					</a>
 				</li>';

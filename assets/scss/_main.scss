@@ -2087,16 +2087,16 @@ a.current.chip {
     }
   }
   &.map-stage {
-    background: yellow;
+    background: #ffcd05;
   }
   &.snap-stage {
-    background: tomato;
+    background: #ff1616;
   }
   &.nap-stage {
-    background: rgb(1, 100, 1);
+    background: #008037;
   }
   &.adapt-stage {
-    background: lightskyblue;
+    background: #2f497b;
   }
   .card-content {
     padding: 4rem 2rem;
@@ -2453,6 +2453,12 @@ a.current.chip {
       text-transform: none;
       justify-content: center;
     }
+    i {
+      border-radius: 50%;
+      padding: 0.25rem;
+      height: 2rem;
+      width: 2rem;
+    }
   }
   .note-intro {
     font-size: 1.25rem;
@@ -2469,12 +2475,25 @@ a.current.chip {
   ol li {
     padding-left: 0.5rem;
   }
+  .files-links {
+    background: color('grey', 'lighten-5');
+    margin: 1rem 0;
+    padding: 1.25rem;
+    border-radius: 4px;
+    span.title {
+      font-size: 1.15rem;
+      display: block;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+  }
   ul.note_unordered {
     list-style-type: none;
     padding: 0;
     margin: 0;
     li {
-      list-style-type: none;
+      list-style-type: circle;
+      list-style-position: inside;
     }
     li a {
       display: inline-block;
@@ -2823,16 +2842,18 @@ ol.tips {
 .info.note-content .note_unordered {
   padding: 0;
   li a {
-    text-decoration: none;
     text-align: center;
-    padding: 1rem 0 0 0;
+    padding: 0.5rem 0 0 0;
     line-height: 1;
-    border-bottom: 3px solid color('grey', 'lighten-2');
-    font-size: 1.15rem;
-    transition: border-color 0.25s;
-    &:hover,
-    &:focus {
-      border-bottom: 3px solid color('yellow', 'accent-2');
+    font-size: 1rem;
+    transition: 0.25s;
+    &:hover {
+      transform: translateX(2px);
+    }
+    .extension {
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      margin-top: 0px;
     }
   }
   li i {
