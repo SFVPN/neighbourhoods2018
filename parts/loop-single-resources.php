@@ -371,6 +371,7 @@ $show_toc = get_field('show_toc');
 
 						$note_heading = get_sub_field('note_heading');
 						$note = get_sub_field('note', false, false);
+						$uploads = get_sub_field('note_upload');
 
 						echo '<div class="info row note-content">';
 
@@ -383,13 +384,31 @@ $show_toc = get_field('show_toc');
 						endif;
 
 						if( have_rows('note_upload') ):
-							echo '<div class="files-links"><span class="title">Files to download:</span>';
+							echo '<div class="files-links">';
+							echo	'<span class="title">Files to download:</span>';
+						
+							
 							echo '<ul class="note_unordered">';
 							 	// loop through the rows of data
 							  while ( have_rows('note_upload') ) : the_row();
 
 							    $file_link = get_sub_field('file_source');
 									$ext = pathinfo($file_link['url'], PATHINFO_EXTENSION);
+									if($ext === 'ppt' || $ext === 'pptx') {
+										$ext = 'POWERPOINT';
+									}
+									
+									if($ext === 'pdf') {
+										$ext = 'PDF';
+									}
+
+									if($ext === 'doc' || $ext === 'docx') {
+										$ext = 'WORD';
+									}
+
+									
+										
+
 									$file_type = $file_link['mime_type'];
 
 									echo '<li><a href="' . $file_link['url'] . '">' . $file_link['title'] . ' <span class="extension chip yellow">' . $ext . '</span></a></li>';
@@ -403,7 +422,9 @@ $show_toc = get_field('show_toc');
 						endif;
 
 							if( have_rows('note_link') ):
-								echo '<div class="files-links"><span class="title">Additional Links:</span>';
+								echo '<div class="files-links">';
+								echo	'<span class="title">Additional links:</span>';
+								 
 								echo '<ul class="note_unordered">';
 							 	// loop through the rows of data
 							    while ( have_rows('note_link') ) : the_row();

@@ -2496,7 +2496,9 @@ a.current.chip {
       list-style-position: inside;
     }
     li a {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       .material-icons {
         color: #000000;
       }
@@ -2843,7 +2845,7 @@ ol.tips {
   padding: 0;
   li a {
     text-align: center;
-    padding: 0.5rem 0 0 0;
+    padding: 0.5rem 0;
     line-height: 1;
     font-size: 1rem;
     transition: 0.25s;
@@ -2851,9 +2853,9 @@ ol.tips {
       transform: translateX(2px);
     }
     .extension {
-      text-transform: uppercase;
       font-size: 0.9rem;
-      margin-top: 0px;
+      margin-block: 0px;
+      font-family: monospace;
     }
   }
   li i {

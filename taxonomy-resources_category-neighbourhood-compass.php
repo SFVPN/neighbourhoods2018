@@ -33,7 +33,7 @@ $tax_image = get_field('taxonomy_image', $queried_object);
 
 				if($tax_image) {
 					
-					echo '<img style="display: block; margin: auto;" src=" ' . $tax_image['sizes']['medium'] . ' " alt="' . $tax_image['alt'] . '"/>';
+					echo '<img style="display: block; margin: auto;" src=" ' . $tax_image['sizes']['large'] . ' " alt="' . $tax_image['alt'] . '"/>';
 				}
 
 				if($term_description) {
