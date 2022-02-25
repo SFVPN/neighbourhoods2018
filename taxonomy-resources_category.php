@@ -1,6 +1,7 @@
 <?php get_header();
 $queried_object = get_queried_object();
 $icon = get_field('material_icon_code', $queried_object);
+$desc = get_field('full_description', $queried_object);
 $term_description = term_description( $queried_object, 'resources_category' ) ?>
 
 <main id="maincontent">
@@ -28,8 +29,8 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 				
 			//	terms_child_list('resources_category', $queried_object->slug);
 
-				if($term_description) {
-					echo $term_description;
+				if($desc) {
+					echo $desc;
 				}
 				?>
 

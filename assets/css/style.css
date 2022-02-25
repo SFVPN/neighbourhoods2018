@@ -13594,6 +13594,9 @@ a.current.chip {
 
 .tax-image {
   text-align: center; }
+  .tax-image img {
+    aspect-ratio: 9 / 5;
+    object-fit: cover; }
 
 .grid.nap-stage,
 .grid.map-stage,
@@ -13749,11 +13752,13 @@ a.current.chip {
   .compass-card.adapt-stage .card-footer {
     background: #2f497b; }
   .compass-card .card-content {
-    padding: 4rem 2rem;
+    padding: 2rem;
     background: #fafafa;
     height: 100%; }
     .compass-card .card-content .title {
-      font-size: 1.75rem; }
+      font-size: 1.75rem;
+      display: block;
+      margin-bottom: 1rem; }
   .compass-card .card-footer {
     display: flex;
     justify-content: space-between;
@@ -14497,7 +14502,7 @@ ol.tips {
     font-weight: 500;
     display: flex;
     align-items: center; }
-    .single-resources .entry-content .page_object_block .title I {
+    .single-resources .entry-content .page_object_block .title i {
       margin-right: 0.5rem; }
   .single-resources .entry-content .page_object_block ul {
     margin: 0;
@@ -14511,6 +14516,11 @@ ol.tips {
         font-size: 1.15rem; }
       .single-resources .entry-content .page_object_block ul li span {
         padding: 0.5rem 0; }
+      .single-resources .entry-content .page_object_block ul li img {
+        border-radius: 4px;
+        aspect-ratio: 8 / 3;
+        object-fit: cover;
+        width: 100%; }
 
 .info.note-content .note_unordered {
   padding: 0; }

@@ -37,7 +37,7 @@ $tax_image = get_field('taxonomy_image', $queried_object);
 				}
 
 				if($term_description) {
-					echo $term_description;
+					echo	$term_description;
 				}
 				?>
 

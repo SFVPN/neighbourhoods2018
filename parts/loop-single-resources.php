@@ -341,11 +341,19 @@ $show_toc = get_field('show_toc');
 				    <ul>
 				    <?php foreach( $post_objects as $post_object):
 							$excerpt = get_the_excerpt($post_object->ID);
+							$image = $featured_img_url = get_the_post_thumbnail_url($post_object->ID,'full'); 
 						?>
 				        <li>
+										
 				            <a href="<?php echo get_permalink($post_object->ID); ?>"><?php echo get_the_title($post_object->ID); ?></a>
+										
 										<?php if($excerpt):
 											echo '<span class="block">' . $excerpt . '</span>';
+										endif;
+										?>
+										
+										<?php if($image):
+											echo '<img src="'. $image . '"/>';
 										endif;
 										?>
 

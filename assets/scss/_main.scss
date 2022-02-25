@@ -2000,6 +2000,10 @@ a.current.chip {
 
 .tax-image {
   text-align: center;
+  img {
+    aspect-ratio: 9 / 5;
+    object-fit: cover;
+  }
 }
 
 .grid.nap-stage,
@@ -2161,11 +2165,13 @@ a.current.chip {
     background: $adapt-color;
   }
   .card-content {
-    padding: 4rem 2rem;
+    padding: 2rem;
     background: color('grey', 'lighten-5');
     height: 100%;
     .title {
       font-size: 1.75rem;
+      display: block;
+      margin-bottom: 1rem;
     }
   }
   .card-footer {
@@ -2882,7 +2888,7 @@ ol.tips {
     font-weight: 500;
     display: flex;
     align-items: center;
-    I {
+    i {
       margin-right: 0.5rem;
     }
   }
@@ -2899,6 +2905,12 @@ ol.tips {
       }
       span {
         padding: 0.5rem 0;
+      }
+      img {
+        border-radius: 4px;
+        aspect-ratio: 8 / 3;
+        object-fit: cover;
+        width: 100%;
       }
     }
   }
