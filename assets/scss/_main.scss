@@ -406,18 +406,13 @@ button.btn-floating.btn.green.modal-trigger.waves-effect.waves-light {
 }
 
 details {
-  border-radius: 3px;
-  font-weight: 600;
-  width: 100%;
   cursor: pointer;
-  margin: 2rem 0;
   transition: 350ms;
   @media #{$small-and-down} {
     width: 90%;
     margin: 2rem 5%;
   }
   summary {
-    text-transform: uppercase;
     padding: 1rem;
     position: relative;
     transition: 350ms;
@@ -448,15 +443,68 @@ details {
     // }
   }
   &[open] {
-    background: color('grey', 'lighten-4');
-    transition: 350ms;
-    summary {
-      // &:before {
-      //   transform: rotate(90deg);
-      //   transition: 350ms;
-      // }
+    summary span {
+      border: 2px solid color('purple', 'darken-2');
     }
   }
+}
+
+details[open] nav.control.btns {
+  opacity: 1;
+  background: color('grey', 'darken-4');
+}
+
+nav.control.btns {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  opacity: 0;
+  border-radius: 3px;
+  padding: 1rem;
+  transition: 200ms;
+  a {
+    width: fit-content;
+    width: fit-content;
+    padding: 0 0.5rem;
+    text-decoration: none;
+    border-radius: 30px;
+    /* display: flex; */
+    font-size: 0.95rem;
+    color: white;
+    &:hover,
+    :focus {
+      text-decoration: underline;
+    }
+  }
+}
+
+.tax-resources_category summary {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  span {
+    display: flex;
+    align-items: center;
+    font-weight: 300;
+    background: color('grey', 'darken-4');
+    border: 2px solid transparent;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 30px;
+    gap: 0.25rem;
+    i.mdi.mdi-menu {
+      height: 1rem;
+    }
+  }
+}
+
+.tax-resources_category details {
+  z-index: 100;
+  width: fit-content;
+  padding: 1rem;
+  position: fixed;
+  right: 0rem;
+  bottom: 3rem;
 }
 
 .terms-list,
@@ -503,11 +551,10 @@ details {
     margin-right: 0.25rem;
   }
   a.current {
-    background: $link-color;
-    color: #ffffff;
+    color: color('yellow', 'base');
     &:focus,
     &:hover {
-      background-color: $chip-bg-hover;
+      color: white;
     }
   }
 }
@@ -1951,12 +1998,19 @@ a.current.chip {
   margin: 2rem 0;
 }
 
-.row.nap-stage,
-.row.map-stage,
-.row.snap-stage,
-.row.adapt-stage {
+.tax-image {
+  text-align: center;
+}
+
+.grid.nap-stage,
+.grid.map-stage,
+.grid.snap-stage,
+.grid.adapt-stage {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media #{$small-and-down} {
+    grid-template-columns: 1fr;
+  }
   gap: 0 2rem;
   article {
     margin: 1rem 0;
@@ -2010,20 +2064,22 @@ a.current.chip {
 }
 
 .map-stage li:first-of-type .term {
-  background: yellow;
+  background: $map-color;
 }
 
 .nap-stage li:first-of-type .term {
-  background: rgb(1, 100, 1);
+  background: $nap-color;
   color: white;
 }
 
 .snap-stage li:first-of-type .term {
-  background: tomato;
+  background: $snap-color;
+  color: white;
 }
 
 .adapt-stage li:first-of-type .term {
-  background: lightskyblue;
+  background: $adapt-color;
+  color: white;
 }
 
 //Case study block
@@ -2061,6 +2117,9 @@ a.current.chip {
 .compass-card-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media #{$small-and-down} {
+    grid-template-columns: 1fr;
+  }
   gap: 2rem;
   margin: 2rem 0;
   .key-concepts {
@@ -2080,27 +2139,31 @@ a.current.chip {
   a {
     text-decoration: none;
     color: color('grey', 'darken-4');
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     &:hover .card-content,
     &:focus .card-content {
       background: color('grey', 'lighten-3');
     }
   }
-  &.map-stage {
-    background: #ffcd05;
+  &.map-stage .card-footer {
+    background: $map-color;
   }
-  &.snap-stage {
-    background: #ff1616;
+  &.snap-stage .card-footer {
+    background: $snap-color;
   }
-  &.nap-stage {
-    background: #008037;
+  &.nap-stage .card-footer {
+    background: $nap-color;
   }
-  &.adapt-stage {
-    background: #2f497b;
+  &.adapt-stage .card-footer {
+    background: $adapt-color;
   }
   .card-content {
     padding: 4rem 2rem;
     background: color('grey', 'lighten-5');
+    height: 100%;
     .title {
       font-size: 1.75rem;
     }

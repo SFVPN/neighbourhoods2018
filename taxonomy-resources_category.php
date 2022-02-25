@@ -21,16 +21,12 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 
 			<div class="container">
 				<?php
-				
-				// if($queried_object->parent === 0 ) {
-				//
-				// 	archive_terms('resources_category', 'resources', 'Filter Resources');
-				// } else {
-				//
-				// 	archive_terms_child('resources_category', 'resources', 'Filter Resources');
-				// }
 
-				//terms_child_list('resources_category', $queried_object->slug);
+				if (str_contains($queried_object->slug, '-stage') || str_contains($queried_object->slug, 'key-')) {
+					archive_terms_child('resources_category', 'resources', 'Compass Menu');
+			}
+				
+			//	terms_child_list('resources_category', $queried_object->slug);
 
 				if($term_description) {
 					echo $term_description;
@@ -38,7 +34,8 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 				?>
 
 
-				<div class="row <?php echo $queried_object->slug;?>">
+				<div class="row">
+					<div class="col s12 grid <?php echo $queried_object->slug;?>">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -59,7 +56,7 @@ $term_description = term_description( $queried_object, 'resources_category' ) ?>
 				<?php get_template_part( 'parts/content', 'missing' ); ?>
 
 				<?php endif; ?>
-
+				</div>
 			</div>
 
 			</div>

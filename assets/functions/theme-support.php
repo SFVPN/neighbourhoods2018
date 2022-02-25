@@ -183,7 +183,9 @@ function terms_child_list_compass($taxonomy, $term) {
 				
 				'<li class="compass-card ' . $term->slug . '">
 					<a href="' . get_term_link($term->term_id) . '" class="control">
-					<div class="card-content"><span class="title">' . $term->name . '</span></div>
+					<div class="card-content"><span class="title">' . $term->name . '</span>
+						<div>' . $term->description . '</div>
+					</div>
 					<div class="card-footer">
 						<span><i class="material-icons left white-text" aria-hidden="true">explore</i></span><span class="count">' . count($postslist) . ' resources</span>
 					</div>
@@ -252,28 +254,30 @@ function terms_child_list_compass($taxonomy, $term) {
 		$terms = get_terms(array(
 				'taxonomy' => $taxonomy,
 				'hide_empty' => false,
-				'parent' => $queried_object->parent
+				'parent' => $queried_object->parent,
+				'orderby'  => 'id',
+				'order'    => 'ASC'
 		) );
 		$archive = get_post_type_archive_link( $post_type );
 		$obj = get_post_type_object( $post_type );
 		?>
 		<details>
 
-		<summary><?php echo $title;?></summary>
+		<summary><span><i class="mdi mdi-menu" aria-hidden="true"></i> <?php echo $title;?></span></summary>
 		<nav class="control btns">
 			<?php if((is_post_type_archive() || is_home()) && $archive) {?>
-				<a href="<?php echo $archive;?>" class="current waves-effect waves-light chip"><?php echo 'All ' . $obj->labels->name;?></a>
+				<a href="<?php echo $archive;?>" class="current waves-effect waves-light"><?php echo 'All ' . $obj->labels->name;?></a>
 			<?php } elseif ($archive) {
 				$parent_term = get_term($queried_object->parent);
 				?>
-				<a href="<?php echo get_term_link($queried_object->parent);?>" class="waves-effect waves-light chip"><?php echo 'All ' . $parent_term->name . ' Resources';?></a>
+				<a href="<?php echo get_term_link($queried_object->parent);?>" class="waves-effect waves-light"><?php echo $parent_term->name ;?></a>
 			<?php }?>
 			<?php foreach($terms as $term) {
 
 				if ($queried_object->name === $term->name) {
-					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light chip">' . $term->name . '</a>';
+					echo '<a href="' . get_term_link($term->term_id) . '" class="current waves-effect waves-light">' . $term->name . '</a>';
 				} else {
-				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light chip">' . $term->name . '</a>';
+				echo '<a href="' . get_term_link($term->term_id) . '" class="control waves-effect waves-light">' . $term->name . '</a>';
 			}
 
 		}?>

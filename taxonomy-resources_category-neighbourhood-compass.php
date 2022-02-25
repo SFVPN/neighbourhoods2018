@@ -33,7 +33,7 @@ $tax_image = get_field('taxonomy_image', $queried_object);
 
 				if($tax_image) {
 					
-					echo '<img style="display: block; margin: auto;" src=" ' . $tax_image['sizes']['large'] . ' " alt="' . $tax_image['alt'] . '"/>';
+					echo '<div class="tax-image"><img src=" ' . $tax_image['sizes']['large'] . ' " class="responsive-img" alt="' . $tax_image['alt'] . '"/></div>';
 				}
 
 				if($term_description) {
@@ -42,7 +42,7 @@ $tax_image = get_field('taxonomy_image', $queried_object);
 				?>
 
 
-			<div class="row">
+			<div class="col s12">
 
 				<?php terms_child_list_compass('resources_category', $queried_object->slug);?>
 
