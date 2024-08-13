@@ -204,6 +204,8 @@ function wpse247328_register_post_type_args( $args, $post_type ) {
     return $args;
 }
 
+if(function_exists('get_field')):
+  
 function svpn_audits_vars() {
   global $post;
   $ID = $post->ID;
@@ -232,6 +234,7 @@ function svpn_audits_vars() {
 }
 add_action( "wp_enqueue_scripts", "svpn_audits_vars" );
 
+endif;
 
 // function my_taxonomy_wp_list_categories( $args, $field ) {
 //     // modify args

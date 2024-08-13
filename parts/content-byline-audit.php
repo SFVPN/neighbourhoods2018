@@ -1,4 +1,6 @@
 <?php
+
+if(function_exists('get_field')):
 if( have_rows('submission_details') ):
 
 
@@ -24,10 +26,6 @@ if(!is_single()){
 
 endwhile; ?>
 
-
-
 <?php endif;
-
-
-
+endif;
 ?>

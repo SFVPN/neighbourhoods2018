@@ -2,6 +2,7 @@
 	 and a topbar for medium-up -->
 
 	 <?php
+	 if(function_exists('get_field')):
 	 $access = get_field('accessibility_plus', 'option');
 	 if ($access){
 	 $theme_switcher = get_field('theme_switcher', 'option');
@@ -9,6 +10,7 @@
 	 $decrease_text = get_field('decrease_text', 'option');
 	 $toolbar_pos = get_field('access_bar_position', 'option');
  }
+endif;
 	 ?>
 	 <nav id="main-nav">
 	 	<div class="nav-wrapper"><img id="logo" class="hide-on-med-and-down brand-logo left"
@@ -55,7 +57,7 @@
 	      </div>
 				<?php
 
-				if ($access){
+				if (isset($access)){
 
 				?>
 					<div id="access-mob" class="purple darken-1 col s12" aria-label="Accessibility Settings">
@@ -86,7 +88,7 @@
 
 	<?php
 
-	if ($access){
+	if (isset($access)){
 
 	?>
 		<div id="access-<?php echo $toolbar_pos;?>" class="purple darken-1 col s12  hide-on-med-and-down" aria-label="Accessibility Settings">

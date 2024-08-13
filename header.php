@@ -46,7 +46,7 @@
 			<meta name="twitter:creator" content="@<?php echo get_theme_mod( 'tcx_twitter_handle' );?>" />
 			<meta property="og:url" content="<?php the_permalink();?>" />
 			<meta property="og:title" content="<?php the_title();?>" />
-			<meta property="og:description" content="<?php echo $desc;?>" />
+			<meta property="og:description" content="<?php echo wp_strip_all_tags($desc);?>" />
 			<meta property="og:image" content="<?php the_post_thumbnail_url('full');?>" />
 
 			<?php endif;?>
@@ -74,7 +74,7 @@
 			<meta name="twitter:creator" content="@<?php echo get_theme_mod( 'tcx_twitter_handle' );?>" />
 			<meta property="og:url" content="<?php the_permalink();?>" />
 			<meta property="og:title" content="<?php the_title();?>" />
-			<meta property="og:description" content="<?php //echo get_the_excerpt();?>" />
+			<meta property="og:description" content="<?php echo wp_strip_all_tags(get_the_excerpt( ));?>" />
 			<meta property="og:image" content="<?php the_post_thumbnail_url('full');?>" />
 
 			<?php endif;?>

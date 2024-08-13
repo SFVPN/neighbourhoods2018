@@ -13,11 +13,14 @@
 			<?php accessible_thumbnail('thumbnail', 'thumbnail');?>
 
 			<?php
+			if(function_exists('get_field')):
 			if( have_rows('list') ):
 			?>
 			<div id="test-swipe-1">
 				<ul id="<?php the_sub_field('list_title'); ?>" class="collection with-header">
-				<?php while ( have_rows('list') ) : the_row();?>
+				<?php 
+				
+				while ( have_rows('list') ) : the_row();?>
 
 					<li class="collection-header center" >
 						<h2 class="h4"><?php the_sub_field('list_title'); ?></h2>
@@ -60,9 +63,11 @@
 			else :
 			 // no rows found
 			endif;
+		endif;
 			?>
 
 			<?php
+			if(function_exists('get_field')):
 			if( have_rows('page_links') ):
 			?>
 
@@ -127,6 +132,7 @@
 			 // no rows found
 
 			endif;
+		endif;
 
 			wp_link_pages();?>
 

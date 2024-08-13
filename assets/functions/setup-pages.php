@@ -13,7 +13,7 @@ function create_pages(){
             'post_status' => "publish",
             'post_type' => 'page',
         );
-        $postID = wp_insert_post($post1, $error);
+        $postID = wp_insert_post($post1);
         update_post_meta($postID, "_wp_page_template", "page.php");
         update_option("home_page_id", $postID);
     }
@@ -27,7 +27,7 @@ function create_pages(){
             'post_type' => 'page',
             'comment_status' => 'closed'
         );
-        $postID = wp_insert_post($post1, $error);
+        $postID = wp_insert_post($post1);
         update_post_meta($postID, "_wp_page_template", "page-form.php");
         update_option("form_page_id", $postID);
     }
@@ -40,7 +40,7 @@ function create_pages(){
             'post_status' => "publish",
             'post_type' => 'page',
         );
-        $postID = wp_insert_post($post1, $error);
+        $postID = wp_insert_post($post1);
         update_post_meta($postID, "_wp_page_template", "page.php");
         update_option("privacy_page_id", $postID);
     }

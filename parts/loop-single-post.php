@@ -22,15 +22,18 @@
 
 	 <?php
 
-	 	$calendar_desc = get_field('calendar_info');
+if(function_exists('get_field')):
+	$calendar_desc = get_field('calendar_info');
 		if ($calendar_desc) {
 			echo '<div class="calendar_desc">
 			' . $calendar_desc . '
 			</div>';
 			echo '<div class="fixed-action-btn no-print"><button class="btn" onclick="printFunction()">Print Page</button></div>';
 		}
+	endif;
 
 // check if the flexible content field has rows of data
+if(function_exists('get_field')):
 if( have_rows('content') ):
 
      // loop through the rows of data
@@ -143,7 +146,7 @@ else :
     // no layouts found
 
 endif;
-
+endif;
 // joints_related_posts();
 ?>
 
@@ -214,7 +217,7 @@ endif;
 
 
 
-
+if(function_exists('get_field')):
 
 	  if( have_rows('location_details') ):
 
@@ -308,7 +311,7 @@ endwhile; ?>
 
 
 <?php endif;
-
+endif;
 get_template_part( 'parts/content', 'contact' );
 
  ?>

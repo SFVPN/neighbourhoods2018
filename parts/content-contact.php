@@ -1,10 +1,7 @@
 <?php
 $page_id = get_queried_object_id();
-
-if( have_rows('team_member', 'option') ):
-
- ?>
-
+if(function_exists('get_field')):
+if( have_rows('team_member', 'option') ): ?>
 
 <?php while( have_rows('team_member', 'option') ): the_row();
 
@@ -48,4 +45,6 @@ if($page_id === $team_page): // loop through the team member list and check whos
 <?php endwhile; ?>
 
 
-<?php endif; ?>
+<?php endif; 
+
+			endif; ?>

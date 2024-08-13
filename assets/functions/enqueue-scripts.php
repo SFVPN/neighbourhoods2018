@@ -15,6 +15,8 @@ function site_scripts() {
   wp_enqueue_script( 'materialize-js', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js', array( 'jquery' ), '', true );
 
   // Adding Cookie Consent scripts file in the footer
+  
+  if(function_exists('get_field')):
   $cookies = get_field('information_collected', 'option');
 
 
@@ -26,6 +28,8 @@ function site_scripts() {
 
     wp_enqueue_style( 'slick-css', '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css', array(), '', 'all' );
   }
+  
+  endif;
 
     // Adding flickity slider script
   if(is_single()){
@@ -34,18 +38,22 @@ function site_scripts() {
 }
 
 if(is_post_type_archive('audits')){
+  if(function_exists('get_field')):
 $api_key = get_field('api_key', 'option');
 wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=' . $api_key . '&libraries=places&callback=initMap', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'cluster-js', 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js', array( 'maps-js' ), '', true );
 wp_enqueue_script( 'audit-map-js', get_template_directory_uri() . '/assets/js/places_new.js', array( 'jquery', 'maps-js' ), '', true );
+  endif;
 }
 
 
 if(is_singular(array( 'audits' ))){
+  if(function_exists('get_field')):
 $api_key = get_field('api_key', 'option');
 wp_enqueue_script( 'chart-js', 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js', array(), '', true );
 wp_enqueue_script( 'maps-js', 'https://maps.googleapis.com/maps/api/js?key=' . $api_key . '&libraries=places', null, null, true ); // removed &callback=initMap
 wp_enqueue_script( 'map-js', get_template_directory_uri() . '/assets/js/map.js', array( 'jquery',  'maps-js' ), '', true );
+  endif;
 }
 
 function ocn_acf_init() {

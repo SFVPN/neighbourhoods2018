@@ -98,7 +98,7 @@ $desc = get_field('full_description', 'resources_category_' . $term_object->term
 </ul>
 </div>
 <?php }
-
+if(function_exists('get_field')):
 function terms_child_list($taxonomy, $term) {
 	$term_object = get_term_by('slug', $term, $taxonomy);
 	$icon = get_field('material_icon_code', 'resources_category_' . $term_object->term_id);
@@ -143,6 +143,9 @@ function terms_child_list($taxonomy, $term) {
 </div>
 	<?php
 }
+endif;
+
+if(function_exists('get_field')):
 function terms_child_list_compass($taxonomy, $term) {
 	$term_object = get_term_by('slug', $term, $taxonomy);
 	$icon = get_field('material_icon_code', 'resources_category_' . $term_object->term_id);
@@ -212,6 +215,8 @@ function terms_child_list_compass($taxonomy, $term) {
 </div>
 	<?php
 }
+
+endif;
 
 	function archive_terms($taxonomy, $post_type, $title) {
 		//NOTE: $post_type be set to null in order to hide the link to the main post_type archive page. Useful if using taxonomies across more than one post_type

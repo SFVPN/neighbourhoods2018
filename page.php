@@ -10,7 +10,9 @@ get_header(); ?>
 			get_template_part( 'parts/loop', 'page' );
 
 			endwhile; endif;
+			if(function_exists('get_field')):
 			terms_child_list_compass('resources_category', 'neighbourhood-compass');
+			endif;
 		?>
 
 		</div> <!-- end row -->

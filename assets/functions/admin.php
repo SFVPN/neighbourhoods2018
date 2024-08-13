@@ -272,6 +272,8 @@ wp_embed_register_handler( 'ytnocookie', '#https?://www\.youtube\-nocookie\.com/
    );
    return apply_filters( 'embed_ytnocookie', $embed, $matches, $attr, $url, $rawattr );
  }
+ 
+ if(function_exists('get_field')):
 
 add_action('wp_footer', function() {
   $schema = array(
@@ -375,6 +377,7 @@ echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
 endif;
 });
 
+endif;
 
 add_action('admin_head', 'my_admin_style');
 

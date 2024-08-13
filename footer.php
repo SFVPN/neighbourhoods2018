@@ -1,4 +1,8 @@
-<?php $toolbar_pos = get_field('access_bar_position', 'option');?>
+<?php 
+if(function_exists('get_field')):
+$toolbar_pos = get_field('access_bar_position', 'option');
+endif;
+?>
 <footer id="contact" class="page-footer white black-text center" role="contentinfo">
 
 <!-- <?php if(is_user_logged_in()):?>
@@ -18,7 +22,10 @@
 
 	<div id="inner-footer" class="padding-<?php echo $toolbar_pos;?>">
 
-		<?php if( have_rows('logos', 'option') ): ?>
+		<?php 
+		if(function_exists('get_field')):
+			
+		if( have_rows('logos', 'option') ): ?>
 
     <div id="funder-logos" class="row">
 
@@ -35,7 +42,9 @@
 			</div>
 		</div>
 
-<?php endif; ?>
+<?php endif; 
+endif;
+?>
 
 		<div class="row purple darken-1">
 
@@ -43,6 +52,7 @@
 					<ul class="col s12">
 
 			<?php
+			if(function_exists('get_field')):
 			$contact_page = get_field('contact_page', 'option');
 			$facebook = get_field('facebook', 'option');
 			$twitter = get_field('twitter', 'option');
@@ -63,7 +73,9 @@
 				<li>
 					<a href="<?php echo $twitter; ?>"><i aria-hidden="true" class="mdi mdi-twitter"></i>Follow OCN on Twitter</a>
 				</li>
-			<?php endif; ?>
+			<?php endif; 
+			endif;
+			?>
 
 		</ul>
 	</div>
